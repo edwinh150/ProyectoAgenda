@@ -39,7 +39,7 @@ namespace BLL
 
             bool retorno = false;
 
-            if (con.ObtenerDatos(string.Format("select * from Usuarios where Nombre = '{0}' and Contrasena = '{1}' ", this.Nombre, this.Contrasena)).Rows.Count > 0)
+            if (con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' and Contrasena = '{1}' ", this.NombreUsuario, this.Contrasena)).Rows.Count > 0)
             {
                 retorno = true;
             }

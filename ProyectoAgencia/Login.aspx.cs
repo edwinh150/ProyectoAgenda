@@ -20,7 +20,7 @@ namespace ProyectoAgencia
 
         protected void IniciarButton_Click(object sender, EventArgs e)
         {
-            Usuario.Nombre = NombreTextBox.Text;
+            Usuario.NombreUsuario = NombreTextBox.Text;
             Usuario.Contrasena = ContrasenaTextBox.Text;
 
             if (Usuario.IniciarSesion())
