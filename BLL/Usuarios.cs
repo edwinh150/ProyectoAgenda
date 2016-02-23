@@ -10,18 +10,24 @@ namespace BLL
     public class Usuarios : ClaseMaestra
     {
         public int UsuarioId { get; set; }
-        public string Nombre { get; set; }
+        public string NombreUsuario { get; set; }
         public string Contrasena { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
         public string Email { get; set; }
+        public string Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public int TipoUsuarioId { get; set; }
 
         public Usuarios()
         {
             this.UsuarioId = 0;
-            this.Nombre = "";
+            this.NombreUsuario = "";
             this.Contrasena = "";
+            this.Nombre = "";
+            this.Apellido = "";
             this.Email = "";
+            this.Telefono = "";
             this.FechaNacimiento = DateTime.Now;
             this.TipoUsuarioId = 0;
 
@@ -59,7 +65,10 @@ namespace BLL
                 {
                     this.Nombre = dt.Rows[0]["Nombre"].ToString();
                     this.Contrasena = dt.Rows[0]["Contrasena"].ToString();
+                    this.NombreUsuario = dt.Rows[0]["NombreUsuario"].ToString();
+                    this.Apellido = dt.Rows[0]["Apellido"].ToString();
                     this.Email = dt.Rows[0]["Email"].ToString();
+                    this.Telefono = dt.Rows[0]["Telefono"].ToString();
                     this.FechaNacimiento = (DateTime)dt.Rows[0]["FechaNacimiento"];
                     this.TipoUsuarioId = (int)dt.Rows[0]["TipoUsuarioId"];
                     retorno = true;
@@ -81,7 +90,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update Usuarios set Nombre = '{0}',Contrasena = '{1}', Email = '{2}', FechaNacimiento = '{3}', TipoUsuarioId = {4} from Usuarios where UsuarioId = {5}", this.Nombre, this.Contrasena, this.Email, this.FechaNacimiento, this.TipoUsuarioId, id));
+                retorno = Conexion.Ejecutar(string.Format("update Usuarios set NombreUsuario = '{0}',Contrasena = '{1}', Nombre = '{2}',Apellido = '{3}', Email = '{4}', Telefono = '{5}', FechaNacimiento = '{6}', TipoUsuarioId = {7} from Usuarios where UsuarioId = {8}", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento, this.TipoUsuarioId, id));
             }
             catch (Exception)
             {
@@ -117,7 +126,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Usuarios(Nombre,Contrasena,Email,FechaNacimiento,TipoUsuarioId) values('{0}','{1}','{2}','{3}',{4})", this.Nombre, this.Contrasena, this.Email, this.FechaNacimiento, this.TipoUsuarioId));
+                retorno = Conexion.Ejecutar(string.Format("insert into Usuarios(NombreUsuario,Contrasena,Nombre,Apellido,Email,Telefono,TipoUsuarioId) values('{0}','{1}','{2}','{3}','{4}','{5}',{6})", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento, this.TipoUsuarioId));
             }
             catch (Exception)
             {

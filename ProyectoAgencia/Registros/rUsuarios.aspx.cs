@@ -42,10 +42,14 @@ namespace ProyectoAgencia.Registros
         {
             bool retorno = false;
 
-            if (NombreTextBox.Text.Length > 0 && ContrasenaTextBox.Text.Length > 0)
+            if (NombreUsuarioTextBox.Text.Length > 0 && ContrasenaTextBox.Text.Length > 0)
             {
-                Usuario.Nombre = NombreTextBox.Text;
+                Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
                 Usuario.Contrasena = ContrasenaTextBox.Text;
+                Usuario.Nombre = NombreTextBox.Text;
+                Usuario.Apellido = ApellidoTextBox.Text;
+                Usuario.Email = EmailTextBox.Text;
+                Usuario.Telefono = TelefonoTextBox.Text;
                 Usuario.FechaNacimiento = Convert.ToDateTime(FechaNacimientoTextBox.Text);
                 Usuario.TipoUsuarioId = Seguro.ValidarEntero(TipoUsuarioDropDownList.SelectedValue);
                 retorno = true;
@@ -101,10 +105,36 @@ namespace ProyectoAgencia.Registros
         {
             if (Seguro.ValidarEntero(UsuarioIdTextBox.Text) > 0)
             {
+                Usuario.UsuarioId = Seguro.ValidarEntero(UsuarioIdTextBox.Text);
+
+                if (Usuario.Eliminar())
+                {
+                    Response.Write("<script> alert('Se Elimino'); </script>");
+                }
+                else
+                {
+                    Response.Write("<script> alert('Error al Eliminar'); </script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script> Alert('No hay Registro') </script>");
+            }
+        }
+
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            if (Seguro.ValidarEntero(UsuarioIdTextBox.Text) > 0)
+            {
                 if (Usuario.Buscar(Seguro.ValidarEntero(UsuarioIdTextBox.Text)))
                 {
+                    NombreUsuarioTextBox.Text = Usuario.NombreUsuario;
                     NombreTextBox.Text = Usuario.Nombre;
-                    ContrasenaTextBox.Text = Usuario.Contrasena;
+                    ApellidoTextBox.Text = Usuario.Apellido;
+                    EmailTextBox.Text = Usuario.Email;
+                    TelefonoTextBox.Text = Usuario.Telefono;
+                    FechaNacimientoTextBox.Text = Usuario.FechaNacimiento.ToString();
+                    TipoUsuarioDropDownList.SelectedIndex = Usuario.TipoUsuarioId;
                 }
                 else
                 {

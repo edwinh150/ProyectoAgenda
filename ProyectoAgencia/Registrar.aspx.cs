@@ -30,8 +30,12 @@ namespace ProyectoAgencia
 
             if (NombreTextBox.Text.Length > 0 && ContrasenaTextBox.Text.Length > 0)
             {
-                Usuario.Nombre = NombreTextBox.Text;
+                Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
                 Usuario.Contrasena = ContrasenaTextBox.Text;
+                Usuario.Nombre = NombreTextBox.Text;
+                Usuario.Apellido = ApellidoTextBox.Text;
+                Usuario.Email = EmailTextBox.Text;
+                Usuario.Telefono = TelefonoTextBox.Text;
                 Usuario.FechaNacimiento = Convert.ToDateTime(FechaNacimientoTextBox.Text);
                 Usuario.TipoUsuarioId = 2;
                 retorno = true;

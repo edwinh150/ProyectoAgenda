@@ -140,6 +140,19 @@
                 <form name="RegistroUsuario" id="RegistroUsuarioForm" novalidate>
                     <div class="control-group form-group">
                         <div class="controls">
+                            <asp:Label ID="Label5" runat="server" Text="Nombre de Usuario"></asp:Label>
+                            <asp:TextBox ID="NombreUsuarioTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Nombre de Usuario"></asp:TextBox>
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <asp:Label ID="Label6" runat="server" Text="Contrasena"></asp:Label>
+                            <asp:TextBox ID="ContrasenaTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Contrasena"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
                             <asp:Label ID="Label1" runat="server" Text="Nombre"></asp:Label>
                             <asp:TextBox ID="NombreTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Nombre"></asp:TextBox>
                             <p class="help-block"></p>
@@ -147,14 +160,20 @@
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
-                            <asp:Label ID="Label2" runat="server" Text="Contrasena"></asp:Label>
-                            <asp:TextBox ID="ContrasenaTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Telefono"></asp:TextBox>
+                            <asp:Label ID="Label2" runat="server" Text="Apellido"></asp:Label>
+                            <asp:TextBox ID="ApellidoTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Apellido"></asp:TextBox>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <asp:Label ID="Label3" runat="server" Text="Correo Electronico"></asp:Label>
                             <asp:TextBox ID="EmailTextBox" CssClass="form-control" runat="server" placeholder="Escriba su Email"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <asp:Label ID="Label7" runat="server" Text="Telefono"></asp:Label>
+                            <asp:TextBox ID="TelefonoTextBox" CssClass="form-control" placeholder="Escriba su Telefono" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="control-group form-group">
