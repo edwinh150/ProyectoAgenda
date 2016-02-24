@@ -88,24 +88,31 @@ namespace ProyectoAgencia.Registros
 
         protected void ModificarButton_Click(object sender, EventArgs e)
         {
-            if (LLenarDatos())
+            if (UsuarioIdTextBox.Text.Length > 0)
             {
-                Usuario.UsuarioId = Seguro.ValidarEntero(UsuarioIdTextBox.Text);
-
-                if (Usuario.Editar())
+                if (LLenarDatos())
                 {
-                    Response.Write("<script> alert('Se Modifico'); </script>");
-                    Limpiar();
+                    Usuario.UsuarioId = Seguro.ValidarEntero(UsuarioIdTextBox.Text);
+
+                    if (Usuario.Editar())
+                    {
+                        Response.Write("<script> alert('Se Modifico'); </script>");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        Response.Write("<script> alert('Error al Modificar'); </script>");
+                    }
+
                 }
                 else
                 {
-                    Response.Write("<script> alert('Error al Modificar'); </script>");
+                    Response.Write("<script> alert('Faltan Datos'); </script>");
                 }
-
             }
             else
             {
-                Response.Write("<script> alert('Faltan Datos'); </script>");
+                Response.Write("<script> alert('Primero ingrese un Id valido'); </script>");
             }
         }
 
