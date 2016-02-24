@@ -8,19 +8,23 @@ using System.Web.UI.WebControls;
 
 namespace ProyectoAgencia
 {
-    public partial class Registrar : System.Web.UI.Page
+    public partial class Registrar1 : System.Web.UI.Page
     {
         Usuarios Usuario = new Usuarios();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            FechaNacimientoTextBox.Text = DateTime.Now.ToString("yyyyMMdd");
+
         }
 
         public void Limpiar()
         {
-            NombreTextBox.Text = "";
+            NombreUsuarioTextBox.Text = "";
             ContrasenaTextBox.Text = "";
+            NombreTextBox.Text = "";
+            ApellidoTextBox.Text = "";
+            EmailTextBox.Text = "";
+            TelefonoTextBox.Text = "";
             FechaNacimientoTextBox.Text = DateTime.Now.ToString("yyyyMMdd");
         }
 
@@ -28,7 +32,7 @@ namespace ProyectoAgencia
         {
             bool retorno = false;
 
-            if (NombreTextBox.Text.Length > 0 && ContrasenaTextBox.Text.Length > 0)
+            if (NombreUsuarioTextBox.Text.Length > 0 && ContrasenaTextBox.Text.Length > 0)
             {
                 Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
                 Usuario.Contrasena = ContrasenaTextBox.Text;
@@ -54,11 +58,12 @@ namespace ProyectoAgencia
             {
                 if (Usuario.Insertar())
                 {
-                    Response.Write("<script> alert('Se Guardar'); </script>");
+                    Response.Write("<script> alert('Se Registro'); </script>");
+                    Limpiar();
                 }
                 else
                 {
-                    Response.Write("<script> alert('Error al Guardar'); </script>");
+                    Response.Write("<script> alert('Error al Registar'); </script>");
                 }
             }
             else
