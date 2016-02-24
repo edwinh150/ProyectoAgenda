@@ -118,23 +118,32 @@ namespace ProyectoAgencia.Registros
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            if (Seguro.ValidarEntero(UsuarioIdTextBox.Text) > 0)
+            if (UsuarioIdTextBox.Text.Length > 0)
             {
-                Usuario.UsuarioId = Seguro.ValidarEntero(UsuarioIdTextBox.Text);
 
-                if (Usuario.Eliminar())
+
+                if (Seguro.ValidarEntero(UsuarioIdTextBox.Text) > 0)
                 {
-                    Response.Write("<script> alert('Se Elimino'); </script>");
-                    Limpiar();
+                    Usuario.UsuarioId = Seguro.ValidarEntero(UsuarioIdTextBox.Text);
+
+                    if (Usuario.Eliminar())
+                    {
+                        Response.Write("<script> alert('Se Elimino'); </script>");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        Response.Write("<script> alert('Error al Eliminar'); </script>");
+                    }
                 }
                 else
                 {
-                    Response.Write("<script> alert('Error al Eliminar'); </script>");
+                    Response.Write("<script> Alert('No hay Registro') </script>");
                 }
             }
             else
             {
-                Response.Write("<script> Alert('No hay Registro') </script>");
+                Response.Write("<script> Alert('Ingrese un Id valido primero') </script>");
             }
         }
 
