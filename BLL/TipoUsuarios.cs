@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public override bool Editar(int id)
+        public override bool Editar()
         {
             throw new NotImplementedException();
         }
@@ -32,6 +33,21 @@ namespace BLL
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
+        {
+            ConexionDB Conexion = new ConexionDB();
+
+            try
+            {
+                return Conexion.ObtenerDatos(string.Format("select " + Campos + " From TipoUsuarios where " + Condicion + " " + Orden));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public override bool Editar()
         {
             throw new NotImplementedException();
         }

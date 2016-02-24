@@ -15,7 +15,7 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public override bool Editar(int id)
+        public override bool Editar()
         {
             throw new NotImplementedException();
         }

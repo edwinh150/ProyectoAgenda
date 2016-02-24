@@ -11,7 +11,7 @@ namespace BLL
 
         public abstract bool Insertar();
 
-        public abstract bool Editar(int id);
+        public abstract bool Editar();
 
         public abstract bool Eliminar();
 
