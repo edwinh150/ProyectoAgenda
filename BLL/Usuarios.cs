@@ -28,7 +28,6 @@ namespace BLL
             this.Apellido = "";
             this.Email = "";
             this.Telefono = "";
-            this.FechaNacimiento = DateTime.Now;
             this.TipoUsuarioId = 0;
 
         }
@@ -76,26 +75,25 @@ namespace BLL
             }
             catch (Exception)
             {
-
                 retorno = false;
             }
 
             return retorno;
         }
 
-        public override bool Editar(int id)
+        public override bool Editar()
         {
             bool retorno = false;
             ConexionDB Conexion = new ConexionDB();
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update Usuarios set NombreUsuario = '{0}',Contrasena = '{1}', Nombre = '{2}',Apellido = '{3}', Email = '{4}', Telefono = '{5}', FechaNacimiento = '{6}', TipoUsuarioId = {7} from Usuarios where UsuarioId = {8}", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento, this.TipoUsuarioId, id));
+                retorno = Conexion.Ejecutar(string.Format("update Usuarios set NombreUsuario = '{0}',Contrasena = '{1}', Nombre = '{2}',Apellido = '{3}', Email = '{4}', Telefono = '{5}', FechaNacimiento = '{6}', TipoUsuarioId = {7} from Usuarios where UsuarioId = {8}", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento, this.TipoUsuarioId, this.UsuarioId));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                retorno = false;
+                throw ex;
+                //retorno = false;
             }
 
             return retorno;
@@ -126,11 +124,10 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Usuarios(NombreUsuario,Contrasena,Nombre,Apellido,Email,Telefono,TipoUsuarioId) values('{0}','{1}','{2}','{3}','{4}','{5}',{6})", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento, this.TipoUsuarioId));
+                retorno = Conexion.Ejecutar(string.Format("insert into Usuarios(NombreUsuario,Contrasena,Nombre,Apellido,Email,Telefono,FechaNacimiento,TipoUsuarioId) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7}) ", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento, this.TipoUsuarioId));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
                 retorno = false;
             }
 
@@ -143,12 +140,12 @@ namespace BLL
 
             try
             {
-                return Conexion.ObtenerDatos(string.Format("select " + Campos + " From Usuarios " + Condicion + " " + Orden));
+                return Conexion.ObtenerDatos(string.Format("select " + Campos + " From Usuarios where " + Condicion + " " + Orden));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
     }
