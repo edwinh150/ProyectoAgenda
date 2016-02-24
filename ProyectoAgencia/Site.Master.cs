@@ -14,5 +14,12 @@ namespace ProyectoAgencia
         {
 
         }
+
+        protected void CerrarSessionButton_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+
+            Response.Redirect("Login.aspx");
+        }
     }
 }
