@@ -18,14 +18,13 @@ namespace ProyectoAgencia.Registros
             if (IsPostBack)
             {
                 LlenarDropDownList();
-                FechaNacimientoTextBox.Text = DateTime.Now.ToString("yyyyMMdd");
             }        
         }
 
         public void LlenarDropDownList()
         {
             TipoUsuarios TipoUsuario = new TipoUsuarios();
-            TipoUsuarioDropDownList.DataSource = TipoUsuario.Listado(" * ", "1=1", "TipoUsuarioId");
+            TipoUsuarioDropDownList.DataSource = TipoUsuario.Listado(" * ", " 1=1 ", "");
             TipoUsuarioDropDownList.DataTextField = "Descripcion";
             TipoUsuarioDropDownList.DataValueField = "TipoUsuarioId";
             TipoUsuarioDropDownList.DataBind();
@@ -33,9 +32,14 @@ namespace ProyectoAgencia.Registros
 
         public void Limpiar()
         {
-            NombreTextBox.Text = "";
+            UsuarioIdTextBox.Text = "";
+            NombreUsuarioTextBox.Text = "";
             ContrasenaTextBox.Text = "";
-            FechaNacimientoTextBox.Text = DateTime.Now.ToString("yyyyMMdd");
+            NombreTextBox.Text = "";
+            ApellidoTextBox.Text = "";
+            EmailTextBox.Text = "";
+            TelefonoTextBox.Text = "";
+            FechaNacimientoTextBox.Text = "";
         }
 
         bool LLenarDatos()
@@ -69,6 +73,7 @@ namespace ProyectoAgencia.Registros
                 if (Usuario.Insertar())
                 {
                     Response.Write("<script> alert('Se Guardar'); </script>");
+                    Limpiar();
                 }
                 else
                 {
@@ -85,9 +90,12 @@ namespace ProyectoAgencia.Registros
         {
             if (LLenarDatos())
             {
-                if (Usuario.Editar(Seguro.ValidarEntero(UsuarioIdTextBox.Text)))
+                Usuario.UsuarioId = Seguro.ValidarEntero(UsuarioIdTextBox.Text);
+
+                if (Usuario.Editar())
                 {
                     Response.Write("<script> alert('Se Modifico'); </script>");
+                    Limpiar();
                 }
                 else
                 {
@@ -110,6 +118,7 @@ namespace ProyectoAgencia.Registros
                 if (Usuario.Eliminar())
                 {
                     Response.Write("<script> alert('Se Elimino'); </script>");
+                    Limpiar();
                 }
                 else
                 {
@@ -134,7 +143,7 @@ namespace ProyectoAgencia.Registros
                     EmailTextBox.Text = Usuario.Email;
                     TelefonoTextBox.Text = Usuario.Telefono;
                     FechaNacimientoTextBox.Text = Usuario.FechaNacimiento.ToString();
-                    TipoUsuarioDropDownList.SelectedIndex = Usuario.TipoUsuarioId;
+                    TipoUsuarioDropDownList.SelectedValue = Usuario.TipoUsuarioId.ToString();
                 }
                 else
                 {
