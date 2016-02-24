@@ -4,11 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-                <br /><br />
-                <br /><br />
-      
+
         <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide" style="left: -5px; top: -101px; height: 277px; bottom: 101px">
+    <header id="myCarousel" class="carousel slide" style="left: 0px; top: 2px; height: 303px; bottom: -9px">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -22,24 +20,27 @@
                 <div class="fill" style="background-image:url('/Contenido/aviones.jpg');"></div>
                 <div class="carousel-caption">
                     <h2>Vuelos</h2>
+                    <asp:Button ID="VueloButton" CssClass="btn btn-toolbar" ForeColor="Black" runat="server" Text="Reservar" OnClick="VueloButton_Click" />
                 </div>
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('/Contenido/Crucero.jpg');"></div>
                 <div class="carousel-caption">
                     <h2>Cruceros</h2>
+                     <asp:Button ID="CruceroButton" CssClass="btn btn-toolbar" ForeColor="Black" runat="server" Text="Reservar" OnClick="CruceroButton_Click" />
                 </div>
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('/Contenido/luxury-hotel.jpg');"></div>
                 <div class="carousel-caption">
                     <h2>Hoteles y Resorts</h2>
+                     <asp:Button ID="HotelResortButton" CssClass="btn btn-toolbar" ForeColor="Black" runat="server" Text="Reservar" OnClick="HotelResortButton_Click" />
                 </div>
             </div>
         </div>
 
         <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="left: 0; top: 2px; bottom: 0; width: 15%">
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="icon-prev"></span>
         </a>
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
@@ -56,9 +57,6 @@
                 <h1 class="text-center">
                     Bienvenido a Agencia de Viajes Hidalgo
                 </h1>
-                <div class="text-center">
-                    <asp:Button ID="CerrarSessionButton" CssClass="btn btn-danger" runat="server" Text="Cerrar Session" OnClick="CerrarSessionButton_Click" /> 
-                </div>
             </div>
         </div>
      </div>

@@ -15,11 +15,19 @@ namespace ProyectoAgencia
 
         }
 
-        protected void CerrarSessionButton_Click(object sender, EventArgs e)
+        protected void CruceroButton_Click(object sender, EventArgs e)
         {
-            FormsAuthentication.SignOut();
 
-            Response.Redirect("Login.aspx");
+        }
+
+        protected void VueloButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void HotelResortButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

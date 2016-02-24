@@ -13,12 +13,30 @@ namespace ProyectoAgencia {
     public partial class Default {
         
         /// <summary>
-        /// CerrarSessionButton control.
+        /// VueloButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CerrarSessionButton;
+        protected global::System.Web.UI.WebControls.Button VueloButton;
+        
+        /// <summary>
+        /// CruceroButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CruceroButton;
+        
+        /// <summary>
+        /// HotelResortButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button HotelResortButton;
     }
 }
