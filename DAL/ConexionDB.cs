@@ -16,7 +16,7 @@ namespace DAL
         {
             //"Data Source=DARLENISM\\SQLEXPRESS;Initial Catalog=TareaUsuario;Integrated Security=True"//
             //Data Source=tcp:edwinh1501.database.windows.net,1433;Initial Catalog=AgenciaViajesDb;User ID=Edwinh150@edwinh1501;Password=Edwin2410..//
-            con = new SqlConnection("Data Source=tcp:edwinh1501.database.windows.net,1433;Initial Catalog=AgenciaViajesDb;User ID=Edwinh150@edwinh1501;Password=Edwin2410..");
+            con = new SqlConnection("Data Source=DARLENISM\\SQLEXPRESS;Initial Catalog=TareaUsuario;Integrated Security=True");
             Cmd = new SqlCommand();
         }
 
