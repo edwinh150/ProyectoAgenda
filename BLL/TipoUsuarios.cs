@@ -46,10 +46,5 @@ namespace BLL
                 throw ex;
             }
         }
-
-        public override bool Editar()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
