@@ -21,5 +21,10 @@ namespace ProyectoAgencia
 
             Response.Redirect("Login.aspx");
         }
+
+        protected void Iniciobutton_Click(object sender, EventArgs e)
+        {
+            Response.RedirectPermanent("Default.aspx");
+        }
     }
 }
