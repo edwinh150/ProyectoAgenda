@@ -15,25 +15,11 @@ namespace ProyectoAgencia.Registros
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // guardar datos del usuario en web
-            //Usuarios Usuario;
-
-            if (Session["Usuario"] == null)
-            {
-                Session["Usuario"] = new Usuarios();
-            }
-
-            Session["Usuario"] = Usuario;
-            // 
-
-            Usuario = (Usuarios)Session["Usuario"];
-
             if (!IsPostBack)
             {
                 LlenarDropDownList();
-            }
-
-                  
+                Mensajes.ShowToastr(this.Page, "No hay Registro", "Error", "error");
+            }          
         }
 
         public void LlenarDropDownList()
@@ -54,7 +40,7 @@ namespace ProyectoAgencia.Registros
             ApellidoTextBox.Text = "";
             EmailTextBox.Text = "";
             TelefonoTextBox.Text = "";
-            FechaNacimientoTextBox.Text = "";
+            FechaNacimientoTextBox.Text = DateTime.Now.ToString();
         }
 
         bool LLenarDatos()
@@ -69,7 +55,14 @@ namespace ProyectoAgencia.Registros
                 Usuario.Apellido = ApellidoTextBox.Text;
                 Usuario.Email = EmailTextBox.Text;
                 Usuario.Telefono = TelefonoTextBox.Text;
-                Usuario.FechaNacimiento = Convert.ToDateTime(FechaNacimientoTextBox.Text);
+                if (FechaNacimientoTextBox.Text.Length > 0)
+                {
+                    Usuario.FechaNacimiento = Convert.ToDateTime(FechaNacimientoTextBox.Text);
+                }
+                else
+                {
+                    retorno = false;
+                }
                 Usuario.TipoUsuarioId = Seguro.ValidarEntero(TipoUsuarioDropDownList.SelectedValue);
                 retorno = true;
             }
@@ -96,13 +89,13 @@ namespace ProyectoAgencia.Registros
                     }
                     else
                     {
-                        Mensajes.ShowToastr(this.Page, "No Se Modifico", "Error", "error");
+                        Mensajes.ShowToastr(this.Page, "No Se Modifico", "Error", "Error");
                     }
 
                 }
                 else
                 {
-                    Mensajes.ShowToastr(this.Page, "Faltan Datos", "Error", "error");
+                    Mensajes.ShowToastr(this.Page, "Faltan Datos", "Error", "Error");
                 }
             }
             else
@@ -112,17 +105,17 @@ namespace ProyectoAgencia.Registros
                 {
                     if (Usuario.Insertar())
                     {
-                        Mensajes.ShowToastr(this.Page, "Se Guardo", "Informacion", "sucess");
+                        Mensajes.ShowToastr(this.Page, "Se Registro", "Felicidades", "success");
                         Limpiar();
                     }
                     else
                     {
-                        Mensajes.ShowToastr(this.Page, "No Se Guardo", "Error", "error");
+                        Mensajes.ShowToastr(this.Page, "No se pudo Registrar", "Error", "Error");
                     }
                 }
                 else
                 {
-                    Mensajes.ShowToastr(this.Page, "Faltan Datos", "Error", "error");
+                    Mensajes.ShowToastr(this.Page, "Faltan Datos", "Error", "Error");
                 }
             }
         }
@@ -144,17 +137,17 @@ namespace ProyectoAgencia.Registros
                     }
                     else
                     {
-                        Mensajes.ShowToastr(this.Page, "No Se Elimino", "Error", "error");
+                        Mensajes.ShowToastr(this.Page, "No Se Elimino", "Error", "Error");
                     }
                 }
                 else
                 {
-                    Mensajes.ShowToastr(this.Page, "No hay Registro", "Error", "error");
+                    Mensajes.ShowToastr(this.Page, "No hay Registro", "Error", "Error");
                 }
             }
             else
             {
-                Mensajes.ShowToastr(this.Page, "Ingrese un Id valido primero", "Error", "error");
+                Mensajes.ShowToastr(this.Page, "Ingrese un Id valido primero", "Error", "Error");
             }
         }
 
@@ -179,7 +172,7 @@ namespace ProyectoAgencia.Registros
             }
             else
             {
-                Mensajes.ShowToastr(this.Page, "Ingrese un Id valido primero", "Error", "error");
+                Mensajes.ShowToastr(this.Page, "Ingrese un Id valido primero", "Error", "Error");
             }
         }
 
