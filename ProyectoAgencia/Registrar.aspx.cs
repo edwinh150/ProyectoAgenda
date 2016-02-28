@@ -40,7 +40,14 @@ namespace ProyectoAgencia
                 Usuario.Apellido = ApellidoTextBox.Text;
                 Usuario.Email = EmailTextBox.Text;
                 Usuario.Telefono = TelefonoTextBox.Text;
-                Usuario.FechaNacimiento = Convert.ToDateTime(FechaNacimientoTextBox.Text);
+                if (FechaNacimientoTextBox.Text.Length > 0)
+                {
+                    Usuario.FechaNacimiento = Convert.ToDateTime(FechaNacimientoTextBox.Text);
+                }
+                else
+                {
+                    retorno = false;
+                }
                 Usuario.TipoUsuarioId = 2;
                 retorno = true;
             }
@@ -58,17 +65,17 @@ namespace ProyectoAgencia
             {
                 if (Usuario.Insertar())
                 {
-                    Response.Write("<script> alert('Se Registro'); </script>");
+                    Mensajes.ShowToastr(this.Page, "Se Registro", "Felicidades", "success");
                     Limpiar();
                 }
                 else
                 {
-                    Response.Write("<script> alert('Error al Registar'); </script>");
+                    Mensajes.ShowToastr(this.Page, "No se pudo Registrar", "Error", "Error");
                 }
             }
             else
             {
-                Response.Write("<script> alert('Faltan Datos'); </script>");
+                Mensajes.ShowToastr(this.Page, "Faltan Datos", "Atencion", "Error");
             }
         }
     }
