@@ -58,7 +58,7 @@ namespace BLL
 
             try
             {
-                dt = Conexion.ObtenerDatos(string.Format("select * from Usuarios where UsuarioId = {0}", IdBuscado));
+                dt = Conexion.ObtenerDatos(string.Format("select * from Usuarios where UsuarioId = {0} ", IdBuscado));
 
                 if (dt.Rows.Count > 0)
                 {
