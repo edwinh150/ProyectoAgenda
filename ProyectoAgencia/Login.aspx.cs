@@ -29,7 +29,7 @@ namespace ProyectoAgencia
             }
             else
             {
-                Response.Write("<script> alert('Error de inicio'); </script>");
+                Mensajes.ShowToastr(this.Page, "Error de Inicio", "Error", "Error");
             }
         }
 

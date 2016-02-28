@@ -6,7 +6,7 @@
     <div class="container">
             <div class="text-center">
                 <div class="row">
-                    <div class="col-md-8 col-lg-12">
+                    <div class="col-md-12 col-sm-8">
                         <h3>Login</h3>
                             <div class="control-group form-group">
                                 <div class="controls">
