@@ -15,10 +15,25 @@ namespace ProyectoAgencia.Registros
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            // guardar datos del usuario en web
+            //Usuarios Usuario;
+
+            if (Session["Usuario"] == null)
+            {
+                Session["Usuario"] = new Usuarios();
+            }
+
+            Session["Usuario"] = Usuario;
+            // 
+
+            Usuario = (Usuarios)Session["Usuario"];
+
+            if (!IsPostBack)
             {
                 LlenarDropDownList();
-            }        
+            }
+
+                  
         }
 
         public void LlenarDropDownList()
@@ -68,26 +83,6 @@ namespace ProyectoAgencia.Registros
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
-            if (LLenarDatos())
-            {
-                if (Usuario.Insertar())
-                {
-                    Response.Write("<script> alert('Se Guardar'); </script>");
-                    Limpiar();
-                }
-                else
-                {
-                    Response.Write("<script> alert('Error al Guardar'); </script>");
-                }
-            }
-            else
-            {
-                Response.Write("<script> alert('Faltan Datos'); </script>");
-            }
-        }
-
-        protected void ModificarButton_Click(object sender, EventArgs e)
-        {
             if (UsuarioIdTextBox.Text.Length > 0)
             {
                 if (LLenarDatos())
@@ -96,23 +91,39 @@ namespace ProyectoAgencia.Registros
 
                     if (Usuario.Editar())
                     {
-                        Response.Write("<script> alert('Se Modifico'); </script>");
+                        Mensajes.ShowToastr(this.Page,"Se Modifico","Informacion","sucess");
                         Limpiar();
                     }
                     else
                     {
-                        Response.Write("<script> alert('Error al Modificar'); </script>");
+                        Mensajes.ShowToastr(this.Page, "No Se Modifico", "Error", "error");
                     }
 
                 }
                 else
                 {
-                    Response.Write("<script> alert('Faltan Datos'); </script>");
+                    Mensajes.ShowToastr(this.Page, "Faltan Datos", "Error", "error");
                 }
             }
             else
             {
-                Response.Write("<script> alert('Primero ingrese un Id valido'); </script>");
+
+                if (LLenarDatos())
+                {
+                    if (Usuario.Insertar())
+                    {
+                        Mensajes.ShowToastr(this.Page, "Se Guardo", "Informacion", "sucess");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        Mensajes.ShowToastr(this.Page, "No Se Guardo", "Error", "error");
+                    }
+                }
+                else
+                {
+                    Mensajes.ShowToastr(this.Page, "Faltan Datos", "Error", "error");
+                }
             }
         }
 
@@ -128,22 +139,22 @@ namespace ProyectoAgencia.Registros
 
                     if (Usuario.Eliminar())
                     {
-                        Response.Write("<script> alert('Se Elimino'); </script>");
+                        Mensajes.ShowToastr(this.Page, "Se Guardo", "Informacion", "sucess");
                         Limpiar();
                     }
                     else
                     {
-                        Response.Write("<script> alert('Error al Eliminar'); </script>");
+                        Mensajes.ShowToastr(this.Page, "No Se Elimino", "Error", "error");
                     }
                 }
                 else
                 {
-                    Response.Write("<script> Alert('No hay Registro') </script>");
+                    Mensajes.ShowToastr(this.Page, "No hay Registro", "Error", "error");
                 }
             }
             else
             {
-                Response.Write("<script> Alert('Ingrese un Id valido primero') </script>");
+                Mensajes.ShowToastr(this.Page, "Ingrese un Id valido primero", "Error", "error");
             }
         }
 
@@ -163,13 +174,18 @@ namespace ProyectoAgencia.Registros
                 }
                 else
                 {
-                    Response.Write("<script> Alert('No hay Registro') </script>");
+                    Mensajes.ShowToastr(this.Page, "No hay Registro", "Informacion", "info");
                 }
             }
             else
             {
-                Response.Write("<script> Alert('Error ingrese un dato valido') </script>");
+                Mensajes.ShowToastr(this.Page, "Ingrese un Id valido primero", "Error", "error");
             }
+        }
+
+        protected void LimpiarButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }
