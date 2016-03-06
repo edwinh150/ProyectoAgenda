@@ -21,7 +21,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Vuelos(EleccionDestino,UsuarioId,ViajeId) values('{0}',{1},{2}) ",this.EleccionDestino, this.UsuarioId, this.ViajeId));
+                retorno = Conexion.Ejecutar(string.Format("insert into Vuelos(EleccionDestino,UsuarioId,ViajeId) values({0},{1},{2}) ",this.EleccionDestino, this.UsuarioId, this.ViajeId));
             }
             catch (Exception)
             {
@@ -38,7 +38,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update Vuelos set EleccionDestino = '{0}',UsuarioId = {1}, ViajeId = {2} where VueloId = {3}",this.EleccionDestino, this.UsuarioId, this.ViajeId, this.VueloId));
+                retorno = Conexion.Ejecutar(string.Format("update Vuelos set EleccionDestino = {0},UsuarioId = {1}, ViajeId = {2} where VueloId = {3}",this.EleccionDestino, this.UsuarioId, this.ViajeId, this.VueloId));
             }
             catch (Exception)
             {

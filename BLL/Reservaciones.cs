@@ -23,7 +23,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Reservaciones(UsuarioId,EsActivo,Precio,Impuesto,Total) values({0},'{1}',{2},{3},{4}) ", this.UsuarioId, this.EsActivo, this.Precio, this.Impuesto, this.Total));
+                retorno = Conexion.Ejecutar(string.Format("insert into Reservaciones(UsuarioId,EsActivo,Precio,Impuesto,Total) values({0},{1},{2},{3},{4}) ", this.UsuarioId, this.EsActivo, this.Precio, this.Impuesto, this.Total));
             }
             catch (Exception)
             {
@@ -40,7 +40,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update Reservaciones set UsuarioId = {0},EsActivo = '{1}', Precio = {2},Impuesto = {3}, Total = {4} where ReservacionId = {5}", this.UsuarioId, this.EsActivo, this.Precio, this.Impuesto, this.Total, this.ReservacionId));
+                retorno = Conexion.Ejecutar(string.Format("update Reservaciones set UsuarioId = {0},EsActivo = {1}, Precio = {2},Impuesto = {3}, Total = {4} where ReservacionId = {5}", this.UsuarioId, this.EsActivo, this.Precio, this.Impuesto, this.Total, this.ReservacionId));
             }
             catch (Exception)
             {
