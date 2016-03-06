@@ -18,6 +18,13 @@ namespace ProyectoAgencia
 
         }
 
+        public void Limpiar()
+        {
+            ContrasenaTextBox.Text = "";
+            NombreValidacion.IsValid = true;
+            ContrasenaValidacion.IsValid = true;
+        }
+
         protected void IniciarButton_Click(object sender, EventArgs e)
         {
             Usuario.NombreUsuario = NombreTextBox.Text;
@@ -30,12 +37,14 @@ namespace ProyectoAgencia
             else
             {
                 Mensajes.ShowToastr(this.Page, "Error de Inicio", "Error", "Error");
+                Limpiar();
             }
         }
 
         protected void RegistrarButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Registrar.aspx");
+            Limpiar();
+            Response.Redirect("/Registrar.aspx");
         }
     }
 }

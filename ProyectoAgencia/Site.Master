@@ -67,59 +67,144 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <asp:Button CssClass=" btn btn-link" runat="server" Text="Inicio" ID="Iniciobutton" Font-Bold="True" Height="47px" OnClick="Iniciobutton_Click" Font-Size="Medium"></asp:Button>
-            </div>
+                    <a class="navbar-brand" href="/Default.aspx">Inicio</a>
+                </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="Registrar.aspx">Registrarse</a>
+                        <a href="/Servicios.aspx">Servicios</a>
                     </li>
                     <li>
-                        <a href="services.html">Servicios</a>
+                        <a href="/Contact.aspx">Contactos</a>
                     </li>
-                    <li>
-                        <a href="Contact.aspx">Contactos</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="portfolio-1-col.html">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
+                    <li class="dropdown" id="RegistroLi" runat="server">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registros <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="Registros/rUsuarios.aspx">Registro Usuario</a>
+                                <a href="/Registros/rUsuarios.aspx">Usuario</a>
                             </li>
                             <li>
-                                <a href="blog-home-2.html">Blog Home 2</a>
+                                <a href="/Registros/rTipoUsuarios.aspx">Tipo Usuario</a>
                             </li>
                             <li>
-                                <a href="blog-post.html">Blog Post</a>
+                                <a href="/Registros/rVuelos.aspx">Vuelo</a>
+                            </li>
+                            <li>
+                                <a href="Registros/rHotelResorts.aspx">HotelResort</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rCruceros.aspx">Crucero</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rReservaciones.aspx">Reservaciones</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rReservacionVuelos.aspx">Reservacion Vuelo</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rReservacionCruceros.aspx">Reservacion Crucero</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rReservacionHotelResorts.aspx">Reservacion HotelResort</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rCompaniaAerolineas.aspx">Compañia de Aerolineas</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rCompaniaCruceros.aspx">Compañia de Cruceros</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rDestinos.aspx">Destinos</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rPaises.aspx">Paises</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rCiudades.aspx">Ciudades</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rCiudadesHoteles.aspx">Ciudades para HotelesResorts</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rCategoriaHabitaciones.aspx">Categoria de Habitacion para Hotel</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rCategoriaCruceros.aspx">Categoria de Crucero</a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="Login.aspx">Iniciar Session</a>
+                    <li class="dropdown" id="ConsultaLi" runat="server">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Consultas <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/Consultas/cUsuarios.aspx">Usuario</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cTipoUsuarios.aspx">Tipo Usuario</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cVuelos.aspx">Vuelo</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cHotelResorts.aspx">HotelResort</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cCruceros.aspx">Crucero</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cReservaciones.aspx">Reservaciones</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cReservacionVuelos.aspx">Reservacion Vuelo</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cReservacionCruceros.aspx">Reservacion Crucero</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cReservacionHotelResorts.aspx">Reservacion HotelResort</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cCompaniaAerolineas.aspx">Compañia de Aerolineas</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cCompaniaCruceros.aspx">Compañia de Cruceros</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cDestinos.aspx">Destinos</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cPaises.aspx">Paises</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cCiudades.aspx">Ciudades</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cCiudadesHoteles.aspx">Ciudades para HotelesResorts</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cCategoriaHabitaciones.aspx">Categoria de Habitacion para Hotel</a>
+                            </li>
+                            <li>
+                                <a href="/Consultas/cCategoriaCruceros.aspx">Categoria de Crucero</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<b class="caret"></b></a>
+                    <li id="RegistrarseLi" runat="server">
+                        <a href="/Registrar.aspx">
+                            <i class="fa fa-users"></i>
+                            <asp:Label ID="RegistrarLabel" runat="server" Text="Registrarte"></asp:Label>
+                        </a>
+                    </li>
+                    <li id="LoginUserLi" runat="server">
+                            <asp:LinkButton ID="IniciarSessionLinkButton" runat="server" OnClick="IniciarSessionLinkButton_Click">Iniciar Session</asp:LinkButton>
+                    </li>
+                    <li class="dropdown" id="UsuarioLi" runat="server">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+                            <asp:Label ID="UsuarioLabel" runat="server" Text="Usuario"></asp:Label>
+                            <b class="caret"></b>
+                        </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="full-width.html">Full Width Page</a>
@@ -134,7 +219,7 @@
                                 <a href="404.html">404</a>
                             </li>
                             <li>
-                               <asp:Button ID="CerrarSessionButton" CssClass="btn navbar-btn" runat="server" Text="Cerrar Session" OnClick="CerrarSessionButton_Click" /> 
+                                <asp:LinkButton ID="CerrarLinkButton" runat="server" OnClick="CerrarLinkButton_Click">Cerrar Session</asp:LinkButton>
                             </li>
                         </ul>
                     </li>
@@ -145,10 +230,17 @@
         </div>
         <!-- /.container -->
     </nav>
-           
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        <div>
+            <hr />
+            <asp:Label ID="Label1" runat="server" Text="Edwin Hidalgo"></asp:Label>
+        </div>
+        <script>
+        $('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
+        </script>
     </form>
 </body>
 </html>

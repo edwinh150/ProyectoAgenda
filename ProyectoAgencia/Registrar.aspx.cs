@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace ProyectoAgencia
 {
-    public partial class Registrar1 : System.Web.UI.Page
+    public partial class Registrar : System.Web.UI.Page
     {
         Usuarios Usuario = new Usuarios();
 
@@ -26,13 +26,20 @@ namespace ProyectoAgencia
             EmailTextBox.Text = "";
             TelefonoTextBox.Text = "";
             FechaNacimientoTextBox.Text = DateTime.Now.ToString("yyyyMMdd");
+            RequiredFieldValidator1.IsValid = true;
+            RequiredFieldValidator2.IsValid = true;
+            RequiredFieldValidator3.IsValid = true;
+            RequiredFieldValidator4.IsValid = true;
+            RequiredFieldValidator5.IsValid = true;
+            RequiredFieldValidator6.IsValid = true;
+            RequiredFieldValidator7.IsValid = true;
         }
 
         bool LLenarDatos()
         {
             bool retorno = false;
 
-            if (NombreUsuarioTextBox.Text.Length > 0 && ContrasenaTextBox.Text.Length > 0)
+            if (NombreUsuarioTextBox.Text.Length > 0 && ContrasenaTextBox.Text.Length > 0 && NombreTextBox.Text.Length > 0 && ApellidoTextBox.Text.Length > 0 && EmailTextBox.Text.Length > 0 && TelefonoTextBox.Text.Length > 0)
             {
                 Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
                 Usuario.Contrasena = ContrasenaTextBox.Text;
@@ -65,7 +72,7 @@ namespace ProyectoAgencia
             {
                 if (Usuario.Insertar())
                 {
-                    Mensajes.ShowToastr(this.Page, "Se Registro", "Felicidades", "success");
+                    Mensajes.ShowToastr(this.Page, "Se Registro", "Felicidades", "Success");
                     Limpiar();
                 }
                 else

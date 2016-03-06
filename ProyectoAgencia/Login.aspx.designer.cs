@@ -31,6 +31,15 @@ namespace ProyectoAgencia {
         protected global::System.Web.UI.WebControls.TextBox NombreTextBox;
         
         /// <summary>
+        /// NombreValidacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator NombreValidacion;
+        
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace ProyectoAgencia {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ContrasenaTextBox;
+        
+        /// <summary>
+        /// ContrasenaValidacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ContrasenaValidacion;
         
         /// <summary>
         /// IniciarButton control.

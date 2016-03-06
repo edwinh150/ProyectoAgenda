@@ -6,19 +6,26 @@
     <div class="container">
             <div class="text-center">
                 <div class="row">
-                    <div class="col-md-12 col-sm-8">
-                        <h3>Login</h3>
+                    <div class="col-md-3">
+                        </div>
+                    <div class="col-md-6">
+                        <h3>Inicio de Session</h3>
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <asp:Label ID="Label1" runat="server" Text="Nombre Usuario"></asp:Label>
                                         <asp:TextBox ID="NombreTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Nombre"></asp:TextBox>
-                                    <p class="help-block"></p>
+                                    <p class="help-block">
+                                        <asp:RequiredFieldValidator ControlToValidate="NombreTextBox" ErrorMessage="Por Favor Ingrese Su Nombre de Usuario" ID="NombreValidacion" ForeColor="Red" runat="server"></asp:RequiredFieldValidator>
+                                    </p>
                                 </div>
                             </div>
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <asp:Label ID="Label2" runat="server" Text="Contrasena"></asp:Label>
                                     <asp:TextBox ID="ContrasenaTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Contrasena" TextMode="Password"></asp:TextBox>
+                                    <p class="help-block">
+                                        <asp:RequiredFieldValidator ControlToValidate="ContrasenaTextBox" ErrorMessage="Por Favor Ingrese Una Contrasena" ID="ContrasenaValidacion" ForeColor="Red" runat="server"></asp:RequiredFieldValidator>
+                                    </p>
                                 </div>
                             </div>
                             <div class="btn-group">

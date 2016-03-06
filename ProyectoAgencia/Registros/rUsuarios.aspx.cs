@@ -18,7 +18,6 @@ namespace ProyectoAgencia.Registros
             if (!IsPostBack)
             {
                 LlenarDropDownList();
-                Mensajes.ShowToastr(this.Page, "No hay Registro", "Error", "error");
             }          
         }
 
@@ -31,6 +30,17 @@ namespace ProyectoAgencia.Registros
             TipoUsuarioDropDownList.DataBind();
         }
 
+        public void ValidacionLimpiar()
+        {
+            RequiredFieldValidator1.IsValid = true;
+            RequiredFieldValidator2.IsValid = true;
+            RequiredFieldValidator3.IsValid = true;
+            RequiredFieldValidator4.IsValid = true;
+            RequiredFieldValidator5.IsValid = true;
+            RequiredFieldValidator6.IsValid = true;
+            RequiredFieldValidator7.IsValid = true;
+        }
+
         public void Limpiar()
         {
             UsuarioIdTextBox.Text = "";
@@ -41,13 +51,15 @@ namespace ProyectoAgencia.Registros
             EmailTextBox.Text = "";
             TelefonoTextBox.Text = "";
             FechaNacimientoTextBox.Text = DateTime.Now.ToString();
+            ValidacionLimpiar();
+
         }
 
         bool LLenarDatos()
         {
             bool retorno = false;
 
-            if (NombreUsuarioTextBox.Text.Length > 0 && ContrasenaTextBox.Text.Length > 0)
+            if (NombreUsuarioTextBox.Text.Length > 0 && ContrasenaTextBox.Text.Length > 0 && NombreTextBox.Text.Length > 0 && ApellidoTextBox.Text.Length > 0 && EmailTextBox.Text.Length > 0 && TelefonoTextBox.Text.Length > 0)
             {
                 Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
                 Usuario.Contrasena = ContrasenaTextBox.Text;
@@ -84,7 +96,7 @@ namespace ProyectoAgencia.Registros
 
                     if (Usuario.Editar())
                     {
-                        Mensajes.ShowToastr(this.Page,"Se Modifico","Informacion","sucess");
+                        Mensajes.ShowToastr(this.Page,"Se Modifico","Informacion","Success");
                         Limpiar();
                     }
                     else
@@ -100,12 +112,11 @@ namespace ProyectoAgencia.Registros
             }
             else
             {
-
                 if (LLenarDatos())
                 {
                     if (Usuario.Insertar())
                     {
-                        Mensajes.ShowToastr(this.Page, "Se Registro", "Felicidades", "success");
+                        Mensajes.ShowToastr(this.Page, "Se Registro", "Felicidades", "Success");
                         Limpiar();
                     }
                     else
@@ -124,15 +135,13 @@ namespace ProyectoAgencia.Registros
         {
             if (UsuarioIdTextBox.Text.Length > 0)
             {
-
-
                 if (Seguro.ValidarEntero(UsuarioIdTextBox.Text) > 0)
                 {
                     Usuario.UsuarioId = Seguro.ValidarEntero(UsuarioIdTextBox.Text);
 
                     if (Usuario.Eliminar())
                     {
-                        Mensajes.ShowToastr(this.Page, "Se Guardo", "Informacion", "sucess");
+                        Mensajes.ShowToastr(this.Page, "Se Guardo", "Informacion", "Success");
                         Limpiar();
                     }
                     else
@@ -143,6 +152,7 @@ namespace ProyectoAgencia.Registros
                 else
                 {
                     Mensajes.ShowToastr(this.Page, "No hay Registro", "Error", "Error");
+                    Limpiar();
                 }
             }
             else
@@ -153,21 +163,25 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            if (Seguro.ValidarEntero(UsuarioIdTextBox.Text) > 0)
+            int Id = Seguro.ValidarEntero(UsuarioIdTextBox.Text);
+            ValidacionLimpiar();
+
+            if (Id > 0)
             {
-                if (Usuario.Buscar(Seguro.ValidarEntero(UsuarioIdTextBox.Text)))
+                if (Usuario.Buscar(Id))
                 {
                     NombreUsuarioTextBox.Text = Usuario.NombreUsuario;
                     NombreTextBox.Text = Usuario.Nombre;
                     ApellidoTextBox.Text = Usuario.Apellido;
                     EmailTextBox.Text = Usuario.Email;
                     TelefonoTextBox.Text = Usuario.Telefono;
-                    FechaNacimientoTextBox.Text = Usuario.FechaNacimiento.ToString();
+                    //FechaNacimientoTextBox.Text = Usuario.FechaNacimiento.ToString();
                     TipoUsuarioDropDownList.SelectedValue = Usuario.TipoUsuarioId.ToString();
                 }
                 else
                 {
                     Mensajes.ShowToastr(this.Page, "No hay Registro", "Informacion", "info");
+                    Limpiar();
                 }
             }
             else

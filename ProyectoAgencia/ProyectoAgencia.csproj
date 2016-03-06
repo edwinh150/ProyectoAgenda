@@ -62,6 +62,23 @@
   <ItemGroup>
     <Content Include="bin\ProyectoAgencia.dll" />
     <Content Include="bin\ProyectoAgencia.pdb" />
+    <Content Include="Consultas\cCategoriaCruceros.aspx" />
+    <Content Include="Consultas\cCategoriaHabitaciones.aspx" />
+    <Content Include="Consultas\cCiudades.aspx" />
+    <Content Include="Consultas\cCiudadesHoteles.aspx" />
+    <Content Include="Consultas\cCompaniaCruceros.aspx" />
+    <Content Include="Consultas\cCruceros.aspx" />
+    <Content Include="Consultas\cDestinos.aspx" />
+    <Content Include="Consultas\cCompaniaAerolineas.aspx" />
+    <Content Include="Consultas\cHotelResorts.aspx" />
+    <Content Include="Consultas\cPaises.aspx" />
+    <Content Include="Consultas\cReservacionCruceros.aspx" />
+    <Content Include="Consultas\cReservaciones.aspx" />
+    <Content Include="Consultas\cReservacionHotelResorts.aspx" />
+    <Content Include="Consultas\cReservacionVuelos.aspx" />
+    <Content Include="Consultas\cTipoUsuarios.aspx" />
+    <Content Include="Consultas\cUsuarios.aspx" />
+    <Content Include="Consultas\cVuelos.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Contenido\aviones.jpg" />
     <Content Include="Contenido\Crucero.jpg" />
@@ -91,11 +108,146 @@
     <Content Include="js\toastr.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Registrar.aspx" />
+    <Content Include="Registros\rCategoriaCruceros.aspx" />
+    <Content Include="Registros\rCategoriaHabitaciones.aspx" />
+    <Content Include="Registros\rCiudades.aspx" />
+    <Content Include="Registros\rCiudadesHoteles.aspx" />
+    <Content Include="Registros\rCompaniaAerolineas.aspx" />
+    <Content Include="Registros\rCompaniaCruceros.aspx" />
+    <Content Include="Registros\rCruceros.aspx" />
+    <Content Include="Registros\rDestinos.aspx" />
+    <Content Include="Registros\rHotelResorts.aspx" />
+    <Content Include="Registros\rPaises.aspx" />
+    <Content Include="Registros\rReservacionCruceros.aspx" />
+    <Content Include="Registros\rReservaciones.aspx" />
+    <Content Include="Registros\rReservacionHotelResorts.aspx" />
+    <Content Include="Registros\rReservacionVuelos.aspx" />
+    <Content Include="Registros\rTipoUsuarios.aspx" />
     <Content Include="Registros\rUsuarios.aspx" />
+    <Content Include="Registros\rVuelos.aspx" />
     <Content Include="Servicios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\cCategoriaCruceros.aspx.cs">
+      <DependentUpon>cCategoriaCruceros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cCategoriaCruceros.aspx.designer.cs">
+      <DependentUpon>cCategoriaCruceros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cCategoriaHabitaciones.aspx.cs">
+      <DependentUpon>cCategoriaHabitaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cCategoriaHabitaciones.aspx.designer.cs">
+      <DependentUpon>cCategoriaHabitaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cCiudades.aspx.cs">
+      <DependentUpon>cCiudades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cCiudades.aspx.designer.cs">
+      <DependentUpon>cCiudades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cCiudadesHoteles.aspx.cs">
+      <DependentUpon>cCiudadesHoteles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cCiudadesHoteles.aspx.designer.cs">
+      <DependentUpon>cCiudadesHoteles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cCompaniaCruceros.aspx.cs">
+      <DependentUpon>cCompaniaCruceros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cCompaniaCruceros.aspx.designer.cs">
+      <DependentUpon>cCompaniaCruceros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cCruceros.aspx.cs">
+      <DependentUpon>cCruceros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cCruceros.aspx.designer.cs">
+      <DependentUpon>cCruceros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cDestinos.aspx.cs">
+      <DependentUpon>cDestinos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cDestinos.aspx.designer.cs">
+      <DependentUpon>cDestinos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cCompaniaAerolineas.aspx.cs">
+      <DependentUpon>cCompaniaAerolineas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cCompaniaAerolineas.aspx.designer.cs">
+      <DependentUpon>cCompaniaAerolineas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cHotelResorts.aspx.cs">
+      <DependentUpon>cHotelResorts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cHotelResorts.aspx.designer.cs">
+      <DependentUpon>cHotelResorts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cPaises.aspx.cs">
+      <DependentUpon>cPaises.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cPaises.aspx.designer.cs">
+      <DependentUpon>cPaises.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cReservacionCruceros.aspx.cs">
+      <DependentUpon>cReservacionCruceros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cReservacionCruceros.aspx.designer.cs">
+      <DependentUpon>cReservacionCruceros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cReservaciones.aspx.cs">
+      <DependentUpon>cReservaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cReservaciones.aspx.designer.cs">
+      <DependentUpon>cReservaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cReservacionHotelResorts.aspx.cs">
+      <DependentUpon>cReservacionHotelResorts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cReservacionHotelResorts.aspx.designer.cs">
+      <DependentUpon>cReservacionHotelResorts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cReservacionVuelos.aspx.cs">
+      <DependentUpon>cReservacionVuelos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cReservacionVuelos.aspx.designer.cs">
+      <DependentUpon>cReservacionVuelos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cTipoUsuarios.aspx.cs">
+      <DependentUpon>cTipoUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cTipoUsuarios.aspx.designer.cs">
+      <DependentUpon>cTipoUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cUsuarios.aspx.cs">
+      <DependentUpon>cUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cUsuarios.aspx.designer.cs">
+      <DependentUpon>cUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cVuelos.aspx.cs">
+      <DependentUpon>cVuelos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cVuelos.aspx.designer.cs">
+      <DependentUpon>cVuelos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,12 +278,124 @@
     <Compile Include="Registrar.aspx.designer.cs">
       <DependentUpon>Registrar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Registros\rCategoriaCruceros.aspx.cs">
+      <DependentUpon>rCategoriaCruceros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rCategoriaCruceros.aspx.designer.cs">
+      <DependentUpon>rCategoriaCruceros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rCategoriaHabitaciones.aspx.cs">
+      <DependentUpon>rCategoriaHabitaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rCategoriaHabitaciones.aspx.designer.cs">
+      <DependentUpon>rCategoriaHabitaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rCiudades.aspx.cs">
+      <DependentUpon>rCiudades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rCiudades.aspx.designer.cs">
+      <DependentUpon>rCiudades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rCiudadesHoteles.aspx.cs">
+      <DependentUpon>rCiudadesHoteles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rCiudadesHoteles.aspx.designer.cs">
+      <DependentUpon>rCiudadesHoteles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rCompaniaAerolineas.aspx.cs">
+      <DependentUpon>rCompaniaAerolineas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rCompaniaAerolineas.aspx.designer.cs">
+      <DependentUpon>rCompaniaAerolineas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rCompaniaCruceros.aspx.cs">
+      <DependentUpon>rCompaniaCruceros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rCompaniaCruceros.aspx.designer.cs">
+      <DependentUpon>rCompaniaCruceros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rCruceros.aspx.cs">
+      <DependentUpon>rCruceros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rCruceros.aspx.designer.cs">
+      <DependentUpon>rCruceros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rDestinos.aspx.cs">
+      <DependentUpon>rDestinos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rDestinos.aspx.designer.cs">
+      <DependentUpon>rDestinos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rHotelResorts.aspx.cs">
+      <DependentUpon>rHotelResorts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rHotelResorts.aspx.designer.cs">
+      <DependentUpon>rHotelResorts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rPaises.aspx.cs">
+      <DependentUpon>rPaises.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rPaises.aspx.designer.cs">
+      <DependentUpon>rPaises.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rReservacionCruceros.aspx.cs">
+      <DependentUpon>rReservacionCruceros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rReservacionCruceros.aspx.designer.cs">
+      <DependentUpon>rReservacionCruceros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rReservaciones.aspx.cs">
+      <DependentUpon>rReservaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rReservaciones.aspx.designer.cs">
+      <DependentUpon>rReservaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rReservacionHotelResorts.aspx.cs">
+      <DependentUpon>rReservacionHotelResorts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rReservacionHotelResorts.aspx.designer.cs">
+      <DependentUpon>rReservacionHotelResorts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rReservacionVuelos.aspx.cs">
+      <DependentUpon>rReservacionVuelos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rReservacionVuelos.aspx.designer.cs">
+      <DependentUpon>rReservacionVuelos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rTipoUsuarios.aspx.cs">
+      <DependentUpon>rTipoUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rTipoUsuarios.aspx.designer.cs">
+      <DependentUpon>rTipoUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registros\rUsuarios.aspx.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Registros\rUsuarios.aspx.designer.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rVuelos.aspx.cs">
+      <DependentUpon>rVuelos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rVuelos.aspx.designer.cs">
+      <DependentUpon>rVuelos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Servicios.aspx.cs">
       <DependentUpon>Servicios.aspx</DependentUpon>
@@ -151,7 +415,7 @@
   <ItemGroup>
     <Content Include="Site.Master" />
     <Content Include="bin\contact_me.php" />
-    <Content Include="bin\ProyectoAgencia.dll.config" />
+    <Content Include="Consultas\ProyectoAgencia.dll.config" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.woff" />
@@ -200,9 +464,7 @@
       <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Consultas\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

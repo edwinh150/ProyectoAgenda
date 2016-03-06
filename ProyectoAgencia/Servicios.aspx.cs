@@ -13,5 +13,20 @@ namespace ProyectoAgencia
         {
 
         }
+
+        protected void VueloButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void CruceroButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void HotelResortButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

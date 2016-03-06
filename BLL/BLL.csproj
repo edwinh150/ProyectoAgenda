@@ -47,6 +47,7 @@
     <Compile Include="Ciudades.cs" />
     <Compile Include="CiudadesHoteles.cs" />
     <Compile Include="ClaseMaestra.cs" />
+    <Compile Include="CompaniaAerolineas.cs" />
     <Compile Include="CompaniaCruceros.cs" />
     <Compile Include="Cruceros.cs" />
     <Compile Include="Destinos.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="Reservaciones.cs" />
     <Compile Include="RespuestaUsuarios.cs" />
     <Compile Include="Seguridad.cs" />
-    <Compile Include="TipoAerolineas.cs" />
     <Compile Include="TipoUsuarios.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
