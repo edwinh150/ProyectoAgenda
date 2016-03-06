@@ -7,8 +7,8 @@ Descripcion varchar(50)
 );
 
 create table Usuarios(UsuarioId int identity(1,1) primary key,
-NombreUsuario varchar(30),
-Contrasena varchar(30),
+NombreUsuario varchar(50),
+Contrasena varchar(50),
 Nombre varchar(50),
 Apellido varchar(50),
 Email varchar(30),
@@ -17,21 +17,22 @@ FechaNacimiento datetime,
 TipoUsuarioId int references TipoUsuarios(TipoUsuarioId)
 );
 
-create table Ciudades(CiudadId int identity(1,1) primary key,
+create table Paises(PaisId int identity(1,1) primary key,
 Descripcion varchar(30)
 );
 
-create table Paises(PaisId int identity(1,1) primary key,
+create table Ciudades(CiudadId int identity(1,1) primary key,
 Descripcion varchar(30),
-CiudadId int references Ciudades(CiudadId)
+PaiseId int references Paises(PaiseId)
 );
 
 create table Destinos(DestinoId int primary key identity(1,1),
-PaisId int references Paises(PaisId),
+Descripcion varchar(50),
 CiudadId int references Ciudades(CiudadId)
 );
 
 create table Viajes(ViajeId int identity(1,1) primary key,
+Origen varchar(50),
 DestinoId int references Destinos(DestinoId),
 FechaInicial datetime,
 FechaFinal datetime,

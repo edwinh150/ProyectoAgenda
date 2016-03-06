@@ -11,6 +11,7 @@ namespace BLL
     {
         public int CiudadId { get; set; }
         public string Descripcion { get; set; }
+        public int PaisId { get; set; }
 
 
         public override bool Insertar()
@@ -20,7 +21,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Ciudades(Descripcion) values('{0}') ", this.Descripcion));
+                retorno = Conexion.Ejecutar(string.Format("insert into Ciudades(Descripcion, PaisId) values('{0}',{1}) ", this.Descripcion, this.PaisId));
             }
             catch (Exception)
             {
@@ -37,7 +38,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update Ciudades set Descripcion = '{0}' where CiudadId = {1}", this.Descripcion,this.CiudadId));
+                retorno = Conexion.Ejecutar(string.Format("update Ciudades set Descripcion = '{0}', PaisId = {1} where CiudadId = {2}", this.Descripcion, this.PaisId, this.CiudadId));
             }
             catch (Exception)
             {
@@ -78,6 +79,7 @@ namespace BLL
                 if (dt.Rows.Count > 0)
                 {
                     this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
+                    this.PaisId = (int)dt.Rows[0]["PaisId"];
                     retorno = true;
                 }
             }
