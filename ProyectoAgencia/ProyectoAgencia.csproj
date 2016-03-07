@@ -124,6 +124,7 @@
     <Content Include="Registros\rReservacionVuelos.aspx" />
     <Content Include="Registros\rTipoUsuarios.aspx" />
     <Content Include="Registros\rUsuarios.aspx" />
+    <Content Include="Registros\rViajes.aspx" />
     <Content Include="Registros\rVuelos.aspx" />
     <Content Include="Servicios.aspx" />
     <Content Include="Web.config" />
@@ -389,6 +390,13 @@
     </Compile>
     <Compile Include="Registros\rUsuarios.aspx.designer.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rViajes.aspx.cs">
+      <DependentUpon>rViajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rViajes.aspx.designer.cs">
+      <DependentUpon>rViajes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rVuelos.aspx.cs">
       <DependentUpon>rVuelos.aspx</DependentUpon>

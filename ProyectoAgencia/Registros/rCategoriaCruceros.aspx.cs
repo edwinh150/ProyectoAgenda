@@ -13,5 +13,20 @@ namespace ProyectoAgencia.Registros
         {
 
         }
+
+        protected void GuardarButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void LimpiarButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void EliminarButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

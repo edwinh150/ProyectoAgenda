@@ -91,6 +91,9 @@
                                 <a href="/Registros/rVuelos.aspx">Vuelo</a>
                             </li>
                             <li>
+                                <a href="/Registros/rViajes.aspx">Viajes</a>
+                            </li>
+                            <li>
                                 <a href="Registros/rHotelResorts.aspx">HotelResort</a>
                             </li>
                             <li>
@@ -100,13 +103,13 @@
                                 <a href="/Registros/rReservaciones.aspx">Reservaciones</a>
                             </li>
                             <li>
-                                <a href="/Registros/rReservacionVuelos.aspx">Reservacion Vuelo</a>
+                                <a href="/Registros/rReservacionVuelos.aspx">Reservacion de Vuelos</a>
                             </li>
                             <li>
-                                <a href="/Registros/rReservacionCruceros.aspx">Reservacion Crucero</a>
+                                <a href="/Registros/rReservacionCruceros.aspx">Reservacion de Cruceros</a>
                             </li>
                             <li>
-                                <a href="/Registros/rReservacionHotelResorts.aspx">Reservacion HotelResort</a>
+                                <a href="/Registros/rReservacionHotelResorts.aspx">Reservacion de HotelResorts</a>
                             </li>
                             <li>
                                 <a href="/Registros/rCompaniaAerolineas.aspx">Compañia de Aerolineas</a>
