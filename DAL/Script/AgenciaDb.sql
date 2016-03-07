@@ -32,7 +32,7 @@ CiudadId int references Ciudades(CiudadId)
 );
 
 create table Viajes(ViajeId int identity(1,1) primary key,
-Origen varchar(50),
+OrigenId int references Destinos(DestinoId),
 DestinoId int references Destinos(DestinoId),
 FechaInicial datetime,
 FechaFinal datetime,
