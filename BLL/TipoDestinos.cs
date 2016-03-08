@@ -7,12 +7,16 @@ using System.Text;
 
 namespace BLL
 {
-    public class Vuelos : ClaseMaestra
+    public class TipoDestinos : ClaseMaestra
     {
-        public int VueloId { get; set; }
-        public bool EleccionDestino { get; set; }
-        public int UsuarioId { get; set; }
-        public int ViajeId { get; set; }
+        public int TipoDestinoId { get; set; }
+        public string Descripcion { get; set; }
+
+        public TipoDestinos()
+        {
+            this.TipoDestinoId = 0;
+            this.Descripcion = "";
+        }
 
         public override bool Insertar()
         {
@@ -21,7 +25,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Vuelos(EleccionDestino,UsuarioId,ViajeId) values({0},{1},{2}) ",this.EleccionDestino, this.UsuarioId, this.ViajeId));
+                retorno = Conexion.Ejecutar(string.Format("insert into TipoDestinos(Descripcion) values('{0}') ", this.Descripcion));
             }
             catch (Exception)
             {
@@ -38,7 +42,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update Vuelos set EleccionDestino = {0},UsuarioId = {1}, ViajeId = {2} where VueloId = {3}",this.EleccionDestino, this.UsuarioId, this.ViajeId, this.VueloId));
+                retorno = Conexion.Ejecutar(string.Format("update TipoDestinos set Descripcion = '{0}' where TipoDestinoId = {1}", this.Descripcion, this.TipoDestinoId));
             }
             catch (Exception)
             {
@@ -55,7 +59,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("delete from Vuelos where VueloId = {0}", this.VueloId));
+                retorno = Conexion.Ejecutar(string.Format("delete from TipoDestinos where TipoDestinoId = {0}", this.TipoDestinoId));
             }
             catch (Exception)
             {
@@ -74,13 +78,11 @@ namespace BLL
 
             try
             {
-                dt = Conexion.ObtenerDatos(string.Format("select * from Vuelos where VueloId = {0} ", IdBuscado));
+                dt = Conexion.ObtenerDatos(string.Format("select * from TipoDestinos where TipoDestinoId = {0} ", IdBuscado));
 
                 if (dt.Rows.Count > 0)
                 {
-                    this.EleccionDestino = (bool)dt.Rows[0]["EleccionDestino"];
-                    this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
-                    this.ViajeId = (int)dt.Rows[0]["ViajeId"];
+                    this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
                     retorno = true;
                 }
             }
@@ -98,7 +100,7 @@ namespace BLL
 
             try
             {
-                return Conexion.ObtenerDatos(string.Format("select " + Campos + " From Vuelos where " + Condicion + " " + Orden));
+                return Conexion.ObtenerDatos(string.Format("Select " + Campos + " From TipoDestinos where " + Condicion + " " + Orden));
             }
             catch (Exception ex)
             {

@@ -1,16 +1,16 @@
-﻿using BLL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BLL;
 
 namespace ProyectoAgencia.Registros
 {
-    public partial class rTipoUsuarios : System.Web.UI.Page
+    public partial class rTipoDestinos : System.Web.UI.Page
     {
-        TipoUsuarios TipoUsuario = new TipoUsuarios();
+        TipoDestinos TipoDestino = new TipoDestinos();
         Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -21,7 +21,6 @@ namespace ProyectoAgencia.Registros
         public void ValidacionLimpiar()
         {
             RequiredFieldValidator1.IsValid = true;
-
         }
 
         public void Limpiar()
@@ -37,7 +36,7 @@ namespace ProyectoAgencia.Registros
 
             if (DescripcionTextBox.Text.Length > 0)
             {
-                TipoUsuario.Descripcion = DescripcionTextBox.Text;
+                TipoDestino.Descripcion = DescripcionTextBox.Text;
                 retorno = true;
             }
             else
@@ -50,13 +49,13 @@ namespace ProyectoAgencia.Registros
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
-            if (TipoUsuarioIdTextBox.Text.Length > 0)
+            if (TipoDestinoIdTextBox.Text.Length > 0)
             {
                 if (LLenarDatos())
                 {
-                    TipoUsuario.TipoUsuarioId = Seguro.ValidarEntero(TipoUsuarioIdTextBox.Text);
+                    TipoDestino.TipoDestinoId = Seguro.ValidarEntero(TipoDestinoIdTextBox.Text);
 
-                    if (TipoUsuario.Editar())
+                    if (TipoDestino.Editar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Modifico", "Informacion", "Success");
                         Limpiar();
@@ -76,7 +75,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    if (TipoUsuario.Insertar())
+                    if (TipoDestino.Insertar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Registro", "Felicidades", "Success");
                         Limpiar();
@@ -95,13 +94,13 @@ namespace ProyectoAgencia.Registros
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            if (TipoUsuarioIdTextBox.Text.Length > 0)
+            if (TipoDestinoIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(TipoUsuarioIdTextBox.Text) > 0)
+                if (Seguro.ValidarEntero(TipoDestinoIdTextBox.Text) > 0)
                 {
-                    TipoUsuario.TipoUsuarioId = Seguro.ValidarEntero(TipoUsuarioIdTextBox.Text);
+                    TipoDestino.TipoDestinoId = Seguro.ValidarEntero(TipoDestinoIdTextBox.Text);
 
-                    if (TipoUsuario.Eliminar())
+                    if (TipoDestino.Eliminar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Guardo", "Informacion", "Success");
                         Limpiar();
@@ -125,14 +124,14 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(TipoUsuarioIdTextBox.Text);
+            int Id = Seguro.ValidarEntero(TipoDestinoIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)
             {
-                if (TipoUsuario.Buscar(Id))
+                if (TipoDestino.Buscar(Id))
                 {
-                    DescripcionTextBox.Text = TipoUsuario.Descripcion;
+                    DescripcionTextBox.Text = TipoDestino.Descripcion;
                 }
                 else
                 {

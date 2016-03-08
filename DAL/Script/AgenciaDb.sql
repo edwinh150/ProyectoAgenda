@@ -26,12 +26,22 @@ Descripcion varchar(30),
 PaiseId int references Paises(PaiseId)
 );
 
+create table TipoDestinos(TipoDestinoId int primary key identity(1,1),
+Descripcion varchar(50)
+);
+
 create table Destinos(DestinoId int primary key identity(1,1),
 Descripcion varchar(50),
+TipoDestinoId int references TipoDestinos(TipoDestinoId),
 CiudadId int references Ciudades(CiudadId)
 );
 
+create table TipoViajes(TipoViajeId int identity(1,1) primary key,
+Descripcion varchar(50)
+);
+
 create table Viajes(ViajeId int identity(1,1) primary key,
+TipoViajeId int references TipoViajes(TipoViajeId),
 OrigenId int references Destinos(DestinoId),
 DestinoId int references Destinos(DestinoId),
 FechaInicial datetime,
@@ -48,34 +58,29 @@ Descripcion varchar(50),
 Email varchar(30)
 );
 
-create table Vuelos(VueloId int identity(1,1) primary key,
-EleccionDestino bit,
-UsuarioId int references Usuarios(UsuarioId),
-ViajesId int References Viajes(ViajeId)
+create table CategoriaAerolineas(CategoriaAerolineaId int identity(1,1) primary key,
+Descripcion varchar(30)
 );
+
 
 create table CompaniaCruceros(CompaniaCruceroId int primary key identity(1,1),
 Descripcion varchar(50),
 Email varchar(30)
 );
 
-create table CategoriaCrucero(CategoriaCruceroId int identity(1,1) primary key,
+create table CategoriaCruceros(CategoriaCruceroId int identity(1,1) primary key,
 Descripcion varchar(30)
 );
 
-create table Cruceros(CruceroId int identity(1,1) primary key,
+create table CrucerosDetalle(CruceroId int identity(1,1) primary key,
 UsuarioId int references Usuarios(UsuarioId),
 ViajesId int References Viajes(ViajeId),
 CategoriaCruceroId int references CategoriaCrucero(CategoriaCruceroId),
 CompaniaCruceroId int References CompaniaCruceros(CompaniaCruceroId)
 );
 
-create table DestinosViajes(DestinosViajeId int identity(1,1) primary key,
-ViajesId int References Viajes(ViajeId),
-DestinoId int references Destinos(DestinoId)
-);
-
 create table VueloDetalle(VueloDetalleId int identity(1,1) primary key,
+EleccionDestino bit,
 UsuarioId int references Usuarios(UsuarioId),
 ViajesId int References Viajes(ViajeId),
 CompaniaAeroLineaId int references CompaniaAeroLineas(CompaniaAeroLineaId)

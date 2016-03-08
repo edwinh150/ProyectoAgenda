@@ -22,7 +22,7 @@ namespace ProyectoAgencia
 
         protected void VueloButton_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("/PeticionVuelos.aspx");
         }
 
         protected void HotelResortButton_Click(object sender, EventArgs e)

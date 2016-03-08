@@ -87,8 +87,6 @@
                             </p>
                         </div>
                     </div>
-                    <div id="success"></div>
-                    <!-- For success/fail messages -->
                     <asp:Button ID="GuardarButton" CssClass="btn btn-primary" runat="server" Text="Registrarse" OnClick="GuardarButton_Click" />
 
             </div>

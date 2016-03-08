@@ -11,6 +11,7 @@ namespace BLL
     {
         public int DestinoId { get; set; }
         public string Descripcion { get; set; }
+        public int TipoDestinoId { get; set; }
         public int CiudadId { get; set; }
 
 
@@ -21,7 +22,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Destinos(Descripcion,CiudadId) values('{0}',{1}) ", this.Descripcion, this.CiudadId));
+                retorno = Conexion.Ejecutar(string.Format("insert into Destinos(Descripcion,TipoDestinoId,CiudadId) values('{0}',{1}) ", this.Descripcion, this.TipoDestinoId, this.CiudadId));
             }
             catch (Exception)
             {
@@ -38,7 +39,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update Destinos set Descripcion = '{0}', CiudadId = {1} where DestinoId = {2}", this.DestinoId));
+                retorno = Conexion.Ejecutar(string.Format("update Destinos set Descripcion = '{0}', TipoDestinoId = {1}, CiudadId = {2} where DestinoId = {3}",this.Descripcion, this.TipoDestinoId, this.CiudadId, this.DestinoId));
             }
             catch (Exception)
             {
@@ -78,7 +79,9 @@ namespace BLL
 
                 if (dt.Rows.Count > 0)
                 {
-
+                    this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
+                    this.TipoDestinoId = (int)dt.Rows[0]["TipoDestinoId"];
+                    this.CiudadId = (int)dt.Rows[0]["CiudadId"];
                     retorno = true;
                 }
             }

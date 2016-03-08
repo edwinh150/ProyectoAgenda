@@ -63,11 +63,13 @@
                                     <asp:DropDownList ID="PaisDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
                                 </div>
                             </div>
-                            <div class="btn-group text-center">
-                                <asp:Button ID="GuardarButton" CssClass="btn btn-success" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
-                                <asp:Button ID="LimpiarButton" CssClass="btn btn-warning" runat="server" Text="Limpiar" OnClick="LimpiarButton_Click" />
-                                <asp:Button ID="EliminarButton" CssClass="btn btn-danger" runat="server" Text="Eliminar" OnClick="EliminarButton_Click" />
-                            </div>
+                            <center>
+                                <div class="btn-group text-center">
+                                    <asp:Button ID="GuardarButton" CssClass="btn btn-success" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
+                                    <asp:Button ID="LimpiarButton" CssClass="btn btn-warning" runat="server" Text="Limpiar" OnClick="LimpiarButton_Click" />
+                                    <asp:Button ID="EliminarButton" CssClass="btn btn-danger" runat="server" Text="Eliminar" OnClick="EliminarButton_Click" />
+                                </div>
+                            </center>
                     </div>
                 </div>
                 </div>

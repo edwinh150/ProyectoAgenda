@@ -59,6 +59,12 @@
                             </div>
                             <div class="control-group form-group">
                                 <div class="controls">
+                                    <asp:Label ID="Label2" runat="server" Text="TipoDestino" Font-Bold="True"></asp:Label>
+                                    <asp:DropDownList ID="TipoDestinoDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
+                                </div>
+                            </div>
+                            <div class="control-group form-group">
+                                <div class="controls">
                                     <asp:Label ID="Label6" runat="server" Text="Ciudades" Font-Bold="True"></asp:Label>
                                     <asp:DropDownList ID="CiudadDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
                                 </div>
