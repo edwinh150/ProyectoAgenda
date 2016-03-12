@@ -40,6 +40,7 @@ namespace BLL
 
             if (con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' and Contrasena = '{1}' ", this.NombreUsuario, this.Contrasena)).Rows.Count > 0)
             {
+                UsuarioId = Convert.ToInt32(con.ObtenerDatos(string.Format("select UsuarioId from Usuarios where NombreUsuario = '{0}' and Contrasena = '{1}' ", this.NombreUsuario, this.Contrasena)));
                 retorno = true;
             }
             else

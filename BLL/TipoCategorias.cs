@@ -7,9 +7,9 @@ using System.Text;
 
 namespace BLL
 {
-    public class CategoriaAerolineas : ClaseMaestra
+    public class TipoCategorias : ClaseMaestra
     {
-        public int CategoriaAerolineaId { get; set; }
+        public int TipoCategoriaId { get; set; }
         public string Descripcion { get; set; }
 
 
@@ -20,7 +20,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into CategoriaAerolineas(Descripcion) values('{0}') ", this.Descripcion));
+                retorno = Conexion.Ejecutar(string.Format("insert into TipoCategorias(Descripcion) values('{0}') ", this.Descripcion));
             }
             catch (Exception)
             {
@@ -37,7 +37,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update CategoriaAerolineas set Descripcion = '{0}' where CategoriaAerolineaId = {1}", this.Descripcion, this.CategoriaAerolineaId));
+                retorno = Conexion.Ejecutar(string.Format("update TipoCategorias set Descripcion = '{0}' where CategoriaId = {1}", this.Descripcion, this.TipoCategoriaId));
             }
             catch (Exception)
             {
@@ -54,7 +54,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("delete from CategoriaAerolineas where CategoriaAerolineaId = {0}", this.CategoriaAerolineaId));
+                retorno = Conexion.Ejecutar(string.Format("delete from TipoCategorias where CategoriaId = {0}", this.TipoCategoriaId));
             }
             catch (Exception)
             {
@@ -73,7 +73,7 @@ namespace BLL
 
             try
             {
-                dt = Conexion.ObtenerDatos(string.Format("select * from CategoriaAerolineas where CategoriaAerolineaId = {0} ", IdBuscado));
+                dt = Conexion.ObtenerDatos(string.Format("select * from TipoCategorias where CategoriaId = {0} ", IdBuscado));
 
                 if (dt.Rows.Count > 0)
                 {
@@ -95,7 +95,7 @@ namespace BLL
 
             try
             {
-                return Conexion.ObtenerDatos(string.Format("select " + Campos + " From CategoriaAerolineas where " + Condicion + " " + Orden));
+                return Conexion.ObtenerDatos(string.Format("select " + Campos + " From TipoCategorias where " + Condicion + " " + Orden));
             }
             catch (Exception ex)
             {

@@ -10,7 +10,7 @@
 namespace ProyectoAgencia.Registros {
     
     
-    public partial class rCompaniaCruceros {
+    public partial class rCategorias {
         
         /// <summary>
         /// Label5 control.
@@ -22,13 +22,13 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// CompaniaCruceroIdTextBox control.
+        /// CategoriaIdTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CompaniaCruceroIdTextBox;
+        protected global::System.Web.UI.WebControls.TextBox CategoriaIdTextBox;
         
         /// <summary>
         /// BuscarButton control.
@@ -67,22 +67,22 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// Label3 control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// EmailTextBox control.
+        /// TipoCategoriaIdDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList TipoCategoriaIdDropDownList;
         
         /// <summary>
         /// GuardarButton control.

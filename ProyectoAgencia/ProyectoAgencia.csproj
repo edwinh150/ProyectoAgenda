@@ -60,6 +60,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AjaxEjemplo.aspx" />
     <Content Include="bin\ProyectoAgencia.dll" />
     <Content Include="bin\ProyectoAgencia.pdb" />
     <Content Include="Consultas\cCategoriaCruceros.aspx" />
@@ -109,13 +110,14 @@
     <Content Include="Login.aspx" />
     <Content Include="PeticionVuelos.aspx" />
     <Content Include="Registrar.aspx" />
-    <Content Include="Registros\rCategoriaAerolineas.aspx" />
-    <Content Include="Registros\rCategoriaCruceros.aspx" />
+    <Content Include="Registros\rCategorias.aspx" />
+    <Content Include="Registros\rSolicitudes.aspx" />
+    <Content Include="Registros\rTipoCategorias.aspx" />
     <Content Include="Registros\rCategoriaHabitaciones.aspx" />
     <Content Include="Registros\rCiudades.aspx" />
     <Content Include="Registros\rCiudadesHoteles.aspx" />
-    <Content Include="Registros\rCompaniaAerolineas.aspx" />
-    <Content Include="Registros\rCompaniaCruceros.aspx" />
+    <Content Include="Registros\rCompanias.aspx" />
+    <Content Include="Registros\rTipoCompanias.aspx" />
     <Content Include="Registros\rCruceros.aspx" />
     <Content Include="Registros\rDestinos.aspx" />
     <Content Include="Registros\rHotelResorts.aspx" />
@@ -126,14 +128,20 @@
     <Content Include="Registros\rReservacionVuelos.aspx" />
     <Content Include="Registros\rTipoDestinos.aspx" />
     <Content Include="Registros\rTipoUsuarios.aspx" />
-    <Content Include="Registros\rTipoViajes.aspx" />
+    <Content Include="Registros\rTipoSolicitudes.aspx" />
     <Content Include="Registros\rUsuarios.aspx" />
-    <Content Include="Registros\rViajes.aspx" />
     <Content Include="Registros\rVuelos.aspx" />
     <Content Include="Servicios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjaxEjemplo.aspx.cs">
+      <DependentUpon>AjaxEjemplo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxEjemplo.aspx.designer.cs">
+      <DependentUpon>AjaxEjemplo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\cCategoriaCruceros.aspx.cs">
       <DependentUpon>cCategoriaCruceros.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -290,19 +298,26 @@
     <Compile Include="Registrar.aspx.designer.cs">
       <DependentUpon>Registrar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\rCategoriaAerolineas.aspx.cs">
-      <DependentUpon>rCategoriaAerolineas.aspx</DependentUpon>
+    <Compile Include="Registros\rCategorias.aspx.cs">
+      <DependentUpon>rCategorias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rCategoriaAerolineas.aspx.designer.cs">
-      <DependentUpon>rCategoriaAerolineas.aspx</DependentUpon>
+    <Compile Include="Registros\rCategorias.aspx.designer.cs">
+      <DependentUpon>rCategorias.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\rCategoriaCruceros.aspx.cs">
-      <DependentUpon>rCategoriaCruceros.aspx</DependentUpon>
+    <Compile Include="Registros\rSolicitudes.aspx.cs">
+      <DependentUpon>rSolicitudes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rCategoriaCruceros.aspx.designer.cs">
-      <DependentUpon>rCategoriaCruceros.aspx</DependentUpon>
+    <Compile Include="Registros\rSolicitudes.aspx.designer.cs">
+      <DependentUpon>rSolicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rTipoCategorias.aspx.cs">
+      <DependentUpon>rTipoCategorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rTipoCategorias.aspx.designer.cs">
+      <DependentUpon>rTipoCategorias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rCategoriaHabitaciones.aspx.cs">
       <DependentUpon>rCategoriaHabitaciones.aspx</DependentUpon>
@@ -325,19 +340,19 @@
     <Compile Include="Registros\rCiudadesHoteles.aspx.designer.cs">
       <DependentUpon>rCiudadesHoteles.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\rCompaniaAerolineas.aspx.cs">
-      <DependentUpon>rCompaniaAerolineas.aspx</DependentUpon>
+    <Compile Include="Registros\rCompanias.aspx.cs">
+      <DependentUpon>rCompanias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rCompaniaAerolineas.aspx.designer.cs">
-      <DependentUpon>rCompaniaAerolineas.aspx</DependentUpon>
+    <Compile Include="Registros\rCompanias.aspx.designer.cs">
+      <DependentUpon>rCompanias.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\rCompaniaCruceros.aspx.cs">
-      <DependentUpon>rCompaniaCruceros.aspx</DependentUpon>
+    <Compile Include="Registros\rTipoCompanias.aspx.cs">
+      <DependentUpon>rTipoCompanias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rCompaniaCruceros.aspx.designer.cs">
-      <DependentUpon>rCompaniaCruceros.aspx</DependentUpon>
+    <Compile Include="Registros\rTipoCompanias.aspx.designer.cs">
+      <DependentUpon>rTipoCompanias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rCruceros.aspx.cs">
       <DependentUpon>rCruceros.aspx</DependentUpon>
@@ -409,12 +424,12 @@
     <Compile Include="Registros\rTipoUsuarios.aspx.designer.cs">
       <DependentUpon>rTipoUsuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\rTipoViajes.aspx.cs">
-      <DependentUpon>rTipoViajes.aspx</DependentUpon>
+    <Compile Include="Registros\rTipoSolicitudes.aspx.cs">
+      <DependentUpon>rTipoSolicitudes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rTipoViajes.aspx.designer.cs">
-      <DependentUpon>rTipoViajes.aspx</DependentUpon>
+    <Compile Include="Registros\rTipoSolicitudes.aspx.designer.cs">
+      <DependentUpon>rTipoSolicitudes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rUsuarios.aspx.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
@@ -422,13 +437,6 @@
     </Compile>
     <Compile Include="Registros\rUsuarios.aspx.designer.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Registros\rViajes.aspx.cs">
-      <DependentUpon>rViajes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registros\rViajes.aspx.designer.cs">
-      <DependentUpon>rViajes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rVuelos.aspx.cs">
       <DependentUpon>rVuelos.aspx</DependentUpon>

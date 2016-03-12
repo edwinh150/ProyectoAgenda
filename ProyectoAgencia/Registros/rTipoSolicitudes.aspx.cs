@@ -8,9 +8,9 @@ using System.Web.UI.WebControls;
 
 namespace ProyectoAgencia.Registros
 {
-    public partial class rCompaniaAerolineas : System.Web.UI.Page
+    public partial class rTipoSolicitudes : System.Web.UI.Page
     {
-        CompaniaAerolineas CompaniaAerolinea = new CompaniaAerolineas();
+        TipoSolicitudes TipoSolicitud = new TipoSolicitudes();
         Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace ProyectoAgencia.Registros
 
             if (DescripcionTextBox.Text.Length > 0)
             {
-                CompaniaAerolinea.Descripcion = DescripcionTextBox.Text;
+                TipoSolicitud.Descripcion = DescripcionTextBox.Text;
                 retorno = true;
             }
             else
@@ -49,13 +49,13 @@ namespace ProyectoAgencia.Registros
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
-            if (CompaniaAerolineaIdTextBox.Text.Length > 0)
+            if (TipoSolicitudIdTextBox.Text.Length > 0)
             {
                 if (LLenarDatos())
                 {
-                    CompaniaAerolinea.CompaniaAerolineaId = Seguro.ValidarEntero(CompaniaAerolineaIdTextBox.Text);
+                    TipoSolicitud.TipoSolicitudId = Seguro.ValidarEntero(TipoSolicitudIdTextBox.Text);
 
-                    if (CompaniaAerolinea.Editar())
+                    if (TipoSolicitud.Editar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Modifico", "Informacion", "Success");
                         Limpiar();
@@ -75,7 +75,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    if (CompaniaAerolinea.Insertar())
+                    if (TipoSolicitud.Insertar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Registro", "Felicidades", "Success");
                         Limpiar();
@@ -94,13 +94,13 @@ namespace ProyectoAgencia.Registros
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            if (CompaniaAerolineaIdTextBox.Text.Length > 0)
+            if (TipoSolicitudIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(CompaniaAerolineaIdTextBox.Text) > 0)
+                if (Seguro.ValidarEntero(TipoSolicitudIdTextBox.Text) > 0)
                 {
-                    CompaniaAerolinea.CompaniaAerolineaId = Seguro.ValidarEntero(CompaniaAerolineaIdTextBox.Text);
+                    TipoSolicitud.TipoSolicitudId = Seguro.ValidarEntero(TipoSolicitudIdTextBox.Text);
 
-                    if (CompaniaAerolinea.Eliminar())
+                    if (TipoSolicitud.Eliminar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Guardo", "Informacion", "Success");
                         Limpiar();
@@ -124,14 +124,14 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(CompaniaAerolineaIdTextBox.Text);
+            int Id = Seguro.ValidarEntero(TipoSolicitudIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)
             {
-                if (CompaniaAerolinea.Buscar(Id))
+                if (TipoSolicitud.Buscar(Id))
                 {
-                    DescripcionTextBox.Text = CompaniaAerolinea.Descripcion;
+                    DescripcionTextBox.Text = TipoSolicitud.Descripcion;
                 }
                 else
                 {

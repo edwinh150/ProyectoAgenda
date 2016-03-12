@@ -7,10 +7,13 @@ using System.Text;
 
 namespace BLL
 {
-    public class TipoViajes : ClaseMaestra
+    public class Companias : ClaseMaestra
     {
-        public int TipoViajeId { get; set; }
+        public int CompaniaId { get; set; }
         public string Descripcion { get; set; }
+        public string Email { get; set; }
+        public int TipoCompaniaId { get; set; }
+
 
         public override bool Insertar()
         {
@@ -19,7 +22,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into TipoViajes(Descripcion) values('{0}') ", this.Descripcion));
+                retorno = Conexion.Ejecutar(string.Format("insert into Companias(Descripcion,Email,TipoCompaniaId) values('{0}','{1}',{2}}) ", this.Descripcion, this.Email, this.TipoCompaniaId));
             }
             catch (Exception)
             {
@@ -36,7 +39,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update TipoViajes set Descripcion = '{0}' where TipoDestinoId = {1}", this.Descripcion, this.TipoViajeId));
+                retorno = Conexion.Ejecutar(string.Format("update Companias set Descripcion = '{0}',Email = '{1}', TipoCompaniaId = {2} where CompaniaId = {3}", this.Descripcion, this.Email, this.TipoCompaniaId, this.CompaniaId));
             }
             catch (Exception)
             {
@@ -53,7 +56,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("delete from TipoViajes where TipoDestinoId = {0}", this.TipoViajeId));
+                retorno = Conexion.Ejecutar(string.Format("delete from Companias where CompaniaId = {0}", this.CompaniaId));
             }
             catch (Exception)
             {
@@ -72,11 +75,13 @@ namespace BLL
 
             try
             {
-                dt = Conexion.ObtenerDatos(string.Format("select * from TipoViajes where TipoDestinoId = {0} ", IdBuscado));
+                dt = Conexion.ObtenerDatos(string.Format("select * from Companias where CompaniaId = {0} ", IdBuscado));
 
                 if (dt.Rows.Count > 0)
                 {
                     this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
+                    this.Email = dt.Rows[0]["Email"].ToString();
+                    this.TipoCompaniaId = (int)dt.Rows[0]["TipoCompaniaId"];
                     retorno = true;
                 }
             }
@@ -94,7 +99,7 @@ namespace BLL
 
             try
             {
-                return Conexion.ObtenerDatos(string.Format("Select " + Campos + " From TipoViajes where " + Condicion + " " + Orden));
+                return Conexion.ObtenerDatos(string.Format("select " + Campos + " From Companias where " + Condicion + " " + Orden));
             }
             catch (Exception ex)
             {

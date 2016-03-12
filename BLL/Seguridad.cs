@@ -20,6 +20,32 @@ namespace BLL
             return Id;
         }
 
+        public double ValidarDouble(string Convertir)
+        {
+            double Id = 0;
+
+            if (Convertir.Length > 0)
+            {
+                bool Resultado = double.TryParse(Convertir, out Id);
+
+            }
+
+            return Id;
+        }
+
+        public DateTime ValidarDateTime(string Convertir)
+        {
+            DateTime fecha = DateTime.Now;
+
+            if (Convertir.Length > 0)
+            {
+                bool Resultado = DateTime.TryParse(Convertir, out fecha);
+
+            }
+
+            return fecha;
+        }
+
         /*public static void ShowToastr(this Page page, string message, string title, string type = "info")
         {
             page.ClientScript.RegisterStartupScript(page.GetType(), "toastr_message",

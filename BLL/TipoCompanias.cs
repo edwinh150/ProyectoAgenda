@@ -7,11 +7,10 @@ using System.Text;
 
 namespace BLL
 {
-    public class CompaniaCruceros : ClaseMaestra
+    public class TipoCompanias : ClaseMaestra
     {
-        public int CompaniaCruceroId { get; set; }
+        public int TipoCompaniaId { get; set; }
         public string Descripcion { get; set; }
-        public string Email { get; set; }
 
 
         public override bool Insertar()
@@ -21,7 +20,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into CompaniaCruceros(Descripcion,Email) values('{0}','{1}') ", this.Descripcion, this.Email));
+                retorno = Conexion.Ejecutar(string.Format("insert into TipoCompanias(Descripcion) values('{0}') ", this.Descripcion));
             }
             catch (Exception)
             {
@@ -38,7 +37,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update CompaniaCruceros set Descripcion = '{0}',Email = '{1}' where CompaniaCruceroId = {2}", this.Descripcion, this.Email, this.CompaniaCruceroId));
+                retorno = Conexion.Ejecutar(string.Format("update TipoCompanias set Descripcion = '{0}' where TipoCompaniaId = {1}", this.Descripcion, this.TipoCompaniaId));
             }
             catch (Exception)
             {
@@ -55,7 +54,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("delete from CompaniaCruceros where CompaniaCruceroId = {0}", this.CompaniaCruceroId));
+                retorno = Conexion.Ejecutar(string.Format("delete from TipoCompanias where TipoCompaniaId = {0}", this.TipoCompaniaId));
             }
             catch (Exception)
             {
@@ -74,12 +73,11 @@ namespace BLL
 
             try
             {
-                dt = Conexion.ObtenerDatos(string.Format("select * from CompaniaCruceros where CompaniaCruceroId = {0} ", IdBuscado));
+                dt = Conexion.ObtenerDatos(string.Format("select * from TipoCompanias where TipoCompaniaId = {0} ", IdBuscado));
 
                 if (dt.Rows.Count > 0)
                 {
                     this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
-                    this.Email = dt.Rows[0]["Email"].ToString();
                     retorno = true;
                 }
             }
@@ -97,7 +95,7 @@ namespace BLL
 
             try
             {
-                return Conexion.ObtenerDatos(string.Format("select " + Campos + " From CompaniaCruceros where " + Condicion + " " + Orden));
+                return Conexion.ObtenerDatos(string.Format("select " + Campos + " From TipoCompanias where " + Condicion + " " + Orden));
             }
             catch (Exception ex)
             {

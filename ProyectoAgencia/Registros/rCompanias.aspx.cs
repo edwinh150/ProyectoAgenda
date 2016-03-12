@@ -8,14 +8,28 @@ using System.Web.UI.WebControls;
 
 namespace ProyectoAgencia.Registros
 {
-    public partial class rCompaniaCruceros : System.Web.UI.Page
+    public partial class rCompanias : System.Web.UI.Page
     {
-        CompaniaCruceros CompaniaCrucero = new CompaniaCruceros();
+        Companias Compania = new Companias();
         Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                LlenarDropDownList();
+            }
+        }
 
+        public void LlenarDropDownList()
+        {
+            TipoCompanias TipoCompania = new TipoCompanias();
+
+
+            TipoCompaniaDropDownList.DataSource = TipoCompania.Listado(" * ", " 1=1 ", "");
+            TipoCompaniaDropDownList.DataTextField = "Descripcion";
+            TipoCompaniaDropDownList.DataValueField = "TipoCompaniaId";
+            TipoCompaniaDropDownList.DataBind();
         }
 
         public void ValidacionLimpiar()
@@ -36,7 +50,8 @@ namespace ProyectoAgencia.Registros
 
             if (DescripcionTextBox.Text.Length > 0)
             {
-                CompaniaCrucero.Descripcion = DescripcionTextBox.Text;
+                Compania.Descripcion = DescripcionTextBox.Text;
+                Compania.TipoCompaniaId = Seguro.ValidarEntero(TipoCompaniaDropDownList.SelectedValue);
                 retorno = true;
             }
             else
@@ -49,13 +64,13 @@ namespace ProyectoAgencia.Registros
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
-            if (CompaniaCruceroIdTextBox.Text.Length > 0)
+            if (CompaniaIdTextBox.Text.Length > 0)
             {
                 if (LLenarDatos())
                 {
-                    CompaniaCrucero.CompaniaCruceroId = Seguro.ValidarEntero(CompaniaCruceroIdTextBox.Text);
+                    Compania.CompaniaId = Seguro.ValidarEntero(CompaniaIdTextBox.Text);
 
-                    if (CompaniaCrucero.Editar())
+                    if (Compania.Editar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Modifico", "Informacion", "Success");
                         Limpiar();
@@ -75,7 +90,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    if (CompaniaCrucero.Insertar())
+                    if (Compania.Insertar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Registro", "Felicidades", "Success");
                         Limpiar();
@@ -94,13 +109,13 @@ namespace ProyectoAgencia.Registros
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            if (CompaniaCruceroIdTextBox.Text.Length > 0)
+            if (CompaniaIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(CompaniaCruceroIdTextBox.Text) > 0)
+                if (Seguro.ValidarEntero(CompaniaIdTextBox.Text) > 0)
                 {
-                    CompaniaCrucero.CompaniaCruceroId = Seguro.ValidarEntero(CompaniaCruceroIdTextBox.Text);
+                    Compania.CompaniaId = Seguro.ValidarEntero(CompaniaIdTextBox.Text);
 
-                    if (CompaniaCrucero.Eliminar())
+                    if (Compania.Eliminar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Guardo", "Informacion", "Success");
                         Limpiar();
@@ -124,14 +139,15 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(CompaniaCruceroIdTextBox.Text);
+            int Id = Seguro.ValidarEntero(CompaniaIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)
             {
-                if (CompaniaCrucero.Buscar(Id))
+                if (Compania.Buscar(Id))
                 {
-                    DescripcionTextBox.Text = CompaniaCrucero.Descripcion;
+                    DescripcionTextBox.Text = Compania.Descripcion;
+                    TipoCompaniaDropDownList.SelectedValue = Compania.TipoCompaniaId.ToString();
                 }
                 else
                 {

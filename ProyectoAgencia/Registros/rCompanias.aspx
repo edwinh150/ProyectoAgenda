@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="rCategoriaCruceros.aspx.cs" Inherits="ProyectoAgencia.Registros.rCategoriaCruceros" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="rCompanias.aspx.cs" Inherits="ProyectoAgencia.Registros.rCompanias" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -23,13 +23,13 @@
                 <ol class="breadcrumb">
                     <li><a href="/Default.aspx">Principal</a>
                     </li>
-                    <li class="active">Registro de Categoria de Cruceros</li>
+                    <li class="active">Registro de Compañias</li>
                 </ol>
             </div>
         </div>
         <!-- /.row -->
         <div class="panel panel-primary">
-        <div class="panel-heading">Registros de Categoria de Cruceros</div>
+        <div class="panel-heading">Registros de Compañias</div>
         <div class="panel-body">
         <div class="form-horizontal col-md-12" role="form">
             <div class="form-group">
@@ -40,8 +40,8 @@
                         <div class="form-inline" role="form">
                             <div class="control-group form-group">
                                 <div class="controls">
-                                        <asp:Label ID="Label5" For="CategoriaCruceroIdTextBox" runat="server" Font-Bold="true" Text="Id por Cat. Crucero"></asp:Label>
-                                        <asp:TextBox ID="CategoriaCruceroIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
+                                        <asp:Label ID="Label5" For="CompaniaIdTextBox" runat="server" Font-Bold="true" Text="Id por Compañia"></asp:Label>
+                                        <asp:TextBox ID="CompaniaIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
                                         <asp:Button ID="BuscarButton" CssClass="btn btn-toolbar" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
                                         <p class="help-block"></p>
                                 </div>
@@ -50,11 +50,27 @@
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <asp:Label ID="Label1" runat="server" Text="Descripcion" Font-Bold="True"></asp:Label>
-                                    <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="form-control" placeholder="Escriba una Categoria de Crucero"></asp:TextBox>
+                                    <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="form-control" placeholder="Escriba una Compañia"></asp:TextBox>
                                     <p class="help-block">
-                                         <asp:requiredfieldvalidator id="RequiredFieldValidator1" forecolor="Red" errormessage="Por Favor Entre una Categoria de Crucero" controltovalidate="DescripcionTextBox" runat="server">
+                                         <asp:requiredfieldvalidator id="RequiredFieldValidator1" forecolor="Red" errormessage="Por Favor Entre una Compañia" controltovalidate="DescripcionTextBox" runat="server">
                                          </asp:requiredfieldvalidator>
                                     </p>
+                                </div>
+                            </div>
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <asp:Label ID="Label3" runat="server" Text="Correo Electronico" Font-Bold="True"></asp:Label>
+                                    <asp:TextBox ID="EmailTextBox" CssClass="form-control" runat="server" placeholder="Escriba su Email" TextMode="Email"></asp:TextBox>
+                                    <p class="help-block">
+                                        <asp:regularexpressionvalidator validationexpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" errormessage="Invalido Formato de Correo." forecolor="Red" controltovalidate="EmailTextBox" runat="server">
+                                        </asp:regularexpressionvalidator>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <asp:Label ID="Label6" runat="server" Text="Tipo de Compañia" Font-Bold="True"></asp:Label>
+                                    <asp:DropDownList ID="TipoCompaniaDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
                                 </div>
                             </div>
                             <center>

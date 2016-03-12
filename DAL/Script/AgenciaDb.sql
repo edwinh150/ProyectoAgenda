@@ -23,7 +23,7 @@ Descripcion varchar(30)
 
 create table Ciudades(CiudadId int identity(1,1) primary key,
 Descripcion varchar(30),
-PaiseId int references Paises(PaiseId)
+PaisId int references Paises(PaisId)
 );
 
 create table TipoDestinos(TipoDestinoId int primary key identity(1,1),
@@ -36,58 +36,52 @@ TipoDestinoId int references TipoDestinos(TipoDestinoId),
 CiudadId int references Ciudades(CiudadId)
 );
 
-create table TipoViajes(TipoViajeId int identity(1,1) primary key,
+create table TipoSolicitudes(TipoSolicitudId int identity(1,1) primary key,
 Descripcion varchar(50)
 );
 
-create table Viajes(ViajeId int identity(1,1) primary key,
-TipoViajeId int references TipoViajes(TipoViajeId),
+create table Solicitudes(SolicitudId int identity(1,1) primary key,
+UsuarioId int references Usuarios(UsuarioId),
+FechaCreacion datetime,
+Asunto varchar(50)
+);
+
+drop table SolicitudDetalles
+
+create table SolicitudDetalles(SolicitudDetalleId int identity(1,1) primary key,
+EleccionDestino bit,
+SolicitudId int references Solicitudes(SolicitudId),
+TipoSolicitudId int references TipoSolicitudes(TipoSolicitudId),
+CompaniaId int references Companias(CompaniaId),
+CategoriaId int references Categorias(CategoriaId),
 OrigenId int references Destinos(DestinoId),
 DestinoId int references Destinos(DestinoId),
 FechaInicial datetime,
 FechaFinal datetime,
 CantidadPersona int,
 CantidadNino int,
-EdadesNino varchar(30),
+CantidadBebe int,
 PrecioInicial float,
-PrecioFinal float
+PrecioFinal float,
 );
 
-create table CompaniaAeroLineas(CompaniaAeroLineaId int identity(1,1) primary key,
-Descripcion varchar(50),
-Email varchar(30)
-);
-
-create table CategoriaAerolineas(CategoriaAerolineaId int identity(1,1) primary key,
-Descripcion varchar(30)
-);
-
-
-create table CompaniaCruceros(CompaniaCruceroId int primary key identity(1,1),
-Descripcion varchar(50),
-Email varchar(30)
-);
-
-create table CategoriaCruceros(CategoriaCruceroId int identity(1,1) primary key,
-Descripcion varchar(30)
-);
-
-create table CrucerosDetalle(CruceroId int identity(1,1) primary key,
-UsuarioId int references Usuarios(UsuarioId),
-ViajesId int References Viajes(ViajeId),
-CategoriaCruceroId int references CategoriaCrucero(CategoriaCruceroId),
-CompaniaCruceroId int References CompaniaCruceros(CompaniaCruceroId)
-);
-
-create table VueloDetalle(VueloDetalleId int identity(1,1) primary key,
-EleccionDestino bit,
-UsuarioId int references Usuarios(UsuarioId),
-ViajesId int References Viajes(ViajeId),
-CompaniaAeroLineaId int references CompaniaAeroLineas(CompaniaAeroLineaId)
-);
-
-create table CiudadesHoteles(CiudadesHotelId int identity(1,1) primary key,
+create table TipoCompanias(TipoCompaniaId int primary key identity(1,1),
 Descripcion varchar(50)
+);
+
+create table TipoCategorias(TipoCategoriaId int identity(1,1) primary key,
+Descripcion varchar(30)
+);
+
+create table Companias(CompaniaId int identity(1,1) primary key,
+Descripcion varchar(50),
+Email varchar(30),
+TipoCompaniaId int references TipoCompanias(TipoCompaniaId)
+);
+
+create table Categorias(CategoriaId int identity(1,1) primary key,
+Descripcion varchar(30),
+TipoCategoriaId int references TipoCategorias(TipoCategoriaId)
 );
 
 create table CategoriaHabitaciones(CategoriaHabitacionId int identity(1,1) primary key,
@@ -112,13 +106,13 @@ EdadesNino varchar(30)
 create table Reservaciones(ReservacionId int identity(1,1) primary key,
 UsuarioId int references Usuarios(UsuarioId),
 EsActivo bit,
-Fecha DateTime,
+FechaCreacion DateTime,
 Precio float,
 Impuesto float,
 Total float
 );
 
-create table ReservacionVuelos(ReservacionVuelosId int identity(1,1) primary key,
+create table ReservacionDetalles(ReservacionDetalleId int identity(1,1) primary key,
 ReservacionId int references Reservaciones(ReservacionId),
 UsuarioId int references Usuarios(UsuarioId),
 VueloId int references Vuelos(VueloId)

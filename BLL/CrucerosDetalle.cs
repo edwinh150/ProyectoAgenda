@@ -22,7 +22,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Cruceros(UsuarioId,ViajeId,CategoriaAerolineaId,CompaniaCruceroId) values({0},{1},{2},{3}) ", this.UsuarioId, this.ViajeId, this.CategoriaCruceroId, this.CompaniaCruceroId));
+                retorno = Conexion.Ejecutar(string.Format("insert into Cruceros(UsuarioId,SolicitudId,CategoriaId,TipoCompaniaId) values({0},{1},{2},{3}) ", this.UsuarioId, this.ViajeId, this.CategoriaCruceroId, this.CompaniaCruceroId));
             }
             catch (Exception)
             {
@@ -39,7 +39,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update Cruceros set UsuarioId = {0}, ViajeId = {1}, CategoriaAerolineaId = {2}, CompaniaCruceroId = {3} where CruceroId = {4}", this.UsuarioId, this.ViajeId, this.CategoriaCruceroId, this.CompaniaCruceroId, this.CruceroId));
+                retorno = Conexion.Ejecutar(string.Format("update Cruceros set UsuarioId = {0}, SolicitudId = {1}, CategoriaId = {2}, TipoCompaniaId = {3} where CruceroId = {4}", this.UsuarioId, this.ViajeId, this.CategoriaCruceroId, this.CompaniaCruceroId, this.CruceroId));
             }
             catch (Exception)
             {
@@ -80,9 +80,9 @@ namespace BLL
                 if (dt.Rows.Count > 0)
                 {
                     this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
-                    this.ViajeId = (int)dt.Rows[0]["ViajeId"];
-                    this.CategoriaCruceroId = (int)dt.Rows[0]["CategoriaAerolineaId"];
-                    this.CompaniaCruceroId = (int)dt.Rows[0]["CompaniaCruceroId"];
+                    this.ViajeId = (int)dt.Rows[0]["SolicitudId"];
+                    this.CategoriaCruceroId = (int)dt.Rows[0]["CategoriaId"];
+                    this.CompaniaCruceroId = (int)dt.Rows[0]["TipoCompaniaId"];
                     retorno = true;
                 }
             }

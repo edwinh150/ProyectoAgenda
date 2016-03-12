@@ -42,14 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoriaAerolineas.cs" />
-    <Compile Include="CategoriaCruceros.cs" />
+    <Compile Include="Categorias.cs" />
+    <Compile Include="SolicitudDetalles.cs" />
+    <Compile Include="Solicitudes.cs" />
+    <Compile Include="TipoCategorias.cs" />
     <Compile Include="CategoriaHabitaciones.cs" />
     <Compile Include="Ciudades.cs" />
     <Compile Include="CiudadesHoteles.cs" />
     <Compile Include="ClaseMaestra.cs" />
-    <Compile Include="CompaniaAerolineas.cs" />
-    <Compile Include="CompaniaCruceros.cs" />
+    <Compile Include="Companias.cs" />
+    <Compile Include="TipoCompanias.cs" />
     <Compile Include="CrucerosDetalle.cs" />
     <Compile Include="Destinos.cs" />
     <Compile Include="HotelResorts.cs" />
@@ -58,12 +60,10 @@
     <Compile Include="RespuestaUsuarios.cs" />
     <Compile Include="Seguridad.cs" />
     <Compile Include="TipoDestinos.cs" />
+    <Compile Include="TipoSolicitudes.cs" />
     <Compile Include="TipoUsuarios.cs" />
-    <Compile Include="TipoViajes.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Viajes.cs" />
-    <Compile Include="VueloDetalle.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

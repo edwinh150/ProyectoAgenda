@@ -10,7 +10,7 @@
 namespace ProyectoAgencia.Registros {
     
     
-    public partial class rCompaniaAerolineas {
+    public partial class rTipoCompanias {
         
         /// <summary>
         /// Label5 control.
@@ -22,13 +22,13 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// CompaniaAerolineaIdTextBox control.
+        /// TipoCompaniaIdTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CompaniaAerolineaIdTextBox;
+        protected global::System.Web.UI.WebControls.TextBox TipoCompaniaIdTextBox;
         
         /// <summary>
         /// BuscarButton control.
@@ -65,24 +65,6 @@ namespace ProyectoAgencia.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// Label3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-        
-        /// <summary>
-        /// EmailTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
         
         /// <summary>
         /// GuardarButton control.

@@ -10,7 +10,7 @@
 namespace ProyectoAgencia.Registros {
     
     
-    public partial class rTipoViajes {
+    public partial class rCompanias {
         
         /// <summary>
         /// Label5 control.
@@ -22,13 +22,13 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// TipoViajesIdTextBox control.
+        /// CompaniaIdTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TipoViajesIdTextBox;
+        protected global::System.Web.UI.WebControls.TextBox CompaniaIdTextBox;
         
         /// <summary>
         /// BuscarButton control.
@@ -65,6 +65,42 @@ namespace ProyectoAgencia.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// EmailTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
+        
+        /// <summary>
+        /// Label6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+        
+        /// <summary>
+        /// TipoCompaniaDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TipoCompaniaDropDownList;
         
         /// <summary>
         /// GuardarButton control.

@@ -22,7 +22,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Destinos(Descripcion,TipoDestinoId,CiudadId) values('{0}',{1}) ", this.Descripcion, this.TipoDestinoId, this.CiudadId));
+                retorno = Conexion.Ejecutar(string.Format("insert into Destinos(Descripcion,TipoDestinoId,CiudadId) values('{0}',{1},{2}) ", this.Descripcion, this.TipoDestinoId, this.CiudadId));
             }
             catch (Exception)
             {

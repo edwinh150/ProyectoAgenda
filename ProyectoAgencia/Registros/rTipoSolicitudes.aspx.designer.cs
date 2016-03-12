@@ -10,7 +10,7 @@
 namespace ProyectoAgencia.Registros {
     
     
-    public partial class rCategoriaCruceros {
+    public partial class rTipoSolicitudes {
         
         /// <summary>
         /// Label5 control.
@@ -22,13 +22,13 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// CategoriaCruceroIdTextBox control.
+        /// TipoSolicitudIdTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CategoriaCruceroIdTextBox;
+        protected global::System.Web.UI.WebControls.TextBox TipoSolicitudIdTextBox;
         
         /// <summary>
         /// BuscarButton control.

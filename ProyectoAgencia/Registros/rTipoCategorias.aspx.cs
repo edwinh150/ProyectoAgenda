@@ -8,9 +8,9 @@ using System.Web.UI.WebControls;
 
 namespace ProyectoAgencia.Registros
 {
-    public partial class rCategoriaCruceros : System.Web.UI.Page
+    public partial class rTipoCategorias : System.Web.UI.Page
     {
-        CategoriaCruceros CategoriaCrucero = new CategoriaCruceros();
+        TipoCategorias TipoCategoria = new TipoCategorias();
         Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace ProyectoAgencia.Registros
 
             if (DescripcionTextBox.Text.Length > 0)
             {
-                CategoriaCrucero.Descripcion = DescripcionTextBox.Text;
+                TipoCategoria.Descripcion = DescripcionTextBox.Text;
                 retorno = true;
             }
             else
@@ -49,13 +49,13 @@ namespace ProyectoAgencia.Registros
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
-            if (CategoriaCruceroIdTextBox.Text.Length > 0)
-            {
+            if (TipoCategoriaIdTextBox.Text.Length > 0)
+            { 
                 if (LLenarDatos())
                 {
-                    CategoriaCrucero.CategoriaCruceroId = Seguro.ValidarEntero(CategoriaCruceroIdTextBox.Text);
+                    TipoCategoria.TipoCategoriaId = Seguro.ValidarEntero(TipoCategoriaIdTextBox.Text);
 
-                    if (CategoriaCrucero.Editar())
+                    if (TipoCategoria.Editar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Modifico", "Informacion", "Success");
                         Limpiar();
@@ -75,7 +75,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    if (CategoriaCrucero.Insertar())
+                    if (TipoCategoria.Insertar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Registro", "Felicidades", "Success");
                         Limpiar();
@@ -94,13 +94,13 @@ namespace ProyectoAgencia.Registros
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            if (CategoriaCruceroIdTextBox.Text.Length > 0)
+            if (TipoCategoriaIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(CategoriaCruceroIdTextBox.Text) > 0)
+                if (Seguro.ValidarEntero(TipoCategoriaIdTextBox.Text) > 0)
                 {
-                    CategoriaCrucero.CategoriaCruceroId = Seguro.ValidarEntero(CategoriaCruceroIdTextBox.Text);
+                    TipoCategoria.TipoCategoriaId = Seguro.ValidarEntero(TipoCategoriaIdTextBox.Text);
 
-                    if (CategoriaCrucero.Eliminar())
+                    if (TipoCategoria.Eliminar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Guardo", "Informacion", "Success");
                         Limpiar();
@@ -124,14 +124,14 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(CategoriaCruceroIdTextBox.Text);
+            int Id = Seguro.ValidarEntero(TipoCategoriaIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)
             {
-                if (CategoriaCrucero.Buscar(Id))
+                if (TipoCategoria.Buscar(Id))
                 {
-                    DescripcionTextBox.Text = CategoriaCrucero.Descripcion;
+                    DescripcionTextBox.Text = TipoCategoria.Descripcion;
                 }
                 else
                 {

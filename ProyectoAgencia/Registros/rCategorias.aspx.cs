@@ -8,14 +8,28 @@ using System.Web.UI.WebControls;
 
 namespace ProyectoAgencia.Registros
 {
-    public partial class rTipoViajes : System.Web.UI.Page
+    public partial class rCategorias : System.Web.UI.Page
     {
-        TipoViajes TipoViaje = new TipoViajes();
+        Categorias Categoria = new Categorias();
         Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                LlenarDropDownList();
+            }
+        }
 
+        public void LlenarDropDownList()
+        {
+            TipoCategorias TipoCategoria = new TipoCategorias();
+
+
+            TipoCategoriaIdDropDownList.DataSource = TipoCategoria.Listado(" * ", " 1=1 ", "");
+            TipoCategoriaIdDropDownList.DataTextField = "Descripcion";
+            TipoCategoriaIdDropDownList.DataValueField = "TipoCategoriaId";
+            TipoCategoriaIdDropDownList.DataBind();
         }
 
         public void ValidacionLimpiar()
@@ -36,7 +50,8 @@ namespace ProyectoAgencia.Registros
 
             if (DescripcionTextBox.Text.Length > 0)
             {
-                TipoViaje.Descripcion = DescripcionTextBox.Text;
+                Categoria.Descripcion = DescripcionTextBox.Text;
+                Categoria.TipoCategoriaId = Seguro.ValidarEntero(TipoCategoriaIdDropDownList.SelectedValue);
                 retorno = true;
             }
             else
@@ -49,13 +64,13 @@ namespace ProyectoAgencia.Registros
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
-            if (TipoViajesIdTextBox.Text.Length > 0)
+            if (CategoriaIdTextBox.Text.Length > 0)
             {
                 if (LLenarDatos())
                 {
-                    TipoViaje.TipoViajeId = Seguro.ValidarEntero(TipoViajesIdTextBox.Text);
+                    Categoria.CategoriaId = Seguro.ValidarEntero(CategoriaIdTextBox.Text);
 
-                    if (TipoViaje.Editar())
+                    if (Categoria.Editar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Modifico", "Informacion", "Success");
                         Limpiar();
@@ -75,7 +90,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    if (TipoViaje.Insertar())
+                    if (Categoria.Insertar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Registro", "Felicidades", "Success");
                         Limpiar();
@@ -94,13 +109,13 @@ namespace ProyectoAgencia.Registros
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            if (TipoViajesIdTextBox.Text.Length > 0)
+            if (CategoriaIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(TipoViajesIdTextBox.Text) > 0)
+                if (Seguro.ValidarEntero(CategoriaIdTextBox.Text) > 0)
                 {
-                    TipoViaje.TipoViajeId = Seguro.ValidarEntero(TipoViajesIdTextBox.Text);
+                    Categoria.CategoriaId = Seguro.ValidarEntero(CategoriaIdTextBox.Text);
 
-                    if (TipoViaje.Eliminar())
+                    if (Categoria.Eliminar())
                     {
                         Mensajes.ShowToastr(this.Page, "Se Guardo", "Informacion", "Success");
                         Limpiar();
@@ -124,14 +139,15 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(TipoViajesIdTextBox.Text);
+            int Id = Seguro.ValidarEntero(CategoriaIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)
             {
-                if (TipoViaje.Buscar(Id))
+                if (Categoria.Buscar(Id))
                 {
-                    DescripcionTextBox.Text = TipoViaje.Descripcion;
+                    DescripcionTextBox.Text = Categoria.Descripcion;
+                    TipoCategoriaIdDropDownList.SelectedValue = Categoria.TipoCategoriaId.ToString();
                 }
                 else
                 {

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="rCategoriaAerolineas.aspx.cs" Inherits="ProyectoAgencia.Registros.rCategoriaAerolineas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="rTipoCompanias.aspx.cs" Inherits="ProyectoAgencia.Registros.rTipoCompanias" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -23,13 +23,13 @@
                 <ol class="breadcrumb">
                     <li><a href="/Default.aspx">Principal</a>
                     </li>
-                    <li class="active">Registro de Categoria de Aerolineas</li>
+                    <li class="active">Registro de Tipo de Compañias</li>
                 </ol>
             </div>
         </div>
         <!-- /.row -->
         <div class="panel panel-primary">
-        <div class="panel-heading">Registros de Categoria de Aerolineas</div>
+        <div class="panel-heading">Registros de Tipo de Compañias</div>
         <div class="panel-body">
         <div class="form-horizontal col-md-12" role="form">
             <div class="form-group">
@@ -40,8 +40,8 @@
                         <div class="form-inline" role="form">
                             <div class="control-group form-group">
                                 <div class="controls">
-                                        <asp:Label ID="Label5" For="CategoriaAerolineaIdTextBox" runat="server" Font-Bold="true" Text="Id por Cat. Aerolinea"></asp:Label>
-                                        <asp:TextBox ID="CategoriaAerolineaIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
+                                        <asp:Label ID="Label5" For="CompaniaCruceroIdTextBox" runat="server" Font-Bold="true" Text="Id por Tipo de Comp."></asp:Label>
+                                        <asp:TextBox ID="TipoCompaniaIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
                                         <asp:Button ID="BuscarButton" CssClass="btn btn-toolbar" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
                                         <p class="help-block"></p>
                                 </div>
@@ -50,9 +50,9 @@
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <asp:Label ID="Label1" runat="server" Text="Descripcion" Font-Bold="True"></asp:Label>
-                                    <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="form-control" placeholder="Escriba una Categoria de Aerolinea"></asp:TextBox>
+                                    <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Tipo de Compañia"></asp:TextBox>
                                     <p class="help-block">
-                                         <asp:requiredfieldvalidator id="RequiredFieldValidator1" forecolor="Red" errormessage="Por Favor Entre una Categoria de Aerolinea" controltovalidate="DescripcionTextBox" runat="server">
+                                         <asp:requiredfieldvalidator id="RequiredFieldValidator1" forecolor="Red" errormessage="Por Favor Entre un Tipo de Compañia" controltovalidate="DescripcionTextBox" runat="server">
                                          </asp:requiredfieldvalidator>
                                     </p>
                                 </div>
