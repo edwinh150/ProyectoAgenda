@@ -41,7 +41,7 @@
                             <div class="form-inline" role="form">
                                 <div class="control-group form-group">
                                     <div class="controls">
-                                            <asp:Label ID="Label5" For="SolicitudIdTextBox" runat="server" Font-Bold="true" Text="Id por Solicitud"></asp:Label>
+                                            <asp:Label ID="Label5" For="SolicitudIdTextBox" runat="server" Font-Bold="true" Text="Id por Solicitud:"></asp:Label>
                                             <asp:TextBox ID="SolicitudIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
                                             <asp:Button ID="BuscarButton" CssClass="btn btn-toolbar" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
                                             <p class="help-block"></p>
@@ -126,17 +126,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="control-group form-group">
-                                <div class="controls">
-                                    <asp:Label ID="Label15" runat="server" Text="Eleccion de Destino" Font-Bold="True"></asp:Label>
-                                    <asp:RadioButtonList ID="EstadoRadioButtonList" runat="server" RepeatDirection="Horizontal" Height="16px" Width="195px">  
-                                            <asp:ListItem Selected="True">Ida</asp:ListItem>
-                                            <asp:ListItem>Ida/Vuelta</asp:ListItem>
-                                    </asp:RadioButtonList>
-                                </div>
-                            </div>
-                        </div>
                         </center>
                         <div class="form-inline col-md-12" role="form">
                                <div class="col-md-2">
@@ -144,23 +133,39 @@
                                 <div class="col-md-5">
                                     <div class="control-group form-group">
                                         <div class="controls">
-                                            <asp:Label For="OrigenDropDownList" ID="Label11" runat="server" Text="Origen" Font-Bold="True"></asp:Label>
-                                            <asp:DropDownList ID="OrigenDropDownList" CssClass="form-control" runat="server" OnSelectedIndexChanged="OrigenDropDownList_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:Label For="PaisOrigenDropDownList" ID="Label11" runat="server" Text="Origen" Font-Bold="True"></asp:Label>
+                                            <asp:DropDownList ID="PaisOrigenDropDownList" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="PaisOrigenDropDownList_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList ID="OrigenDropDownList" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="OrigenDropDownList_SelectedIndexChanged"></asp:DropDownList>
                                             <p class="help-block">
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <div class="control-group form-group">
                                         <div class="controls">
-                                            <asp:Label For="DestinoDropDownList" ID="Label12" runat="server" Text="Destino" Font-Bold="True"></asp:Label>
-                                            <asp:DropDownList ID="DestinoDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
+                                            <asp:Label For="PaisDestinoDropDownList" ID="Label12" runat="server" Text="Destino" Font-Bold="True"></asp:Label>
+                                            <asp:DropDownList ID="PaisDestinoDropDownList" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="PaisDestinoDropDownList_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList ID="DestinoDropDownList" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DestinoDropDownList_SelectedIndexChanged"></asp:DropDownList>
                                             <p class="help-block">
                                             </p>
                                         </div>
                                     </div>
-                               </div>
+                                </div>
+                                <center>
+                                    <div class="col-md-12">
+                                        <div class="control-group form-group">
+                                            <div class="controls">
+                                                <asp:Label ID="Label15" runat="server" Text="Destino: " Font-Bold="True"></asp:Label>
+                                                <asp:CheckBox ID="EstadoCheckBox" runat="server" Text=" Solo Ida" AutoPostBack="true" OnCheckedChanged="EstadoCheckBox_CheckedChanged"></asp:CheckBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </center>
+                                <div class="col-md-12">
+
+                                </div>
+                               
                                <div class="form-inline col-md-12">
                                <div class="col-md-2">
                                 </div>
@@ -177,7 +182,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="control-group form-group">
+                                    <div id="FechaFinal" runat="server" class="control-group form-group">
                                         <div class="controls">
                                             <asp:Label ID="Label2" runat="server" Text="Rango de Fecha" Font-Bold="True"></asp:Label>
                                             <asp:TextBox ID="FechaFinalTextBox" runat="server" CssClass="form-control" placeholder="Hasta"></asp:TextBox>
@@ -224,7 +229,6 @@
                                         <div class="controls">
                                             <asp:Label ID="Label7" runat="server" Text="Personas" Font-Bold="True"></asp:Label>
                                             <asp:DropDownList ID="CantidadPersonaDropDownList" runat="server">
-                                                <asp:ListItem>0</asp:ListItem>
                                                 <asp:ListItem>1</asp:ListItem>
                                                 <asp:ListItem>2</asp:ListItem>
                                                 <asp:ListItem>3</asp:ListItem>
@@ -232,9 +236,6 @@
                                                 <asp:ListItem>5</asp:ListItem>
                                                 <asp:ListItem>6</asp:ListItem>
                                                 <asp:ListItem>7</asp:ListItem>
-                                                <asp:ListItem>8</asp:ListItem>
-                                                <asp:ListItem>9</asp:ListItem>
-                                                <asp:ListItem>10</asp:ListItem>
                                             </asp:DropDownList>
                                             <p class="help-block">
                                             </p>
@@ -254,7 +255,6 @@
                                                 <asp:ListItem>5</asp:ListItem>
                                                 <asp:ListItem>6</asp:ListItem>
                                                 <asp:ListItem>7</asp:ListItem>
-                                                <asp:ListItem>8</asp:ListItem>
                                             </asp:DropDownList>
                                             <p class="help-block">
                                             </p>

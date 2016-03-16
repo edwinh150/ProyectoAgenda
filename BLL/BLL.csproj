@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categorias.cs" />
+    <Compile Include="EnvioCorreo.cs" />
     <Compile Include="SolicitudDetalles.cs" />
     <Compile Include="Solicitudes.cs" />
     <Compile Include="TipoCategorias.cs" />

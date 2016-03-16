@@ -18,6 +18,7 @@ namespace BLL
         public string Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public int TipoUsuarioId { get; set; }
+        public static int Id = 0;
 
         public Usuarios()
         {
@@ -38,10 +39,11 @@ namespace BLL
 
             bool retorno = false;
 
-            if (con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' and Contrasena = '{1}' ", this.NombreUsuario, this.Contrasena)).Rows.Count > 0)
+            Id = (int)con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' and Contrasena = '{1}' ", this.NombreUsuario, this.Contrasena)).Rows[0]["UsuarioId"];
+
+            if (Id > 0)
             {
-                UsuarioId = Convert.ToInt32(con.ObtenerDatos(string.Format("select UsuarioId from Usuarios where NombreUsuario = '{0}' and Contrasena = '{1}' ", this.NombreUsuario, this.Contrasena)));
-                retorno = true;
+                 retorno = true;
             }
             else
             {

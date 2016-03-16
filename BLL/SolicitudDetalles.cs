@@ -13,8 +13,8 @@ namespace BLL
         public int TipoSolicitudId { get; set; }
         public int CompaniaId { get; set; }
         public int CategoriaId { get; set; }
-        public int OrigenId { get; set; }
-        public int DestinoId { get; set; }
+        public string Origen { get; set; }
+        public string Destino { get; set; }
         public DateTime FechaIncial { get; set; }
         public DateTime FechaFinal { get; set; }
         public int CantidadPersona { get; set; }
@@ -29,8 +29,8 @@ namespace BLL
             this.TipoSolicitudId = 0;
             this.CompaniaId = 0;
             this.CategoriaId = 0;
-            this.OrigenId = 0;
-            this.DestinoId = 0;
+            this.Origen = "";
+            this.Destino = "";
             this.FechaIncial = DateTime.Now;
             this.FechaFinal = DateTime.Now;
             this.CantidadPersona = 0;
@@ -40,14 +40,14 @@ namespace BLL
             this.PrecioFinal = 0;
         }
 
-        public SolicitudDetalles(int EleccionDestino, int TipoSolicitudId, int CompaniaId, int CategoriaId, int OrigenId, int DestinoId, DateTime FechaInicial, DateTime FechaFinal, int CantidadPersona, int CantidadNino, int CantidadBebe, double PrecioInicial, double PrecioFinal)
+        public SolicitudDetalles(int EleccionDestino, int TipoSolicitudId, int CompaniaId, int CategoriaId, string Origen, string Destino, DateTime FechaInicial, DateTime FechaFinal, int CantidadPersona, int CantidadNino, int CantidadBebe, double PrecioInicial, double PrecioFinal)
         {
             this.EleccionDestino = EleccionDestino;
             this.TipoSolicitudId = TipoSolicitudId;
             this.CompaniaId = CompaniaId;
             this.CategoriaId = CategoriaId;
-            this.OrigenId = OrigenId;
-            this.DestinoId = DestinoId;
+            this.Origen = Origen;
+            this.Destino = Destino;
             this.FechaIncial = FechaIncial;
             this.FechaFinal = FechaFinal;
             this.CantidadPersona = CantidadPersona;

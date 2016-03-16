@@ -31,9 +31,8 @@ Descripcion varchar(50)
 );
 
 create table Destinos(DestinoId int primary key identity(1,1),
-Descripcion varchar(50),
-TipoDestinoId int references TipoDestinos(TipoDestinoId),
-CiudadId int references Ciudades(CiudadId)
+CiudadId int references Ciudades(CiudadId),
+TipoDestinoId int references TipoDestinos(TipoDestinoId)
 );
 
 create table TipoSolicitudes(TipoSolicitudId int identity(1,1) primary key,
@@ -48,14 +47,16 @@ Asunto varchar(50)
 
 drop table SolicitudDetalles
 
+select * from SolicitudDetalles;
+
 create table SolicitudDetalles(SolicitudDetalleId int identity(1,1) primary key,
 EleccionDestino bit,
 SolicitudId int references Solicitudes(SolicitudId),
 TipoSolicitudId int references TipoSolicitudes(TipoSolicitudId),
 CompaniaId int references Companias(CompaniaId),
 CategoriaId int references Categorias(CategoriaId),
-OrigenId int references Destinos(DestinoId),
-DestinoId int references Destinos(DestinoId),
+Origen varchar(100),
+Destino varchar(100),
 FechaInicial datetime,
 FechaFinal datetime,
 CantidadPersona int,

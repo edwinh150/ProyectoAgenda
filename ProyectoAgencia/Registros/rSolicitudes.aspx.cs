@@ -27,22 +27,38 @@ namespace ProyectoAgencia.Registros
         public void LlenarDropDownList()
         {
             TipoSolicitudes TipoSolicitud = new TipoSolicitudes();
-            Destinos Destino = new Destinos();
+            Ciudades Ciudad = new Ciudades();
             Usuarios Usuario = new Usuarios();
+            Paises Pais = new Paises();
 
             TipoSolicitudIdDropDownList.DataSource = TipoSolicitud.Listado(" * ", " 1=1 ", "");
             TipoSolicitudIdDropDownList.DataTextField = "Descripcion";
             TipoSolicitudIdDropDownList.DataValueField = "TipoSolicitudId";
             TipoSolicitudIdDropDownList.DataBind();
-
-            OrigenDropDownList.DataSource = Destino.Listado(" * ", " 1=1 ", "");
-            OrigenDropDownList.DataTextField = "Descripcion";
-            OrigenDropDownList.DataValueField = "DestinoId";
-            OrigenDropDownList.DataBind();
-
-            DestinoDropDownList.DataSource = Destino.Listado(" * ", " DestinoId <> " + OrigenDropDownList.SelectedValue, "");
+            //pais
+            PaisOrigenDropDownList.DataSource = Pais.Listado(" * ", " 1=1 ", "");
+            PaisOrigenDropDownList.DataTextField = "Descripcion";
+            PaisOrigenDropDownList.DataValueField = "PaisId";
+            PaisOrigenDropDownList.DataBind();
+            //pais
+            PaisDestinoDropDownList.DataSource = Pais.Listado(" * ", " 1=1 ", "");
+            PaisDestinoDropDownList.DataTextField = "Descripcion";
+            PaisDestinoDropDownList.DataValueField = "PaisId";
+            PaisDestinoDropDownList.DataBind();
+            //ciudad
+            DestinoDropDownList.DataSource = Ciudad.Listado(" * ", " PaisId = " + PaisDestinoDropDownList.SelectedValue, "");
             DestinoDropDownList.DataTextField = "Descripcion";
-            DestinoDropDownList.DataValueField = "DestinoId";
+            DestinoDropDownList.DataValueField = "CiudadId";
+            DestinoDropDownList.DataBind();
+            //ciudad
+            OrigenDropDownList.DataSource = Ciudad.Listado(" * ", " PaisId = " + PaisOrigenDropDownList.SelectedValue, "");
+            OrigenDropDownList.DataTextField = "Descripcion";
+            OrigenDropDownList.DataValueField = "CiudadId";
+            OrigenDropDownList.DataBind();
+            //ciudad
+            DestinoDropDownList.DataSource = Ciudad.Listado(" * ", " PaisId = " + PaisDestinoDropDownList.SelectedValue + " AND CiudadId <> " + OrigenDropDownList.SelectedValue, "");
+            DestinoDropDownList.DataTextField = "Descripcion";
+            DestinoDropDownList.DataValueField = "CiudadId";
             DestinoDropDownList.DataBind();
         }
 
@@ -69,16 +85,18 @@ namespace ProyectoAgencia.Registros
 
         bool LLenarDatos()
         {
-            Usuarios Usuario = new Usuarios();
-
             bool retorno = false;
 
             if (AsuntoTextBox.Text.Length > 0)
             {
                 Solicitud.Asunto = AsuntoTextBox.Text;
                 Solicitud.FechaCreacion = DateTime.Now;
-                Solicitud.UsuarioId = Usuario.UsuarioId;
+                Solicitud.UsuarioId = Usuarios.Id;
+                foreach (GridViewRow dr in DetalleGridView.Rows)
+                {
+                    Solicitud.AgregarSolicitud(Seguro.ValidarEntero(dr.Cells[0].ToString()), Seguro.ValidarEntero(dr.Cells[1].ToString()), Seguro.ValidarEntero(dr.Cells[2].ToString()), Seguro.ValidarEntero(dr.Cells[3].ToString()), dr.Cells[4].ToString(), dr.Cells[5].ToString(), Seguro.ValidarDateTime(dr.Cells[6].Text), Seguro.ValidarDateTime(dr.Cells[7].Text), Seguro.ValidarEntero(dr.Cells[8].Text), Seguro.ValidarEntero(dr.Cells[9].ToString()), Seguro.ValidarEntero(dr.Cells[10].ToString()), Seguro.ValidarDouble(dr.Cells[11].Text), Seguro.ValidarDouble(dr.Cells[12].Text));
 
+                }
                 retorno = true;
             }
             else
@@ -166,6 +184,7 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
+            
             int Id = Seguro.ValidarEntero(SolicitudIdTextBox.Text);
             ValidacionLimpiar();
 
@@ -190,19 +209,20 @@ namespace ProyectoAgencia.Registros
         protected void LimpiarButton_Click(object sender, EventArgs e)
         {
             Limpiar();
+            
         }
 
         protected void AgregarDetalleButton_Click(object sender, EventArgs e)
         {
             Solicitudes SolicitudDetalle;
 
-            if (EstadoRadioButtonList.SelectedIndex == 0)
+            if (EstadoCheckBox.Checked == true)
             {
-                Eleccion = 0;
+                Eleccion = 1; // ida
             }
             else
             {
-                Eleccion = 1;
+                Eleccion = 0; // ida/vuelta
             }
 
             if (Session["SolicitudSession"] == null)
@@ -212,20 +232,58 @@ namespace ProyectoAgencia.Registros
 
             SolicitudDetalle = (Solicitudes)Session["SolicitudSession"];
 
-            SolicitudDetalle.AgregarSolicitud(Eleccion, Seguro.ValidarEntero(TipoSolicitudIdDropDownList.SelectedValue), Seguro.ValidarEntero(CompaniaIdDropDownList.SelectedValue), Seguro.ValidarEntero(CategoriaIdDropDownList.SelectedValue), Seguro.ValidarEntero(OrigenDropDownList.SelectedValue), Seguro.ValidarEntero(DestinoDropDownList.SelectedValue), Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text));
+            SolicitudDetalle.AgregarSolicitud(Eleccion, Seguro.ValidarEntero(TipoSolicitudIdDropDownList.SelectedValue), Seguro.ValidarEntero(CompaniaIdDropDownList.SelectedValue), Seguro.ValidarEntero(CategoriaIdDropDownList.SelectedValue), Convert.ToString(OrigenDropDownList.Text), Convert.ToString(DestinoDropDownList.Text), Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text));
 
             Session["SolicitudSession"] = SolicitudDetalle;
 
-            //DetalleGridView.DataSource=
+            DetalleGridView.DataSource = SolicitudDetalle.Detalle;
+            DetalleGridView.DataBind();
         }
 
         protected void OrigenDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Destinos Destino = new Destinos();
+            Ciudades Ciudad = new Ciudades();
 
-            DestinoDropDownList.DataSource = Destino.Listado(" * ", " DestinoId <> " + OrigenDropDownList.SelectedValue, "");
+            DestinoDropDownList.DataSource = Ciudad.Listado(" * ", " PaisId = " + PaisDestinoDropDownList.SelectedValue + "AND CiudadId <> " + OrigenDropDownList.SelectedValue, "");
             DestinoDropDownList.DataTextField = "Descripcion";
-            DestinoDropDownList.DataValueField = "DestinoId";
+            DestinoDropDownList.DataValueField = "CiudadId";
+            DestinoDropDownList.DataBind();
+        }
+
+        protected void EstadoCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (EstadoCheckBox.Checked == true)
+            {
+                FechaFinal.Visible = false;
+            }
+            else
+            {
+                FechaFinal.Visible = true;
+            }
+        }
+
+        protected void DestinoDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        protected void PaisOrigenDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Ciudades Ciudad = new Ciudades();
+
+            OrigenDropDownList.DataSource = Ciudad.Listado(" * ", " PaisId = " + PaisOrigenDropDownList.SelectedValue, "");
+            OrigenDropDownList.DataTextField = "Descripcion";
+            OrigenDropDownList.DataValueField = "CiudadId";
+            OrigenDropDownList.DataBind();
+            
+        }
+
+        protected void PaisDestinoDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Ciudades Ciudad = new Ciudades();
+
+            DestinoDropDownList.DataSource = Ciudad.Listado(" * ", " PaisId = " + PaisDestinoDropDownList.SelectedValue + "AND CiudadId <> " + OrigenDropDownList.SelectedValue, "");
+            DestinoDropDownList.DataTextField = "Descripcion";
+            DestinoDropDownList.DataValueField = "CiudadId";
             DestinoDropDownList.DataBind();
         }
     }
