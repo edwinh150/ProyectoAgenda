@@ -15,7 +15,7 @@ namespace BLL
         public int CategoriaId { get; set; }
         public string Origen { get; set; }
         public string Destino { get; set; }
-        public DateTime FechaIncial { get; set; }
+        public DateTime FechaInicial { get; set; }
         public DateTime FechaFinal { get; set; }
         public int CantidadPersona { get; set; }
         public int CantidadNino { get; set; }
@@ -31,7 +31,7 @@ namespace BLL
             this.CategoriaId = 0;
             this.Origen = "";
             this.Destino = "";
-            this.FechaIncial = DateTime.Now;
+            this.FechaInicial = DateTime.Now;
             this.FechaFinal = DateTime.Now;
             this.CantidadPersona = 0;
             this.CantidadNino = 0;
@@ -48,7 +48,7 @@ namespace BLL
             this.CategoriaId = CategoriaId;
             this.Origen = Origen;
             this.Destino = Destino;
-            this.FechaIncial = FechaIncial;
+            this.FechaInicial = FechaInicial;
             this.FechaFinal = FechaFinal;
             this.CantidadPersona = CantidadPersona;
             this.CantidadNino = CantidadNino;

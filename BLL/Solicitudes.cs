@@ -38,7 +38,7 @@ namespace BLL
 
             try
             {
-                Identity = Conexion.ObtenerDatos(string.Format("insert into Solicitudes(UsuarioId,FechaCreacion,Asunto) values({0},'{1}','{2}') select @@Identity ", this.UsuarioId, this.FechaCreacion, this.Asunto));
+                Identity = Conexion.ObtenerValor(string.Format("insert into Solicitudes(UsuarioId,FechaCreacion,Asunto) values({0},'{1}','{2}') select @@Identity ", this.UsuarioId, this.FechaCreacion.ToString("yyyy-MM-dd hh:mm:ss"), this.Asunto));
 
                 int.TryParse(Identity.ToString(), out retorno);
 
@@ -46,7 +46,7 @@ namespace BLL
 
                 foreach (SolicitudDetalles item in this.Detalle)
                 {
-                    Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,FechaFinal,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}',{9},{10},{11},{12},{13}) ", retorno, (int)item.EleccionDestino, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaIncial.ToString(), item.FechaFinal.ToString(), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal));
+                    Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,FechaFinal,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13}) ", (int)item.EleccionDestino, retorno, (int)item.TipoSolicitudId, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaInicial.ToString("yyyy-MM-dd"), item.FechaFinal.ToString("yyyy-MM-dd"), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal));
                 }
             }
             catch (Exception)
@@ -59,31 +59,28 @@ namespace BLL
 
         public override bool Editar()
         {
-            int retorno = 0;
-            object Identity;
+            bool retorno = false;
             ConexionDB Conexion = new ConexionDB();
 
             try
             {
-                Identity = Conexion.ObtenerDatos(string.Format("Update Solicitudes set UsuarioId = {0}, FechaCreacion = '{1}', Asunto = '{2}' where SolicitudId = {3} select @@Identity", this.UsuarioId, this.FechaCreacion, this.Asunto, this.SolicitudId));
+                retorno = Conexion.Ejecutar(string.Format("Update Solicitudes set UsuarioId = {0}, FechaCreacion = '{1}', Asunto = '{2}' where SolicitudId = {3}", this.UsuarioId, this.FechaCreacion, this.Asunto, this.SolicitudId));
 
-                int.TryParse(Identity.ToString(), out retorno);
-
-                this.SolicitudId = retorno;
-
-                Conexion.Ejecutar(string.Format("Delete from SolicitudDetalles where SolicitudId = {0}", Identity));
+                Conexion.Ejecutar(string.Format("Delete from SolicitudDetalles where SolicitudId = {0}", this.SolicitudId));
 
                 foreach (SolicitudDetalles item in this.Detalle)
                 {
-                    Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,FechaFinal,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}',{9},{10},{11},{12},{13}) ", retorno, (int)item.EleccionDestino, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaIncial.ToString(), item.FechaFinal.ToString(), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal));
+                    Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,FechaFinal,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13}) ", SolicitudId, (int)item.EleccionDestino, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaInicial.ToString("yyyy-MM-dd"), item.FechaFinal.ToString("yyyy-MM-dd"), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal));
                 }
+
+                retorno = true;
             }
             catch (Exception)
             {
-                retorno = 0;
+                retorno = false;
             }
 
-            return retorno > 0;
+            return retorno;
         }
 
         public override bool Eliminar()

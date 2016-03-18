@@ -11,6 +11,7 @@ namespace ProyectoAgencia
     public partial class Registrar : System.Web.UI.Page
     {
         Usuarios Usuario = new Usuarios();
+        Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,13 +26,12 @@ namespace ProyectoAgencia
             ApellidoTextBox.Text = "";
             EmailTextBox.Text = "";
             TelefonoTextBox.Text = "";
-            FechaNacimientoTextBox.Text = DateTime.Now.ToString("yyyyMMdd");
+            FechaNacimientoTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
             RequiredFieldValidator1.IsValid = true;
             RequiredFieldValidator2.IsValid = true;
             RequiredFieldValidator3.IsValid = true;
             RequiredFieldValidator4.IsValid = true;
             RequiredFieldValidator5.IsValid = true;
-            RequiredFieldValidator6.IsValid = true;
             RequiredFieldValidator7.IsValid = true;
         }
 
@@ -47,14 +47,7 @@ namespace ProyectoAgencia
                 Usuario.Apellido = ApellidoTextBox.Text;
                 Usuario.Email = EmailTextBox.Text;
                 Usuario.Telefono = TelefonoTextBox.Text;
-                if (FechaNacimientoTextBox.Text.Length > 0)
-                {
-                    Usuario.FechaNacimiento = Convert.ToDateTime(FechaNacimientoTextBox.Text);
-                }
-                else
-                {
-                    retorno = false;
-                }
+                Usuario.FechaNacimiento = Seguro.ValidarDateTime(FechaNacimientoTextBox.Text);
                 Usuario.TipoUsuarioId = 2;
                 retorno = true;
             }

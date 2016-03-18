@@ -40,6 +40,7 @@ namespace ProyectoAgencia.Registros
         public void Limpiar()
         {
             DescripcionTextBox.Text = "";
+            EmailTextBox.Text = "";
             ValidacionLimpiar();
 
         }
@@ -48,9 +49,10 @@ namespace ProyectoAgencia.Registros
         {
             bool retorno = false;
 
-            if (DescripcionTextBox.Text.Length > 0)
+            if (DescripcionTextBox.Text.Length > 0 && EmailTextBox.Text.Length > 0)
             {
                 Compania.Descripcion = DescripcionTextBox.Text;
+                Compania.Email = EmailTextBox.Text;
                 Compania.TipoCompaniaId = Seguro.ValidarEntero(TipoCompaniaDropDownList.SelectedValue);
                 retorno = true;
             }
@@ -147,6 +149,7 @@ namespace ProyectoAgencia.Registros
                 if (Compania.Buscar(Id))
                 {
                     DescripcionTextBox.Text = Compania.Descripcion;
+                    EmailTextBox.Text = Compania.Email;
                     TipoCompaniaDropDownList.SelectedValue = Compania.TipoCompaniaId.ToString();
                 }
                 else

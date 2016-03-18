@@ -29,7 +29,7 @@ namespace BLL
                 //Configuracion del SMTP
                 SmtpServer.Port = 587; //Puerto que utiliza Gmail para sus servicios
                 //Especificamos las credenciales con las que enviaremos el mail
-                SmtpServer.Credentials = new System.Net.NetworkCredential("edwinh2410@gmail.com", "24102410..");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("edwinh2410@gmail.com", "contrasena");
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
                 return true;

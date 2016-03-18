@@ -80,10 +80,8 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <asp:Label ID="Label4" runat="server" Text="Fecha de Nacimiento" Font-Bold="True"></asp:Label>
-                            <asp:TextBox ID="FechaNacimientoTextBox" CssClass="form-control" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
+                            <asp:TextBox ID="FechaNacimientoTextBox" type="date" CssClass="form-control" runat="server"></asp:TextBox>
                             <p class="help-block">
-                             <!--    <asp:requiredfieldvalidator id="RequiredFieldValidator6" forecolor="Red" errormessage="Por Favor Entre su Fecha de Nacimiento" controltovalidate="FechaNacimientoTextBox" runat="server">
-                                 </asp:requiredfieldvalidator> -->
                             </p>
                         </div>
                     </div>

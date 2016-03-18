@@ -21,27 +21,40 @@ namespace ProyectoAgencia.Registros
                 LlenarDropDownList();
                 UsuarioIdLabel.Text = Context.User.Identity.Name;
                 FechaCreacionLabel.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                EliminarButton.Visible = false;
             }
         }
 
         public void LlenarDropDownList()
         {
             TipoSolicitudes TipoSolicitud = new TipoSolicitudes();
+            Companias compania = new Companias();
+            Categorias Categoria = new Categorias();
             Ciudades Ciudad = new Ciudades();
             Usuarios Usuario = new Usuarios();
             Paises Pais = new Paises();
-
-            TipoSolicitudIdDropDownList.DataSource = TipoSolicitud.Listado(" * ", " 1=1 ", "");
+            //Tiposolicitud
+            TipoSolicitudIdDropDownList.DataSource = TipoSolicitud.Listado("*", "1=1", "");
             TipoSolicitudIdDropDownList.DataTextField = "Descripcion";
             TipoSolicitudIdDropDownList.DataValueField = "TipoSolicitudId";
             TipoSolicitudIdDropDownList.DataBind();
+            //compania
+            CompaniaIdDropDownList.DataSource = compania.Listado("*", "TipoCompaniaId = " + TipoSolicitudIdDropDownList.SelectedValue, "");
+            CompaniaIdDropDownList.DataTextField = "Descripcion";
+            CompaniaIdDropDownList.DataValueField = "CompaniaId";
+            CompaniaIdDropDownList.DataBind();
+            //Categoria
+            CategoriaIdDropDownList.DataSource = Categoria.Listado("*", "TipoCategoriaId = " + TipoSolicitudIdDropDownList.SelectedValue, "");
+            CategoriaIdDropDownList.DataTextField = "Descripcion";
+            CategoriaIdDropDownList.DataValueField = "CategoriaId";
+            CategoriaIdDropDownList.DataBind();
             //pais
-            PaisOrigenDropDownList.DataSource = Pais.Listado(" * ", " 1=1 ", "");
+            PaisOrigenDropDownList.DataSource = Pais.Listado("*", "1=1", "");
             PaisOrigenDropDownList.DataTextField = "Descripcion";
             PaisOrigenDropDownList.DataValueField = "PaisId";
             PaisOrigenDropDownList.DataBind();
             //pais
-            PaisDestinoDropDownList.DataSource = Pais.Listado(" * ", " 1=1 ", "");
+            PaisDestinoDropDownList.DataSource = Pais.Listado("*", "1=1", "");
             PaisDestinoDropDownList.DataTextField = "Descripcion";
             PaisDestinoDropDownList.DataValueField = "PaisId";
             PaisDestinoDropDownList.DataBind();
@@ -80,6 +93,8 @@ namespace ProyectoAgencia.Registros
             PrecioInicialTextBox.Text = "";
             PrecioFinalTextBox.Text = "";
             ValidacionLimpiar();
+            DetalleGridView.DataSource = string.Empty;
+            DetalleGridView.DataBind();
 
         }
 
@@ -94,7 +109,7 @@ namespace ProyectoAgencia.Registros
                 Solicitud.UsuarioId = Usuarios.Id;
                 foreach (GridViewRow dr in DetalleGridView.Rows)
                 {
-                    Solicitud.AgregarSolicitud(Seguro.ValidarEntero(dr.Cells[0].ToString()), Seguro.ValidarEntero(dr.Cells[1].ToString()), Seguro.ValidarEntero(dr.Cells[2].ToString()), Seguro.ValidarEntero(dr.Cells[3].ToString()), dr.Cells[4].ToString(), dr.Cells[5].ToString(), Seguro.ValidarDateTime(dr.Cells[6].Text), Seguro.ValidarDateTime(dr.Cells[7].Text), Seguro.ValidarEntero(dr.Cells[8].Text), Seguro.ValidarEntero(dr.Cells[9].ToString()), Seguro.ValidarEntero(dr.Cells[10].ToString()), Seguro.ValidarDouble(dr.Cells[11].Text), Seguro.ValidarDouble(dr.Cells[12].Text));
+                    Solicitud.AgregarSolicitud(Seguro.ValidarEntero(dr.Cells[0].Text), Seguro.ValidarEntero(dr.Cells[1].Text), Seguro.ValidarEntero(dr.Cells[2].Text), Seguro.ValidarEntero(dr.Cells[3].Text), dr.Cells[4].Text, dr.Cells[5].Text, Seguro.ValidarDateTime(dr.Cells[6].Text), Seguro.ValidarDateTime(dr.Cells[7].Text), Seguro.ValidarEntero(dr.Cells[8].Text), Seguro.ValidarEntero(dr.Cells[9].Text), Seguro.ValidarEntero(dr.Cells[10].Text), Seguro.ValidarDouble(dr.Cells[11].Text), Seguro.ValidarDouble(dr.Cells[12].Text));
 
                 }
                 retorno = true;
@@ -193,6 +208,7 @@ namespace ProyectoAgencia.Registros
                 if (Solicitud.Buscar(Id))
                 {
                     AsuntoTextBox.Text = Solicitud.Asunto;
+                    EliminarButton.Visible = true;
                 }
                 else
                 {
@@ -232,7 +248,7 @@ namespace ProyectoAgencia.Registros
 
             SolicitudDetalle = (Solicitudes)Session["SolicitudSession"];
 
-            SolicitudDetalle.AgregarSolicitud(Eleccion, Seguro.ValidarEntero(TipoSolicitudIdDropDownList.SelectedValue), Seguro.ValidarEntero(CompaniaIdDropDownList.SelectedValue), Seguro.ValidarEntero(CategoriaIdDropDownList.SelectedValue), Convert.ToString(OrigenDropDownList.Text), Convert.ToString(DestinoDropDownList.Text), Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text));
+            SolicitudDetalle.AgregarSolicitud(Eleccion, Seguro.ValidarEntero(TipoSolicitudIdDropDownList.SelectedValue), Seguro.ValidarEntero(CompaniaIdDropDownList.SelectedValue), Seguro.ValidarEntero(CategoriaIdDropDownList.SelectedValue), OrigenDropDownList.Text, DestinoDropDownList.Text, Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text));
 
             Session["SolicitudSession"] = SolicitudDetalle;
 
@@ -285,6 +301,22 @@ namespace ProyectoAgencia.Registros
             DestinoDropDownList.DataTextField = "Descripcion";
             DestinoDropDownList.DataValueField = "CiudadId";
             DestinoDropDownList.DataBind();
+        }
+
+        protected void TipoSolicitudIdDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Companias compania = new Companias();
+            Categorias Categoria = new Categorias();
+
+            CompaniaIdDropDownList.DataSource = compania.Listado(" * ", " TipoCompaniaId = " + TipoSolicitudIdDropDownList.SelectedValue, "");
+            CompaniaIdDropDownList.DataTextField = "Descripcion";
+            CompaniaIdDropDownList.DataValueField = "CompaniaId";
+            CompaniaIdDropDownList.DataBind();
+
+            CategoriaIdDropDownList.DataSource = Categoria.Listado(" * ", " TipoCategoriaId = " + TipoSolicitudIdDropDownList.SelectedValue, "");
+            CategoriaIdDropDownList.DataTextField = "Descripcion";
+            CategoriaIdDropDownList.DataValueField = "CategoriaId";
+            CategoriaIdDropDownList.DataBind();
         }
     }
 }

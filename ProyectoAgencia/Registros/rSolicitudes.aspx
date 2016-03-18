@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="rSolicitudes.aspx.cs" Inherits="ProyectoAgencia.Registros.rSolicitudes" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/toastr.min.css" rel="stylesheet" />
-        
+
     <script src=" ../js/jquery-2.2.0.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -12,7 +13,7 @@
 
     <script src="../js/toastr.min.js"></script>
 
-        <!-- Page Content -->
+    <!-- Page Content -->
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
@@ -29,15 +30,15 @@
         </div>
         <!-- /.row -->
         <div class="panel panel-primary">
-        <div class="panel-heading">Registros de Solicitudes</div>
-        <div class="panel-body">
-        <div class="form-horizontal col-md-12" role="form">
-            <div class="form-group">
-                <h3>Ingrese Sus Datos</h3>
-                    <div class="col-md-2">
+            <div class="panel-heading">Registros de Solicitudes</div>
+            <div class="panel-body">
+                <div class="form-horizontal col-md-12" role="form">
+                    <div class="form-group">
+                        <h3>Ingrese Sus Datos</h3>
+                        <div class="col-md-2">
                         </div>
-                    <div class="col-md-8">
-                        <center>
+                        <div class="col-md-8">
+                            <center>
                             <div class="form-inline" role="form">
                                 <div class="control-group form-group">
                                     <div class="controls">
@@ -77,30 +78,30 @@
                         </div>
                         <div class="col-md-6">
                             <div class="control-group form-group">
-                                    <div class="controls">
-                                        <center>
+                                <div class="controls">
+                                    <center>
                                             <asp:Label ID="Label3" runat="server" Text="Asunto" Font-Bold="True"></asp:Label>
                                         </center>
-                                        <asp:TextBox ID="AsuntoTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Asunto"></asp:TextBox>
-                                        <p class="help-block">
-                                             <asp:requiredfieldvalidator id="RequiredFieldValidator1" forecolor="Red" errormessage="Por Favor Entre un Asunto" controltovalidate="AsuntoTextBox" runat="server">
-                                             </asp:requiredfieldvalidator>
-                                        </p>
-                                    </div>
+                                    <asp:TextBox ID="AsuntoTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Asunto"></asp:TextBox>
+                                    <p class="help-block">
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="GuardarButton" ForeColor="Red" ErrorMessage="Por Favor Entre un Asunto" ControlToValidate="AsuntoTextBox" runat="server">
+                                        </asp:RequiredFieldValidator>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <div class="panel panel-success">
-                        <div class="panel-body">
-                        <div class="col-md-12" role="form">
-                        <div class="form-group">
-                        <center>
+                            <div class="panel-body">
+                                <div class="col-md-12" role="form">
+                                    <div class="form-group">
+                                        <center>
                         <div class="col-md-3">
                         </div>
                         <div class="col-md-2">
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <asp:Label For="TipoSolicitudIdDropDownList" ID="Label10" runat="server" Text="Tipo De Solicitud" Font-Bold="True"></asp:Label>
-                                    <asp:DropDownList ID="TipoSolicitudIdDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
+                                    <asp:DropDownList ID="TipoSolicitudIdDropDownList" AutoPostBack="true" CssClass="form-control" runat="server" OnSelectedIndexChanged="TipoSolicitudIdDropDownList_SelectedIndexChanged"></asp:DropDownList>
                                     <p class="help-block">
                                     </p>
                                 </div>
@@ -127,32 +128,32 @@
                             </div>
                         </div>
                         </center>
-                        <div class="form-inline col-md-12" role="form">
-                               <div class="col-md-2">
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="control-group form-group">
-                                        <div class="controls">
-                                            <asp:Label For="PaisOrigenDropDownList" ID="Label11" runat="server" Text="Origen" Font-Bold="True"></asp:Label>
-                                            <asp:DropDownList ID="PaisOrigenDropDownList" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="PaisOrigenDropDownList_SelectedIndexChanged"></asp:DropDownList>
-                                            <asp:DropDownList ID="OrigenDropDownList" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="OrigenDropDownList_SelectedIndexChanged"></asp:DropDownList>
-                                            <p class="help-block">
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="control-group form-group">
-                                        <div class="controls">
-                                            <asp:Label For="PaisDestinoDropDownList" ID="Label12" runat="server" Text="Destino" Font-Bold="True"></asp:Label>
-                                            <asp:DropDownList ID="PaisDestinoDropDownList" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="PaisDestinoDropDownList_SelectedIndexChanged"></asp:DropDownList>
-                                            <asp:DropDownList ID="DestinoDropDownList" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DestinoDropDownList_SelectedIndexChanged"></asp:DropDownList>
-                                            <p class="help-block">
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <center>
+                                        <div class="form-inline col-md-12" role="form">
+                                            <div class="col-md-2">
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="control-group form-group">
+                                                    <div class="controls">
+                                                        <asp:Label For="PaisOrigenDropDownList" ID="Label11" runat="server" Text="Origen" Font-Bold="True"></asp:Label>
+                                                        <asp:DropDownList ID="PaisOrigenDropDownList" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="PaisOrigenDropDownList_SelectedIndexChanged"></asp:DropDownList>
+                                                        <asp:DropDownList ID="OrigenDropDownList" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="OrigenDropDownList_SelectedIndexChanged"></asp:DropDownList>
+                                                        <p class="help-block">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="control-group form-group">
+                                                    <div class="controls">
+                                                        <asp:Label For="PaisDestinoDropDownList" ID="Label12" runat="server" Text="Destino" Font-Bold="True"></asp:Label>
+                                                        <asp:DropDownList ID="PaisDestinoDropDownList" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="PaisDestinoDropDownList_SelectedIndexChanged"></asp:DropDownList>
+                                                        <asp:DropDownList ID="DestinoDropDownList" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DestinoDropDownList_SelectedIndexChanged"></asp:DropDownList>
+                                                        <p class="help-block">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <center>
                                     <div class="col-md-12">
                                         <div class="control-group form-group">
                                             <div class="controls">
@@ -162,152 +163,151 @@
                                         </div>
                                     </div>
                                 </center>
-                                <div class="col-md-12">
+                                            <div class="col-md-12">
+                                            </div>
 
-                                </div>
-                               
-                               <div class="form-inline col-md-12">
-                               <div class="col-md-2">
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="control-group form-group">
-                                        <div class="controls">
-                                            <asp:Label ID="Label1" runat="server" Text="Rango de Fecha" Font-Bold="True"></asp:Label>
-                                            <asp:TextBox ID="FechaInicialTextBox" runat="server" CssClass="form-control" placeholder="Desde"></asp:TextBox>
-                                            <p class="help-block">
-                                                    <asp:requiredfieldvalidator id="RequiredFieldValidator2" forecolor="Red" errormessage="Por Favor Entre su Fecha" controltovalidate="FechaInicialTextBox" runat="server">
-                                                    </asp:requiredfieldvalidator>
-                                            </p>
+                                            <div class="form-inline col-md-12">
+                                                <div class="col-md-2">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="control-group form-group">
+                                                        <div class="controls">
+                                                            <asp:Label ID="Label1" runat="server" Text="Rango de Fecha" Font-Bold="True"></asp:Label>
+                                                            <asp:TextBox ID="FechaInicialTextBox" type="date" runat="server" CssClass="form-control"></asp:TextBox>
+                                                            <p class="help-block">
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="GuardarButton" ForeColor="Red" ErrorMessage="Por Favor Entre su Fecha" ControlToValidate="FechaInicialTextBox" runat="server">
+                                                                </asp:RequiredFieldValidator>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div id="FechaFinal" runat="server" class="control-group form-group">
+                                                        <div class="controls">
+                                                            <asp:Label ID="Label2" runat="server" Text="Rango de Fecha" Font-Bold="True"></asp:Label>
+                                                            <asp:TextBox ID="FechaFinalTextBox" type="date" runat="server" CssClass="form-control"></asp:TextBox>
+                                                            <p class="help-block">
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="GuardarButton" ForeColor="Red" ErrorMessage="Por Favor Entre su Fecha" ControlToValidate="FechaFinalTextBox" runat="server">
+                                                                </asp:RequiredFieldValidator>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-inline col-md-12">
+                                                <div class="col-md-2">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="control-group form-group">
+                                                        <div class="controls">
+                                                            <asp:Label ID="Label13" runat="server" Text="Rango de Precio" Font-Bold="True"></asp:Label>
+                                                            <asp:TextBox ID="PrecioInicialTextBox" runat="server" CssClass="form-control" placeholder="Desde"></asp:TextBox>
+                                                            <p class="help-block">
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="GuardarButton" ForeColor="Red" ErrorMessage="Por Favor Entre su Precio" ControlToValidate="PrecioInicialTextBox" runat="server">
+                                                                </asp:RequiredFieldValidator>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="control-group form-group">
+                                                        <div class="controls">
+                                                            <asp:Label ID="Label14" runat="server" Text="Rango de Precio" Font-Bold="True"></asp:Label>
+                                                            <asp:TextBox ID="PrecioFinalTextBox" runat="server" CssClass="form-control" placeholder="Hasta"></asp:TextBox>
+                                                            <p class="help-block">
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ValidationGroup="GuardarButton" ForeColor="Red" ErrorMessage="Por Favor Entre su Precio" ControlToValidate="PrecioFinalTextBox" runat="server">
+                                                                </asp:RequiredFieldValidator>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="control-group form-group">
+                                                    <div class="controls">
+                                                        <asp:Label ID="Label7" runat="server" Text="Personas" Font-Bold="True"></asp:Label>
+                                                        <asp:DropDownList ID="CantidadPersonaDropDownList" runat="server">
+                                                            <asp:ListItem>1</asp:ListItem>
+                                                            <asp:ListItem>2</asp:ListItem>
+                                                            <asp:ListItem>3</asp:ListItem>
+                                                            <asp:ListItem>4</asp:ListItem>
+                                                            <asp:ListItem>5</asp:ListItem>
+                                                            <asp:ListItem>6</asp:ListItem>
+                                                            <asp:ListItem>7</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                        <p class="help-block">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="control-group form-group">
+                                                    <div class="controls">
+                                                        <asp:Label ID="Label8" runat="server" Text="Niños" Font-Bold="True"></asp:Label>
+                                                        <asp:DropDownList ID="CantidadNinoDropDownList" runat="server">
+                                                            <asp:ListItem>0</asp:ListItem>
+                                                            <asp:ListItem>1</asp:ListItem>
+                                                            <asp:ListItem>2</asp:ListItem>
+                                                            <asp:ListItem>3</asp:ListItem>
+                                                            <asp:ListItem>4</asp:ListItem>
+                                                            <asp:ListItem>5</asp:ListItem>
+                                                            <asp:ListItem>6</asp:ListItem>
+                                                            <asp:ListItem>7</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                        <p class="help-block">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="control-group form-group">
+                                                    <div class="controls">
+                                                        <asp:Label ID="Label9" runat="server" Text="Bebes" Font-Bold="True"></asp:Label>
+                                                        <asp:DropDownList ID="CantidadBebeDropDownList" runat="server">
+                                                            <asp:ListItem>0</asp:ListItem>
+                                                            <asp:ListItem>1</asp:ListItem>
+                                                            <asp:ListItem>2</asp:ListItem>
+                                                            <asp:ListItem>3</asp:ListItem>
+                                                            <asp:ListItem>4</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                        <p class="help-block">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div id="FechaFinal" runat="server" class="control-group form-group">
-                                        <div class="controls">
-                                            <asp:Label ID="Label2" runat="server" Text="Rango de Fecha" Font-Bold="True"></asp:Label>
-                                            <asp:TextBox ID="FechaFinalTextBox" runat="server" CssClass="form-control" placeholder="Hasta"></asp:TextBox>
-                                            <p class="help-block">
-                                                <asp:requiredfieldvalidator id="RequiredFieldValidator3" forecolor="Red" errormessage="Por Favor Entre su Fecha" controltovalidate="FechaFinalTextBox" runat="server">
-                                                    </asp:requiredfieldvalidator>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                               <div class="form-inline col-md-12">
-                               <div class="col-md-2">
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="control-group form-group">
-                                        <div class="controls">
-                                            <asp:Label ID="Label13" runat="server" Text="Rango de Precio" Font-Bold="True"></asp:Label>
-                                            <asp:TextBox ID="PrecioInicialTextBox" runat="server" CssClass="form-control" placeholder="Desde"></asp:TextBox>
-                                            <p class="help-block">
-                                                 <asp:requiredfieldvalidator id="RequiredFieldValidator4" forecolor="Red" errormessage="Por Favor Entre su Precio" controltovalidate="PrecioInicialTextBox" runat="server">
-                                                 </asp:requiredfieldvalidator>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="control-group form-group">
-                                        <div class="controls">
-                                            <asp:Label ID="Label14" runat="server" Text="Rango de Precio" Font-Bold="True"></asp:Label>
-                                            <asp:TextBox ID="PrecioFinalTextBox" runat="server" CssClass="form-control" placeholder="Hasta"></asp:TextBox>
-                                            <p class="help-block">
-                                                <asp:requiredfieldvalidator id="RequiredFieldValidator5" forecolor="Red" errormessage="Por Favor Entre su Precio" controltovalidate="PrecioFinalTextBox" runat="server">
-                                                </asp:requiredfieldvalidator>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                               <div class="col-md-2">
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="control-group form-group">
-                                        <div class="controls">
-                                            <asp:Label ID="Label7" runat="server" Text="Personas" Font-Bold="True"></asp:Label>
-                                            <asp:DropDownList ID="CantidadPersonaDropDownList" runat="server">
-                                                <asp:ListItem>1</asp:ListItem>
-                                                <asp:ListItem>2</asp:ListItem>
-                                                <asp:ListItem>3</asp:ListItem>
-                                                <asp:ListItem>4</asp:ListItem>
-                                                <asp:ListItem>5</asp:ListItem>
-                                                <asp:ListItem>6</asp:ListItem>
-                                                <asp:ListItem>7</asp:ListItem>
-                                            </asp:DropDownList>
-                                            <p class="help-block">
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="control-group form-group">
-                                        <div class="controls">
-                                            <asp:Label ID="Label8" runat="server" Text="Niños" Font-Bold="True"></asp:Label>
-                                            <asp:DropDownList ID="CantidadNinoDropDownList" runat="server">
-                                                <asp:ListItem>0</asp:ListItem>
-                                                <asp:ListItem>1</asp:ListItem>
-                                                <asp:ListItem>2</asp:ListItem>
-                                                <asp:ListItem>3</asp:ListItem>
-                                                <asp:ListItem>4</asp:ListItem>
-                                                <asp:ListItem>5</asp:ListItem>
-                                                <asp:ListItem>6</asp:ListItem>
-                                                <asp:ListItem>7</asp:ListItem>
-                                            </asp:DropDownList>
-                                            <p class="help-block">
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="control-group form-group">
-                                        <div class="controls">
-                                            <asp:Label ID="Label9" runat="server" Text="Bebes" Font-Bold="True"></asp:Label>
-                                            <asp:DropDownList ID="CantidadBebeDropDownList" runat="server">
-                                                <asp:ListItem>0</asp:ListItem>
-                                                <asp:ListItem>1</asp:ListItem>
-                                                <asp:ListItem>2</asp:ListItem>
-                                                <asp:ListItem>3</asp:ListItem>
-                                                <asp:ListItem>4</asp:ListItem>
-                                            </asp:DropDownList>
-                                            <p class="help-block">
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                                <div class="col-md-12">
-                                    <center>
+                                    <div class="col-md-12">
+                                        <center>
                                         <div class="btn-group text-center">
                                             <asp:Button ID="AgregarDetalleButton" CssClass="btn btn-success" runat="server" Text="Agregar Solicitud" OnClick="AgregarDetalleButton_Click" />
                                         </div>
                                     </center>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="control-group form-group">
-                                        <div class="controls">
-                                            <asp:GridView ID="DetalleGridView" Width="100%" runat="server"></asp:GridView>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="control-group form-group">
+                                            <div class="controls">
+                                                <asp:GridView ID="DetalleGridView" Width="100%" runat="server"></asp:GridView>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            </div>
-                            </div>
-                            <div class="col-md-12">
-                                <center>
+                        </div>
+                        <div class="col-md-12">
+                            <center>
                                     <div class="btn-group text-center">
                                         <asp:Button ID="GuardarButton" CssClass="btn btn-success" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
                                         <asp:Button ID="LimpiarButton" CssClass="btn btn-warning" runat="server" Text="Limpiar" OnClick="LimpiarButton_Click" />
                                         <asp:Button ID="EliminarButton" CssClass="btn btn-danger" runat="server" Text="Eliminar" OnClick="EliminarButton_Click" />
                                     </div>
                                 </center>
-                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-      </div>
-        </div>
+    </div>
 </asp:Content>

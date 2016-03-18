@@ -22,10 +22,11 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Companias(Descripcion,Email,TipoCompaniaId) values('{0}','{1}',{2}}) ", this.Descripcion, this.Email, this.TipoCompaniaId));
+                retorno = Conexion.Ejecutar(string.Format("insert into Companias (Descripcion,Email,TipoCompaniaId) values('{0}','{1}',{2}) ", this.Descripcion, this.Email, this.TipoCompaniaId));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                throw ex;
                 retorno = false;
             }
 
@@ -99,7 +100,7 @@ namespace BLL
 
             try
             {
-                return Conexion.ObtenerDatos(string.Format("select " + Campos + " From Companias where " + Condicion + " " + Orden));
+                return Conexion.ObtenerDatos(string.Format(" select " + Campos + " from Companias where " + Condicion + "" + Orden));
             }
             catch (Exception ex)
             {

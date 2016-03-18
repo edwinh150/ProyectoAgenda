@@ -60,7 +60,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Usuarios(NombreUsuario,Contrasena,Nombre,Apellido,Email,Telefono,TipoUsuarioId) values('{0}','{1}','{2}','{3}','{4}','{5}',{6}) ", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.TipoUsuarioId));
+                retorno = Conexion.Ejecutar(string.Format("insert into Usuarios(NombreUsuario,Contrasena,Nombre,Apellido,Email,Telefono, FechaNacimiento,TipoUsuarioId) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7}) ", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento.ToString("yyyy-MM-dd"), this.TipoUsuarioId));
             }
             catch (Exception)
             {
@@ -77,7 +77,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update Usuarios set NombreUsuario = '{0}',Contrasena = '{1}', Nombre = '{2}',Apellido = '{3}', Email = '{4}', Telefono = '{5}', TipoUsuarioId = {6} where UsuarioId = {7}", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.TipoUsuarioId, this.UsuarioId));
+                retorno = Conexion.Ejecutar(string.Format("update Usuarios set NombreUsuario = '{0}',Contrasena = '{1}', Nombre = '{2}',Apellido = '{3}', Email = '{4}', Telefono = '{5}', FechaNacimiento = '{6}' TipoUsuarioId = {7} where UsuarioId = {8}", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.TipoUsuarioId, this.FechaNacimiento.ToString("yyyy-MM-dd"), this.UsuarioId));
             }
             catch (Exception)
             {
@@ -123,7 +123,7 @@ namespace BLL
                     this.Apellido = dt.Rows[0]["Apellido"].ToString();
                     this.Email = dt.Rows[0]["Email"].ToString();
                     this.Telefono = dt.Rows[0]["Telefono"].ToString();
-                    //this.FechaNacimiento = (DateTime)dt.Rows[0]["FechaNacimiento"];
+                    this.FechaNacimiento = (DateTime)dt.Rows[0]["FechaNacimiento"];
                     this.TipoUsuarioId = (int)dt.Rows[0]["TipoUsuarioId"];
                     retorno = true;
                 }

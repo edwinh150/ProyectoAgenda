@@ -47,6 +47,10 @@ Asunto varchar(50)
 
 drop table SolicitudDetalles
 
+select * from Solicitudes;
+
+select * from Usuarios
+
 select * from SolicitudDetalles;
 
 create table SolicitudDetalles(SolicitudDetalleId int identity(1,1) primary key,
@@ -65,6 +69,9 @@ CantidadBebe int,
 PrecioInicial float,
 PrecioFinal float,
 );
+insert into Solicitudes(UsuarioId,Asunto) values(1,'ooos');
+
+insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values(0,22,1,1,1,1,1,1,2,0,200,300);
 
 create table TipoCompanias(TipoCompaniaId int primary key identity(1,1),
 Descripcion varchar(50)
@@ -79,6 +86,8 @@ Descripcion varchar(50),
 Email varchar(30),
 TipoCompaniaId int references TipoCompanias(TipoCompaniaId)
 );
+
+select * from Companias
 
 create table Categorias(CategoriaId int identity(1,1) primary key,
 Descripcion varchar(30),

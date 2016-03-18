@@ -18,6 +18,7 @@ namespace ProyectoAgencia.Registros
             if (!IsPostBack)
             {
                 LlenarDropDownList();
+                EliminarButton.Visible = false;
             }          
         }
 
@@ -37,7 +38,6 @@ namespace ProyectoAgencia.Registros
             RequiredFieldValidator3.IsValid = true;
             RequiredFieldValidator4.IsValid = true;
             RequiredFieldValidator5.IsValid = true;
-            RequiredFieldValidator6.IsValid = true;
             RequiredFieldValidator7.IsValid = true;
         }
 
@@ -50,7 +50,7 @@ namespace ProyectoAgencia.Registros
             ApellidoTextBox.Text = "";
             EmailTextBox.Text = "";
             TelefonoTextBox.Text = "";
-            FechaNacimientoTextBox.Text = DateTime.Now.ToString();
+            FechaNacimientoTextBox.Text = "";
             ValidacionLimpiar();
 
         }
@@ -67,14 +67,7 @@ namespace ProyectoAgencia.Registros
                 Usuario.Apellido = ApellidoTextBox.Text;
                 Usuario.Email = EmailTextBox.Text;
                 Usuario.Telefono = TelefonoTextBox.Text;
-                if (FechaNacimientoTextBox.Text.Length > 0)
-                {
-                    Usuario.FechaNacimiento = Convert.ToDateTime(FechaNacimientoTextBox.Text);
-                }
-                else
-                {
-                    retorno = false;
-                }
+                Usuario.FechaNacimiento = Seguro.ValidarDateTime(FechaNacimientoTextBox.Text);
                 Usuario.TipoUsuarioId = Seguro.ValidarEntero(TipoUsuarioDropDownList.SelectedValue);
                 retorno = true;
             }
@@ -175,8 +168,9 @@ namespace ProyectoAgencia.Registros
                     ApellidoTextBox.Text = Usuario.Apellido;
                     EmailTextBox.Text = Usuario.Email;
                     TelefonoTextBox.Text = Usuario.Telefono;
-                    //FechaNacimientoTextBox.Text = Usuario.FechaNacimiento.ToString();
+                    FechaNacimientoTextBox.Text = Usuario.FechaNacimiento.ToString("yyyy-MM-dd");
                     TipoUsuarioDropDownList.SelectedValue = Usuario.TipoUsuarioId.ToString();
+                    EliminarButton.Visible = true;
                 }
                 else
                 {
