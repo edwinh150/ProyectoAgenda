@@ -52,7 +52,7 @@
                                     <asp:Label ID="Label1" runat="server" Text="Descripcion" Font-Bold="True"></asp:Label>
                                     <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Descripcion"></asp:TextBox>
                                     <p class="help-block">
-                                         <asp:requiredfieldvalidator id="RequiredFieldValidator1" forecolor="Red" errormessage="Por Favor Entre su Descripcion" controltovalidate="DescripcionTextBox" runat="server">
+                                         <asp:requiredfieldvalidator id="RequiredFieldValidator1" ValidationGroup="GuardarButton" forecolor="Red" errormessage="Por Favor Entre su Descripcion" controltovalidate="DescripcionTextBox" runat="server">
                                          </asp:requiredfieldvalidator>
                                     </p>
                                 </div>

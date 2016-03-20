@@ -94,25 +94,16 @@
                                 <a href="/Registros/rTipoSolicitudes.aspx">Tipo de Solicitudes</a>
                             </li>
                             <li>
-                                <a href="/Registros/rHotelResorts.aspx">HotelResort</a>
-                            </li>
-                            <li>
-                                <a href="/Registros/rReservaciones.aspx">Reservaciones</a>
-                            </li>
-                            <li>
-                                <a href="/Registros/rReservacionVuelos.aspx">Reservacion de Vuelos</a>
-                            </li>
-                            <li>
-                                <a href="/Registros/rReservacionCruceros.aspx">Reservacion de Cruceros</a>
-                            </li>
-                            <li>
-                                <a href="/Registros/rReservacionHotelResorts.aspx">Reservacion de HotelResorts</a>
-                            </li>
-                            <li>
                                 <a href="/Registros/rCompanias.aspx">Compañias</a>
                             </li>
                             <li>
                                 <a href="/Registros/rTipoCompanias.aspx">Tipo de Compañias</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rCategorias.aspx">Categorias</a>
+                            </li>
+                            <li>
+                                <a href="/Registros/rTipoCategorias.aspx">Tipo de Categorias</a>
                             </li>
                             <li>
                                 <a href="/Registros/rDestinos.aspx">Destinos</a>
@@ -127,16 +118,16 @@
                                 <a href="/Registros/rCiudades.aspx">Ciudades</a>
                             </li>
                             <li>
-                                <a href="/Registros/rCiudadesHoteles.aspx">Ciudades para HotelesResorts</a>
+                                <a href="/Registros/rReservaciones.aspx">Reservaciones</a>
                             </li>
                             <li>
-                                <a href="/Registros/rCategoriaHabitaciones.aspx">Categoria de Habitacion para Hotel</a>
+                                <a href="/Registros/rReservacionVuelos.aspx">Reservacion de Vuelos</a>
                             </li>
                             <li>
-                                <a href="/Registros/rCategorias.aspx">Categorias</a>
+                                <a href="/Registros/rReservacionCruceros.aspx">Reservacion de Cruceros</a>
                             </li>
                             <li>
-                                <a href="/Registros/rTipoCategorias.aspx">Tipo de Categorias</a>
+                                <a href="/Registros/rReservacionHotelResorts.aspx">Reservacion de HotelResorts</a>
                             </li>
                         </ul>
                     </li>

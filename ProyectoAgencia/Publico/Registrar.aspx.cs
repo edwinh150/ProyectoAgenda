@@ -26,7 +26,7 @@ namespace ProyectoAgencia
             ApellidoTextBox.Text = "";
             EmailTextBox.Text = "";
             TelefonoTextBox.Text = "";
-            FechaNacimientoTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            FechaNacimientoTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy");
             RequiredFieldValidator1.IsValid = true;
             RequiredFieldValidator2.IsValid = true;
             RequiredFieldValidator3.IsValid = true;
@@ -41,14 +41,25 @@ namespace ProyectoAgencia
 
             if (NombreUsuarioTextBox.Text.Length > 0 && ContrasenaTextBox.Text.Length > 0 && NombreTextBox.Text.Length > 0 && ApellidoTextBox.Text.Length > 0 && EmailTextBox.Text.Length > 0 && TelefonoTextBox.Text.Length > 0)
             {
-                Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
-                Usuario.Contrasena = ContrasenaTextBox.Text;
-                Usuario.Nombre = NombreTextBox.Text;
-                Usuario.Apellido = ApellidoTextBox.Text;
-                Usuario.Email = EmailTextBox.Text;
-                Usuario.Telefono = TelefonoTextBox.Text;
-                Usuario.FechaNacimiento = Seguro.ValidarDateTime(FechaNacimientoTextBox.Text);
-                Usuario.TipoUsuarioId = 2;
+                    Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
+
+                if (Usuario.Comprobar())
+                {
+                    Mensajes.ShowToastr(this.Page, "Ya existe ese Usuario Eliga otro", "Atencion", "Error");
+                    NombreUsuarioTextBox.Text = "";
+                }
+                else
+                {
+                    Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
+                    Usuario.Contrasena = ContrasenaTextBox.Text;
+                    Usuario.Nombre = NombreTextBox.Text;
+                    Usuario.Apellido = ApellidoTextBox.Text;
+                    Usuario.Email = EmailTextBox.Text;
+                    Usuario.Telefono = TelefonoTextBox.Text;
+                    Usuario.FechaNacimiento = Seguro.ValidarDateTime(FechaNacimientoTextBox.Text);
+                    Usuario.TipoUsuarioId = 2;
+                }
+
                 retorno = true;
             }
             else

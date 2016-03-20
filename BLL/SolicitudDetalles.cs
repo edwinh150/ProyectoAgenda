@@ -22,6 +22,7 @@ namespace BLL
         public int CantidadBebe { get; set; }
         public double PrecioInicial { get; set; }
         public double PrecioFinal { get; set; }
+        public int EleccionCategoria { get; set; }
 
         public SolicitudDetalles()
         {
@@ -38,9 +39,10 @@ namespace BLL
             this.CantidadBebe = 0;
             this.PrecioInicial = 0;
             this.PrecioFinal = 0;
+            this.EleccionCategoria = 0;
         }
 
-        public SolicitudDetalles(int EleccionDestino, int TipoSolicitudId, int CompaniaId, int CategoriaId, string Origen, string Destino, DateTime FechaInicial, DateTime FechaFinal, int CantidadPersona, int CantidadNino, int CantidadBebe, double PrecioInicial, double PrecioFinal)
+        public SolicitudDetalles(int EleccionDestino, int TipoSolicitudId, int CompaniaId, int CategoriaId, string Origen, string Destino, DateTime FechaInicial, DateTime FechaFinal, int CantidadPersona, int CantidadNino, int CantidadBebe, double PrecioInicial, double PrecioFinal, int EleccionCategoria)
         {
             this.EleccionDestino = EleccionDestino;
             this.TipoSolicitudId = TipoSolicitudId;
@@ -55,6 +57,7 @@ namespace BLL
             this.CantidadBebe = CantidadBebe;
             this.PrecioInicial = PrecioInicial;
             this.PrecioFinal = PrecioFinal;
+            this.EleccionCategoria = EleccionCategoria;
         }
     }
 }

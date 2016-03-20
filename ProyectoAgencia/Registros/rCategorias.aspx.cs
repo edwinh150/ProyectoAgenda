@@ -18,6 +18,7 @@ namespace ProyectoAgencia.Registros
             if (!IsPostBack)
             {
                 LlenarDropDownList();
+                EliminarButton.Visible = false;
             }
         }
 
@@ -39,6 +40,7 @@ namespace ProyectoAgencia.Registros
 
         public void Limpiar()
         {
+            CategoriaIdTextBox.Text = "";
             DescripcionTextBox.Text = "";
             ValidacionLimpiar();
 
@@ -146,6 +148,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (Categoria.Buscar(Id))
                 {
+                    EliminarButton.Visible = true;
                     DescripcionTextBox.Text = Categoria.Descripcion;
                     TipoCategoriaIdDropDownList.SelectedValue = Categoria.TipoCategoriaId.ToString();
                 }

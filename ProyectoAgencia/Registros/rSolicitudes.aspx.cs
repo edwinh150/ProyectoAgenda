@@ -107,10 +107,18 @@ namespace ProyectoAgencia.Registros
                 Solicitud.Asunto = AsuntoTextBox.Text;
                 Solicitud.FechaCreacion = DateTime.Now;
                 Solicitud.UsuarioId = Usuarios.Id;
-                foreach (GridViewRow dr in DetalleGridView.Rows)
-                {
-                    Solicitud.AgregarSolicitud(Seguro.ValidarEntero(dr.Cells[0].Text), Seguro.ValidarEntero(dr.Cells[1].Text), Seguro.ValidarEntero(dr.Cells[2].Text), Seguro.ValidarEntero(dr.Cells[3].Text), dr.Cells[4].Text, dr.Cells[5].Text, Seguro.ValidarDateTime(dr.Cells[6].Text), Seguro.ValidarDateTime(dr.Cells[7].Text), Seguro.ValidarEntero(dr.Cells[8].Text), Seguro.ValidarEntero(dr.Cells[9].Text), Seguro.ValidarEntero(dr.Cells[10].Text), Seguro.ValidarDouble(dr.Cells[11].Text), Seguro.ValidarDouble(dr.Cells[12].Text));
 
+                if (PrecioInicialTextBox.Text.Length > 0 && PrecioFinalTextBox.Text.Length > 0)
+                {
+                    foreach (GridViewRow dr in DetalleGridView.Rows)
+                    {
+                        Solicitud.AgregarSolicitud(Seguro.ValidarEntero(dr.Cells[0].Text), Seguro.ValidarEntero(dr.Cells[1].Text), Seguro.ValidarEntero(dr.Cells[2].Text), Seguro.ValidarEntero(dr.Cells[3].Text), dr.Cells[4].Text, dr.Cells[5].Text, Seguro.ValidarDateTime(dr.Cells[6].Text), Seguro.ValidarDateTime(dr.Cells[7].Text), Seguro.ValidarEntero(dr.Cells[8].Text), Seguro.ValidarEntero(dr.Cells[9].Text), Seguro.ValidarEntero(dr.Cells[10].Text), Seguro.ValidarDouble(dr.Cells[11].Text), Seguro.ValidarDouble(dr.Cells[12].Text), Seguro.ValidarEntero(dr.Cells[13].Text));
+
+                    }
+                }
+                else
+                {
+                    retorno = false;
                 }
                 retorno = true;
             }
@@ -124,6 +132,15 @@ namespace ProyectoAgencia.Registros
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
+            Solicitudes SolicitudDetalle;
+
+            if (Session["SolicitudSession"] == null)
+            {
+                Session["SolicitudSession"] = new Solicitudes();
+            }
+
+            SolicitudDetalle = (Solicitudes)Session["SolicitudSession"];
+
             if (SolicitudIdTextBox.Text.Length > 0)
             {
                 if (LLenarDatos())
@@ -248,7 +265,7 @@ namespace ProyectoAgencia.Registros
 
             SolicitudDetalle = (Solicitudes)Session["SolicitudSession"];
 
-            SolicitudDetalle.AgregarSolicitud(Eleccion, Seguro.ValidarEntero(TipoSolicitudIdDropDownList.SelectedValue), Seguro.ValidarEntero(CompaniaIdDropDownList.SelectedValue), Seguro.ValidarEntero(CategoriaIdDropDownList.SelectedValue), OrigenDropDownList.Text, DestinoDropDownList.Text, Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text));
+            SolicitudDetalle.AgregarSolicitud(Eleccion, Seguro.ValidarEntero(TipoSolicitudIdDropDownList.SelectedValue), Seguro.ValidarEntero(CompaniaIdDropDownList.SelectedValue), Seguro.ValidarEntero(CategoriaIdDropDownList.SelectedValue), OrigenDropDownList.Text, DestinoDropDownList.Text, Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text),Seguro.ValidarEntero(CategoriaRadioButtonList.SelectedValue));
 
             Session["SolicitudSession"] = SolicitudDetalle;
 
@@ -317,6 +334,22 @@ namespace ProyectoAgencia.Registros
             CategoriaIdDropDownList.DataTextField = "Descripcion";
             CategoriaIdDropDownList.DataValueField = "CategoriaId";
             CategoriaIdDropDownList.DataBind();
+
+            if (TipoSolicitudIdDropDownList.SelectedValue == "1")
+            {
+                categoriatext.Text = "Primera Clase";
+            }
+
+            if (TipoSolicitudIdDropDownList.SelectedValue == "2")
+            {
+                categoriatext.Text = "Camarote Suiter";
+            }
+
+            if (TipoSolicitudIdDropDownList.SelectedValue == "3")
+            {
+                categoriatext.Text = "Doble o Tiple Hab..";
+            }
+
         }
     }
 }

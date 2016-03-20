@@ -18,13 +18,13 @@ namespace ProyectoAgencia.Registros
             if (!IsPostBack)
             {
                 LlenarDropDownList();
+                EliminarButton.Visible = false;
             }
         }
 
         public void LlenarDropDownList()
         {
             TipoCompanias TipoCompania = new TipoCompanias();
-
 
             TipoCompaniaDropDownList.DataSource = TipoCompania.Listado(" * ", " 1=1 ", "");
             TipoCompaniaDropDownList.DataTextField = "Descripcion";
@@ -39,10 +39,10 @@ namespace ProyectoAgencia.Registros
 
         public void Limpiar()
         {
+            CompaniaIdTextBox.Text = "";
             DescripcionTextBox.Text = "";
             EmailTextBox.Text = "";
             ValidacionLimpiar();
-
         }
 
         bool LLenarDatos()
@@ -148,6 +148,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (Compania.Buscar(Id))
                 {
+                    EliminarButton.Visible = true;
                     DescripcionTextBox.Text = Compania.Descripcion;
                     EmailTextBox.Text = Compania.Email;
                     TipoCompaniaDropDownList.SelectedValue = Compania.TipoCompaniaId.ToString();

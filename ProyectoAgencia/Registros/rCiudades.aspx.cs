@@ -18,13 +18,13 @@ namespace ProyectoAgencia.Registros
             if (!IsPostBack)
             {
                 LlenarDropDownList();
+                EliminarButton.Visible = false;
             }
         }
 
         public void LlenarDropDownList()
         {
             Paises Pais = new Paises();
-            
 
             PaisDropDownList.DataSource = Pais.Listado(" * ", " 1=1 ", "");
             PaisDropDownList.DataTextField = "Descripcion";
@@ -39,6 +39,7 @@ namespace ProyectoAgencia.Registros
 
         public void Limpiar()
         {
+            CiudadIdTextBox.Text = "";
             DescripcionTextBox.Text = "";
             ValidacionLimpiar();
 
@@ -146,6 +147,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (Ciudad.Buscar(Id))
                 {
+                    EliminarButton.Visible = true;
                     DescripcionTextBox.Text = Ciudad.Descripcion;
                     PaisDropDownList.SelectedValue = Ciudad.PaisId.ToString();
                 }

@@ -53,6 +53,26 @@ namespace BLL
             return retorno;
         }
 
+        public bool Comprobar()
+        {
+            ConexionDB con = new ConexionDB();
+
+            bool retorno = false;
+
+            Id = (int)con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' ", this.NombreUsuario)).Rows[0]["UsuarioId"];
+
+            if (Id > 0)
+            {
+                retorno = true;
+            }
+            else
+            {
+                retorno = false;
+            }
+
+            return retorno;
+        }
+
         public override bool Insertar()
         {
             bool retorno = false;

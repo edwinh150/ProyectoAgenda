@@ -37,7 +37,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update TipoCategorias set Descripcion = '{0}' where CategoriaId = {1}", this.Descripcion, this.TipoCategoriaId));
+                retorno = Conexion.Ejecutar(string.Format("update TipoCategorias set Descripcion = '{0}' where TipoCategoriaId = {1}", this.Descripcion, this.TipoCategoriaId));
             }
             catch (Exception)
             {
@@ -54,7 +54,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("delete from TipoCategorias where CategoriaId = {0}", this.TipoCategoriaId));
+                retorno = Conexion.Ejecutar(string.Format("delete from TipoCategorias where TipoCategoriaId = {0}", this.TipoCategoriaId));
             }
             catch (Exception)
             {
@@ -73,7 +73,7 @@ namespace BLL
 
             try
             {
-                dt = Conexion.ObtenerDatos(string.Format("select * from TipoCategorias where CategoriaId = {0} ", IdBuscado));
+                dt = Conexion.ObtenerDatos(string.Format("select * from TipoCategorias where TipoCategoriaId = {0} ", IdBuscado));
 
                 if (dt.Rows.Count > 0)
                 {

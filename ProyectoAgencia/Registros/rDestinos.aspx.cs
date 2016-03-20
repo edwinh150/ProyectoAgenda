@@ -18,6 +18,7 @@ namespace ProyectoAgencia.Registros
             if (!IsPostBack)
             {
                 LlenarDropDownList();
+                EliminarButton.Visible = false;
             }
         }
 
@@ -44,9 +45,9 @@ namespace ProyectoAgencia.Registros
 
         public void Limpiar()
         {
+            DestinoIdTextBox.Text = "";
             DescripcionTextBox.Text = "";
             ValidacionLimpiar();
-
         }
 
         bool LLenarDatos()
@@ -152,6 +153,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (Destino.Buscar(Id))
                 {
+                    EliminarButton.Visible = true;
                     DescripcionTextBox.Text = Destino.Descripcion;
                     TipoDestinoDropDownList.SelectedValue = Destino.TipoDestinoId.ToString();
                     CiudadDropDownList.SelectedValue = Destino.CiudadId.ToString();

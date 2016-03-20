@@ -60,7 +60,10 @@ CantidadNino int,
 CantidadBebe int,
 PrecioInicial float,
 PrecioFinal float,
+EleccionCategoria bit
 );
+
+drop table SolicitudDetalles
 
 insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values(0,22,1,1,1,1,1,1,2,0,200,300);
 
@@ -78,26 +81,9 @@ Email varchar(30),
 TipoCompaniaId int references TipoCompanias(TipoCompaniaId)
 );
 
-select * from Companias
-
 create table Categorias(CategoriaId int identity(1,1) primary key,
 Descripcion varchar(30),
 TipoCategoriaId int references TipoCategorias(TipoCategoriaId)
-);
-
-create table HotelResorts(HotelResortId int identity(1,1) primary key,
-Nombre varchar(40),
-CiudadesHotelId int references CiudadesHoteles(CiudadesHotelId),
-UsuarioId int references Usuarios(UsuarioId),
-FechaInicial datetime,
-FechaFinal datetime,
-CategoriaHabitacionId int references CategoriaHabitaciones(CategoriaHabitacionId),
-CantidadHabitacion int,
-CantidadPersona int,
-CantidadNino int,
-PrecioInicial float,
-PrecioFinal float,
-EdadesNino varchar(30)
 );
 
 create table Reservaciones(ReservacionId int identity(1,1) primary key,
@@ -134,3 +120,5 @@ Precio float,
 Impuesto float,
 Total float
 )
+
+select * from Usuarios

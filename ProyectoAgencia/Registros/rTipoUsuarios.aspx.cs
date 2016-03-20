@@ -15,7 +15,10 @@ namespace ProyectoAgencia.Registros
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                EliminarButton.Visible = false;
+            }
         }
 
         public void ValidacionLimpiar()
@@ -26,6 +29,7 @@ namespace ProyectoAgencia.Registros
 
         public void Limpiar()
         {
+            TipoUsuarioIdTextBox.Text = "";
             DescripcionTextBox.Text = "";
             ValidacionLimpiar();
 
@@ -132,6 +136,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (TipoUsuario.Buscar(Id))
                 {
+                    EliminarButton.Visible = true;
                     DescripcionTextBox.Text = TipoUsuario.Descripcion;
                 }
                 else

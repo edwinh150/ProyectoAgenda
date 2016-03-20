@@ -1,6 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="rSolicitudes.aspx.cs" Inherits="ProyectoAgencia.Registros.rSolicitudes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style2 {
+            position: relative;
+            display: inline-block;
+            font-weight: 400;
+            vertical-align: middle;
+            cursor: pointer;
+            left: -38px;
+            top: 16px;
+            width: 187px;
+            height: 9px;
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
@@ -124,6 +139,17 @@
                                     <asp:DropDownList ID="CategoriaIdDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
                                     <p class="help-block">
                                     </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <asp:Label ID="Label18" runat="server" Text="Categoria: " Font-Bold="True"></asp:Label>
+                                    <asp:RadioButtonList ID="CategoriaRadioButtonList" runat="server" CellSpacing="10" RepeatDirection="Horizontal" CellPadding="2" TextAlign="Left">
+                                        <asp:ListItem Selected="True">Normal</asp:ListItem>
+                                        <asp:ListItem id="categoriatext" runat="server" Text="Primera Clase"></asp:ListItem>
+                                    </asp:RadioButtonList>
                                 </div>
                             </div>
                         </div>
