@@ -45,14 +45,6 @@ FechaCreacion datetime,
 Asunto varchar(50)
 );
 
-drop table SolicitudDetalles
-
-select * from Solicitudes;
-
-select * from Usuarios
-
-select * from SolicitudDetalles;
-
 create table SolicitudDetalles(SolicitudDetalleId int identity(1,1) primary key,
 EleccionDestino bit,
 SolicitudId int references Solicitudes(SolicitudId),
@@ -69,7 +61,6 @@ CantidadBebe int,
 PrecioInicial float,
 PrecioFinal float,
 );
-insert into Solicitudes(UsuarioId,Asunto) values(1,'ooos');
 
 insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values(0,22,1,1,1,1,1,1,2,0,200,300);
 
@@ -92,10 +83,6 @@ select * from Companias
 create table Categorias(CategoriaId int identity(1,1) primary key,
 Descripcion varchar(30),
 TipoCategoriaId int references TipoCategorias(TipoCategoriaId)
-);
-
-create table CategoriaHabitaciones(CategoriaHabitacionId int identity(1,1) primary key,
-Descripcion varchar(30)
 );
 
 create table HotelResorts(HotelResortId int identity(1,1) primary key,
@@ -147,5 +134,3 @@ Precio float,
 Impuesto float,
 Total float
 )
-
-select * from Usuarios

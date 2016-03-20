@@ -85,7 +85,7 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <asp:Label ID="Label4" runat="server" Text="Mensaje"></asp:Label>
-                            <textarea rows="10" cols="100" class="form-control" id="message" placeholder="Escriba un Mensaje" maxlength="999" style="resize:none"></textarea>
+                            <asp:TextBox ID="MensajeTextBox" CssClass="form-control" TextMode="MultiLine" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div id="success"></div>

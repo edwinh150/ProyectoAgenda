@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BLL;
 
 namespace ProyectoAgencia
 {
@@ -17,6 +18,13 @@ namespace ProyectoAgencia
         protected void MensajeButton_Click(object sender, EventArgs e)
         {
 
+            if (true)
+            {
+                if (EnvioCorreo.EnviarCorreo("Usuario", NombreTextBox.Text + TelefonoTextBox.Text, EmailTextBox.Text, NombreTextBox.Text, "", MensajeTextBox.Text))
+                {
+                    Mensajes.ShowToastr(this.Page, "Se Envio su Mensaje", "Felicidades", "Success");
+                }
+            }
         }
     }
 }

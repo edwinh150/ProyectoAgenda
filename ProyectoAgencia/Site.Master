@@ -73,10 +73,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/Servicios.aspx">Servicios</a>
+                        <a href="/Publico/Servicios.aspx">Servicios</a>
                     </li>
                     <li>
-                        <a href="/Contact.aspx">Contactos</a>
+                        <a href="/Publico/Contact.aspx">Contactos</a>
                     </li>
                     <li class="dropdown" id="RegistroLi" runat="server">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registros <b class="caret"></b></a>
@@ -197,7 +197,7 @@
                         </ul>
                     </li>
                     <li id="RegistrarseLi" runat="server">
-                        <a href="/Registrar.aspx">
+                        <a href="/Publico/Registrar.aspx">
                             <i class="fa fa-users"></i>
                             <asp:Label ID="RegistrarLabel" runat="server" Text="Registrarte"></asp:Label>
                         </a>
@@ -222,7 +222,7 @@
                                 <a href="faq.html">FAQ</a>
                             </li>
                             <li>
-                                <a href="404.html">404</a>
+                                <a href="404.html">Configuracion</a>
                             </li>
                             <li>
                                 <asp:LinkButton ID="CerrarLinkButton" runat="server" OnClick="CerrarLinkButton_Click">Cerrar Session</asp:LinkButton>
