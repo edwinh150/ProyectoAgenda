@@ -149,7 +149,7 @@
                                             <div class="col-md-5">
                                                 <div class="control-group form-group">
                                                     <div class="controls">
-                                                        <asp:Label For="PaisOrigenDropDownList" ID="Label11" runat="server" Text="Origen" Font-Bold="True"></asp:Label>
+                                                        <asp:Label For="PaisOrigenDropDownList" ID="OrigenLabel" runat="server" Text="Origen" Font-Bold="True"></asp:Label>
                                                         <asp:DropDownList ID="PaisOrigenDropDownList" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="PaisOrigenDropDownList_SelectedIndexChanged"></asp:DropDownList>
                                                         <asp:DropDownList ID="OrigenDropDownList" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="OrigenDropDownList_SelectedIndexChanged"></asp:DropDownList>
                                                         <p class="help-block">
@@ -160,7 +160,7 @@
                                             <div class="col-md-5">
                                                 <div class="control-group form-group">
                                                     <div class="controls">
-                                                        <asp:Label For="PaisDestinoDropDownList" ID="Label12" runat="server" Text="Destino" Font-Bold="True"></asp:Label>
+                                                        <asp:Label For="PaisDestinoDropDownList" ID="DestinoLabel" runat="server" Text="Destino" Font-Bold="True"></asp:Label>
                                                         <asp:DropDownList ID="PaisDestinoDropDownList" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="PaisDestinoDropDownList_SelectedIndexChanged"></asp:DropDownList>
                                                         <asp:DropDownList ID="DestinoDropDownList" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DestinoDropDownList_SelectedIndexChanged"></asp:DropDownList>
                                                         <p class="help-block">
@@ -172,7 +172,7 @@
                                     <div class="col-md-12">
                                         <div class="control-group form-group">
                                             <div class="controls">
-                                                <asp:Label ID="Label15" runat="server" Text="Destino: " Font-Bold="True"></asp:Label>
+                                                <asp:Label ID="EstadoLabel" runat="server" Text="Destino: " Font-Bold="True"></asp:Label>
                                                 <asp:CheckBox ID="EstadoCheckBox" runat="server" Text=" Solo Ida" AutoPostBack="true" OnCheckedChanged="EstadoCheckBox_CheckedChanged"></asp:CheckBox>
                                             </div>
                                         </div>
@@ -187,7 +187,7 @@
                                                 <div class="col-md-4">
                                                     <div class="control-group form-group">
                                                         <div class="controls">
-                                                            <asp:Label ID="Label1" runat="server" Text="Rango de Fecha" Font-Bold="True"></asp:Label>
+                                                            <asp:Label ID="FechaInicialLabel" runat="server" Text="Fecha de Salida" Font-Bold="True"></asp:Label>
                                                             <asp:TextBox ID="FechaInicialTextBox" type="date" runat="server" CssClass="form-control"></asp:TextBox>
                                                             <p class="help-block">
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="GuardarButton" ForeColor="Red" ErrorMessage="Por Favor Entre su Fecha" ControlToValidate="FechaInicialTextBox" runat="server">
@@ -199,7 +199,7 @@
                                                 <div class="col-md-4">
                                                     <div id="FechaFinal" runat="server" class="control-group form-group">
                                                         <div class="controls">
-                                                            <asp:Label ID="Label2" runat="server" Text="Rango de Fecha" Font-Bold="True"></asp:Label>
+                                                            <asp:Label ID="FechaFinalLabel" runat="server" Text="Fecha de Regreso" Font-Bold="True"></asp:Label>
                                                             <asp:TextBox ID="FechaFinalTextBox" type="date" runat="server" CssClass="form-control"></asp:TextBox>
                                                             <p class="help-block">
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="GuardarButton" ForeColor="Red" ErrorMessage="Por Favor Entre su Fecha" ControlToValidate="FechaFinalTextBox" runat="server">

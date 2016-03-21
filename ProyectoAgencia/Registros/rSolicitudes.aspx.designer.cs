@@ -202,13 +202,13 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.ListItem categoriatext;
         
         /// <summary>
-        /// Label11 control.
+        /// OrigenLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label11;
+        protected global::System.Web.UI.WebControls.Label OrigenLabel;
         
         /// <summary>
         /// PaisOrigenDropDownList control.
@@ -229,13 +229,13 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.DropDownList OrigenDropDownList;
         
         /// <summary>
-        /// Label12 control.
+        /// DestinoLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label12;
+        protected global::System.Web.UI.WebControls.Label DestinoLabel;
         
         /// <summary>
         /// PaisDestinoDropDownList control.
@@ -256,13 +256,13 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.DropDownList DestinoDropDownList;
         
         /// <summary>
-        /// Label15 control.
+        /// EstadoLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label15;
+        protected global::System.Web.UI.WebControls.Label EstadoLabel;
         
         /// <summary>
         /// EstadoCheckBox control.
@@ -274,13 +274,13 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.CheckBox EstadoCheckBox;
         
         /// <summary>
-        /// Label1 control.
+        /// FechaInicialLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label FechaInicialLabel;
         
         /// <summary>
         /// FechaInicialTextBox control.
@@ -310,13 +310,13 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl FechaFinal;
         
         /// <summary>
-        /// Label2 control.
+        /// FechaFinalLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label FechaFinalLabel;
         
         /// <summary>
         /// FechaFinalTextBox control.

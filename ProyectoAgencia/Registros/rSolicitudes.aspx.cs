@@ -19,8 +19,15 @@ namespace ProyectoAgencia.Registros
         {
             if (!IsPostBack)
             {
+                Usuarios Usuario = new Usuarios();
+
                 LlenarDropDownList();
                 UsuarioIdLabel.Text = Context.User.Identity.Name;
+                if (Usuarios.Id == 0)
+                {
+                    Usuario.NombreUsuario = UsuarioIdLabel.Text;
+                    Usuario.Comprobar();
+                }
                 FechaCreacionLabel.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 EliminarButton.Visible = false;
             }
@@ -32,7 +39,6 @@ namespace ProyectoAgencia.Registros
             Companias compania = new Companias();
             Categorias Categoria = new Categorias();
             Ciudades Ciudad = new Ciudades();
-            Usuarios Usuario = new Usuarios();
             Paises Pais = new Paises();
             //Tiposolicitud
             TipoSolicitudIdDropDownList.DataSource = TipoSolicitud.Listado("*", "1=1", "");
@@ -288,29 +294,35 @@ namespace ProyectoAgencia.Registros
         protected void AgregarDetalleButton_Click(object sender, EventArgs e)
         {
             Solicitudes SolicitudDetalle;
-
-            if (EstadoCheckBox.Checked == true)
+            if (FechaInicialTextBox.Text.Length > 0 && FechaFinalTextBox.Text.Length > 0 && PrecioInicialTextBox.Text.Length > 0 && PrecioFinalTextBox.Text.Length > 0)
             {
-                Eleccion = 1; // ida
+                if (EstadoCheckBox.Checked == true)
+                {
+                    Eleccion = 1; // ida
+                }
+                else
+                {
+                    Eleccion = 0; // ida/vuelta
+                }
+
+                if (Session["SolicitudSession"] == null)
+                {
+                    Session["SolicitudSession"] = new Solicitudes();
+                }
+
+                SolicitudDetalle = (Solicitudes)Session["SolicitudSession"];
+
+                SolicitudDetalle.AgregarSolicitud(Eleccion, Seguro.ValidarEntero(TipoSolicitudIdDropDownList.SelectedValue), Seguro.ValidarEntero(CompaniaIdDropDownList.SelectedValue), Seguro.ValidarEntero(CategoriaIdDropDownList.SelectedValue), OrigenDropDownList.Text, DestinoDropDownList.Text, Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text), Seguro.ValidarEntero(CategoriaRadioButtonList.SelectedIndex.ToString()));
+
+                Session["SolicitudSession"] = SolicitudDetalle;
+
+                DetalleGridView.DataSource = SolicitudDetalle.Detalle;
+                DetalleGridView.DataBind();
             }
             else
             {
-                Eleccion = 0; // ida/vuelta
+                Mensajes.ShowToastr(this.Page, "Faltan Datos en el Detalle", "Error", "Error");
             }
-
-            if (Session["SolicitudSession"] == null)
-            {
-                Session["SolicitudSession"] = new Solicitudes();
-            }
-
-            SolicitudDetalle = (Solicitudes)Session["SolicitudSession"];
-
-            SolicitudDetalle.AgregarSolicitud(Eleccion, Seguro.ValidarEntero(TipoSolicitudIdDropDownList.SelectedValue), Seguro.ValidarEntero(CompaniaIdDropDownList.SelectedValue), Seguro.ValidarEntero(CategoriaIdDropDownList.SelectedValue), OrigenDropDownList.Text, DestinoDropDownList.Text, Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text),Seguro.ValidarEntero(CategoriaRadioButtonList.SelectedIndex.ToString()));
-
-            Session["SolicitudSession"] = SolicitudDetalle;
-
-            DetalleGridView.DataSource = SolicitudDetalle.Detalle;
-            DetalleGridView.DataBind();
         }
 
         protected void OrigenDropDownList_SelectedIndexChanged(object sender, EventArgs e)
@@ -378,16 +390,25 @@ namespace ProyectoAgencia.Registros
             if (TipoSolicitudIdDropDownList.SelectedValue == "1")
             {
                 categoriatext.Text = "Primera Clase";
+                OrigenLabel.Visible = true;
+                PaisOrigenDropDownList.Visible = true;
+                OrigenDropDownList.Visible = true;
             }
 
             if (TipoSolicitudIdDropDownList.SelectedValue == "2")
             {
                 categoriatext.Text = "Camarote Suiter";
+                OrigenLabel.Visible = true;
+                PaisOrigenDropDownList.Visible = true;
+                OrigenDropDownList.Visible = true;
             }
 
             if (TipoSolicitudIdDropDownList.SelectedValue == "3")
             {
                 categoriatext.Text = "Doble o Tiple Hab..";
+                OrigenLabel.Visible = false;
+                PaisOrigenDropDownList.Visible = false;
+                OrigenDropDownList.Visible = false;
             }
 
         }
