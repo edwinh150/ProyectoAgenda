@@ -6,6 +6,8 @@ create table TipoUsuarios(TipoUsuarioId int identity(1,1) primary key,
 Descripcion varchar(50)
 );
 
+select * from SolicitudDetalles
+
 create table Usuarios(UsuarioId int identity(1,1) primary key,
 NombreUsuario varchar(50),
 Contrasena varchar(50),
