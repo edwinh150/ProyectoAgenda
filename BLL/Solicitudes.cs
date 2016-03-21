@@ -108,6 +108,7 @@ namespace BLL
             DataTable dt = new DataTable();
             DataTable Detalledt = new DataTable();
             ConexionDB Conexion = new ConexionDB();
+            Seguridad Seguro = new Seguridad();
 
             try
             {
@@ -128,7 +129,7 @@ namespace BLL
                 {
                     foreach (DataRow Dr in Detalledt.Rows)
                     {
-                        AgregarSolicitud((int)Dr["EleccionDestino"], (int)Dr["TipoSolicitudId"], (int)Dr["CompaniaId"], (int)Dr["CategoriaId"], (string)Dr["Origen"], (string)Dr["Destino"], (DateTime)Dr["FechaIncial"], (DateTime)Dr["FechaFinal"], (int)Dr["CantidadPersona"], (int)Dr["CantidadNino"], (int)Dr["CantidadBebe"], (double)Dr["PrecioInicial"], (double)Dr["PrecioFinal"], (int)Dr["EleccionCategoria"]);
+                        AgregarSolicitud(Seguro.ValidarBit(Dr["EleccionDestino"].ToString()), Seguro.ValidarEntero(Dr["TipoSolicitudId"].ToString()), Seguro.ValidarEntero(Dr["CompaniaId"].ToString()), Seguro.ValidarEntero(Dr["CategoriaId"].ToString()), Dr["Origen"].ToString(), Dr["Destino"].ToString(), Seguro.ValidarDateTime(Dr["FechaInicial"].ToString()), Seguro.ValidarDateTime(Dr["FechaFinal"].ToString()), Seguro.ValidarEntero(Dr["CantidadPersona"].ToString()), Seguro.ValidarEntero(Dr["CantidadNino"].ToString()), Seguro.ValidarEntero(Dr["CantidadBebe"].ToString()), Seguro.ValidarDouble(Dr["PrecioInicial"].ToString()), Seguro.ValidarDouble(Dr["PrecioFinal"].ToString()), Seguro.ValidarBit(Dr["EleccionCategoria"].ToString()));
                     }
                     retorno = true;
                 }

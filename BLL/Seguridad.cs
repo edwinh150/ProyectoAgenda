@@ -45,5 +45,20 @@ namespace BLL
 
             return fecha;
         }
+
+        public int ValidarBit(string Convertir)
+        {
+            int bit = 0;
+
+            if (Convertir.Length > 0)
+            {
+                if (Convertir == "true")
+                {
+                    bit = 1;
+                }
+            }
+
+            return bit;
+        }
     }
 }
