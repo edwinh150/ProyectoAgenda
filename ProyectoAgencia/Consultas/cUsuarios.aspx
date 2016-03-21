@@ -39,12 +39,12 @@
                     <div class="form-group">
                         <asp:Label For="CodigoTextBox" ID="Label1" class="col-md-3 control-label input-sm" runat="server" Text=" Consultar por"></asp:Label>
                         <div class="col-lg-2 col-md-2">
-                             <asp:DropDownList ID="IngresoDropDownList" CssClass="form-control" runat="server" Height="38px">
-                                 <asp:ListItem Value="UsuarioId">UsuarioId</asp:ListItem>
-                                 <asp:ListItem Value="NombreUsuario">NombreUsuario</asp:ListItem>
+                             <asp:DropDownList ID="UsuarioDropDownList" CssClass="form-control" runat="server" Height="38px">
+                                 <asp:ListItem Value="UsuarioId">Id de Usuario</asp:ListItem>
+                                 <asp:ListItem Value="NombreUsuario">Nombre de Usuario</asp:ListItem>
                                  <asp:ListItem Value="Nombre">Nombre</asp:ListItem>
-                                 <asp:ListItem Value="FechaNacimiento">FechaNacimiento</asp:ListItem>
-                                 <asp:ListItem Value="TipoUsuarioId">TipoUsuarioId</asp:ListItem>
+                                 <asp:ListItem Value="FechaNacimiento">Fecha de Nacimiento</asp:ListItem>
+                                 <asp:ListItem Value="TipoUsuarioId">Id de Tipo de Usuario</asp:ListItem>
                              </asp:DropDownList>
                         </div>
                         <div class="col-lg-4 col-md-4">
@@ -58,7 +58,7 @@
                     </div>
                     <%--Grid--%>
                     <div class="table table-responsive col-md-12">
-                        <asp:GridView ID="ConsultaGridView" runat="server" class="table-bordered table-hover">                         
+                        <asp:GridView ID="ConsultaGridView" runat="server" Width="100%" CssClass="table table-bordered table-hover table-striped">                         
                         </asp:GridView>
                     </div>
             </div>

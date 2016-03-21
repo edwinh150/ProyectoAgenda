@@ -19,21 +19,21 @@
                 <div class="fill" style="background-image:url('/Contenido/aviones.jpg');"></div>
                 <div class="carousel-caption">
                     <h2>Vuelos</h2>
-                    <asp:Button ID="VueloButton" CssClass="btn btn-toolbar" ForeColor="Black" runat="server" Text="Reservar" OnClick="VueloButton_Click" />
+                    <asp:Button ID="VueloButton" CssClass="btn btn-toolbar" ForeColor="Black" runat="server" Text="Solicitar" OnClick="VueloButton_Click" />
                 </div>
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('/Contenido/Crucero.jpg');"></div>
                 <div class="carousel-caption">
                     <h2>Cruceros</h2>
-                     <asp:Button ID="CruceroButton" CssClass="btn btn-toolbar" ForeColor="Black" runat="server" Text="Reservar" OnClick="CruceroButton_Click" />
+                     <asp:Button ID="CruceroButton" CssClass="btn btn-toolbar" ForeColor="Black" runat="server" Text="Solicitar" OnClick="CruceroButton_Click" />
                 </div>
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('/Contenido/luxury-hotel.jpg');"></div>
                 <div class="carousel-caption">
                     <h2>Hoteles y Resorts</h2>
-                     <asp:Button ID="HotelResortButton" CssClass="btn btn-toolbar" ForeColor="Black" runat="server" Text="Reservar" OnClick="HotelResortButton_Click" />
+                     <asp:Button ID="HotelResortButton" CssClass="btn btn-toolbar" ForeColor="Black" runat="server" Text="Solicitar" OnClick="HotelResortButton_Click" />
                 </div>
             </div>
         </div>

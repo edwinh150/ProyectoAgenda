@@ -60,26 +60,25 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Publico\AjaxEjemplo.aspx" />
-    <Content Include="bin\ProyectoAgencia.dll" />
-    <Content Include="bin\ProyectoAgencia.pdb" />
-    <Content Include="Consultas\cCategoriaCruceros.aspx" />
-    <Content Include="Consultas\cCategoriaHabitaciones.aspx" />
+    <Content Include="Consultas\cCategorias.aspx" />
     <Content Include="Consultas\cCiudades.aspx" />
-    <Content Include="Consultas\cCiudadesHoteles.aspx" />
-    <Content Include="Consultas\cCompaniaCruceros.aspx" />
-    <Content Include="Consultas\cCruceros.aspx" />
+    <Content Include="Consultas\cCompanias.aspx" />
     <Content Include="Consultas\cDestinos.aspx" />
-    <Content Include="Consultas\cCompaniaAerolineas.aspx" />
-    <Content Include="Consultas\cHotelResorts.aspx" />
     <Content Include="Consultas\cPaises.aspx" />
     <Content Include="Consultas\cReservacionCruceros.aspx" />
     <Content Include="Consultas\cReservaciones.aspx" />
     <Content Include="Consultas\cReservacionHotelResorts.aspx" />
     <Content Include="Consultas\cReservacionVuelos.aspx" />
+    <Content Include="Consultas\cSolicitudes.aspx" />
+    <Content Include="Consultas\cTipoCategorias.aspx" />
+    <Content Include="Consultas\cTipoCompanias.aspx" />
+    <Content Include="Consultas\cTipoDestinos.aspx" />
+    <Content Include="Consultas\cTipoSolicitudes.aspx" />
     <Content Include="Consultas\cTipoUsuarios.aspx" />
     <Content Include="Consultas\cUsuarios.aspx" />
-    <Content Include="Consultas\cVuelos.aspx" />
+    <Content Include="Publico\AjaxEjemplo.aspx" />
+    <Content Include="bin\ProyectoAgencia.dll" />
+    <Content Include="bin\ProyectoAgencia.pdb" />
     <Content Include="Publico\Contact.aspx" />
     <Content Include="Contenido\aviones.jpg" />
     <Content Include="Contenido\Crucero.jpg" />
@@ -129,26 +128,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Publico\AjaxEjemplo.aspx.cs">
-      <DependentUpon>AjaxEjemplo.aspx</DependentUpon>
+    <Compile Include="Consultas\cCategorias.aspx.cs">
+      <DependentUpon>cCategorias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Publico\AjaxEjemplo.aspx.designer.cs">
-      <DependentUpon>AjaxEjemplo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Consultas\cCategoriaCruceros.aspx.cs">
-      <DependentUpon>cCategoriaCruceros.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Consultas\cCategoriaCruceros.aspx.designer.cs">
-      <DependentUpon>cCategoriaCruceros.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Consultas\cCategoriaHabitaciones.aspx.cs">
-      <DependentUpon>cCategoriaHabitaciones.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Consultas\cCategoriaHabitaciones.aspx.designer.cs">
-      <DependentUpon>cCategoriaHabitaciones.aspx</DependentUpon>
+    <Compile Include="Consultas\cCategorias.aspx.designer.cs">
+      <DependentUpon>cCategorias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas\cCiudades.aspx.cs">
       <DependentUpon>cCiudades.aspx</DependentUpon>
@@ -157,26 +142,12 @@
     <Compile Include="Consultas\cCiudades.aspx.designer.cs">
       <DependentUpon>cCiudades.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\cCiudadesHoteles.aspx.cs">
-      <DependentUpon>cCiudadesHoteles.aspx</DependentUpon>
+    <Compile Include="Consultas\cCompanias.aspx.cs">
+      <DependentUpon>cCompanias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Consultas\cCiudadesHoteles.aspx.designer.cs">
-      <DependentUpon>cCiudadesHoteles.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Consultas\cCompaniaCruceros.aspx.cs">
-      <DependentUpon>cCompaniaCruceros.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Consultas\cCompaniaCruceros.aspx.designer.cs">
-      <DependentUpon>cCompaniaCruceros.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Consultas\cCruceros.aspx.cs">
-      <DependentUpon>cCruceros.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Consultas\cCruceros.aspx.designer.cs">
-      <DependentUpon>cCruceros.aspx</DependentUpon>
+    <Compile Include="Consultas\cCompanias.aspx.designer.cs">
+      <DependentUpon>cCompanias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas\cDestinos.aspx.cs">
       <DependentUpon>cDestinos.aspx</DependentUpon>
@@ -184,20 +155,6 @@
     </Compile>
     <Compile Include="Consultas\cDestinos.aspx.designer.cs">
       <DependentUpon>cDestinos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Consultas\cCompaniaAerolineas.aspx.cs">
-      <DependentUpon>cCompaniaAerolineas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Consultas\cCompaniaAerolineas.aspx.designer.cs">
-      <DependentUpon>cCompaniaAerolineas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Consultas\cHotelResorts.aspx.cs">
-      <DependentUpon>cHotelResorts.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Consultas\cHotelResorts.aspx.designer.cs">
-      <DependentUpon>cHotelResorts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas\cPaises.aspx.cs">
       <DependentUpon>cPaises.aspx</DependentUpon>
@@ -234,6 +191,41 @@
     <Compile Include="Consultas\cReservacionVuelos.aspx.designer.cs">
       <DependentUpon>cReservacionVuelos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\cSolicitudes.aspx.cs">
+      <DependentUpon>cSolicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cSolicitudes.aspx.designer.cs">
+      <DependentUpon>cSolicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cTipoCategorias.aspx.cs">
+      <DependentUpon>cTipoCategorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cTipoCategorias.aspx.designer.cs">
+      <DependentUpon>cTipoCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cTipoCompanias.aspx.cs">
+      <DependentUpon>cTipoCompanias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cTipoCompanias.aspx.designer.cs">
+      <DependentUpon>cTipoCompanias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cTipoDestinos.aspx.cs">
+      <DependentUpon>cTipoDestinos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cTipoDestinos.aspx.designer.cs">
+      <DependentUpon>cTipoDestinos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cTipoSolicitudes.aspx.cs">
+      <DependentUpon>cTipoSolicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cTipoSolicitudes.aspx.designer.cs">
+      <DependentUpon>cTipoSolicitudes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\cTipoUsuarios.aspx.cs">
       <DependentUpon>cTipoUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -248,12 +240,12 @@
     <Compile Include="Consultas\cUsuarios.aspx.designer.cs">
       <DependentUpon>cUsuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\cVuelos.aspx.cs">
-      <DependentUpon>cVuelos.aspx</DependentUpon>
+    <Compile Include="Publico\AjaxEjemplo.aspx.cs">
+      <DependentUpon>AjaxEjemplo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Consultas\cVuelos.aspx.designer.cs">
-      <DependentUpon>cVuelos.aspx</DependentUpon>
+    <Compile Include="Publico\AjaxEjemplo.aspx.designer.cs">
+      <DependentUpon>AjaxEjemplo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Publico\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

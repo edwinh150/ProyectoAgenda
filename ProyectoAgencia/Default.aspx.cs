@@ -17,17 +17,17 @@ namespace ProyectoAgencia
 
         protected void CruceroButton_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("/Registros/rSolicitudes.aspx");
         }
 
         protected void VueloButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/PeticionVuelos.aspx");
+            Response.Redirect("/Registros/rSolicitudes.aspx");
         }
 
         protected void HotelResortButton_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("/Registros/rSolicitudes.aspx");
         }
     }
 }

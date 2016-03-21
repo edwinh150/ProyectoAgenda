@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace ProyectoAgencia.Consultas
 {
-    public partial class cTipoUsuarios : System.Web.UI.Page
+    public partial class cTipoCategorias : System.Web.UI.Page
     {
         Seguridad Seguro = new Seguridad();
 
@@ -30,9 +30,9 @@ namespace ProyectoAgencia.Consultas
 
         void LlenarGrid(string Condicion)
         {
-            TipoUsuarios TipoUsuario = new TipoUsuarios();
+            TipoCategorias TipoCategoria = new TipoCategorias();
 
-            ConsultaGridView.DataSource = TipoUsuario.Listado(" * ", Condicion, "");
+            ConsultaGridView.DataSource = TipoCategoria.Listado(" * ", Condicion, "");
             ConsultaGridView.DataBind();
         }
 
@@ -42,7 +42,7 @@ namespace ProyectoAgencia.Consultas
 
             if (CodigoTextBox.Text.Length > 0)
             {
-                if (TipoUsuarioDropDownList.SelectedIndex == 0)
+                if (TipoCategoriaDropDownList.SelectedIndex == 0)
                 {
                     if (Seguro.ValidarEntero(CodigoTextBox.Text) == 0)
                     {
@@ -50,14 +50,14 @@ namespace ProyectoAgencia.Consultas
                     }
                     else
                     {
-                        Condiciones = TipoUsuarioDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
+                        Condiciones = TipoCategoriaDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
                     }
                 }
 
-                if (TipoUsuarioDropDownList.SelectedIndex == 1)
+                if (TipoCategoriaDropDownList.SelectedIndex == 1)
                 {
-                    Condiciones = TipoUsuarioDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
-                }          
+                    Condiciones = TipoCategoriaDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
+                }
 
                 LlenarGrid(Condiciones);
 

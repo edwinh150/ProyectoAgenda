@@ -1,21 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="rSolicitudes.aspx.cs" Inherits="ProyectoAgencia.Registros.rSolicitudes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style2 {
-            position: relative;
-            display: inline-block;
-            font-weight: 400;
-            vertical-align: middle;
-            cursor: pointer;
-            left: -38px;
-            top: 16px;
-            width: 187px;
-            height: 9px;
-            margin-bottom: 0;
-            padding-left: 20px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
@@ -30,7 +15,6 @@
 
     <!-- Page Content -->
     <div class="container">
-
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-md-12">
@@ -43,6 +27,7 @@
                 </ol>
             </div>
         </div>
+        
         <!-- /.row -->
         <div class="panel panel-primary">
             <div class="panel-heading">Registros de Solicitudes</div>
@@ -105,6 +90,10 @@
                                 </div>
                             </div>
                         </div>
+                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+
                         <div class="panel panel-success">
                             <div class="panel-body">
                                 <div class="col-md-12" role="form">
@@ -312,16 +301,15 @@
                                         </div>
                                     </center>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="control-group form-group">
-                                            <div class="controls">
-                                                <asp:GridView ID="DetalleGridView" Width="100%" runat="server"></asp:GridView>
-                                            </div>
-                                        </div>
+                                    <div class="table table-responsive col-md-12">
+                                        <asp:GridView ID="DetalleGridView" Width="100%" CssClass="table table-bordered table-hover table-striped" runat="server"></asp:GridView>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                        
                         <div class="col-md-12">
                             <center>
                                     <div class="btn-group text-center">

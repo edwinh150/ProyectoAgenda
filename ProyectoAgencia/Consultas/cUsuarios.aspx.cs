@@ -25,6 +25,7 @@ namespace ProyectoAgencia.Consultas
         public void Limpiar()
         {
             CodigoTextBox.Text = "";
+            ConsultaGridView.DataSource = string.Empty;
         }
 
         void LlenarGrid(string Condicion)
@@ -41,7 +42,7 @@ namespace ProyectoAgencia.Consultas
 
             if (CodigoTextBox.Text.Length > 0)
             {
-                if (IngresoDropDownList.SelectedIndex == 0 || IngresoDropDownList.SelectedIndex == 1 || IngresoDropDownList.SelectedIndex == 2 || IngresoDropDownList.SelectedIndex == 3 || IngresoDropDownList.SelectedIndex == 4)
+                if (UsuarioDropDownList.SelectedIndex == 0)
                 {
                     if (Seguro.ValidarEntero(CodigoTextBox.Text) == 0)
                     {
@@ -49,27 +50,26 @@ namespace ProyectoAgencia.Consultas
                     }
                     else
                     {
-                        Condiciones = IngresoDropDownList.SelectedItem.Text + " = " + CodigoTextBox.Text;
+                        Condiciones = UsuarioDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
                     }
-
                 }
 
-                if (IngresoDropDownList.SelectedIndex == 1)
+                if (UsuarioDropDownList.SelectedIndex == 1)
                 {
-                    Condiciones = IngresoDropDownList.SelectedItem.Text + " like '%" + CodigoTextBox.Text + "%' ";
+                    Condiciones = UsuarioDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
                 }
 
-                if (IngresoDropDownList.SelectedIndex == 2)
+                if (UsuarioDropDownList.SelectedIndex == 2)
                 {
-                    Condiciones = IngresoDropDownList.SelectedItem.Text + " like '%" + CodigoTextBox.Text + "%' ";
+                    Condiciones = UsuarioDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
                 }
 
-                if (IngresoDropDownList.SelectedIndex == 3)
+                if (UsuarioDropDownList.SelectedIndex == 3)
                 {
-                    Condiciones = IngresoDropDownList.SelectedItem.Text + " like '%" + CodigoTextBox.Text + "%' ";
+                    Condiciones = UsuarioDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
                 }
 
-                if (IngresoDropDownList.SelectedIndex == 4)
+                if (UsuarioDropDownList.SelectedIndex == 4)
                 {
                     if (Seguro.ValidarEntero(CodigoTextBox.Text) == 0)
                     {
@@ -77,9 +77,8 @@ namespace ProyectoAgencia.Consultas
                     }
                     else
                     {
-                        Condiciones = IngresoDropDownList.SelectedItem.Text + " = " + CodigoTextBox.Text;
+                        Condiciones = UsuarioDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
                     }
-
                 }
 
                 LlenarGrid(Condiciones);

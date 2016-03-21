@@ -22,13 +22,13 @@ namespace ProyectoAgencia.Consultas {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// IngresoDropDownList control.
+        /// UsuarioDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList IngresoDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList UsuarioDropDownList;
         
         /// <summary>
         /// CodigoTextBox control.

@@ -10,7 +10,7 @@
 namespace ProyectoAgencia.Consultas {
     
     
-    public partial class cCiudades {
+    public partial class cTipoSolicitudes {
         
         /// <summary>
         /// Label1 control.
@@ -22,13 +22,13 @@ namespace ProyectoAgencia.Consultas {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// CiudadDropDownList control.
+        /// TipoSolicitudDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CiudadDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList TipoSolicitudDropDownList;
         
         /// <summary>
         /// CodigoTextBox control.

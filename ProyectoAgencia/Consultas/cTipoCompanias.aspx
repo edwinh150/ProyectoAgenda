@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="cCiudades.aspx.cs" Inherits="ProyectoAgencia.Consultas.cCiudades" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="cTipoCompanias.aspx.cs" Inherits="ProyectoAgencia.Consultas.cTipoCompanias" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -23,13 +23,13 @@
                 <ol class="breadcrumb">
                     <li><a href="/Default.aspx">Principal</a>
                     </li>
-                    <li class="active">Consulta de Ciudades</li>
+                    <li class="active">Consulta de Tipo de Compañias</li>
                 </ol>
             </div>
         </div>
         <!-- /.row -->
     <div class="panel panel-primary">
-        <div class="panel-heading">Consultar de Ciudades</div>
+        <div class="panel-heading">Consultar de Tipo de Compañias</div>
         <div class="panel-body">
         <div class="form-horizontal col-md-12" role="form">
             <div class="form-group">
@@ -38,10 +38,9 @@
                     <div class="form-group">
                         <asp:Label For="CodigoTextBox" ID="Label1" class="col-md-3 control-label input-sm" runat="server" Text=" Consultar por"></asp:Label>
                         <div class="col-lg-2 col-md-2">
-                             <asp:DropDownList ID="CiudadDropDownList" CssClass="form-control" runat="server" Height="38px">
-                                 <asp:ListItem Value="CiudadId">Id de Ciudad</asp:ListItem>
+                             <asp:DropDownList ID="TipoCompaniaDropDownList" CssClass="form-control" runat="server" Height="38px">
+                                 <asp:ListItem Value="TipoCompaniaId">Id de TipoCompañias</asp:ListItem>
                                  <asp:ListItem Value="Descripcion">Descripcion</asp:ListItem>
-                                 <asp:ListItem Value="PaisId">Id de Pais</asp:ListItem>
                              </asp:DropDownList>
                         </div>
                         <div class="col-lg-4 col-md-4">

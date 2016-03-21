@@ -43,8 +43,8 @@
                     </div>
                     <div class="panel-body">
                         <h4> Vuelos</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <asp:Button ID="VueloButton" Cssclass="btn btn-primary" runat="server" Text="Reservarcion" OnClick="VueloButton_Click" />
+                        <p>Los Mejores precios De vuelos hacia todo el Mundo y Rapidez Garantizada Solicite Aqui.</p>
+                        <asp:Button ID="VueloButton" Cssclass="btn btn-primary" runat="server" Text="Solicitar" OnClick="VueloButton_Click" />
                     </div>
                 </div>
             </div>
@@ -58,8 +58,8 @@
                     </div>
                     <div class="panel-body">
                         <h4> Cruceros</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <asp:Button ID="CruceroButton" Cssclass="btn btn-primary" runat="server" Text="Reservarcion" OnClick="CruceroButton_Click" />
+                        <p>Las Mejores Ofertas de Cruceros hacia todo el Mundo Solicite Aqui.</p>
+                        <asp:Button ID="CruceroButton" Cssclass="btn btn-primary" runat="server" Text="Solicitar" OnClick="CruceroButton_Click" />
                     </div>
                 </div>
             </div>
@@ -73,8 +73,8 @@
                     </div>
                     <div class="panel-body">
                         <h4> Hoteles y Resorts</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <asp:Button ID="HotelResortButton" Cssclass="btn btn-primary" runat="server" Text="Reservarcion" OnClick="HotelResortButton_Click" />
+                        <p>Las Mejores Ofertas y lo mas Baratos se lo conseguimos Solicite Aqui.</p>
+                        <asp:Button ID="HotelResortButton" Cssclass="btn btn-primary" runat="server" Text="Solicitar" OnClick="HotelResortButton_Click" />
                     </div>
                 </div>
             </div>
