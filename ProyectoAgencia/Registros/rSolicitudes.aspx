@@ -131,17 +131,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="control-group form-group">
-                                <div class="controls">
-                                    <asp:Label ID="Label18" runat="server" Text="Categoria: " Font-Bold="True"></asp:Label>
-                                    <asp:RadioButtonList ID="CategoriaRadioButtonList" runat="server" CellSpacing="10" RepeatDirection="Horizontal" CellPadding="2" TextAlign="Left">
-                                        <asp:ListItem Selected="True">Normal</asp:ListItem>
-                                        <asp:ListItem id="categoriatext" runat="server" Text="Primera Clase"></asp:ListItem>
-                                    </asp:RadioButtonList>
-                                </div>
-                            </div>
-                        </div>
                         </center>
                                         <div class="form-inline col-md-12" role="form">
                                             <div class="col-md-2">

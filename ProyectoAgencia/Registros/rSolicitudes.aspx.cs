@@ -117,15 +117,7 @@ namespace ProyectoAgencia.Registros
             CantidadPersonaDropDownList.SelectedIndex = SolicitudDetalle.CantidadPersona;
             CantidadNinoDropDownList.SelectedIndex = SolicitudDetalle.CantidadNino;
             CantidadBebeDropDownList.SelectedIndex = SolicitudDetalle.CantidadBebe;
-            if (SolicitudDetalle.EleccionCategoria == 0)
-            {
-                CategoriaRadioButtonList.SelectedIndex = 0;
-            }
-            else
-            {
-                CategoriaRadioButtonList.SelectedIndex = 1;
-            }
-            DetalleGridView.DataSource = Solicitud.Detalle;
+            DetalleGridView.DataSource = Solicitud.DetalleText;
             DetalleGridView.DataBind();
         }
 
@@ -156,8 +148,7 @@ namespace ProyectoAgencia.Registros
                 {
                     foreach (GridViewRow dr in DetalleGridView.Rows)
                     {
-                        Solicitud.AgregarSolicitud(Seguro.ValidarEntero(dr.Cells[0].Text), Seguro.ValidarEntero(dr.Cells[1].Text), Seguro.ValidarEntero(dr.Cells[2].Text), Seguro.ValidarEntero(dr.Cells[3].Text), dr.Cells[4].Text, dr.Cells[5].Text, Seguro.ValidarDateTime(dr.Cells[6].Text), Seguro.ValidarDateTime(dr.Cells[7].Text), Seguro.ValidarEntero(dr.Cells[8].Text), Seguro.ValidarEntero(dr.Cells[9].Text), Seguro.ValidarEntero(dr.Cells[10].Text), Seguro.ValidarDouble(dr.Cells[11].Text), Seguro.ValidarDouble(dr.Cells[12].Text), Seguro.ValidarEntero(dr.Cells[13].Text));
-
+                        Solicitud.AgregarSolicitud(Seguro.ValidarEntero(dr.Cells[0].Text), Seguro.ValidarEntero(dr.Cells[1].Text), Seguro.ValidarEntero(dr.Cells[2].Text), Seguro.ValidarEntero(dr.Cells[3].Text), dr.Cells[4].Text, dr.Cells[5].Text, Seguro.ValidarDateTime(dr.Cells[6].Text), Seguro.ValidarDateTime(dr.Cells[7].Text), Seguro.ValidarEntero(dr.Cells[8].Text), Seguro.ValidarEntero(dr.Cells[9].Text), Seguro.ValidarEntero(dr.Cells[10].Text), Seguro.ValidarDouble(dr.Cells[11].Text), Seguro.ValidarDouble(dr.Cells[12].Text));
                     }
                 }
                 else
@@ -312,7 +303,9 @@ namespace ProyectoAgencia.Registros
 
                 SolicitudDetalle = (Solicitudes)Session["SolicitudSession"];
 
-                SolicitudDetalle.AgregarSolicitud(Eleccion, Seguro.ValidarEntero(TipoSolicitudIdDropDownList.SelectedValue), Seguro.ValidarEntero(CompaniaIdDropDownList.SelectedValue), Seguro.ValidarEntero(CategoriaIdDropDownList.SelectedValue), OrigenDropDownList.Text, DestinoDropDownList.Text, Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text), Seguro.ValidarEntero(CategoriaRadioButtonList.SelectedIndex.ToString()));
+                SolicitudDetalle.AgregarSolicitud(Eleccion, Seguro.ValidarEntero(TipoSolicitudIdDropDownList.SelectedValue), Seguro.ValidarEntero(CompaniaIdDropDownList.SelectedValue), Seguro.ValidarEntero(CategoriaIdDropDownList.SelectedValue), OrigenDropDownList.Text, DestinoDropDownList.Text, Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text));
+
+                SolicitudDetalle.AgregarSolicitudText(Eleccion, TipoSolicitudIdDropDownList.Text, CompaniaIdDropDownList.Text, CategoriaIdDropDownList.SelectedValue, OrigenDropDownList.Text, DestinoDropDownList.Text, Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text));
 
                 Session["SolicitudSession"] = SolicitudDetalle;
 
@@ -389,26 +382,32 @@ namespace ProyectoAgencia.Registros
 
             if (TipoSolicitudIdDropDownList.SelectedValue == "1")
             {
-                categoriatext.Text = "Primera Clase";
                 OrigenLabel.Visible = true;
                 PaisOrigenDropDownList.Visible = true;
                 OrigenDropDownList.Visible = true;
+                EstadoCheckBox.Visible = true;
+                EstadoLabel.Visible = true;
+                FechaFinal.Visible = true;
             }
 
             if (TipoSolicitudIdDropDownList.SelectedValue == "2")
             {
-                categoriatext.Text = "Camarote Suiter";
                 OrigenLabel.Visible = true;
                 PaisOrigenDropDownList.Visible = true;
                 OrigenDropDownList.Visible = true;
+                EstadoCheckBox.Visible = false;
+                EstadoLabel.Visible = false;
             }
 
             if (TipoSolicitudIdDropDownList.SelectedValue == "3")
             {
-                categoriatext.Text = "Doble o Tiple Hab..";
                 OrigenLabel.Visible = false;
                 PaisOrigenDropDownList.Visible = false;
                 OrigenDropDownList.Visible = false;
+                EstadoCheckBox.Visible = false;
+                EstadoLabel.Visible = false;
+                FechaFinal.Visible = false;
+
             }
 
         }

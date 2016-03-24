@@ -1,6 +1,7 @@
 ﻿using BLL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -31,9 +32,41 @@ namespace ProyectoAgencia.Consultas
         void LlenarGrid(string Condicion)
         {
             Solicitudes Solicitud = new Solicitudes();
+            SolicitudDetalleText DetalleText = new SolicitudDetalleText();
+            DataTable dt = new DataTable();
+            DataTable dt2 = new DataTable();
+            string CondicionDetalle = "";
 
             ConsultaGridView.DataSource = Solicitud.Listado(" * ", Condicion, "");
             ConsultaGridView.DataBind();
+
+            if (Condicion == " 1=1 ")
+            {
+                CondicionDetalle = Condicion;
+            }
+            else
+            {
+                dt2 = Solicitud.Listado(" * ", Condicion, "");
+
+                if (dt2.Rows.Count > 0)
+                {
+                    Solicitud.SolicitudId = (int)dt2.Rows[0]["SolicitudId"];
+
+                    CondicionDetalle = " s.SolicitudId = " + Solicitud.SolicitudId;
+                }                
+            }
+
+            dt = DetalleText.Listado(CondicionDetalle);
+
+            if (dt.Rows.Count > 0)
+            {
+                ConsultaDetalleGridView.DataSource = DetalleText.Listado(CondicionDetalle);
+                ConsultaDetalleGridView.DataBind();
+            }
+            else
+            {
+                ConsultaDetalleGridView.DataSource = string.Empty;
+            }
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)

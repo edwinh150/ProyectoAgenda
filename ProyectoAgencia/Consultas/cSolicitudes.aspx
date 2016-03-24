@@ -59,6 +59,11 @@
                         <asp:GridView ID="ConsultaGridView" runat="server" Width="100%" CssClass="table table-bordered table-hover table-striped">                         
                         </asp:GridView>
                     </div>
+
+                    <div class="table table-responsive col-md-12">
+                        <asp:GridView ID="ConsultaDetalleGridView" runat="server" Width="100%" CssClass="table table-bordered table-hover table-striped">                         
+                        </asp:GridView>
+                    </div>
             </div>
         </div>
         </div>

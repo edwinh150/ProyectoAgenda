@@ -16,6 +16,8 @@ namespace BLL
 
         public List<SolicitudDetalles> Detalle;
 
+        public List<SolicitudDetalleText> DetalleText;
+
         public Solicitudes()
         {
             this.SolicitudId = 0;
@@ -23,11 +25,17 @@ namespace BLL
             this.FechaCreacion = DateTime.Now;
             this.Asunto = "";
             Detalle = new List<SolicitudDetalles>();
+            DetalleText = new List<SolicitudDetalleText>();
         }
 
-        public void AgregarSolicitud(int EleccionDestino, int TipoSolicitudId, int CompaniaId, int CategoriaId, string Origen, string Destino, DateTime FechaInicial, DateTime FechaFinal, int CantidadPersona, int CantidadNino, int CantidadBebe, double PrecioInicial, double PrecioFinal, int EleccionCategoria)
+        public void AgregarSolicitud(int EleccionDestino, int TipoSolicitudId, int CompaniaId, int CategoriaId, string Origen, string Destino, DateTime FechaInicial, DateTime FechaFinal, int CantidadPersona, int CantidadNino, int CantidadBebe, double PrecioInicial, double PrecioFinal)
         {
-            Detalle.Add(new SolicitudDetalles(EleccionDestino, TipoSolicitudId, CompaniaId, CategoriaId, Origen, Destino, FechaInicial, FechaFinal, CantidadPersona, CantidadNino, CantidadBebe, PrecioInicial, PrecioFinal, EleccionCategoria));
+            Detalle.Add(new SolicitudDetalles(EleccionDestino, TipoSolicitudId, CompaniaId, CategoriaId, Origen, Destino, FechaInicial, FechaFinal, CantidadPersona, CantidadNino, CantidadBebe, PrecioInicial, PrecioFinal));
+        }
+
+        public void AgregarSolicitudText(int EleccionDestino, string TipoSolicitudId, string CompaniaId, string CategoriaId, string Origen, string Destino, DateTime FechaInicial, DateTime FechaFinal, int CantidadPersona, int CantidadNino, int CantidadBebe, double PrecioInicial, double PrecioFinal)
+        {
+            DetalleText.Add(new SolicitudDetalleText(EleccionDestino, TipoSolicitudId, CompaniaId, CategoriaId, Origen, Destino, FechaInicial, FechaFinal, CantidadPersona, CantidadNino, CantidadBebe, PrecioInicial, PrecioFinal));
         }
 
         public override bool Insertar()
@@ -46,7 +54,7 @@ namespace BLL
 
                 foreach (SolicitudDetalles item in this.Detalle)
                 {
-                    Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,FechaFinal,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal,EleccionCategoria) values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13},{14}) ", (int)item.EleccionDestino, retorno, (int)item.TipoSolicitudId, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaInicial.ToString("yyyy-MM-dd"), item.FechaFinal.ToString("yyyy-MM-dd"), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal, (int)item.EleccionCategoria));
+                    Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,FechaFinal,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13}) ", (int)item.EleccionDestino, retorno, (int)item.TipoSolicitudId, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaInicial.ToString("yyyy-MM-dd"), item.FechaFinal.ToString("yyyy-MM-dd"), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal));
                 }
             }
             catch (Exception)
@@ -70,7 +78,7 @@ namespace BLL
 
                 foreach (SolicitudDetalles item in this.Detalle)
                 {
-                    Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,FechaFinal,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal,EleccionCategoria) values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13},{14}) ", (int)item.EleccionDestino, retorno, (int)item.TipoSolicitudId, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaInicial.ToString("yyyy-MM-dd"), item.FechaFinal.ToString("yyyy-MM-dd"), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal, (int)item.EleccionCategoria));
+                    Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,FechaFinal,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13}) ", (int)item.EleccionDestino, retorno, (int)item.TipoSolicitudId, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaInicial.ToString("yyyy-MM-dd"), item.FechaFinal.ToString("yyyy-MM-dd"), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal));
                 }
 
                 retorno = true;
@@ -123,13 +131,15 @@ namespace BLL
                     retorno = true;
                 }
 
-                Detalledt = Conexion.ObtenerDatos(string.Format("select * from SolicitudDetalles where SolicitudId = {0} ", this.SolicitudId));
+                Detalledt = Conexion.ObtenerDatos(string.Format("select sd.EleccionDestino,s.SolicitudId, ts.Descripcion, cp.Descripcion, ct.Descripcion, sd.Origen, sd.Destino, sd.FechaInicial, sd.FechaFinal, " +
+                " sd.cantidadPersona, sd.CantidadNino, sd.CantidadBebe, sd.PrecioInicial, sd.PrecioFinal from SolicitudDetalles sd inner join Solicitudes s on sd.SolicitudId = s.SolicitudId inner join TipoSolicitudes ts on ts.TipoSolicitudId = sd.TipoSolicitudId inner join Companias cp on cp.CompaniaId = sd.CompaniaId " +
+                "inner join Categorias ct on ct.CategoriaId = sd.CategoriaId where s.SolicitudId = {0} ", this.SolicitudId));
 
                 if (Detalledt.Rows.Count > 0)
                 {
                     foreach (DataRow Dr in Detalledt.Rows)
                     {
-                        AgregarSolicitud(Seguro.ValidarBit(Dr["EleccionDestino"].ToString()), Seguro.ValidarEntero(Dr["TipoSolicitudId"].ToString()), Seguro.ValidarEntero(Dr["CompaniaId"].ToString()), Seguro.ValidarEntero(Dr["CategoriaId"].ToString()), Dr["Origen"].ToString(), Dr["Destino"].ToString(), Seguro.ValidarDateTime(Dr["FechaInicial"].ToString()), Seguro.ValidarDateTime(Dr["FechaFinal"].ToString()), Seguro.ValidarEntero(Dr["CantidadPersona"].ToString()), Seguro.ValidarEntero(Dr["CantidadNino"].ToString()), Seguro.ValidarEntero(Dr["CantidadBebe"].ToString()), Seguro.ValidarDouble(Dr["PrecioInicial"].ToString()), Seguro.ValidarDouble(Dr["PrecioFinal"].ToString()), Seguro.ValidarBit(Dr["EleccionCategoria"].ToString()));
+                        AgregarSolicitudText(Seguro.ValidarBit(Dr["EleccionDestino"].ToString()), Dr["Descripcion"].ToString(), Dr["Descripcion1"].ToString(), Dr["Descripcion"].ToString(), Dr["Origen"].ToString(), Dr["Destino"].ToString(), Seguro.ValidarDateTime(Dr["FechaInicial"].ToString()), Seguro.ValidarDateTime(Dr["FechaFinal"].ToString()), Seguro.ValidarEntero(Dr["CantidadPersona"].ToString()), Seguro.ValidarEntero(Dr["CantidadNino"].ToString()), Seguro.ValidarEntero(Dr["CantidadBebe"].ToString()), Seguro.ValidarDouble(Dr["PrecioInicial"].ToString()), Seguro.ValidarDouble(Dr["PrecioFinal"].ToString()));
                     }
                     retorno = true;
                 }
@@ -138,8 +148,9 @@ namespace BLL
                     retorno = false;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                throw ex;
                 retorno = false;
             }
 

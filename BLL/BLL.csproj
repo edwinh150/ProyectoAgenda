@@ -45,6 +45,7 @@
     <Compile Include="Categorias.cs" />
     <Compile Include="EnvioCorreo.cs" />
     <Compile Include="SolicitudDetalles.cs" />
+    <Compile Include="SolicitudDetalleText.cs" />
     <Compile Include="Solicitudes.cs" />
     <Compile Include="TipoCategorias.cs" />
     <Compile Include="CategoriaHabitaciones.cs" />

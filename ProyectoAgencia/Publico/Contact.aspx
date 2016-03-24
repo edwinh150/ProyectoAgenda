@@ -50,7 +50,7 @@
                     <abbr title="Horarios">H</abbr>: Lunes - Viernes: 9:00 AM to 5:00 PM</p>
                 <ul class="list-unstyled list-inline list-social-icons">
                     <li>
-                        <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+                        <a href="https://www.facebook.com/edwinh150"><i class="fa fa-facebook-square fa-2x"></i></a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
@@ -59,7 +59,7 @@
                         <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-google-plus-square fa-2x"></i></a>
+                        <a href="https://plus.google.com/u/0/+EdwinHidalgoLopez/about"><i class="fa fa-google-plus-square fa-2x"></i></a>
                     </li>
                 </ul>
             </div>

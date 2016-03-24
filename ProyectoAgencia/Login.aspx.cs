@@ -44,7 +44,7 @@ namespace ProyectoAgencia
         protected void RegistrarButton_Click(object sender, EventArgs e)
         {
             Limpiar();
-            Response.Redirect("/Registrar.aspx");
+            Response.Redirect("/Publico/Registrar.aspx");
         }
     }
 }

@@ -36,14 +36,16 @@ namespace BLL
         public bool IniciarSesion()
         {
             ConexionDB con = new ConexionDB();
+            DataTable dt = new DataTable();
 
             bool retorno = false;
 
-            Id = (int)con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' and Contrasena = '{1}' ", this.NombreUsuario, this.Contrasena)).Rows[0]["UsuarioId"];
+            dt = con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' and Contrasena = '{1}' ", this.NombreUsuario, this.Contrasena));
 
-            if (Id > 0)
+            if (dt.Rows.Count > 0)
             {
-                 retorno = true;
+                Id = (int)dt.Rows[0]["UsuarioId"];
+                retorno = true;
             }
             else
             {
@@ -56,13 +58,16 @@ namespace BLL
         public bool Comprobar()
         {
             ConexionDB con = new ConexionDB();
+            DataTable dt = new DataTable();
 
             bool retorno = false;
 
-            Id = (int)con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' ", this.NombreUsuario)).Rows[0]["UsuarioId"];
+            dt = con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' ", this.NombreUsuario));
 
-            if (Id > 0)
+            if (dt.Rows.Count > 0)
             {
+                Id = (int)dt.Rows[0]["UsuarioId"];
+                this.TipoUsuarioId = (int)dt.Rows[0]["TipoUsuarioId"];
                 retorno = true;
             }
             else
@@ -80,7 +85,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Usuarios(NombreUsuario,Contrasena,Nombre,Apellido,Email,Telefono, FechaNacimiento,TipoUsuarioId) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7}) ", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento.ToString("yyyy-MM-dd"), this.TipoUsuarioId));
+                retorno = Conexion.Ejecutar(string.Format("insert into Usuarios(NombreUsuario,Contrasena,Nombre,Apellido,Email,Telefono,FechaNacimiento,TipoUsuarioId) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7}) ", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento.ToString("yyyy-MM-dd"), this.TipoUsuarioId));
             }
             catch (Exception)
             {
@@ -97,7 +102,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update Usuarios set NombreUsuario = '{0}',Contrasena = '{1}', Nombre = '{2}',Apellido = '{3}', Email = '{4}', Telefono = '{5}', FechaNacimiento = '{6}' TipoUsuarioId = {7} where UsuarioId = {8}", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.TipoUsuarioId, this.FechaNacimiento.ToString("yyyy-MM-dd"), this.UsuarioId));
+                retorno = Conexion.Ejecutar(string.Format("update Usuarios set NombreUsuario = '{0}',Contrasena = '{1}', Nombre = '{2}',Apellido = '{3}', Email = '{4}', Telefono = '{5}', FechaNacimiento = '{6}' TipoUsuarioId = {7} where UsuarioId = {8}", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento.ToString("yyyy-MM-dd"), this.TipoUsuarioId, this.UsuarioId));
             }
             catch (Exception)
             {

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BLL;
 
 namespace ProyectoAgencia
 {
@@ -28,11 +29,22 @@ namespace ProyectoAgencia
             else
             {
                 UsuarioLabel.Text = Context.User.Identity.Name;
+                Usuario.NombreUsuario = UsuarioLabel.Text;
+                Usuario.Comprobar();
                 RegistrarseLi.Visible = false;
                 LoginUserLi.Visible = false;
                 UsuarioLi.Visible = true;
-                RegistroLi.Visible = true;
-                ConsultaLi.Visible = true;
+                if (Usuario.TipoUsuarioId == 1)
+                {
+                    RegistroLi.Visible = true;
+                    ConsultaLi.Visible = true;
+                }
+                if (Usuario.TipoUsuarioId == 2)
+                {
+                    RegistroLi.Visible = false;
+                    ConsultaLi.Visible = false;
+                }
+
             }
 
         }

@@ -61,23 +61,24 @@ namespace ProyectoAgencia.Registros
             if (NombreUsuarioTextBox.Text.Length > 0 && ContrasenaTextBox.Text.Length > 0 && NombreTextBox.Text.Length > 0 && ApellidoTextBox.Text.Length > 0 && EmailTextBox.Text.Length > 0 && TelefonoTextBox.Text.Length > 0)
             {
                 Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
+                if (UsuarioIdTextBox.Text.Length == 0)
+                {
+                    if (Usuario.Comprobar())
+                    {
+                        Mensajes.ShowToastr(this.Page, "Ya existe ese Usuario Eliga otro", "Atencion", "Error");
+                        NombreUsuarioTextBox.Text = "";
+                    }
+                }
 
-                if (Usuario.Comprobar())
-                {
-                    Mensajes.ShowToastr(this.Page, "Ya existe ese Usuario Eliga otro", "Atencion", "Error");
-                    NombreUsuarioTextBox.Text = "";
-                }
-                else
-                {
-                    Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
-                    Usuario.Contrasena = ContrasenaTextBox.Text;
-                    Usuario.Nombre = NombreTextBox.Text;
-                    Usuario.Apellido = ApellidoTextBox.Text;
-                    Usuario.Email = EmailTextBox.Text;
-                    Usuario.Telefono = TelefonoTextBox.Text;
-                    Usuario.FechaNacimiento = Seguro.ValidarDateTime(FechaNacimientoTextBox.Text);
-                    Usuario.TipoUsuarioId = Seguro.ValidarEntero(TipoUsuarioDropDownList.SelectedValue);
-                }
+                Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
+                Usuario.Contrasena = ContrasenaTextBox.Text;
+                Usuario.Nombre = NombreTextBox.Text;
+                Usuario.Apellido = ApellidoTextBox.Text;
+                Usuario.Email = EmailTextBox.Text;
+                Usuario.Telefono = TelefonoTextBox.Text;
+                Usuario.FechaNacimiento = Seguro.ValidarDateTime(FechaNacimientoTextBox.Text);
+                Usuario.TipoUsuarioId = Seguro.ValidarEntero(TipoUsuarioDropDownList.SelectedValue);
+                
                 retorno = true;
             }
             else
@@ -177,7 +178,7 @@ namespace ProyectoAgencia.Registros
                     ApellidoTextBox.Text = Usuario.Apellido;
                     EmailTextBox.Text = Usuario.Email;
                     TelefonoTextBox.Text = Usuario.Telefono;
-                    FechaNacimientoTextBox.Text = Usuario.FechaNacimiento.ToString("dd / MM / yyyy");
+                    FechaNacimientoTextBox.Text = Usuario.FechaNacimiento.ToString("dd-MM-yyyy");
                     TipoUsuarioDropDownList.SelectedValue = Usuario.TipoUsuarioId.ToString();
                     EliminarButton.Visible = true;
                 }
