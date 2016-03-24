@@ -427,6 +427,15 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.Button AgregarDetalleButton;
         
         /// <summary>
+        /// DetalleTextGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView DetalleTextGridView;
+        
+        /// <summary>
         /// DetalleGridView control.
         /// </summary>
         /// <remarks>

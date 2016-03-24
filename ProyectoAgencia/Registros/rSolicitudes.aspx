@@ -291,6 +291,9 @@
                                     </center>
                                     </div>
                                     <div class="table table-responsive col-md-12">
+                                        <asp:GridView ID="DetalleTextGridView" Width="100%" CssClass="table table-bordered table-hover table-striped" runat="server"></asp:GridView>
+                                    </div>
+                                    <div class="table table-responsive col-md-12">
                                         <asp:GridView ID="DetalleGridView" Width="100%" CssClass="table table-bordered table-hover table-striped" runat="server"></asp:GridView>
                                     </div>
                                 </div>
