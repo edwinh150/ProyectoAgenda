@@ -79,6 +79,7 @@
     <Content Include="Consultas\cTipoSolicitudes.aspx" />
     <Content Include="Consultas\cTipoUsuarios.aspx" />
     <Content Include="Consultas\cUsuarios.aspx" />
+    <Content Include="Contenido\el_pacifico_en_50_islas_717586998_1200x400.jpg" />
     <Content Include="Publico\AjaxEjemplo.aspx" />
     <Content Include="bin\ProyectoAgencia.dll" />
     <Content Include="bin\ProyectoAgencia.pdb" />

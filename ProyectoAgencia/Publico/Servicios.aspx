@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
      <div class="container">
         <div class="col-md-12">
         <!-- Page Heading/Breadcrumbs -->
@@ -22,7 +23,7 @@
         <!-- Image Header -->
         <div class="row">
             <div class="col-lg-12">
-                <img class="img-responsive" src="http://placehold.it/1200x300" alt="">
+                <img class="img-responsive" src="../Contenido/el_pacifico_en_50_islas_717586998_1200x400.jpg" alt="">
             </div>
         </div>
         <!-- /.row -->
