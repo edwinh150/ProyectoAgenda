@@ -14,6 +14,7 @@ namespace ProyectoAgencia.Registros
         SolicitudDetalles SolicitudDetalle = new SolicitudDetalles();
         Seguridad Seguro = new Seguridad();
         int Eleccion = 0;
+        string EleccionText = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -132,6 +133,8 @@ namespace ProyectoAgencia.Registros
             ValidacionLimpiar();
             DetalleGridView.DataSource = string.Empty;
             DetalleGridView.DataBind();
+            DetalleTextGridView.DataSource = string.Empty;
+            DetalleTextGridView.DataBind();
         }
 
         bool LLenarDatos()
@@ -290,10 +293,12 @@ namespace ProyectoAgencia.Registros
                 if (EstadoCheckBox.Checked == true)
                 {
                     Eleccion = 1; // ida
+                    EleccionText = "Solo Ida";
                 }
                 else
                 {
                     Eleccion = 0; // ida/vuelta
+                    EleccionText = "Ida/Vuelta";
                 }
 
                 if (Session["SolicitudSession"] == null)
@@ -305,7 +310,7 @@ namespace ProyectoAgencia.Registros
 
                 SolicitudDetalle.AgregarSolicitud(Eleccion, Seguro.ValidarEntero(TipoSolicitudIdDropDownList.SelectedValue), Seguro.ValidarEntero(CompaniaIdDropDownList.SelectedValue), Seguro.ValidarEntero(CategoriaIdDropDownList.SelectedValue), OrigenDropDownList.SelectedItem.Text, DestinoDropDownList.SelectedItem.Text, Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text));
 
-                SolicitudDetalle.AgregarSolicitudText(Eleccion, TipoSolicitudIdDropDownList.SelectedItem.Text, CompaniaIdDropDownList.SelectedItem.Text, CategoriaIdDropDownList.SelectedItem.Text, OrigenDropDownList.SelectedItem.Text, DestinoDropDownList.SelectedItem.Text, Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text));
+                SolicitudDetalle.AgregarSolicitudText(EleccionText, TipoSolicitudIdDropDownList.SelectedItem.Text, CompaniaIdDropDownList.SelectedItem.Text, CategoriaIdDropDownList.SelectedItem.Text, OrigenDropDownList.SelectedItem.Text, DestinoDropDownList.SelectedItem.Text, Seguro.ValidarDateTime(FechaInicialTextBox.Text), Seguro.ValidarDateTime(FechaFinalTextBox.Text), Seguro.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguro.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguro.ValidarDouble(PrecioInicialTextBox.Text), Seguro.ValidarDouble(PrecioFinalTextBox.Text));
 
                 Session["SolicitudSession"] = SolicitudDetalle;
 

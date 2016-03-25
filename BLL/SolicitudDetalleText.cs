@@ -9,52 +9,52 @@ namespace BLL
 {
     public class SolicitudDetalleText
     {
-        public int EleccionDestino { get; set; }
-        public string TipoSolicitudIdText { get; set; }
-        public string CompaniaIdText { get; set; }
-        public string CategoriaIdText { get; set; }
+        public string EleccionDestino { get; set; }
+        public string TipoSolicitud { get; set; }
+        public string Compania { get; set; }
+        public string Categoria { get; set; }
         public string Origen { get; set; }
         public string Destino { get; set; }
         public DateTime FechaInicial { get; set; }
         public DateTime FechaFinal { get; set; }
-        public int CantidadPersonaText { get; set; }
-        public int CantidadNinoText { get; set; }
-        public int CantidadBebeText { get; set; }
-        public double PrecioInicialText { get; set; }
-        public double PrecioFinalText { get; set; }
+        public int CantidadPersona { get; set; }
+        public int CantidadNino { get; set; }
+        public int CantidadBebe { get; set; }
+        public double PrecioInicial { get; set; }
+        public double PrecioFinal { get; set; }
 
         public SolicitudDetalleText()
         {
-            this.EleccionDestino = 0;
-            this.TipoSolicitudIdText = "";
-            this.CompaniaIdText = "";
-            this.CategoriaIdText = "";
+            this.EleccionDestino = "";
+            this.TipoSolicitud = "";
+            this.Compania = "";
+            this.Categoria = "";
             this.Origen = "";
             this.Destino = "";
             this.FechaInicial = DateTime.Now;
             this.FechaFinal = DateTime.Now;
-            this.CantidadPersonaText = 0;
-            this.CantidadNinoText = 0;
-            this.CantidadBebeText = 0;
-            this.PrecioInicialText = 0;
-            this.PrecioFinalText = 0;
+            this.CantidadPersona = 0;
+            this.CantidadNino = 0;
+            this.CantidadBebe = 0;
+            this.PrecioInicial = 0;
+            this.PrecioFinal = 0;
         }
 
-        public SolicitudDetalleText(int EleccionDestino, string TipoSolicitudId, string CompaniaId, string CategoriaId, string Origen, string Destino, DateTime FechaInicial, DateTime FechaFinal, int CantidadPersona, int  CantidadNino, int CantidadBebe, double PrecioInicial, double PrecioFinal)
+        public SolicitudDetalleText(string EleccionDestino, string TipoSolicitudId, string CompaniaId, string CategoriaId, string Origen, string Destino, DateTime FechaInicial, DateTime FechaFinal, int CantidadPersona, int  CantidadNino, int CantidadBebe, double PrecioInicial, double PrecioFinal)
         {
             this.EleccionDestino = EleccionDestino;
-            this.TipoSolicitudIdText = TipoSolicitudId;
-            this.CompaniaIdText = CompaniaId;
-            this.CategoriaIdText = CategoriaId;
+            this.TipoSolicitud = TipoSolicitudId;
+            this.Compania = CompaniaId;
+            this.Categoria = CategoriaId;
             this.Origen = Origen;
             this.Destino = Destino;
             this.FechaInicial = FechaInicial;
             this.FechaFinal = FechaFinal;
-            this.CantidadPersonaText = CantidadPersona;
-            this.CantidadNinoText = CantidadNino;
-            this.CantidadBebeText = CantidadBebe;
-            this.PrecioInicialText = PrecioInicial;
-            this.PrecioFinalText = PrecioFinal;
+            this.CantidadPersona = CantidadPersona;
+            this.CantidadNino = CantidadNino;
+            this.CantidadBebe = CantidadBebe;
+            this.PrecioInicial = PrecioInicial;
+            this.PrecioFinal = PrecioFinal;
         }
 
         public DataTable Listado(string Condicion)

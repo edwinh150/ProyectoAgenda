@@ -33,7 +33,7 @@ namespace BLL
             Detalle.Add(new SolicitudDetalles(EleccionDestino, TipoSolicitudId, CompaniaId, CategoriaId, Origen, Destino, FechaInicial, FechaFinal, CantidadPersona, CantidadNino, CantidadBebe, PrecioInicial, PrecioFinal));
         }
 
-        public void AgregarSolicitudText(int EleccionDestino, string TipoSolicitudId, string CompaniaId, string CategoriaId, string Origen, string Destino, DateTime FechaInicial, DateTime FechaFinal, int CantidadPersona, int CantidadNino, int CantidadBebe, double PrecioInicial, double PrecioFinal)
+        public void AgregarSolicitudText(string EleccionDestino, string TipoSolicitudId, string CompaniaId, string CategoriaId, string Origen, string Destino, DateTime FechaInicial, DateTime FechaFinal, int CantidadPersona, int CantidadNino, int CantidadBebe, double PrecioInicial, double PrecioFinal)
         {
             DetalleText.Add(new SolicitudDetalleText(EleccionDestino, TipoSolicitudId, CompaniaId, CategoriaId, Origen, Destino, FechaInicial, FechaFinal, CantidadPersona, CantidadNino, CantidadBebe, PrecioInicial, PrecioFinal));
         }
@@ -117,6 +117,7 @@ namespace BLL
             DataTable Detalledt = new DataTable();
             ConexionDB Conexion = new ConexionDB();
             Seguridad Seguro = new Seguridad();
+            string EleccionText = "";
 
             try
             {
@@ -139,7 +140,16 @@ namespace BLL
                 {
                     foreach (DataRow Dr in Detalledt.Rows)
                     {
-                        AgregarSolicitudText(Seguro.ValidarBit(Dr["EleccionDestino"].ToString()), Dr["Descripcion"].ToString(), Dr["Descripcion1"].ToString(), Dr["Descripcion"].ToString(), Dr["Origen"].ToString(), Dr["Destino"].ToString(), Seguro.ValidarDateTime(Dr["FechaInicial"].ToString()), Seguro.ValidarDateTime(Dr["FechaFinal"].ToString()), Seguro.ValidarEntero(Dr["CantidadPersona"].ToString()), Seguro.ValidarEntero(Dr["CantidadNino"].ToString()), Seguro.ValidarEntero(Dr["CantidadBebe"].ToString()), Seguro.ValidarDouble(Dr["PrecioInicial"].ToString()), Seguro.ValidarDouble(Dr["PrecioFinal"].ToString()));
+                        if (Seguro.ValidarBit(Dr["EleccionDestino"].ToString()) == 0)
+                        {
+                            EleccionText = "Solo Ida";
+                        }
+                        else
+                        {
+                            EleccionText = "Ida/Vuelta";
+                        }
+
+                        AgregarSolicitudText(EleccionText, Dr["Descripcion"].ToString(), Dr["Descripcion1"].ToString(), Dr["Descripcion"].ToString(), Dr["Origen"].ToString(), Dr["Destino"].ToString(), Seguro.ValidarDateTime(Dr["FechaInicial"].ToString()), Seguro.ValidarDateTime(Dr["FechaFinal"].ToString()), Seguro.ValidarEntero(Dr["CantidadPersona"].ToString()), Seguro.ValidarEntero(Dr["CantidadNino"].ToString()), Seguro.ValidarEntero(Dr["CantidadBebe"].ToString()), Seguro.ValidarDouble(Dr["PrecioInicial"].ToString()), Seguro.ValidarDouble(Dr["PrecioFinal"].ToString()));
                     }
                     retorno = true;
                 }
