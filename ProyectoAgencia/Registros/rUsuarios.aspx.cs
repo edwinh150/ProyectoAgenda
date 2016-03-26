@@ -144,7 +144,7 @@ namespace ProyectoAgencia.Registros
 
                     if (Usuario.Eliminar())
                     {
-                        Mensajes.ShowToastr(this.Page, "Se Guardo", "Informacion", "Success");
+                        Mensajes.ShowToastr(this.Page, "Se Elimino", "Informacion", "Success");
                         Limpiar();
                     }
                     else
