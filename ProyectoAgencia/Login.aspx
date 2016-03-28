@@ -34,6 +34,7 @@
                                         <asp:RequiredFieldValidator ControlToValidate="ContrasenaTextBox" ValidationGroup="IniciarButton" ErrorMessage="Por Favor Ingrese Una Contrasena" ID="ContrasenaValidacion" ForeColor="Red" runat="server"></asp:RequiredFieldValidator>
                                     </p>
                                 </div>
+                                <asp:CheckBox ID="RecordarmeCheckBox" Text="Recordarme" runat="server" />
                             </div>
                             <div class="btn-group">
                                 <asp:Button ID="IniciarButton" CssClass="btn btn-primary" runat="server" Text="Iniciar Session" OnClick="IniciarButton_Click" />

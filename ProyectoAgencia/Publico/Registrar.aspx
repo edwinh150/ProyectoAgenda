@@ -30,7 +30,7 @@
                             <asp:Label ID="Label6" runat="server" Text="Contrasena" Font-Bold="True"></asp:Label>
                             <asp:TextBox ID="ContrasenaTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Contrasena" TextMode="Password"></asp:TextBox>
                             <p class="help-block">
-                                    <asp:requiredfieldvalidator id="RequiredFieldValidator2" forecolor="Red" errormessage="Por Favor Entre su Contrasena" controltovalidate="ContrasenaTextBox" runat="server">
+                                    <asp:requiredfieldvalidator id="RequiredFieldValidator2" forecolor="Red" ValidationGroup="GuardarButton" errormessage="Por Favor Entre su Contrasena" controltovalidate="ContrasenaTextBox" runat="server">
                                     </asp:requiredfieldvalidator>
                             </p>
                         </div>
@@ -42,7 +42,7 @@
                             <p class="help-block">
                                  <asp:requiredfieldvalidator id="RequiredFieldValidator7" forecolor="Red" errormessage="Por Favor Entre su Contrasena" controltovalidate="RepetirContrasenaTextBox" runat="server">
                                  </asp:requiredfieldvalidator>
-                                 <asp:CompareValidator ID="CompareValidator1" runat="server" forecolor="Red" errormessage="La contrasena no Coincide" controltovalidate="RepetirContrasenaTextBox" ControlToCompare="ContrasenaTextBox"></asp:CompareValidator>
+                                 <asp:CompareValidator ID="CompareValidator1" ValidationGroup="GuardarButton" runat="server" forecolor="Red" errormessage="La contrasena no Coincide" controltovalidate="RepetirContrasenaTextBox" ControlToCompare="ContrasenaTextBox"></asp:CompareValidator>
                             </p>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                             <asp:Label ID="Label1" runat="server" Text="Nombre" Font-Bold="True"></asp:Label>
                             <asp:TextBox ID="NombreTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Nombre"></asp:TextBox>
                             <p class="help-block">
-                                <asp:requiredfieldvalidator id="RequiredFieldValidator3" forecolor="Red" errormessage="Por Favor Entre su Nombre" controltovalidate="NombreTextBox" runat="server">
+                                <asp:requiredfieldvalidator id="RequiredFieldValidator3" ValidationGroup="GuardarButton" forecolor="Red" errormessage="Por Favor Entre su Nombre" controltovalidate="NombreTextBox" runat="server">
                                  </asp:requiredfieldvalidator>
                             </p>
                         </div>
@@ -61,7 +61,7 @@
                             <asp:Label ID="Label2" runat="server" Text="Apellido" Font-Bold="True"></asp:Label>
                             <asp:TextBox ID="ApellidoTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Apellido"></asp:TextBox>
                             <p class="help-block">
-                                <asp:requiredfieldvalidator id="RequiredFieldValidator4" forecolor="Red" errormessage="Por Favor Entre su Apellido" controltovalidate="ApellidoTextBox" runat="server">
+                                <asp:requiredfieldvalidator id="RequiredFieldValidator4" ValidationGroup="GuardarButton" forecolor="Red" errormessage="Por Favor Entre su Apellido" controltovalidate="ApellidoTextBox" runat="server">
                                  </asp:requiredfieldvalidator>
                             </p>
                         </div>
@@ -81,7 +81,7 @@
                             <asp:Label ID="Label7" runat="server" Text="Telefono" Font-Bold="True"></asp:Label>
                             <asp:TextBox ID="TelefonoTextBox" CssClass="form-control" placeholder="Escriba su Telefono" runat="server" TextMode="Phone" MaxLength="11"></asp:TextBox>
                             <p class="help-block">
-                                <asp:requiredfieldvalidator id="RequiredFieldValidator5" forecolor="Red" errormessage="Por Favor Entre su Telefono" controltovalidate="TelefonoTextBox" runat="server">
+                                <asp:requiredfieldvalidator id="RequiredFieldValidator5" ValidationGroup="GuardarButton" forecolor="Red" errormessage="Por Favor Entre su Telefono" controltovalidate="TelefonoTextBox" runat="server">
                                  </asp:requiredfieldvalidator>
                             </p>
                         </div>

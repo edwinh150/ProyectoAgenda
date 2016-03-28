@@ -23,6 +23,7 @@ namespace ProyectoAgencia
             ContrasenaTextBox.Text = "";
             NombreValidacion.IsValid = true;
             ContrasenaValidacion.IsValid = true;
+            RecordarmeCheckBox.Checked = false;
         }
 
         protected void IniciarButton_Click(object sender, EventArgs e)
@@ -32,7 +33,7 @@ namespace ProyectoAgencia
 
             if (Usuario.IniciarSesion())
             {
-                FormsAuthentication.RedirectFromLoginPage(NombreTextBox.Text, true);
+                FormsAuthentication.RedirectFromLoginPage(NombreTextBox.Text, RecordarmeCheckBox.Checked);
             }
             else
             {

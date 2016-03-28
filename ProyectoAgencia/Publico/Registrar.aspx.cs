@@ -77,6 +77,7 @@ namespace ProyectoAgencia
                 if (Usuario.Insertar())
                 {
                     Mensajes.ShowToastr(this.Page, "Se Registro", "Felicidades", "Success");
+                    Usuario.IniciarSesion();
                     Limpiar();
                 }
                 else
