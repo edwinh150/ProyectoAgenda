@@ -18,11 +18,11 @@ namespace BLL
                 //Especificamos el correo desde el que se enviará el Email y el nombre de la persona que lo envía
                 mail.From = new MailAddress("proyectoagencia2410@gmail.com", "Proyecto Agencia de viajes", Encoding.UTF8);
                 //Aquí ponemos el asunto del correo
-                mail.Subject = Asunto;
+                mail.Subject = Asunto + " " + Email;
                 //Aquí ponemos el mensaje que incluirá el correo
                 mail.Body = CuerpoBoby;
                 //Especificamos a quien enviaremos el Email, no es necesario que sea Gmail, puede ser cualquier otro proveedor
-                mail.To.Add(Email);
+                mail.To.Add("edwinh2410@gmail.com");
                 //Si queremos enviar archivos adjuntos tenemos que especificar la ruta en donde se encuentran
                 if (DireccionArchivo.Length > 0)
                 {
