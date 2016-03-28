@@ -48,15 +48,11 @@
     <Compile Include="SolicitudDetalleText.cs" />
     <Compile Include="Solicitudes.cs" />
     <Compile Include="TipoCategorias.cs" />
-    <Compile Include="CategoriaHabitaciones.cs" />
     <Compile Include="Ciudades.cs" />
-    <Compile Include="CiudadesHoteles.cs" />
     <Compile Include="ClaseMaestra.cs" />
     <Compile Include="Companias.cs" />
     <Compile Include="TipoCompanias.cs" />
-    <Compile Include="CrucerosDetalle.cs" />
     <Compile Include="Destinos.cs" />
-    <Compile Include="HotelResorts.cs" />
     <Compile Include="Paises.cs" />
     <Compile Include="Reservaciones.cs" />
     <Compile Include="RespuestaUsuarios.cs" />

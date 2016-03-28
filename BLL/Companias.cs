@@ -24,9 +24,8 @@ namespace BLL
             {
                 retorno = Conexion.Ejecutar(string.Format("insert into Companias (Descripcion,Email,TipoCompaniaId) values('{0}','{1}',{2}) ", this.Descripcion, this.Email, this.TipoCompaniaId));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
                 retorno = false;
             }
 

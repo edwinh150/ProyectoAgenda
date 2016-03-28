@@ -16,7 +16,7 @@ namespace BLL
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
                 //Especificamos el correo desde el que se enviará el Email y el nombre de la persona que lo envía
-                mail.From = new MailAddress("edwinh2410@gmail.com", PersonaEnvia /*"Edwin Hidalgo Agencia de viajes"*/, Encoding.UTF8);
+                mail.From = new MailAddress("ProyectoAgencia2410@gmail.com", PersonaEnvia /*"Proyecto Agencia de viajes"*/, Encoding.UTF8);
                 //Aquí ponemos el asunto del correo
                 mail.Subject = Asunto;
                 //Aquí ponemos el mensaje que incluirá el correo
@@ -31,7 +31,7 @@ namespace BLL
                 //Configuracion del SMTP
                 SmtpServer.Port = 587; //Puerto que utiliza Gmail para sus servicios
                 //Especificamos las credenciales con las que enviaremos el mail
-                SmtpServer.Credentials = new System.Net.NetworkCredential("edwinh2410@gmail.com", "contrasena");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("ProyectoAgencia2410@gmail.com", "24102410..");
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
                 return true;
