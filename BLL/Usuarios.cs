@@ -102,11 +102,10 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update Usuarios set NombreUsuario = '{0}',Contrasena = '{1}', Nombre = '{2}',Apellido = '{3}', Email = '{4}', Telefono = '{5}', FechaNacimiento = '{6}' TipoUsuarioId = {7} where UsuarioId = {8}", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento.ToString("yyyy-MM-dd"), this.TipoUsuarioId, this.UsuarioId));
+                retorno = Conexion.Ejecutar(string.Format("update Usuarios set NombreUsuario = '{0}',Contrasena = '{1}', Nombre = '{2}',Apellido = '{3}', Email = '{4}', Telefono = '{5}', FechaNacimiento = '{6}', TipoUsuarioId = {7} where UsuarioId = {8}", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento.ToString("yyyy-MM-dd"), this.TipoUsuarioId, this.UsuarioId));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
                 retorno = false;
             }
 

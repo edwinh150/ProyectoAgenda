@@ -40,7 +40,7 @@
             <div class="col-md-4">
                 <h3>Detalles para Contactos</h3>
                 <p>
-                    Calle Cruz portez #14<br>Tenares, Rep. Dom.<br>
+                    Calle Cruz portez #14<br /> Tenares, Rep. Dom. <br />
                 </p>
                 <p><i class="fa fa-phone"></i> 
                     <abbr title="Celular">C</abbr>: (809) 464-4250</p>
@@ -72,7 +72,6 @@
         <div class="row">
             <div class="col-md-8">
                 <h3>Mandanos Un Mensaje</h3>
-                <form name="sentMessage" id="contactForm" novalidate>
                     <div class="control-group form-group">
                         <div class="controls">
                             <asp:Label ID="Label1" runat="server" Text="Nombre Completo"></asp:Label>
@@ -101,7 +100,6 @@
                     <div id="success"></div>
                     <!-- For success/fail messages -->
                     <asp:Button ID="MensajeButton" CssClass="btn btn-primary" runat="server" Text="EnviarMensaje" OnClick="MensajeButton_Click" />
-                </form>
             </div>
 
         </div>

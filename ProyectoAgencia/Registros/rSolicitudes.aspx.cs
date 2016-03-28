@@ -31,7 +31,8 @@ namespace ProyectoAgencia.Registros
                 }
                 FechaCreacionLabel.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 EliminarButton.Visible = false;
-            }
+                DetalleGridView.Visible = false;
+            }            
         }
 
         public void LlenarDropDownList()
@@ -118,8 +119,8 @@ namespace ProyectoAgencia.Registros
             CantidadPersonaDropDownList.SelectedIndex = SolicitudDetalle.CantidadPersona;
             CantidadNinoDropDownList.SelectedIndex = SolicitudDetalle.CantidadNino;
             CantidadBebeDropDownList.SelectedIndex = SolicitudDetalle.CantidadBebe;
-            DetalleGridView.DataSource = Solicitud.DetalleText;
-            DetalleGridView.DataBind();
+            DetalleTextGridView.DataSource = Solicitud.DetalleText;
+            DetalleTextGridView.DataBind();
         }
 
         public void Limpiar()
@@ -144,7 +145,7 @@ namespace ProyectoAgencia.Registros
             if (AsuntoTextBox.Text.Length > 0)
             {
                 Solicitud.Asunto = AsuntoTextBox.Text;
-                Solicitud.FechaCreacion = DateTime.Now;
+                Solicitud.FechaCreacion = DateTime.Now;                                
                 Solicitud.UsuarioId = Usuarios.Id;
 
                 if (DetalleGridView.Rows.Count > 0)
@@ -288,8 +289,12 @@ namespace ProyectoAgencia.Registros
         protected void AgregarDetalleButton_Click(object sender, EventArgs e)
         {
             Solicitudes SolicitudDetalle;
-            if (FechaInicialTextBox.Text.Length > 0 && FechaFinalTextBox.Text.Length > 0 && PrecioInicialTextBox.Text.Length > 0 && PrecioFinalTextBox.Text.Length > 0)
+            bool retorno = false;
+
+            if (FechaInicialTextBox.Text.Length > 0 && PrecioInicialTextBox.Text.Length > 0 && PrecioFinalTextBox.Text.Length > 0)
             {
+                retorno = true;
+
                 if (EstadoCheckBox.Checked == true)
                 {
                     Eleccion = 1; // ida
@@ -299,8 +304,21 @@ namespace ProyectoAgencia.Registros
                 {
                     Eleccion = 0; // ida/vuelta
                     EleccionText = "Ida/Vuelta";
-                }
 
+                    if (FechaFinalTextBox.Text.Length == 0)
+                    {
+                        retorno = false;
+                    }
+                }            
+            }
+            else
+            {
+                retorno = false;
+            }
+
+
+            if (retorno == true)
+            {
                 if (Session["SolicitudSession"] == null)
                 {
                     Session["SolicitudSession"] = new Solicitudes();
@@ -315,6 +333,7 @@ namespace ProyectoAgencia.Registros
                 Session["SolicitudSession"] = SolicitudDetalle;
 
                 DetalleGridView.DataSource = SolicitudDetalle.Detalle;
+                DetalleGridView.DataBind();
                 DetalleTextGridView.DataSource = SolicitudDetalle.DetalleText;
                 DetalleTextGridView.DataBind();
             }
@@ -322,6 +341,7 @@ namespace ProyectoAgencia.Registros
             {
                 Mensajes.ShowToastr(this.Page, "Faltan Datos en el Detalle", "Error", "Error");
             }
+
         }
 
         protected void OrigenDropDownList_SelectedIndexChanged(object sender, EventArgs e)
