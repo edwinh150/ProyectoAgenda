@@ -36,9 +36,8 @@ namespace BLL
                 SmtpServer.Send(mail);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
                 return false;
             }
         }
