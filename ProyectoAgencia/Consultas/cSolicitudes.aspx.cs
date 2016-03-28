@@ -66,6 +66,7 @@ namespace ProyectoAgencia.Consultas
             else
             {
                 ConsultaDetalleGridView.DataSource = string.Empty;
+                ConsultaDetalleGridView.DataBind();
             }
         }
 
