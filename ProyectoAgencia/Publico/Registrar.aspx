@@ -20,7 +20,7 @@
                             <asp:Label ID="Label5" runat="server" Text="Nombre de Usuario" Font-Bold="True"></asp:Label>
                             <asp:TextBox ID="NombreUsuarioTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Nombre de Usuario"></asp:TextBox>
                             <p class="help-block">
-                                    <asp:requiredfieldvalidator id="RequiredFieldValidator1" forecolor="Red" errormessage="Por Favor Entre su Nombre de Usuario" controltovalidate="NombreUsuarioTextBox" runat="server">
+                                    <asp:requiredfieldvalidator id="RequiredFieldValidator1" ValidationGroup="GuardarButton" forecolor="Red" errormessage="Por Favor Entre su Nombre de Usuario" controltovalidate="NombreUsuarioTextBox" runat="server">
                                     </asp:requiredfieldvalidator>
                             </p>
                         </div>
@@ -40,9 +40,9 @@
                             <asp:Label ID="Label8" runat="server" Text="Contrasena" Font-Bold="True"></asp:Label>
                             <asp:TextBox ID="RepetirContrasenaTextBox" runat="server" CssClass="form-control" placeholder="Escriba de nuevo su Contrasena" TextMode="Password"></asp:TextBox>
                             <p class="help-block">
-                                 <asp:requiredfieldvalidator id="RequiredFieldValidator7" forecolor="Red" errormessage="Por Favor Entre su Contrasena" controltovalidate="RepetirContrasenaTextBox" runat="server">
+                                 <asp:requiredfieldvalidator id="RequiredFieldValidator7" ValidationGroup="GuardarButton" forecolor="Red" errormessage="Por Favor Entre su Contrasena" controltovalidate="RepetirContrasenaTextBox" runat="server">
                                  </asp:requiredfieldvalidator>
-                                 <asp:CompareValidator ID="CompareValidator1" ValidationGroup="GuardarButton" runat="server" forecolor="Red" errormessage="La contrasena no Coincide" controltovalidate="RepetirContrasenaTextBox" ControlToCompare="ContrasenaTextBox"></asp:CompareValidator>
+                                 <asp:CompareValidator ID="CompareValidator1" runat="server" forecolor="Red" errormessage="La contrasena no Coincide" controltovalidate="RepetirContrasenaTextBox" ControlToCompare="ContrasenaTextBox"></asp:CompareValidator>
                             </p>
                         </div>
                     </div>
