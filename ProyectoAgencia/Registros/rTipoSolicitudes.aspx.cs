@@ -11,7 +11,6 @@ namespace ProyectoAgencia.Registros
     public partial class rTipoSolicitudes : System.Web.UI.Page
     {
         TipoSolicitudes TipoSolicitud = new TipoSolicitudes();
-        Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -56,7 +55,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    TipoSolicitud.TipoSolicitudId = Seguro.ValidarEntero(TipoSolicitudIdTextBox.Text);
+                    TipoSolicitud.TipoSolicitudId = Seguridad.ValidarEntero(TipoSolicitudIdTextBox.Text);
 
                     if (TipoSolicitud.Editar())
                     {
@@ -99,9 +98,9 @@ namespace ProyectoAgencia.Registros
         {
             if (TipoSolicitudIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(TipoSolicitudIdTextBox.Text) > 0)
+                if (Seguridad.ValidarEntero(TipoSolicitudIdTextBox.Text) > 0)
                 {
-                    TipoSolicitud.TipoSolicitudId = Seguro.ValidarEntero(TipoSolicitudIdTextBox.Text);
+                    TipoSolicitud.TipoSolicitudId = Seguridad.ValidarEntero(TipoSolicitudIdTextBox.Text);
 
                     if (TipoSolicitud.Eliminar())
                     {
@@ -127,7 +126,7 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(TipoSolicitudIdTextBox.Text);
+            int Id = Seguridad.ValidarEntero(TipoSolicitudIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)

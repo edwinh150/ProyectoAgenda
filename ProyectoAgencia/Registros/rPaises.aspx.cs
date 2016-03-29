@@ -11,7 +11,6 @@ namespace ProyectoAgencia.Registros
     public partial class rPaises : System.Web.UI.Page
     {
         Paises Pais = new Paises();
-        Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -57,7 +56,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    Pais.PaisId = Seguro.ValidarEntero(PaisIdTextBox.Text);
+                    Pais.PaisId = Seguridad.ValidarEntero(PaisIdTextBox.Text);
 
                     if (Pais.Editar())
                     {
@@ -100,9 +99,9 @@ namespace ProyectoAgencia.Registros
         {
             if (PaisIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(PaisIdTextBox.Text) > 0)
+                if (Seguridad.ValidarEntero(PaisIdTextBox.Text) > 0)
                 {
-                    Pais.PaisId = Seguro.ValidarEntero(PaisIdTextBox.Text);
+                    Pais.PaisId = Seguridad.ValidarEntero(PaisIdTextBox.Text);
 
                     if (Pais.Eliminar())
                     {
@@ -128,7 +127,7 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(PaisIdTextBox.Text);
+            int Id = Seguridad.ValidarEntero(PaisIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)

@@ -11,7 +11,6 @@ namespace ProyectoAgencia.Registros
     public partial class rCiudades : System.Web.UI.Page
     {
             Ciudades Ciudad = new Ciudades();
-            Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -52,7 +51,7 @@ namespace ProyectoAgencia.Registros
             if (DescripcionTextBox.Text.Length > 0)
             {
                 Ciudad.Descripcion = DescripcionTextBox.Text;
-                Ciudad.PaisId = Seguro.ValidarEntero(PaisDropDownList.SelectedValue);
+                Ciudad.PaisId = Seguridad.ValidarEntero(PaisDropDownList.SelectedValue);
                 retorno = true;
             }
             else
@@ -69,7 +68,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    Ciudad.CiudadId = Seguro.ValidarEntero(CiudadIdTextBox.Text);
+                    Ciudad.CiudadId = Seguridad.ValidarEntero(CiudadIdTextBox.Text);
 
                     if (Ciudad.Editar())
                     {
@@ -112,9 +111,9 @@ namespace ProyectoAgencia.Registros
         {
             if (CiudadIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(CiudadIdTextBox.Text) > 0)
+                if (Seguridad.ValidarEntero(CiudadIdTextBox.Text) > 0)
                 {
-                    Ciudad.CiudadId = Seguro.ValidarEntero(CiudadIdTextBox.Text);
+                    Ciudad.CiudadId = Seguridad.ValidarEntero(CiudadIdTextBox.Text);
 
                     if (Ciudad.Eliminar())
                     {
@@ -140,7 +139,7 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(CiudadIdTextBox.Text);
+            int Id = Seguridad.ValidarEntero(CiudadIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)

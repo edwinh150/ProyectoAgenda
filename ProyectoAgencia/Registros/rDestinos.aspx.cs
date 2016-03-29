@@ -11,7 +11,6 @@ namespace ProyectoAgencia.Registros
     public partial class rDestinos : System.Web.UI.Page
     {
         Destinos Destino = new Destinos();
-        Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -57,8 +56,8 @@ namespace ProyectoAgencia.Registros
             if (DescripcionTextBox.Text.Length > 0)
             {
                 Destino.Descripcion = DescripcionTextBox.Text;
-                Destino.TipoDestinoId = Seguro.ValidarEntero(TipoDestinoDropDownList.SelectedValue);
-                Destino.CiudadId = Seguro.ValidarEntero(CiudadDropDownList.SelectedValue);
+                Destino.TipoDestinoId = Seguridad.ValidarEntero(TipoDestinoDropDownList.SelectedValue);
+                Destino.CiudadId = Seguridad.ValidarEntero(CiudadDropDownList.SelectedValue);
                 retorno = true;
             }
             else
@@ -75,7 +74,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    Destino.DestinoId = Seguro.ValidarEntero(DestinoIdTextBox.Text);
+                    Destino.DestinoId = Seguridad.ValidarEntero(DestinoIdTextBox.Text);
 
                     if (Destino.Editar())
                     {
@@ -118,9 +117,9 @@ namespace ProyectoAgencia.Registros
         {
             if (DestinoIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(DestinoIdTextBox.Text) > 0)
+                if (Seguridad.ValidarEntero(DestinoIdTextBox.Text) > 0)
                 {
-                    Destino.DestinoId = Seguro.ValidarEntero(DestinoIdTextBox.Text);
+                    Destino.DestinoId = Seguridad.ValidarEntero(DestinoIdTextBox.Text);
 
                     if (Destino.Eliminar())
                     {
@@ -146,7 +145,7 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(DestinoIdTextBox.Text);
+            int Id = Seguridad.ValidarEntero(DestinoIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)

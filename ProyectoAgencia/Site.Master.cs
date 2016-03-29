@@ -43,7 +43,6 @@ namespace ProyectoAgencia
                     RegistroLi.Visible = false;
                     ConsultaLi.Visible = false;
                 }
-
             }
 
         }

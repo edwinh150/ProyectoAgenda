@@ -5,9 +5,9 @@ using System.Text;
 
 namespace BLL
 {
-    public class Seguridad
+    public static class Seguridad
     {
-        public int ValidarEntero(string Convertir)
+        public static int ValidarEntero(string Convertir)
         {
             int Id = 0;
 
@@ -20,7 +20,7 @@ namespace BLL
             return Id;
         }
 
-        public double ValidarDouble(string Convertir)
+        public static double ValidarDouble(string Convertir)
         {
             double Id = 0;
 
@@ -33,7 +33,7 @@ namespace BLL
             return Id;
         }
 
-        public DateTime ValidarDateTime(string Convertir)
+        public static DateTime ValidarDateTime(string Convertir)
         {
             DateTime fecha = DateTime.Now;
 
@@ -46,7 +46,7 @@ namespace BLL
             return fecha;
         }
 
-        public int ValidarBit(string Convertir)
+        public static int ValidarBit(string Convertir)
         {
             int bit = 0;
 
@@ -59,6 +59,22 @@ namespace BLL
             }
 
             return bit;
+        }
+
+        public static string Encriptar(this string _cadenaAencriptar)
+        {
+            string result = string.Empty;
+            byte[] encryted = System.Text.Encoding.Unicode.GetBytes(_cadenaAencriptar);
+            result = Convert.ToBase64String(encryted);
+            return result;
+        }
+
+        public static string DesEncriptar(this string _cadenaAdesencriptar)
+        {
+            string result = string.Empty;
+            byte[] decryted = Convert.FromBase64String(_cadenaAdesencriptar);
+            result = System.Text.Encoding.Unicode.GetString(decryted);
+            return result;
         }
     }
 }

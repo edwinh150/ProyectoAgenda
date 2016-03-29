@@ -11,8 +11,6 @@ namespace ProyectoAgencia.Consultas
 {
     public partial class cSolicitudes : System.Web.UI.Page
     {
-        Seguridad Seguro = new Seguridad();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             LlenarGrid(" 1=1 ");
@@ -78,7 +76,7 @@ namespace ProyectoAgencia.Consultas
             {
                 if (SolicitudesDropDownList.SelectedIndex == 0)
                 {
-                    if (Seguro.ValidarEntero(CodigoTextBox.Text) == 0)
+                    if (Seguridad.ValidarEntero(CodigoTextBox.Text) == 0)
                     {
                         Condiciones = " 1=1 ";
                     }
@@ -101,7 +99,7 @@ namespace ProyectoAgencia.Consultas
 
                 if (SolicitudesDropDownList.SelectedIndex == 3)
                 {
-                    if (Seguro.ValidarEntero(CodigoTextBox.Text) == 0)
+                    if (Seguridad.ValidarEntero(CodigoTextBox.Text) == 0)
                     {
                         Condiciones = " 1=1 ";
                     }

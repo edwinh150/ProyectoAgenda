@@ -11,7 +11,6 @@ namespace ProyectoAgencia
     public partial class Registrar : System.Web.UI.Page
     {
         Usuarios Usuario = new Usuarios();
-        Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -56,7 +55,7 @@ namespace ProyectoAgencia
                     Usuario.Apellido = ApellidoTextBox.Text;
                     Usuario.Email = EmailTextBox.Text;
                     Usuario.Telefono = TelefonoTextBox.Text;
-                    Usuario.FechaNacimiento = Seguro.ValidarDateTime(FechaNacimientoTextBox.Text);
+                    Usuario.FechaNacimiento = Seguridad.ValidarDateTime(FechaNacimientoTextBox.Text);
                     Usuario.TipoUsuarioId = 2;
                 }
 

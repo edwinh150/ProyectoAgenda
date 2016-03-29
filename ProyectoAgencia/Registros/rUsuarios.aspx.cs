@@ -11,7 +11,6 @@ namespace ProyectoAgencia.Registros
     public partial class rUsuarios : System.Web.UI.Page
     {
         Usuarios Usuario = new Usuarios();
-        Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -76,8 +75,8 @@ namespace ProyectoAgencia.Registros
                 Usuario.Apellido = ApellidoTextBox.Text;
                 Usuario.Email = EmailTextBox.Text;
                 Usuario.Telefono = TelefonoTextBox.Text;
-                Usuario.FechaNacimiento = Seguro.ValidarDateTime(FechaNacimientoTextBox.Text);
-                Usuario.TipoUsuarioId = Seguro.ValidarEntero(TipoUsuarioDropDownList.SelectedValue);
+                Usuario.FechaNacimiento = Seguridad.ValidarDateTime(FechaNacimientoTextBox.Text);
+                Usuario.TipoUsuarioId = Seguridad.ValidarEntero(TipoUsuarioDropDownList.SelectedValue);
                 
                 retorno = true;
             }
@@ -95,7 +94,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    Usuario.UsuarioId = Seguro.ValidarEntero(UsuarioIdTextBox.Text);
+                    Usuario.UsuarioId = Seguridad.ValidarEntero(UsuarioIdTextBox.Text);
 
                     if (Usuario.Editar())
                     {
@@ -138,9 +137,9 @@ namespace ProyectoAgencia.Registros
         {
             if (UsuarioIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(UsuarioIdTextBox.Text) > 0)
+                if (Seguridad.ValidarEntero(UsuarioIdTextBox.Text) > 0)
                 {
-                    Usuario.UsuarioId = Seguro.ValidarEntero(UsuarioIdTextBox.Text);
+                    Usuario.UsuarioId = Seguridad.ValidarEntero(UsuarioIdTextBox.Text);
 
                     if (Usuario.Eliminar())
                     {
@@ -166,7 +165,7 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(UsuarioIdTextBox.Text);
+            int Id = Seguridad.ValidarEntero(UsuarioIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)

@@ -11,7 +11,6 @@ namespace ProyectoAgencia.Registros
     public partial class rCategorias : System.Web.UI.Page
     {
         Categorias Categoria = new Categorias();
-        Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -53,7 +52,7 @@ namespace ProyectoAgencia.Registros
             if (DescripcionTextBox.Text.Length > 0)
             {
                 Categoria.Descripcion = DescripcionTextBox.Text;
-                Categoria.TipoCategoriaId = Seguro.ValidarEntero(TipoCategoriaIdDropDownList.SelectedValue);
+                Categoria.TipoCategoriaId = Seguridad.ValidarEntero(TipoCategoriaIdDropDownList.SelectedValue);
                 retorno = true;
             }
             else
@@ -70,7 +69,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    Categoria.CategoriaId = Seguro.ValidarEntero(CategoriaIdTextBox.Text);
+                    Categoria.CategoriaId = Seguridad.ValidarEntero(CategoriaIdTextBox.Text);
 
                     if (Categoria.Editar())
                     {
@@ -113,9 +112,9 @@ namespace ProyectoAgencia.Registros
         {
             if (CategoriaIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(CategoriaIdTextBox.Text) > 0)
+                if (Seguridad.ValidarEntero(CategoriaIdTextBox.Text) > 0)
                 {
-                    Categoria.CategoriaId = Seguro.ValidarEntero(CategoriaIdTextBox.Text);
+                    Categoria.CategoriaId = Seguridad.ValidarEntero(CategoriaIdTextBox.Text);
 
                     if (Categoria.Eliminar())
                     {
@@ -141,7 +140,7 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(CategoriaIdTextBox.Text);
+            int Id = Seguridad.ValidarEntero(CategoriaIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)

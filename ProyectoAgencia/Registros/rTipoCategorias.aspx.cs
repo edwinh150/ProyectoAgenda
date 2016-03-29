@@ -11,7 +11,6 @@ namespace ProyectoAgencia.Registros
     public partial class rTipoCategorias : System.Web.UI.Page
     {
         TipoCategorias TipoCategoria = new TipoCategorias();
-        Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -56,7 +55,7 @@ namespace ProyectoAgencia.Registros
             { 
                 if (LLenarDatos())
                 {
-                    TipoCategoria.TipoCategoriaId = Seguro.ValidarEntero(TipoCategoriaIdTextBox.Text);
+                    TipoCategoria.TipoCategoriaId = Seguridad.ValidarEntero(TipoCategoriaIdTextBox.Text);
 
                     if (TipoCategoria.Editar())
                     {
@@ -99,9 +98,9 @@ namespace ProyectoAgencia.Registros
         {
             if (TipoCategoriaIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(TipoCategoriaIdTextBox.Text) > 0)
+                if (Seguridad.ValidarEntero(TipoCategoriaIdTextBox.Text) > 0)
                 {
-                    TipoCategoria.TipoCategoriaId = Seguro.ValidarEntero(TipoCategoriaIdTextBox.Text);
+                    TipoCategoria.TipoCategoriaId = Seguridad.ValidarEntero(TipoCategoriaIdTextBox.Text);
 
                     if (TipoCategoria.Eliminar())
                     {
@@ -127,7 +126,7 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(TipoCategoriaIdTextBox.Text);
+            int Id = Seguridad.ValidarEntero(TipoCategoriaIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)

@@ -10,8 +10,6 @@ namespace ProyectoAgencia.Consultas
 {
     public partial class cUsuarios : System.Web.UI.Page
     {
-        Seguridad Seguro = new Seguridad();
-        
         protected void Page_Load(object sender, EventArgs e)
         {
             LlenarGrid(" 1=1 ");
@@ -44,7 +42,7 @@ namespace ProyectoAgencia.Consultas
             {
                 if (UsuarioDropDownList.SelectedIndex == 0)
                 {
-                    if (Seguro.ValidarEntero(CodigoTextBox.Text) == 0)
+                    if (Seguridad.ValidarEntero(CodigoTextBox.Text) == 0)
                     {
                         Condiciones = " 1=1 ";
                     }
@@ -71,7 +69,7 @@ namespace ProyectoAgencia.Consultas
 
                 if (UsuarioDropDownList.SelectedIndex == 4)
                 {
-                    if (Seguro.ValidarEntero(CodigoTextBox.Text) == 0)
+                    if (Seguridad.ValidarEntero(CodigoTextBox.Text) == 0)
                     {
                         Condiciones = " 1=1 ";
                     }

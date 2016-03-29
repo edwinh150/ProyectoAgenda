@@ -11,7 +11,6 @@ namespace ProyectoAgencia.Registros
     public partial class rTipoUsuarios : System.Web.UI.Page
     {
         TipoUsuarios TipoUsuario = new TipoUsuarios();
-        Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -58,7 +57,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    TipoUsuario.TipoUsuarioId = Seguro.ValidarEntero(TipoUsuarioIdTextBox.Text);
+                    TipoUsuario.TipoUsuarioId = Seguridad.ValidarEntero(TipoUsuarioIdTextBox.Text);
 
                     if (TipoUsuario.Editar())
                     {
@@ -101,9 +100,9 @@ namespace ProyectoAgencia.Registros
         {
             if (TipoUsuarioIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(TipoUsuarioIdTextBox.Text) > 0)
+                if (Seguridad.ValidarEntero(TipoUsuarioIdTextBox.Text) > 0)
                 {
-                    TipoUsuario.TipoUsuarioId = Seguro.ValidarEntero(TipoUsuarioIdTextBox.Text);
+                    TipoUsuario.TipoUsuarioId = Seguridad.ValidarEntero(TipoUsuarioIdTextBox.Text);
 
                     if (TipoUsuario.Eliminar())
                     {
@@ -129,7 +128,7 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(TipoUsuarioIdTextBox.Text);
+            int Id = Seguridad.ValidarEntero(TipoUsuarioIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)

@@ -11,7 +11,6 @@ namespace ProyectoAgencia.Registros
     public partial class rTipoDestinos : System.Web.UI.Page
     {
         TipoDestinos TipoDestino = new TipoDestinos();
-        Seguridad Seguro = new Seguridad();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -56,7 +55,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (LLenarDatos())
                 {
-                    TipoDestino.TipoDestinoId = Seguro.ValidarEntero(TipoDestinoIdTextBox.Text);
+                    TipoDestino.TipoDestinoId = Seguridad.ValidarEntero(TipoDestinoIdTextBox.Text);
 
                     if (TipoDestino.Editar())
                     {
@@ -99,9 +98,9 @@ namespace ProyectoAgencia.Registros
         {
             if (TipoDestinoIdTextBox.Text.Length > 0)
             {
-                if (Seguro.ValidarEntero(TipoDestinoIdTextBox.Text) > 0)
+                if (Seguridad.ValidarEntero(TipoDestinoIdTextBox.Text) > 0)
                 {
-                    TipoDestino.TipoDestinoId = Seguro.ValidarEntero(TipoDestinoIdTextBox.Text);
+                    TipoDestino.TipoDestinoId = Seguridad.ValidarEntero(TipoDestinoIdTextBox.Text);
 
                     if (TipoDestino.Eliminar())
                     {
@@ -127,7 +126,7 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguro.ValidarEntero(TipoDestinoIdTextBox.Text);
+            int Id = Seguridad.ValidarEntero(TipoDestinoIdTextBox.Text);
             ValidacionLimpiar();
 
             if (Id > 0)

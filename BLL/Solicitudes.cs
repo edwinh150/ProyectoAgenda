@@ -116,7 +116,6 @@ namespace BLL
             DataTable dt = new DataTable();
             DataTable Detalledt = new DataTable();
             ConexionDB Conexion = new ConexionDB();
-            Seguridad Seguro = new Seguridad();
             string EleccionText = "";
 
             try
@@ -140,7 +139,7 @@ namespace BLL
                 {
                     foreach (DataRow Dr in Detalledt.Rows)
                     {
-                        if (Seguro.ValidarBit(Dr["EleccionDestino"].ToString()) == 0)
+                        if (Seguridad.ValidarBit(Dr["EleccionDestino"].ToString()) == 0)
                         {
                             EleccionText = "Solo Ida";
                         }
@@ -149,7 +148,7 @@ namespace BLL
                             EleccionText = "Ida/Vuelta";
                         }
 
-                        AgregarSolicitudText(EleccionText, Dr["Descripcion"].ToString(), Dr["Descripcion1"].ToString(), Dr["Descripcion"].ToString(), Dr["Origen"].ToString(), Dr["Destino"].ToString(), Seguro.ValidarDateTime(Dr["FechaInicial"].ToString()), Seguro.ValidarDateTime(Dr["FechaFinal"].ToString()), Seguro.ValidarEntero(Dr["CantidadPersona"].ToString()), Seguro.ValidarEntero(Dr["CantidadNino"].ToString()), Seguro.ValidarEntero(Dr["CantidadBebe"].ToString()), Seguro.ValidarDouble(Dr["PrecioInicial"].ToString()), Seguro.ValidarDouble(Dr["PrecioFinal"].ToString()));
+                        AgregarSolicitudText(EleccionText, Dr["Descripcion"].ToString(), Dr["Descripcion1"].ToString(), Dr["Descripcion"].ToString(), Dr["Origen"].ToString(), Dr["Destino"].ToString(), Seguridad.ValidarDateTime(Dr["FechaInicial"].ToString()), Seguridad.ValidarDateTime(Dr["FechaFinal"].ToString()), Seguridad.ValidarEntero(Dr["CantidadPersona"].ToString()), Seguridad.ValidarEntero(Dr["CantidadNino"].ToString()), Seguridad.ValidarEntero(Dr["CantidadBebe"].ToString()), Seguridad.ValidarDouble(Dr["PrecioInicial"].ToString()), Seguridad.ValidarDouble(Dr["PrecioFinal"].ToString()));
                     }
                     retorno = true;
                 }

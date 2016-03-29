@@ -40,7 +40,7 @@ namespace BLL
 
             bool retorno = false;
 
-            dt = con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' and Contrasena = '{1}' ", this.NombreUsuario, this.Contrasena));
+            dt = con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' and Contrasena = '{1}' ", this.NombreUsuario, Seguridad.Encriptar(this.Contrasena)));
 
             if (dt.Rows.Count > 0)
             {
@@ -85,7 +85,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("insert into Usuarios(NombreUsuario,Contrasena,Nombre,Apellido,Email,Telefono,FechaNacimiento,TipoUsuarioId) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7}) ", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento.ToString("yyyy-MM-dd"), this.TipoUsuarioId));
+                retorno = Conexion.Ejecutar(string.Format("insert into Usuarios(NombreUsuario,Contrasena,Nombre,Apellido,Email,Telefono,FechaNacimiento,TipoUsuarioId) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7}) ", this.NombreUsuario, Seguridad.Encriptar(this.Contrasena), this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento.ToString("yyyy-MM-dd"), this.TipoUsuarioId));
             }
             catch (Exception)
             {
@@ -102,7 +102,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("update Usuarios set NombreUsuario = '{0}',Contrasena = '{1}', Nombre = '{2}',Apellido = '{3}', Email = '{4}', Telefono = '{5}', FechaNacimiento = '{6}', TipoUsuarioId = {7} where UsuarioId = {8}", this.NombreUsuario, this.Contrasena, this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento.ToString("yyyy-MM-dd"), this.TipoUsuarioId, this.UsuarioId));
+                retorno = Conexion.Ejecutar(string.Format("update Usuarios set NombreUsuario = '{0}',Contrasena = '{1}', Nombre = '{2}',Apellido = '{3}', Email = '{4}', Telefono = '{5}', FechaNacimiento = '{6}', TipoUsuarioId = {7} where UsuarioId = {8}", this.NombreUsuario, Seguridad.Encriptar(this.Contrasena), this.Nombre, this.Apellido, this.Email, this.Telefono, this.FechaNacimiento.ToString("yyyy-MM-dd"), this.TipoUsuarioId, this.UsuarioId));
             }
             catch (Exception)
             {
@@ -143,7 +143,6 @@ namespace BLL
                 if (dt.Rows.Count > 0)
                 {
                     this.NombreUsuario = dt.Rows[0]["NombreUsuario"].ToString();
-                    this.Contrasena = dt.Rows[0]["Contrasena"].ToString();
                     this.Nombre = dt.Rows[0]["Nombre"].ToString();
                     this.Apellido = dt.Rows[0]["Apellido"].ToString();
                     this.Email = dt.Rows[0]["Email"].ToString();

@@ -20,8 +20,8 @@
                             <asp:Label ID="Label5" runat="server" Text="Nombre de Usuario" Font-Bold="True"></asp:Label>
                             <asp:TextBox ID="NombreUsuarioTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Nombre de Usuario"></asp:TextBox>
                             <p class="help-block">
-                                    <asp:requiredfieldvalidator id="RequiredFieldValidator1" ValidationGroup="GuardarButton" forecolor="Red" errormessage="Por Favor Entre su Nombre de Usuario" controltovalidate="NombreUsuarioTextBox" runat="server">
-                                    </asp:requiredfieldvalidator>
+                                <asp:requiredfieldvalidator id="RequiredFieldValidator1" ValidationGroup="GuardarButton" forecolor="Red" errormessage="Por Favor Entre su Nombre de Usuario" controltovalidate="NombreUsuarioTextBox" runat="server">
+                                </asp:requiredfieldvalidator>
                             </p>
                         </div>
                     </div>

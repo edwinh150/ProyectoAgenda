@@ -6,6 +6,8 @@ create table TipoUsuarios(TipoUsuarioId int identity(1,1) primary key,
 Descripcion varchar(50)
 );
 
+select * from Usuarios
+
 
 create table Usuarios(UsuarioId int identity(1,1) primary key,
 NombreUsuario varchar(50),
@@ -110,28 +112,24 @@ TipoCategoriaId int references TipoCategorias(TipoCategoriaId)
 create table Reservaciones(ReservacionId int identity(1,1) primary key,
 UsuarioId int references Usuarios(UsuarioId),
 EsActivo bit,
-FechaCreacion DateTime,
-Precio float,
-Impuesto float,
-Total float
+FechaCreacion DateTime
 );
 
 create table ReservacionDetalles(ReservacionDetalleId int identity(1,1) primary key,
+EleccionDestino bit,
 ReservacionId int references Reservaciones(ReservacionId),
-UsuarioId int references Usuarios(UsuarioId),
-VueloId int references Vuelos(VueloId)
-);
-
-create table ReservacionCruceros(ReservacionCruceroId int primary key identity(1,1),
-ReservacionId int references Reservaciones(ReservacionId),
-UsuarioId int references Usuarios(UsuarioId),
-CruceroId int References Cruceros(CruceroId)
-);
-
-create table ReservacionHoteles(ReservacionHotelId int primary key identity(1,1),
-ReservacionId int references Reservaciones(ReservacionId),
-UsuarioId int references Usuarios(UsuarioId),
-HotelResortId int References HotelResorts(HotelResortId)
+SolicitudId int references Solicitudes(SolicitudId),
+CompaniaId int references Companias(CompaniaId),
+CategoriaId int references Categorias(CategoriaId),
+Origen varchar(100),
+Destino varchar(100),
+FechaInicial datetime,
+FechaFinal datetime,
+CantidadPersona int,
+CantidadNino int,
+CantidadBebe int,
+Precio float,
+Total float
 );
 
 create table RespuestaUsuarios(RespuestaUsuarioId int identity(1,1),
