@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace BLL
 {
@@ -35,7 +36,7 @@ namespace BLL
 
         public static DateTime ValidarDateTime(string Convertir)
         {
-            DateTime fecha = DateTime.Now;
+            DateTime fecha = Convert.ToDateTime("01/01/0001 00:00:00");
 
             if (Convertir.Length > 0)
             {
@@ -52,9 +53,14 @@ namespace BLL
 
             if (Convertir.Length > 0)
             {
-                if (Convertir == "true")
+                if (Convertir == "True")
                 {
                     bit = 1;
+                }
+
+                if (Convertir == "False")
+                {
+                    bit = 0;
                 }
             }
 
@@ -75,6 +81,26 @@ namespace BLL
             byte[] decryted = Convert.FromBase64String(_cadenaAdesencriptar);
             result = System.Text.Encoding.Unicode.GetString(decryted);
             return result;
+        }
+
+        public static bool ValidarEmail(string strMailAddress)
+        {
+            return Regex.IsMatch(strMailAddress, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+        }
+
+        public static bool ValidarTelefono(string Telefono)
+        {
+            return Regex.IsMatch(Telefono, @"^[+-]?\d+(\.\d+)?$");
+        }
+
+        public static bool ValidarNombre(string Nombre)
+        {
+            return Regex.IsMatch(Nombre, @"[a-zA-ZñÑ\s]{2,50}");
+        }
+
+        public static bool ValidarSoloNumero(string Numero)
+        {
+            return Regex.IsMatch(Numero, @"[0-9]{1,9}(\.[0-9]{0,2})?$");
         }
     }
 }

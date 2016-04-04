@@ -22,7 +22,11 @@ namespace ProyectoAgencia.Registros
 
         public void ValidacionLimpiar()
         {
-            RequiredFieldValidator1.IsValid = true;
+            TipoCompaniaIdDiv.Attributes.Remove("class");
+            TipoCompaniaIdDiv.Attributes.Add("class", "col-md-8");
+
+            DescripcionDiv.Attributes.Remove("class");
+            DescripcionDiv.Attributes.Add("class", "col-md-8");
         }
 
         public void Limpiar()
@@ -30,20 +34,24 @@ namespace ProyectoAgencia.Registros
             TipoCompaniaIdTextBox.Text = "";
             DescripcionTextBox.Text = "";
             ValidacionLimpiar();
+            GuardarButton.Text = "Guardar";
+            EliminarButton.Visible = false;
         }
 
         bool LLenarDatos()
         {
-            bool retorno = false;
+            bool retorno = true;
+            ValidacionLimpiar();
 
-            if (DescripcionTextBox.Text.Length > 0)
+            if (!Seguridad.ValidarNombre(DescripcionTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Descripcion Invalido", "Error");
+                DescripcionDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+            if (retorno)
             {
                 TipoCompania.Descripcion = DescripcionTextBox.Text;
-                retorno = true;
-            }
-            else
-            {
-                retorno = false;
             }
 
             return retorno;
@@ -126,13 +134,28 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguridad.ValidarEntero(TipoCompaniaIdTextBox.Text);
+            int Id = 0;
+            bool retorno = true;
+
             ValidacionLimpiar();
+
+            if (!Seguridad.ValidarSoloNumero(TipoCompaniaIdTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Id de Compañia Invalido", "Error");
+                TipoCompaniaIdDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+
+            if (retorno)
+            {
+                Id = Seguridad.ValidarEntero(TipoCompaniaIdTextBox.Text);
+            }
 
             if (Id > 0)
             {
                 if (TipoCompania.Buscar(Id))
                 {
+                    GuardarButton.Text = "Modificar";
                     EliminarButton.Visible = true;
                     DescripcionTextBox.Text = TipoCompania.Descripcion;
                 }

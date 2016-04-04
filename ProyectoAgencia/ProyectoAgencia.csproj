@@ -65,10 +65,7 @@
     <Content Include="Consultas\cCompanias.aspx" />
     <Content Include="Consultas\cDestinos.aspx" />
     <Content Include="Consultas\cPaises.aspx" />
-    <Content Include="Consultas\cReservacionCruceros.aspx" />
     <Content Include="Consultas\cReservaciones.aspx" />
-    <Content Include="Consultas\cReservacionHotelResorts.aspx" />
-    <Content Include="Consultas\cReservacionVuelos.aspx" />
     <Content Include="Consultas\cSolicitudes.aspx" />
     <Content Include="Consultas\cTipoCategorias.aspx" />
     <Content Include="Consultas\cTipoCompanias.aspx" />
@@ -110,6 +107,8 @@
     <Content Include="Login.aspx" />
     <Content Include="Publico\Registrar.aspx" />
     <Content Include="Registros\rCategorias.aspx" />
+    <Content Include="Registros\rReservaciones.aspx" />
+    <Content Include="Registros\rReservacionInicio.aspx" />
     <Content Include="Registros\rSolicitudes.aspx" />
     <Content Include="Registros\rTipoCategorias.aspx" />
     <Content Include="Registros\rCiudades.aspx" />
@@ -117,10 +116,6 @@
     <Content Include="Registros\rTipoCompanias.aspx" />
     <Content Include="Registros\rDestinos.aspx" />
     <Content Include="Registros\rPaises.aspx" />
-    <Content Include="Registros\rReservacionCruceros.aspx" />
-    <Content Include="Registros\rReservaciones.aspx" />
-    <Content Include="Registros\rReservacionHotelResorts.aspx" />
-    <Content Include="Registros\rReservacionVuelos.aspx" />
     <Content Include="Registros\rTipoDestinos.aspx" />
     <Content Include="Registros\rTipoUsuarios.aspx" />
     <Content Include="Registros\rTipoSolicitudes.aspx" />
@@ -164,33 +159,12 @@
     <Compile Include="Consultas\cPaises.aspx.designer.cs">
       <DependentUpon>cPaises.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\cReservacionCruceros.aspx.cs">
-      <DependentUpon>cReservacionCruceros.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Consultas\cReservacionCruceros.aspx.designer.cs">
-      <DependentUpon>cReservacionCruceros.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Consultas\cReservaciones.aspx.cs">
       <DependentUpon>cReservaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Consultas\cReservaciones.aspx.designer.cs">
       <DependentUpon>cReservaciones.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Consultas\cReservacionHotelResorts.aspx.cs">
-      <DependentUpon>cReservacionHotelResorts.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Consultas\cReservacionHotelResorts.aspx.designer.cs">
-      <DependentUpon>cReservacionHotelResorts.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Consultas\cReservacionVuelos.aspx.cs">
-      <DependentUpon>cReservacionVuelos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Consultas\cReservacionVuelos.aspx.designer.cs">
-      <DependentUpon>cReservacionVuelos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas\cSolicitudes.aspx.cs">
       <DependentUpon>cSolicitudes.aspx</DependentUpon>
@@ -285,6 +259,20 @@
     <Compile Include="Registros\rCategorias.aspx.designer.cs">
       <DependentUpon>rCategorias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Registros\rReservaciones.aspx.cs">
+      <DependentUpon>rReservaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rReservaciones.aspx.designer.cs">
+      <DependentUpon>rReservaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rReservacionInicio.aspx.cs">
+      <DependentUpon>rReservacionInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rReservacionInicio.aspx.designer.cs">
+      <DependentUpon>rReservacionInicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registros\rSolicitudes.aspx.cs">
       <DependentUpon>rSolicitudes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -333,34 +321,6 @@
     </Compile>
     <Compile Include="Registros\rPaises.aspx.designer.cs">
       <DependentUpon>rPaises.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Registros\rReservacionCruceros.aspx.cs">
-      <DependentUpon>rReservacionCruceros.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registros\rReservacionCruceros.aspx.designer.cs">
-      <DependentUpon>rReservacionCruceros.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Registros\rReservaciones.aspx.cs">
-      <DependentUpon>rReservaciones.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registros\rReservaciones.aspx.designer.cs">
-      <DependentUpon>rReservaciones.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Registros\rReservacionHotelResorts.aspx.cs">
-      <DependentUpon>rReservacionHotelResorts.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registros\rReservacionHotelResorts.aspx.designer.cs">
-      <DependentUpon>rReservacionHotelResorts.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Registros\rReservacionVuelos.aspx.cs">
-      <DependentUpon>rReservacionVuelos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registros\rReservacionVuelos.aspx.designer.cs">
-      <DependentUpon>rReservacionVuelos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rTipoDestinos.aspx.cs">
       <DependentUpon>rTipoDestinos.aspx</DependentUpon>

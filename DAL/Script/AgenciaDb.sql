@@ -30,10 +30,13 @@ PaisId int references Paises(PaisId)
 );
 
 create table TipoDestinos(TipoDestinoId int primary key identity(1,1),
-Descripcion varchar(50)
+Descripcion varchar(30)
 );
 
+select * from TipoDestinos
+
 create table Destinos(DestinoId int primary key identity(1,1),
+Descripcion varchar(50),
 CiudadId int references Ciudades(CiudadId),
 TipoDestinoId int references TipoDestinos(TipoDestinoId)
 );
@@ -111,14 +114,16 @@ TipoCategoriaId int references TipoCategorias(TipoCategoriaId)
 
 create table Reservaciones(ReservacionId int identity(1,1) primary key,
 UsuarioId int references Usuarios(UsuarioId),
+SolicitudId int references Solicitudes(SolicitudId),
+FechaCreacion DateTime,
 EsActivo bit,
-FechaCreacion DateTime
+Asunto varchar(30)
 );
 
 create table ReservacionDetalles(ReservacionDetalleId int identity(1,1) primary key,
 EleccionDestino bit,
 ReservacionId int references Reservaciones(ReservacionId),
-SolicitudId int references Solicitudes(SolicitudId),
+TipoSolicitudId int references TipoSolicitudes(TipoSolicitudId),
 CompaniaId int references Companias(CompaniaId),
 CategoriaId int references Categorias(CategoriaId),
 Origen varchar(100),
@@ -129,8 +134,11 @@ CantidadPersona int,
 CantidadNino int,
 CantidadBebe int,
 Precio float,
+Impuesto float,
 Total float
 );
+
+select * from Reservaciones
 
 create table RespuestaUsuarios(RespuestaUsuarioId int identity(1,1),
 UsuarioId int References Usuarios(UsuarioId),

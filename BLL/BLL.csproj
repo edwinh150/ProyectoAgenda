@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Categorias.cs" />
     <Compile Include="EnvioCorreo.cs" />
+    <Compile Include="ReservacionDetalles.cs" />
+    <Compile Include="ReservacionDetalleText.cs" />
     <Compile Include="SolicitudDetalles.cs" />
     <Compile Include="SolicitudDetalleText.cs" />
     <Compile Include="Solicitudes.cs" />

@@ -32,29 +32,26 @@
         <div class="panel-heading">Registros de Paises</div>
         <div class="panel-body">
         <div class="form-horizontal col-md-12" role="form">
-            <div class="form-group">
                 <h3>Ingrese Sus Datos</h3>
-                    <div class="col-md-2">
-                        </div>
-                    <div class="col-md-8">
-                        <div class="form-inline" role="form">
-                            <div class="control-group form-group">
-                                <div class="controls">
-                                        <asp:Label ID="Label5" For="PaisIdTextBox" runat="server" Font-Bold="true" Text="Id por Pais"></asp:Label>
-                                        <asp:TextBox ID="PaisIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
-                                        <asp:Button ID="BuscarButton" CssClass="btn btn-toolbar" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
-                                        <p class="help-block"></p>
+                    <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-2 col-xs-2">
+                                    <asp:Label ID="Label5" For="PaisIdTextBox" runat="server" Font-Bold="true" Text="Id por Pais"></asp:Label>
+                                </div> 
+                                <div id="PaisIdDiv" runat="server" class="col-md-8 col-xs-8">
+                                    <asp:TextBox ID="PaisIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
+                                </div>
+                                <div class="col-md-2 col-xs-2">
+                                    <asp:Button ID="BuscarButton" CssClass="btn btn-toolbar" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
                                 </div>
                             </div>
-                        </div>
-                            <div class="control-group form-group">
-                                <div class="controls">
+
+                            <div class="form-group">
+                                <div class="col-md-2 col-xs-2">
                                     <asp:Label ID="Label1" runat="server" Text="Descripcion" Font-Bold="True"></asp:Label>
-                                    <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Pais"></asp:TextBox>
-                                    <p class="help-block">
-                                         <asp:requiredfieldvalidator id="RequiredFieldValidator1" ValidationGroup="GuardarButton" forecolor="Red" errormessage="Por Favor Entre un Pais" controltovalidate="DescripcionTextBox" runat="server">
-                                         </asp:requiredfieldvalidator>
-                                    </p>
+                                </div>
+                                <div id="DescripcionDiv" runat="server" class="col-md-8 col-xs-8">
+                                    <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="form-control" placeholder="Escriba una Descripcion"></asp:TextBox>
                                 </div>
                             </div>
                             <center>
@@ -66,8 +63,6 @@
                             </center>
                     </div>
                 </div>
-                </div>
             </div>
         </div>
-      </div>
 </asp:Content>

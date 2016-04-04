@@ -85,7 +85,7 @@ namespace ProyectoAgencia.Registros
 
         public void ValidacionLimpiar()
         {
-            RequiredFieldValidator1.IsValid = true;
+
             RequiredFieldValidator2.IsValid = true;
             RequiredFieldValidator3.IsValid = true;
             RequiredFieldValidator4.IsValid = true;

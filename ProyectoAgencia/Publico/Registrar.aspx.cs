@@ -26,45 +26,123 @@ namespace ProyectoAgencia
             EmailTextBox.Text = "";
             TelefonoTextBox.Text = "";
             FechaNacimientoTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            RequiredFieldValidator1.IsValid = true;
-            RequiredFieldValidator2.IsValid = true;
-            RequiredFieldValidator3.IsValid = true;
-            RequiredFieldValidator4.IsValid = true;
-            RequiredFieldValidator5.IsValid = true;
-            RequiredFieldValidator7.IsValid = true;
+            ValidacionLimpiar();
+        }
+
+        public void ValidacionLimpiar()
+        {
+
+            NombreUsuarioDiv.Attributes.Remove("class");
+            NombreUsuarioDiv.Attributes.Add("class", "col-md-8");
+
+            NombreDiv.Attributes.Remove("class");
+            NombreDiv.Attributes.Add("class", "col-md-8");
+
+            ApellidoDiv.Attributes.Remove("class");
+            ApellidoDiv.Attributes.Add("class", "col-md-8");
+
+            ContrasenaDiv.Attributes.Remove("class");
+            ContrasenaDiv.Attributes.Add("class", "col-md-8");
+
+            EmailDiv.Attributes.Remove("class");
+            EmailDiv.Attributes.Add("class", "col-md-8");
+
+            TelefonoDiv.Attributes.Remove("class");
+            TelefonoDiv.Attributes.Add("class", "col-md-8");
         }
 
         bool LLenarDatos()
         {
-            bool retorno = false;
-
-            if (NombreUsuarioTextBox.Text.Length > 0 && ContrasenaTextBox.Text.Length > 0 && NombreTextBox.Text.Length > 0 && ApellidoTextBox.Text.Length > 0 && EmailTextBox.Text.Length > 0 && TelefonoTextBox.Text.Length > 0)
+            bool retorno = true;
+            ValidacionLimpiar();
+            
+            if (!Seguridad.ValidarNombre(NombreUsuarioTextBox.Text))
             {
-                    Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
+                Mensajes.ShowToastr(this, "Error", "Nombre de Usuario Invalido", "Error");
+                NombreUsuarioDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+            if (retorno)
+            {
+                Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
+            }
 
+            if (NombreUsuarioTextBox.Text.Length > 0)
+            {
                 if (Usuario.Comprobar())
                 {
                     Mensajes.ShowToastr(this.Page, "Ya existe ese Usuario Eliga otro", "Atencion", "Error");
                     NombreUsuarioTextBox.Text = "";
                 }
-                else
-                {
-                    Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
-                    Usuario.Contrasena = ContrasenaTextBox.Text;
-                    Usuario.Nombre = NombreTextBox.Text;
-                    Usuario.Apellido = ApellidoTextBox.Text;
-                    Usuario.Email = EmailTextBox.Text;
-                    Usuario.Telefono = TelefonoTextBox.Text;
-                    Usuario.FechaNacimiento = Seguridad.ValidarDateTime(FechaNacimientoTextBox.Text);
-                    Usuario.TipoUsuarioId = 2;
-                }
-
-                retorno = true;
             }
-            else
+
+            if (ContrasenaTextBox.Text.Length < 6)
             {
+                Mensajes.ShowToastr(this, "Error", "Contraseña Invalido", "Error");
+                NombreDiv.Attributes.Add("class", " col-md-8 has-error ");
                 retorno = false;
             }
+            if (retorno)
+            {
+                Usuario.Contrasena = ContrasenaTextBox.Text;
+            }
+
+            if (!Seguridad.ValidarNombre(NombreTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Nombre Invalido", "Error");
+                ContrasenaDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+            if (retorno)
+            {
+                Usuario.Nombre = NombreTextBox.Text;
+            }
+
+            if (!Seguridad.ValidarNombre(ApellidoTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Apellido Invalido", "Error");
+                ApellidoDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+            if (retorno)
+            {
+                Usuario.Apellido = ApellidoTextBox.Text;
+            }
+
+            if (!Seguridad.ValidarEmail(EmailTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Email Invalido", "Error");
+                EmailDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+            if (retorno)
+            {
+                Usuario.Email = EmailTextBox.Text;
+            }
+
+            if (!Seguridad.ValidarTelefono(TelefonoTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Telefono Invalido", "Error");
+                TelefonoDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+            if (retorno)
+            {
+                Usuario.Telefono = TelefonoTextBox.Text;
+            }
+
+            if (FechaNacimientoTextBox.Text.Length == 0)
+            {
+                Mensajes.ShowToastr(this, "Error", "Fecha Invalido", "Error");
+                TelefonoDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+            if (retorno)
+            {
+                Usuario.FechaNacimiento = Seguridad.ValidarDateTime(FechaNacimientoTextBox.Text);
+            }
+
+            Usuario.TipoUsuarioId = Seguridad.ValidarEntero(TipoUsuarioDropDownList.SelectedValue);
 
             return retorno;
         }

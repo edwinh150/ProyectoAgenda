@@ -54,7 +54,14 @@ namespace BLL
 
                 foreach (SolicitudDetalles item in this.Detalle)
                 {
-                    Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,FechaFinal,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13}) ", (int)item.EleccionDestino, retorno, (int)item.TipoSolicitudId, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaInicial.ToString("yyyy-MM-dd"), item.FechaFinal.ToString("yyyy-MM-dd"), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal));
+                    if (item.EleccionDestino == 1)
+                    {
+                        Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values({0},{1},{2},{3},{4},'{5}','{6}','{7}',{8},{9},{10},{11},{12}) ", (int)item.EleccionDestino, retorno, (int)item.TipoSolicitudId, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaInicial.ToString("yyyy-MM-dd"), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal));
+                    }
+                    else
+                    {
+                        Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,FechaFinal,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13}) ", (int)item.EleccionDestino, retorno, (int)item.TipoSolicitudId, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaInicial.ToString("yyyy-MM-dd"), item.FechaFinal.ToString("yyyy-MM-dd"), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal));
+                    }
                 }
             }
             catch (Exception)
@@ -78,9 +85,15 @@ namespace BLL
 
                 foreach (SolicitudDetalles item in this.Detalle)
                 {
-                    Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,FechaFinal,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13}) ", (int)item.EleccionDestino, retorno, (int)item.TipoSolicitudId, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaInicial.ToString("yyyy-MM-dd"), item.FechaFinal.ToString("yyyy-MM-dd"), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal));
+                    if (item.EleccionDestino == 1)
+                    {
+                        Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values({0},{1},{2},{3},{4},'{5}','{6}','{7}',{8},{9},{10},{11},{12}) ", (int)item.EleccionDestino, this.SolicitudId, (int)item.TipoSolicitudId, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaInicial.ToString("yyyy-MM-dd"), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal));
+                    }
+                    else
+                    {
+                        Conexion.Ejecutar(string.Format("insert into SolicitudDetalles(EleccionDestino,SolicitudId,TipoSolicitudId,CompaniaId,CategoriaId,Origen,Destino,FechaInicial,FechaFinal,CantidadPersona,CantidadNino,CantidadBebe,PrecioInicial,PrecioFinal) values({0},{1},{2},{3},{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13}) ", (int)item.EleccionDestino, this.SolicitudId, (int)item.TipoSolicitudId, (int)item.CompaniaId, (int)item.CategoriaId, item.Origen, item.Destino, item.FechaInicial.ToString("yyyy-MM-dd"), item.FechaFinal.ToString("yyyy-MM-dd"), (int)item.CantidadPersona, (int)item.CantidadNino, (int)item.CantidadBebe, (double)item.PrecioInicial, (double)item.PrecioFinal));
+                    }
                 }
-
                 retorno = true;
             }
             catch (Exception)
@@ -117,6 +130,7 @@ namespace BLL
             DataTable Detalledt = new DataTable();
             ConexionDB Conexion = new ConexionDB();
             string EleccionText = "";
+            DateTime FechaFinal = DateTime.Now;
 
             try
             {
@@ -139,16 +153,19 @@ namespace BLL
                 {
                     foreach (DataRow Dr in Detalledt.Rows)
                     {
-                        if (Seguridad.ValidarBit(Dr["EleccionDestino"].ToString()) == 0)
+                        if (Seguridad.ValidarBit(Dr["EleccionDestino"].ToString()) == 1)
                         {
                             EleccionText = "Solo Ida";
-                        }
-                        else
-                        {
-                            EleccionText = "Ida/Vuelta";
+                            FechaFinal = Seguridad.ValidarDateTime("00/00/0000 00:00:00");
                         }
 
-                        AgregarSolicitudText(EleccionText, Dr["Descripcion"].ToString(), Dr["Descripcion1"].ToString(), Dr["Descripcion"].ToString(), Dr["Origen"].ToString(), Dr["Destino"].ToString(), Seguridad.ValidarDateTime(Dr["FechaInicial"].ToString()), Seguridad.ValidarDateTime(Dr["FechaFinal"].ToString()), Seguridad.ValidarEntero(Dr["CantidadPersona"].ToString()), Seguridad.ValidarEntero(Dr["CantidadNino"].ToString()), Seguridad.ValidarEntero(Dr["CantidadBebe"].ToString()), Seguridad.ValidarDouble(Dr["PrecioInicial"].ToString()), Seguridad.ValidarDouble(Dr["PrecioFinal"].ToString()));
+                        if (Seguridad.ValidarBit(Dr["EleccionDestino"].ToString()) == 0)
+                        {
+                            EleccionText = "Ida/Vuelta";
+                            FechaFinal = Seguridad.ValidarDateTime(Dr["FechaFinal"].ToString());
+                        }
+
+                        AgregarSolicitudText(EleccionText, Dr["Descripcion"].ToString(), Dr["Descripcion1"].ToString(), Dr["Descripcion"].ToString(), Dr["Origen"].ToString(), Dr["Destino"].ToString(), Seguridad.ValidarDateTime(Dr["FechaInicial"].ToString()), FechaFinal, Seguridad.ValidarEntero(Dr["CantidadPersona"].ToString()), Seguridad.ValidarEntero(Dr["CantidadNino"].ToString()), Seguridad.ValidarEntero(Dr["CantidadBebe"].ToString()), Seguridad.ValidarDouble(Dr["PrecioInicial"].ToString()), Seguridad.ValidarDouble(Dr["PrecioFinal"].ToString()));
                     }
                     retorno = true;
                 }
