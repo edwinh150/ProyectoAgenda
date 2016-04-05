@@ -98,15 +98,23 @@ namespace ProyectoAgencia.Registros
 
         public void ValidacionLimpiar()
         {
-            RequiredFieldValidator1.IsValid = true;
-            RequiredFieldValidator2.IsValid = true;
-            RequiredFieldValidator3.IsValid = true;
-            RequiredFieldValidator4.IsValid = true;
-            RequiredFieldValidator5.IsValid = true;
+            ReservacionIdDiv.Attributes.Remove("class");
+            ReservacionIdDiv.Attributes.Add("class", "col-md-8 col-xs-8");
+
+            AsuntoDiv.Attributes.Remove("class");
+            AsuntoDiv.Attributes.Add("class", "col-md-8 col-xs-8");
+
+            PrecioDiv.Attributes.Remove("class");
+            PrecioDiv.Attributes.Add("class", "controls");
+
+            ImpuestoDiv.Attributes.Remove("class");
+            ImpuestoDiv.Attributes.Add("class", "controls");
         }
 
         public void LlenarForm()
         {
+            ValidacionLimpiar();
+
             UsuarioIdLabel.Text = Reservacion.UsuarioId.ToString();
             
             FechaCreacionLabel.Text = Reservacion.FechaCreacion.ToString("dd/MM/yyyy");
@@ -135,6 +143,8 @@ namespace ProyectoAgencia.Registros
             CantidadBebeDropDownList.SelectedIndex = ReservacionDetalle.CantidadBebe;
             DetalleTextGridView.DataSource = Reservacion.DetalleText;
             DetalleTextGridView.DataBind();
+            GuardarButton.Text = "Guardar";
+            EliminarButton.Visible = false;
         }
 
         public void Limpiar()
@@ -155,9 +165,17 @@ namespace ProyectoAgencia.Registros
 
         bool LLenarDatos()
         {
-            bool retorno = false;
+            bool retorno = true;
+            ValidacionLimpiar();
 
-            if (AsuntoTextBox.Text.Length > 0)
+            if (!Seguridad.ValidarNombre(AsuntoTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Asunto Invalido", "Error");
+                AsuntoDiv.Attributes.Add("class", " col-md-8 col-xs-8 has-error ");
+                retorno = false;
+            }
+
+            if (retorno)
             {
                 Reservacion.Asunto = AsuntoTextBox.Text;
                 Reservacion.FechaCreacion = DateTime.Now;
@@ -184,12 +202,6 @@ namespace ProyectoAgencia.Registros
                 {
                     retorno = false;
                 }
-
-                retorno = true;
-            }
-            else
-            {
-                retorno = false;
             }
 
             return retorno;
@@ -281,15 +293,29 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
+            int Id = 0;
+            bool retorno = true;
 
-            int Id = Seguridad.ValidarEntero(ReservacionIdTextBox.Text);
             ValidacionLimpiar();
+
+            if (!Seguridad.ValidarSoloNumero(ReservacionIdTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Id de Reservacion Invalido", "Error");
+                ReservacionIdDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+
+            if (retorno)
+            {
+                Id = Seguridad.ValidarEntero(ReservacionIdTextBox.Text);
+            }
 
             if (Id > 0)
             {
                 if (Reservacion.Buscar(Id))
                 {
                     LlenarForm();
+                    GuardarButton.Text = "Modificar";
                     EliminarButton.Visible = true;
 
                 }
@@ -315,12 +341,25 @@ namespace ProyectoAgencia.Registros
         protected void AgregarDetalleButton_Click(object sender, EventArgs e)
         {
             Reservaciones ReservacionDetalle;
-            bool retorno = false;
+            bool retorno = true;
+            ValidacionLimpiar();
 
-            if (FechaInicialTextBox.Text.Length > 0 && PrecioTextBox.Text.Length > 0 && ImpuestoTextBox.Text.Length > 0)
+            if (!Seguridad.ValidarSoloNumero(PrecioTextBox.Text))
             {
-                retorno = true;
+                Mensajes.ShowToastr(this, "Error", "Precio Invalido", "Error");
+                PrecioDiv.Attributes.Add("class", " controls has-error ");
+                retorno = false;
+            }
 
+            if (!Seguridad.ValidarSoloNumero(ImpuestoTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Impuesto Invalido", "Error");
+                ImpuestoDiv.Attributes.Add("class", " controls has-error ");
+                retorno = false;
+            }
+
+            if (retorno)
+            {
                 if (EstadoCheckBox.Checked == true)
                 {
                     Eleccion = 1; // ida
@@ -336,10 +375,6 @@ namespace ProyectoAgencia.Registros
                         retorno = false;
                     }
                 }
-            }
-            else
-            {
-                retorno = false;
             }
 
 

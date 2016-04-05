@@ -18,7 +18,7 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Consultar
+                <h1 class="page-header">Reservaciones
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="/Default.aspx">Principal</a>
@@ -33,14 +33,14 @@
         <div class="panel-body">
         <div class="form-horizontal col-md-12" role="form">
             <div class="form-group">
-                    <%--Grid--%>
-                    <div class="table table-responsive col-md-12">
-                        <asp:GridView ID="ConsultaGridView" runat="server" Width="100%" CssClass="table table-bordered table-hover table-striped" AutoGenerateColumns="true">
-                            <Columns>
-                                <asp:HyperLinkField DataNavigateUrlFields="SolicitudId" DataNavigateUrlFormatString="~/Registros/rReservaciones.aspx?Id={0}" Text="Aceptar" HeaderText="Eleccion" />
-                            </Columns>                            
-                        </asp:GridView>
-                    </div>
+                <%--Grid--%>
+                <div class="table table-responsive col-md-12">
+                    <asp:GridView ID="ConsultaGridView" runat="server" Width="100%" CssClass="table table-bordered table-hover table-striped" AutoGenerateColumns="true">
+                        <Columns>
+                            <asp:HyperLinkField DataNavigateUrlFields="SolicitudId" DataNavigateUrlFormatString="~/Registros/rReservaciones.aspx?Id={0}" Text="Aceptar" HeaderText="Eleccion" />
+                        </Columns>                            
+                    </asp:GridView>
+                </div>
             </div>
         </div>
         </div>

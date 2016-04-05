@@ -2,7 +2,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/toastr.min.css" rel="stylesheet" />
+        
+    <script src=" ../js/jquery-2.2.0.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script src="../js/toastr.min.js"></script>
+    <!-- Page Content -->
+
+    <!-- Page Heading/Breadcrumbs -->
      <div class="container">
         <div class="col-md-12">
         <!-- Page Heading/Breadcrumbs -->

@@ -76,7 +76,7 @@
                                     <asp:Label ID="Label9" runat="server" type="phone" Text="Telefono" Font-Bold="True"></asp:Label>
                                 </div>
                                 <div id="TelefonoDiv" runat="server" class="col-md-8 col-xs-8">                                    
-                                    <asp:TextBox ID="TelefonoTextBox" CssClass="form-control" placeholder="Escriba su Telefono" runat="server" TextMode="Phone"></asp:TextBox>
+                                    <asp:TextBox ID="TelefonoTextBox" CssClass="form-control" placeholder="Escriba su Telefono" runat="server" type="Phone"></asp:TextBox>
                                 </div>
                             </div>
 

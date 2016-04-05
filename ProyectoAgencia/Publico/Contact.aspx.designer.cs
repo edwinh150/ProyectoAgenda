@@ -13,6 +13,15 @@ namespace ProyectoAgencia {
     public partial class Contact {
         
         /// <summary>
+        /// NombreDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NombreDiv;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace ProyectoAgencia {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox NombreTextBox;
+        
+        /// <summary>
+        /// TelefonoDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TelefonoDiv;
         
         /// <summary>
         /// Label2 control.
@@ -49,6 +67,15 @@ namespace ProyectoAgencia {
         protected global::System.Web.UI.WebControls.TextBox TelefonoTextBox;
         
         /// <summary>
+        /// EmailDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EmailDiv;
+        
+        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,15 @@ namespace ProyectoAgencia {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
+        
+        /// <summary>
+        /// MensajeDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MensajeDiv;
         
         /// <summary>
         /// Label4 control.

@@ -33,7 +33,14 @@ namespace ProyectoAgencia.Registros
 
         public void ValidacionLimpiar()
         {
-            RequiredFieldValidator1.IsValid = true;
+            CompaniaIdDiv.Attributes.Remove("class");
+            CompaniaIdDiv.Attributes.Add("class", "col-md-8");
+
+            DescripcionDiv.Attributes.Remove("class");
+            DescripcionDiv.Attributes.Add("class", "col-md-8");
+
+            EmailDiv.Attributes.Remove("class");
+            EmailDiv.Attributes.Add("class", "col-md-8");
         }
 
         public void Limpiar()
@@ -42,22 +49,34 @@ namespace ProyectoAgencia.Registros
             DescripcionTextBox.Text = "";
             EmailTextBox.Text = "";
             ValidacionLimpiar();
+            GuardarButton.Text = "Guardar";
+            EliminarButton.Visible = false;
         }
 
         bool LLenarDatos()
         {
-            bool retorno = false;
+            bool retorno = true;
+            ValidacionLimpiar();
 
-            if (DescripcionTextBox.Text.Length > 0 && EmailTextBox.Text.Length > 0)
+            if (!Seguridad.ValidarNombre(DescripcionTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Descripcion Invalido", "Error");
+                DescripcionDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+
+            if (!Seguridad.ValidarEmail(EmailTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Email Invalido", "Error");
+                EmailDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+
+            if (retorno)
             {
                 Compania.Descripcion = DescripcionTextBox.Text;
                 Compania.Email = EmailTextBox.Text;
                 Compania.TipoCompaniaId = Seguridad.ValidarEntero(TipoCompaniaDropDownList.SelectedValue);
-                retorno = true;
-            }
-            else
-            {
-                retorno = false;
             }
 
             return retorno;
@@ -140,13 +159,28 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int Id = Seguridad.ValidarEntero(CompaniaIdTextBox.Text);
+            int Id = 0;
+            bool retorno = true;
+
             ValidacionLimpiar();
+
+            if (!Seguridad.ValidarSoloNumero(CompaniaIdTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Id de Compañia Invalido", "Error");
+                CompaniaIdDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+
+            if (retorno)
+            {
+                Id = Seguridad.ValidarEntero(CompaniaIdTextBox.Text);
+            }
 
             if (Id > 0)
             {
                 if (Compania.Buscar(Id))
                 {
+                    GuardarButton.Text = "Modificar";
                     EliminarButton.Visible = true;
                     DescripcionTextBox.Text = Compania.Descripcion;
                     EmailTextBox.Text = Compania.Email;

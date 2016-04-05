@@ -85,15 +85,22 @@ namespace ProyectoAgencia.Registros
 
         public void ValidacionLimpiar()
         {
+            SolicitudIdDiv.Attributes.Remove("class");
+            SolicitudIdDiv.Attributes.Add("class", "col-md-8");
 
-            RequiredFieldValidator2.IsValid = true;
-            RequiredFieldValidator3.IsValid = true;
-            RequiredFieldValidator4.IsValid = true;
-            RequiredFieldValidator5.IsValid = true;
+            AsuntoDiv.Attributes.Remove("class");
+            AsuntoDiv.Attributes.Add("class", "col-md-8");
+
+            PrecioInicioDiv.Attributes.Remove("class");
+            PrecioInicioDiv.Attributes.Add("class", "col-md-4");
+
+            PrecioFinalDiv.Attributes.Remove("class");
+            PrecioFinalDiv.Attributes.Add("class", "col-md-4");
         }
 
         public void LlenarForm()
         {
+            ValidacionLimpiar();
             UsuarioIdLabel.Text = Solicitud.UsuarioId.ToString();
             FechaCreacionLabel.Text = Solicitud.FechaCreacion.ToString("dd/MM/yyyy");
             AsuntoTextBox.Text = Solicitud.Asunto;
@@ -135,14 +142,24 @@ namespace ProyectoAgencia.Registros
             DetalleGridView.DataBind();
             DetalleTextGridView.DataSource = string.Empty;
             DetalleTextGridView.DataBind();
+            GuardarButton.Text = "Guardar";
+            EliminarButton.Visible = false;
         }
 
         bool LLenarDatos()
         {
-            bool retorno = false;
+            bool retorno = true;
+            ValidacionLimpiar();
 
-            if (AsuntoTextBox.Text.Length > 0)
+            if (!Seguridad.ValidarNombre(AsuntoTextBox.Text))
             {
+                Mensajes.ShowToastr(this, "Error", "Asunto Invalido", "Error");
+                AsuntoDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+            if (retorno)
+            {
+
                 Solicitud.Asunto = AsuntoTextBox.Text;
                 Solicitud.FechaCreacion = DateTime.Now;                                
                 Solicitud.UsuarioId = Usuarios.Id;
@@ -158,12 +175,6 @@ namespace ProyectoAgencia.Registros
                 {
                     retorno = false;
                 }
-
-                retorno = true;
-            }
-            else
-            {
-                retorno = false;
             }
 
             return retorno;
@@ -255,9 +266,22 @@ namespace ProyectoAgencia.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            
-            int Id = Seguridad.ValidarEntero(SolicitudIdTextBox.Text);
+            int Id = 0;
+            bool retorno = true;
+
             ValidacionLimpiar();
+
+            if (!Seguridad.ValidarSoloNumero(SolicitudIdTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Id de Solicitud Invalido", "Error");
+                SolicitudIdDiv.Attributes.Add("class", " col-md-8 has-error ");
+                retorno = false;
+            }
+
+            if (retorno)
+            {
+                Id = Seguridad.ValidarEntero(SolicitudIdTextBox.Text);
+            }
 
             if (Id > 0)
             {
@@ -265,6 +289,7 @@ namespace ProyectoAgencia.Registros
                 {
                     LlenarForm();
                     EliminarButton.Visible = true;
+                    GuardarButton.Text = "Modificar";
 
                 }
                 else
@@ -288,12 +313,25 @@ namespace ProyectoAgencia.Registros
         protected void AgregarDetalleButton_Click(object sender, EventArgs e)
         {
             Solicitudes SolicitudDetalle;
-            bool retorno = false;
+            bool retorno = true;
+            ValidacionLimpiar();
 
-            if (FechaInicialTextBox.Text.Length > 0 && PrecioInicialTextBox.Text.Length > 0 && PrecioFinalTextBox.Text.Length > 0)
+            if (!Seguridad.ValidarSoloNumero(PrecioInicialTextBox.Text))
             {
-                retorno = true;
+                Mensajes.ShowToastr(this, "Error", "Precio Invalido", "Error");
+                PrecioInicioDiv.Attributes.Add("class", " col-md-4 has-error ");
+                retorno = false;
+            }
 
+            if (!Seguridad.ValidarSoloNumero(PrecioFinalTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Precio Invalido", "Error");
+                PrecioFinalDiv.Attributes.Add("class", " col-md-4 has-error ");
+                retorno = false;
+            }
+
+            if (retorno)
+            {
                 if (EstadoCheckBox.Checked == true)
                 {
                     Eleccion = 1; // ida

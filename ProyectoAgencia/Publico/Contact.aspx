@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="ProyectoAgencia.Contact" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/toastr.min.css" rel="stylesheet" />
-        
+
     <script src=" ../js/jquery-2.2.0.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -40,15 +41,22 @@
             <div class="col-md-4">
                 <h3>Detalles para Contactos</h3>
                 <p>
-                    Calle Cruz portez #14<br /> Tenares, Rep. Dom. <br />
+                    Calle Cruz portez #14<br />
+                    Tenares, Rep. Dom.
+                    <br />
                 </p>
-                <p><i class="fa fa-phone"></i> 
-                    <abbr title="Celular">C</abbr>: (809) 464-4250</p>
-                <p><i class="fa fa-envelope-o"></i> 
+                <p>
+                    <i class="fa fa-phone"></i>
+                    <abbr title="Celular">C</abbr>: (809) 464-4250
+                </p>
+                <p>
+                    <i class="fa fa-envelope-o"></i>
                     <abbr title="Email">E</abbr>: <a href="mailto:name@example.com">name@example.com</a>
                 </p>
-                <p><i class="fa fa-clock-o"></i> 
-                    <abbr title="Horarios">H</abbr>: Lunes - Viernes: 9:00 AM to 5:00 PM</p>
+                <p>
+                    <i class="fa fa-clock-o"></i>
+                    <abbr title="Horarios">H</abbr>: Lunes - Viernes: 9:00 AM to 5:00 PM
+                </p>
                 <ul class="list-unstyled list-inline list-social-icons">
                     <li>
                         <a href="https://www.facebook.com/edwinh150"><i class="fa fa-facebook-square fa-2x"></i></a>
@@ -72,36 +80,36 @@
         <div class="row">
             <div class="col-md-8">
                 <h3>Mandanos Un Mensaje</h3>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <asp:Label ID="Label1" runat="server" Text="Nombre Completo"></asp:Label>
-                            <asp:TextBox ID="NombreTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Nombre"></asp:TextBox>
-                            <p class="help-block"></p>
-                        </div>
+                <div class="control-group form-group">
+                    <div id="NombreDiv" runat="server" class="controls">
+                        <asp:Label ID="Label1" runat="server" Text="Nombre Completo"></asp:Label>
+                        <asp:TextBox ID="NombreTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Nombre"></asp:TextBox>
+                        <p class="help-block"></p>
                     </div>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <asp:Label ID="Label2" runat="server" Text="Telefono o Celular"></asp:Label>
-                            <asp:TextBox ID="TelefonoTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Telefono"></asp:TextBox>
-                        </div>
+                </div>
+                <div class="control-group form-group">
+                    <div id="TelefonoDiv" runat="server" class="controls">
+                        <asp:Label ID="Label2" runat="server" Text="Telefono o Celular"></asp:Label>
+                        <asp:TextBox ID="TelefonoTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Telefono"></asp:TextBox>
                     </div>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <asp:Label ID="Label3" runat="server" Text="Correo Electronico"></asp:Label>
-                            <asp:TextBox ID="EmailTextBox" CssClass="form-control" runat="server" placeholder="Escriba su Email"></asp:TextBox>
-                        </div>
+                </div>
+                <div class="control-group form-group">
+                    <div id="EmailDiv" runat="server" class="controls">
+                        <asp:Label ID="Label3" runat="server" Text="Correo Electronico"></asp:Label>
+                        <asp:TextBox ID="EmailTextBox" CssClass="form-control" runat="server" placeholder="Escriba su Email"></asp:TextBox>
                     </div>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <asp:Label ID="Label4" runat="server" Text="Mensaje"></asp:Label>
-                            <asp:TextBox ID="MensajeTextBox" CssClass="form-control" TextMode="MultiLine" runat="server"></asp:TextBox>
-                        </div>
+                </div>
+                <div class="control-group form-group">
+                    <div id="MensajeDiv" runat="server" class="controls">
+                        <asp:Label ID="Label4" runat="server" Text="Mensaje"></asp:Label>
+                        <asp:TextBox ID="MensajeTextBox" CssClass="form-control" TextMode="MultiLine" runat="server"></asp:TextBox>
                     </div>
-                    <div id="success"></div>
-                    <!-- For success/fail messages -->
-                    <asp:Button ID="MensajeButton" CssClass="btn btn-primary" runat="server" Text="EnviarMensaje" OnClick="MensajeButton_Click" />
+                </div>
+                <div id="success"></div>
+                <!-- For success/fail messages -->
+                <asp:Button ID="MensajeButton" CssClass="btn btn-primary" runat="server" Text="EnviarMensaje" OnClick="MensajeButton_Click" />
             </div>
 
         </div>
-        </div>
+    </div>
 </asp:Content>

@@ -22,6 +22,15 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
+        /// CategoriaIdDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CategoriaIdDiv;
+        
+        /// <summary>
         /// CategoriaIdTextBox control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// DescripcionDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DescripcionDiv;
+        
+        /// <summary>
         /// DescripcionTextBox control.
         /// </summary>
         /// <remarks>
@@ -56,15 +74,6 @@ namespace ProyectoAgencia.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox DescripcionTextBox;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// Label6 control.

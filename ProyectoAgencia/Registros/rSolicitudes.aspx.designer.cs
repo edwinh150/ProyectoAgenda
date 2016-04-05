@@ -274,15 +274,6 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.TextBox FechaInicialTextBox;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
         /// FechaFinal control.
         /// </summary>
         /// <remarks>
@@ -310,13 +301,13 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.TextBox FechaFinalTextBox;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// PrecioInicioDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PrecioInicioDiv;
         
         /// <summary>
         /// Label13 control.
@@ -337,13 +328,13 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.TextBox PrecioInicialTextBox;
         
         /// <summary>
-        /// RequiredFieldValidator4 control.
+        /// PrecioFinalDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PrecioFinalDiv;
         
         /// <summary>
         /// Label14 control.
@@ -362,15 +353,6 @@ namespace ProyectoAgencia.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PrecioFinalTextBox;
-        
-        /// <summary>
-        /// RequiredFieldValidator5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
         /// Label7 control.

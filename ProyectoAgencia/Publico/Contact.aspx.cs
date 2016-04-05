@@ -31,10 +31,55 @@ namespace ProyectoAgencia
             MensajeTextBox.Text = "";
         }
 
+        public void ValidacionLimpiar()
+        {
+            NombreDiv.Attributes.Remove("class");
+            NombreDiv.Attributes.Add("class", "controls");
+
+            TelefonoDiv.Attributes.Remove("class");
+            TelefonoDiv.Attributes.Add("class", "controls");
+
+            EmailDiv.Attributes.Remove("class");
+            EmailDiv.Attributes.Add("class", "controls");
+
+            MensajeDiv.Attributes.Remove("class");
+            MensajeDiv.Attributes.Add("class", "controls");
+        }
+
         protected void MensajeButton_Click(object sender, EventArgs e)
         {
+            bool retorno = true;
+            ValidacionLimpiar();
 
-            if (NombreTextBox.Text.Length > 0 && EmailTextBox.Text.Length > 0 && TelefonoTextBox.Text.Length > 0 && MensajeTextBox.Text.Length > 0)
+            if (!Seguridad.ValidarNombre(NombreTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Nombre Invalido", "Error");
+                NombreDiv.Attributes.Add("class", " controls has-error ");
+                retorno = false;
+            }
+
+            if (!Seguridad.ValidarTelefono(TelefonoTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Telefono Invalido", "Error");
+                TelefonoDiv.Attributes.Add("class", " controls has-error ");
+                retorno = false;
+            }
+
+            if (!Seguridad.ValidarEmail(EmailTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Email Invalido", "Error");
+                EmailDiv.Attributes.Add("class", " controls has-error ");
+                retorno = false;
+            }
+
+            if (!Seguridad.ValidarNombre(MensajeTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Mensaje Invalido", "Error");
+                MensajeDiv.Attributes.Add("class", " controls has-error ");
+                retorno = false;
+            }
+
+            if (retorno)
             {
                 if (Persona.Length == 0)
                 {
@@ -54,10 +99,6 @@ namespace ProyectoAgencia
                 {
                     Mensajes.ShowToastr(this.Page, "Hay problemas para enviar", "Ups", "Error");
                 }
-            }
-            else
-            {
-                Mensajes.ShowToastr(this.Page, "Faltan Datos", "Error", "Error");
             }
         }
     }
