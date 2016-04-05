@@ -69,6 +69,10 @@ namespace ProyectoAgencia.Consultas
                             Condiciones = UsuarioDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
                         }
                     }
+                    else
+                    {
+                        Condiciones = " 1=1 ";
+                    }
                 }
 
                 if (UsuarioDropDownList.SelectedIndex == 1)
@@ -84,6 +88,10 @@ namespace ProyectoAgencia.Consultas
                     {
                         Condiciones = UsuarioDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
                     }
+                    else
+                    {
+                        Condiciones = " 1=1 ";
+                    }
                 }
 
                 if (UsuarioDropDownList.SelectedIndex == 2)
@@ -98,6 +106,10 @@ namespace ProyectoAgencia.Consultas
                     if (retorno)
                     {
                         Condiciones = UsuarioDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
+                    }
+                    else
+                    {
+                        Condiciones = " 1=1 ";
                     }
                 }
 
@@ -125,6 +137,10 @@ namespace ProyectoAgencia.Consultas
                         {
                             Condiciones = UsuarioDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
                         }
+                    }
+                    else
+                    {
+                        Condiciones = " 1=1 ";
                     }
                 }
 

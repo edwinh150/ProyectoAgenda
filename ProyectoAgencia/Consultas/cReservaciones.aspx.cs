@@ -103,6 +103,10 @@ namespace ProyectoAgencia.Consultas
                             Condiciones = ReservacionDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
                         }
                     }
+                    else
+                    {
+                        Condiciones = " 1=1 ";
+                    }
 
                 }
 
@@ -146,6 +150,10 @@ namespace ProyectoAgencia.Consultas
                     {
                         Condiciones = ReservacionDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
                     }
+                    else
+                    {
+                        Condiciones = " 1=1 ";
+                    }
                 }
 
                 if (ReservacionDropDownList.SelectedIndex == 4)
@@ -167,6 +175,10 @@ namespace ProyectoAgencia.Consultas
                         {
                             Condiciones = ReservacionDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
                         }
+                    }
+                    else
+                    {
+                        Condiciones = " 1=1 ";
                     }
                 }
 

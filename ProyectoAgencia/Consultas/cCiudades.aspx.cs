@@ -69,6 +69,10 @@ namespace ProyectoAgencia.Consultas
                             Condiciones = CiudadDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
                         }
                     }
+                    else
+                    {
+                        Condiciones = " 1=1 ";
+                    }
                 }
 
                 if (CiudadDropDownList.SelectedIndex == 1)
@@ -83,6 +87,10 @@ namespace ProyectoAgencia.Consultas
                     if (retorno)
                     {
                         Condiciones = CiudadDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
+                    }
+                    else
+                    {
+                        Condiciones = " 1=1 ";
                     }
                 }
 
@@ -105,6 +113,10 @@ namespace ProyectoAgencia.Consultas
                         {
                             Condiciones = CiudadDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
                         }
+                    }
+                    else
+                    {
+                        Condiciones = " 1=1 ";
                     }
                 }
 

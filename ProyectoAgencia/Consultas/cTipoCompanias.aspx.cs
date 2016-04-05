@@ -68,6 +68,10 @@ namespace ProyectoAgencia.Consultas
                             Condiciones = TipoCompaniaDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
                         }
                     }
+                    else
+                    {
+                        Condiciones = " 1=1 ";
+                    }
                 }
 
                 if (TipoCompaniaDropDownList.SelectedIndex == 1)
@@ -82,6 +86,10 @@ namespace ProyectoAgencia.Consultas
                     if (retorno)
                     {
                         Condiciones = TipoCompaniaDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
+                    }
+                    else
+                    {
+                        Condiciones = " 1=1 ";
                     }
                 }
 
