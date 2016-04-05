@@ -13,6 +13,15 @@ namespace ProyectoAgencia {
     public partial class Login {
         
         /// <summary>
+        /// NombreDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NombreDiv;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,13 @@ namespace ProyectoAgencia {
         protected global::System.Web.UI.WebControls.TextBox NombreTextBox;
         
         /// <summary>
-        /// NombreValidacion control.
+        /// ContrasenaDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator NombreValidacion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ContrasenaDiv;
         
         /// <summary>
         /// Label2 control.
@@ -56,15 +65,6 @@ namespace ProyectoAgencia {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ContrasenaTextBox;
-        
-        /// <summary>
-        /// ContrasenaValidacion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ContrasenaValidacion;
         
         /// <summary>
         /// RecordarmeCheckBox control.

@@ -40,7 +40,7 @@
                                 <asp:Label ID="Label5" For="CompaniaIdTextBox" runat="server" Font-Bold="true" Text="Id por Compañia"></asp:Label>
                             </div>
                             <div id="CompaniaIdDiv" runat="server" class="col-md-8 col-xs-8">
-                                <asp:TextBox ID="CompaniaIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
+                                <asp:TextBox ID="CompaniaIdTextBox" MaxLength="4" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
                             </div>
                             <div class="col-md-2 col-xs-2">
                                 <asp:Button ID="BuscarButton" CssClass="btn btn-toolbar" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
@@ -52,7 +52,7 @@
                                 <asp:Label ID="Label1" runat="server" Text="Descripcion" Font-Bold="True"></asp:Label>
                             </div>
                             <div id="DescripcionDiv" runat="server" class="col-md-8 col-xs-8">
-                                <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="form-control" placeholder="Escriba una Descripcion"></asp:TextBox>
+                                <asp:TextBox ID="DescripcionTextBox" MaxLength="50" runat="server" CssClass="form-control" placeholder="Escriba una Descripcion"></asp:TextBox>
                             </div>
                         </div>
 
@@ -61,7 +61,7 @@
                                 <asp:Label ID="Label3" runat="server" Text="Correo Electronico" Font-Bold="True"></asp:Label>
                             </div>
                             <div id="EmailDiv" runat="server" class="col-md-8 col-xs-8">
-                                <asp:TextBox ID="EmailTextBox" CssClass="form-control" runat="server" placeholder="Escriba su Email" TextMode="Email"></asp:TextBox>
+                                <asp:TextBox ID="EmailTextBox" MaxLength="30" CssClass="form-control" runat="server" placeholder="Escriba su Email" TextMode="Email"></asp:TextBox>
                             </div>
                         </div>
 

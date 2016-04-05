@@ -40,7 +40,7 @@
                                     <asp:Label ID="Label5" For="UsuarioIdTextBox" runat="server" Font-Bold="true" Text="Id por Usuario"></asp:Label>
                                 </div>
                                 <div id="UsuarioIdDiv" runat="server" class="col-md-4 col-xs-4">
-                                    <asp:TextBox ID="UsuarioIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
+                                    <asp:TextBox ID="UsuarioIdTextBox" MaxLength="4" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True" MaxLength="50"></asp:TextBox>
                                 </div>
                                 <div class="col-md-2 col-xs-2">
                                     <asp:Button ID="BuscarButton" CssClass="btn btn-toolbar" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
@@ -52,7 +52,7 @@
                                     <asp:Label ID="Label1" runat="server" Text="Nombre de Usuario" Font-Bold="True"></asp:Label>
                                 </div>
                                 <div id="NombreUsuarioDiv" runat="server" class="col-md-8 col-xs-8">
-                                    <asp:TextBox ID="NombreUsuarioTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Nombre de Usuario"></asp:TextBox>
+                                    <asp:TextBox ID="NombreUsuarioTextBox" runat="server" CssClass="form-control" MaxLength="50" placeholder="Escriba su Nombre de Usuario"></asp:TextBox>
                                 </div>
                             </div>
 
@@ -61,7 +61,7 @@
                                     <asp:Label ID="Label2" runat="server" Text="Contrasena" Font-Bold="True"></asp:Label>
                                 </div>
                                 <div id="ContrasenaDiv" runat="server" class="col-md-8 col-xs-8">                                   
-                                    <asp:TextBox ID="ContrasenaTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Contrasena" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox ID="ContrasenaTextBox" runat="server" CssClass="form-control" MaxLength="50" placeholder="Escriba su Contrasena" TextMode="Password"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -69,7 +69,7 @@
                                     <asp:Label ID="Label10" runat="server" Text="Contrasena" Font-Bold="True"></asp:Label>
                                 </div>
                                 <div class="col-md-8 col-xs-8">                                   
-                                    <asp:TextBox ID="RepetirContrasenaTextBox" runat="server" CssClass="form-control" placeholder="Escriba de nuevo su Contrasena" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox ID="RepetirContrasenaTextBox" runat="server" CssClass="form-control" MaxLength="50" placeholder="Escriba de nuevo su Contrasena" TextMode="Password"></asp:TextBox>
                                 </div>
                                 <div class="col-md-2 col-xs-2">
                                     <asp:CompareValidator ID="CompareValidator1" runat="server" ValidationGroup="GuardarButton" forecolor="Red" errormessage="No Coincide" controltovalidate="RepetirContrasenaTextBox" ControlToCompare="ContrasenaTextBox"></asp:CompareValidator>
@@ -81,7 +81,7 @@
                                     <asp:Label ID="Label7" runat="server" Text="Nombre" Font-Bold="True"></asp:Label>
                                 </div>
                                 <div id="NombreDiv" runat="server" class="col-md-8 col-xs-8">
-                                    <asp:TextBox ID="NombreTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Nombre"></asp:TextBox>
+                                    <asp:TextBox ID="NombreTextBox" runat="server" MaxLength="50" CssClass="form-control" placeholder="Escriba su Nombre"></asp:TextBox>
                                 </div>
                             </div>
 
@@ -90,7 +90,7 @@
                                     <asp:Label ID="Label8" runat="server" Text="Apellido" Font-Bold="True"></asp:Label>
                                 </div>
                                 <div id="ApellidoDiv" runat="server" class="col-md-8 col-xs-8">
-                                    <asp:TextBox ID="ApellidoTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Apellido"></asp:TextBox>
+                                    <asp:TextBox ID="ApellidoTextBox" MaxLength="50" runat="server" CssClass="form-control" placeholder="Escriba su Apellido"></asp:TextBox>
                                 </div>
                             </div>
 
@@ -99,7 +99,7 @@
                                     <asp:Label ID="Label3" runat="server" Text="Correo Electronico" Font-Bold="True"></asp:Label>
                                 </div>
                                 <div id="EmailDiv" runat="server" class="col-md-8 col-xs-8">                                   
-                                    <asp:TextBox ID="EmailTextBox" CssClass="form-control" runat="server" placeholder="Escriba su Email" TextMode="Email"></asp:TextBox>
+                                    <asp:TextBox ID="EmailTextBox" CssClass="form-control" MaxLength="30" runat="server" placeholder="Escriba su Email" TextMode="Email"></asp:TextBox>
                                 </div>
                             </div>
 
@@ -108,7 +108,7 @@
                                     <asp:Label ID="Label9" runat="server" type="phone" Text="Telefono" Font-Bold="True"></asp:Label>
                                 </div>
                                 <div id="TelefonoDiv" runat="server" class="col-md-8 col-xs-8">                                    
-                                    <asp:TextBox ID="TelefonoTextBox" CssClass="form-control" placeholder="Escriba su Telefono" runat="server" type="Phone"></asp:TextBox>
+                                    <asp:TextBox ID="TelefonoTextBox" MaxLength="10" CssClass="form-control" placeholder="Escriba su Telefono" runat="server" type="Phone"></asp:TextBox>
                                 </div>
                             </div>
 

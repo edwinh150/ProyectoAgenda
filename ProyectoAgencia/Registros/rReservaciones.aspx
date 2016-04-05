@@ -41,7 +41,7 @@
                                     <asp:Label ID="Label5" For="ReservacionIdTextBox" runat="server" Font-Bold="true" Text="Id por Reservacion"></asp:Label>
                                 </div>
                                 <div id="ReservacionIdDiv" runat="server" class="col-md-8 col-xs-8">
-                                    <asp:TextBox ID="ReservacionIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
+                                    <asp:TextBox ID="ReservacionIdTextBox" MaxLength="4" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
                                 </div>
                                 <div class="col-md-2 col-xs-2">
                                     <asp:Button ID="BuscarButton" CssClass="btn btn-toolbar" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
@@ -93,7 +93,7 @@
                                 <div class="col-md-2 col-xs-2">
                                 </div>
                                 <div id="AsuntoDiv" runat="server" class="col-md-8 col-xs-8">
-                                    <asp:TextBox ID="AsuntoTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Asunto"></asp:TextBox>
+                                    <asp:TextBox ID="AsuntoTextBox" MaxLength="30" runat="server" CssClass="form-control" placeholder="Escriba un Asunto"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -226,7 +226,7 @@
                                                         <div class="control-group form-group">
                                                             <div id="PrecioDiv" runat="server" class="controls">
                                                                 <asp:Label ID="Label13" runat="server" Text="Precio" Font-Bold="True"></asp:Label>
-                                                                <asp:TextBox ID="PrecioTextBox" runat="server" AutoPostBack="true" CssClass="form-control" placeholder="Precio" OnTextChanged="PrecioTextBox_TextChanged"></asp:TextBox>
+                                                                <asp:TextBox ID="PrecioTextBox" MaxLength="7" runat="server" AutoPostBack="true" CssClass="form-control" placeholder="Precio" OnTextChanged="PrecioTextBox_TextChanged"></asp:TextBox>
                                                                 <p class="help-block">
                                                                 </p>
                                                             </div>
@@ -237,7 +237,7 @@
                                                         <div class="control-group form-group">
                                                             <div id="ImpuestoDiv" runat="server" class="controls">
                                                                 <asp:Label ID="Label1" runat="server" Text="Imp" Font-Bold="True"></asp:Label>
-                                                                <asp:TextBox ID="ImpuestoTextBox" runat="server" AutoPostBack="true" CssClass="form-control" placeholder="Impuesto" OnTextChanged="ImpuestoTextBox_TextChanged"></asp:TextBox>
+                                                                <asp:TextBox ID="ImpuestoTextBox" MaxLength="4" runat="server" AutoPostBack="true" CssClass="form-control" placeholder="Impuesto" OnTextChanged="ImpuestoTextBox_TextChanged"></asp:TextBox>
                                                                 <p class="help-block">
                                                                 </p>
                                                             </div>

@@ -78,7 +78,7 @@ namespace ProyectoAgencia
 
             if (ContrasenaTextBox.Text.Length < 6)
             {
-                Mensajes.ShowToastr(this, "Error", "Contraseña Invalido", "Error");
+                Mensajes.ShowToastr(this, "Error", "Contraseña Invalido Mayor que 6", "Error");
                 NombreDiv.Attributes.Add("class", " col-md-8 has-error ");
                 retorno = false;
             }

@@ -41,7 +41,7 @@
                             <div class="control-group form-group">
                                 <div class="controls">
                                         <asp:Label ID="Label5" For="DestinoIdTextBox" runat="server" Font-Bold="true" Text="Id por Destino"></asp:Label>
-                                        <asp:TextBox ID="DestinoIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
+                                        <asp:TextBox ID="DestinoIdTextBox" MaxLength="4" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
                                         <asp:Button ID="BuscarButton" CssClass="btn btn-toolbar" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
                                         <p class="help-block"></p>
                                 </div>
@@ -50,7 +50,7 @@
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <asp:Label ID="Label1" runat="server" Text="Descripcion" Font-Bold="True"></asp:Label>
-                                    <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Descripcion"></asp:TextBox>
+                                    <asp:TextBox ID="DescripcionTextBox" MaxLength="50" runat="server" CssClass="form-control" placeholder="Escriba su Descripcion"></asp:TextBox>
                                     <p class="help-block">
                                          <asp:requiredfieldvalidator id="RequiredFieldValidator1" ValidationGroup="GuardarButton" forecolor="Red" errormessage="Por Favor Entre su Descripcion" controltovalidate="DescripcionTextBox" runat="server">
                                          </asp:requiredfieldvalidator>

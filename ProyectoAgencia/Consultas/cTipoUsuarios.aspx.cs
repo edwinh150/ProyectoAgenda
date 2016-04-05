@@ -24,6 +24,7 @@ namespace ProyectoAgencia.Consultas
         {
             CodigoTextBox.Text = "";
             ConsultaGridView.DataSource = string.Empty;
+            ValidacionLimpiar();
         }
 
         void LlenarGrid(string Condicion)
@@ -34,27 +35,55 @@ namespace ProyectoAgencia.Consultas
             ConsultaGridView.DataBind();
         }
 
+        public void ValidacionLimpiar()
+        {
+            CodigoDiv.Attributes.Remove("class");
+            CodigoDiv.Attributes.Add("class", "col-lg-4 col-md-4");
+        }
+
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
+            ValidacionLimpiar();
             string Condiciones = "";
+            bool retorno = true;
 
             if (CodigoTextBox.Text.Length > 0)
             {
                 if (TipoUsuarioDropDownList.SelectedIndex == 0)
                 {
-                    if (Seguridad.ValidarEntero(CodigoTextBox.Text) == 0)
+                    if (!Seguridad.ValidarSoloNumero(CodigoTextBox.Text))
                     {
-                        Condiciones = " 1=1 ";
+                        Mensajes.ShowToastr(this, "Error", "Consulta Invalida", "Error");
+                        CodigoDiv.Attributes.Add("class", " col-lg-4 col-md-4 has-error ");
+                        retorno = false;
                     }
-                    else
+
+                    if (retorno)
                     {
-                        Condiciones = TipoUsuarioDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
+                        if (Seguridad.ValidarEntero(CodigoTextBox.Text) == 0)
+                        {
+                            Condiciones = " 1=1 ";
+                        }
+                        else
+                        {
+                            Condiciones = TipoUsuarioDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
+                        }
                     }
                 }
 
                 if (TipoUsuarioDropDownList.SelectedIndex == 1)
                 {
-                    Condiciones = TipoUsuarioDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
+                    if (!Seguridad.ValidarNombre(CodigoTextBox.Text))
+                    {
+                        Mensajes.ShowToastr(this, "Error", "Consulta Invalida", "Error");
+                        CodigoDiv.Attributes.Add("class", " col-lg-4 col-md-4 has-error ");
+                        retorno = false;
+                    }
+
+                    if (retorno)
+                    {
+                        Condiciones = TipoUsuarioDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
+                    }
                 }          
 
                 LlenarGrid(Condiciones);

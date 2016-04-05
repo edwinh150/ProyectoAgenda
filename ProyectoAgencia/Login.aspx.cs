@@ -21,15 +21,46 @@ namespace ProyectoAgencia
         public void Limpiar()
         {
             ContrasenaTextBox.Text = "";
-            NombreValidacion.IsValid = true;
-            ContrasenaValidacion.IsValid = true;
             RecordarmeCheckBox.Checked = false;
+            ValidacionLimpiar();
+        }
+
+        public void ValidacionLimpiar()
+        {
+            NombreDiv.Attributes.Remove("class");
+            NombreDiv.Attributes.Add("class", "controls");
+
+            ContrasenaDiv.Attributes.Remove("class");
+            ContrasenaDiv.Attributes.Add("class", "controls");
         }
 
         protected void IniciarButton_Click(object sender, EventArgs e)
         {
-            Usuario.NombreUsuario = NombreTextBox.Text;
-            Usuario.Contrasena = ContrasenaTextBox.Text;
+            bool retorno = true;
+            ValidacionLimpiar();
+
+            if (!Seguridad.ValidarNombre(NombreTextBox.Text))
+            {
+                Mensajes.ShowToastr(this, "Error", "Nombre de Usuario Invalido", "Error");
+                NombreDiv.Attributes.Add("class", " controls has-error ");
+                retorno = false;
+            }
+            if (retorno)
+            {
+                Usuario.NombreUsuario = NombreTextBox.Text;
+            }
+
+            if (ContrasenaTextBox.Text.Length == 0)
+            {
+                Mensajes.ShowToastr(this, "Error", "Contraseña Invalido", "Error");
+                ContrasenaDiv.Attributes.Add("class", " controls has-error ");
+                retorno = false;
+            }
+
+            if (retorno)
+            {
+                Usuario.Contrasena = ContrasenaTextBox.Text;
+            }
 
             if (Usuario.IniciarSesion())
             {

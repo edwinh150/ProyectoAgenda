@@ -83,26 +83,26 @@
                 <div class="control-group form-group">
                     <div id="NombreDiv" runat="server" class="controls">
                         <asp:Label ID="Label1" runat="server" Text="Nombre Completo"></asp:Label>
-                        <asp:TextBox ID="NombreTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Nombre"></asp:TextBox>
+                        <asp:TextBox ID="NombreTextBox" MaxLength="30" runat="server" CssClass="form-control" placeholder="Escriba su Nombre"></asp:TextBox>
                         <p class="help-block"></p>
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div id="TelefonoDiv" runat="server" class="controls">
                         <asp:Label ID="Label2" runat="server" Text="Telefono o Celular"></asp:Label>
-                        <asp:TextBox ID="TelefonoTextBox" runat="server" CssClass="form-control" placeholder="Escriba su Telefono"></asp:TextBox>
+                        <asp:TextBox ID="TelefonoTextBox" MaxLength="10" runat="server" CssClass="form-control" placeholder="Escriba su Telefono"></asp:TextBox>
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div id="EmailDiv" runat="server" class="controls">
                         <asp:Label ID="Label3" runat="server" Text="Correo Electronico"></asp:Label>
-                        <asp:TextBox ID="EmailTextBox" CssClass="form-control" runat="server" placeholder="Escriba su Email"></asp:TextBox>
+                        <asp:TextBox ID="EmailTextBox" MaxLength="30" CssClass="form-control" runat="server" placeholder="Escriba su Email"></asp:TextBox>
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div id="MensajeDiv" runat="server" class="controls">
                         <asp:Label ID="Label4" runat="server" Text="Mensaje"></asp:Label>
-                        <asp:TextBox ID="MensajeTextBox" CssClass="form-control" TextMode="MultiLine" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="MensajeTextBox" MaxLength="100" CssClass="form-control" TextMode="MultiLine" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <div id="success"></div>

@@ -256,6 +256,15 @@ namespace ProyectoAgencia.Registros {
         protected global::System.Web.UI.WebControls.CheckBox EstadoCheckBox;
         
         /// <summary>
+        /// FechaInicialDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl FechaInicialDiv;
+        
+        /// <summary>
         /// FechaInicialLabel control.
         /// </summary>
         /// <remarks>
@@ -272,6 +281,15 @@ namespace ProyectoAgencia.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox FechaInicialTextBox;
+        
+        /// <summary>
+        /// FechaFinalDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl FechaFinalDiv;
         
         /// <summary>
         /// FechaFinal control.

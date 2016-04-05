@@ -31,6 +31,15 @@ namespace ProyectoAgencia.Consultas {
         protected global::System.Web.UI.WebControls.DropDownList CompaniaDropDownList;
         
         /// <summary>
+        /// CodigoDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CodigoDiv;
+        
+        /// <summary>
         /// CodigoTextBox control.
         /// </summary>
         /// <remarks>

@@ -29,6 +29,7 @@ namespace ProyectoAgencia
             EmailTextBox.Text = "";
             TelefonoTextBox.Text = "";
             MensajeTextBox.Text = "";
+            ValidacionLimpiar();
         }
 
         public void ValidacionLimpiar()

@@ -44,8 +44,8 @@
                                  <asp:ListItem Value="TipoCategoriaId">Id de TipoCategorias</asp:ListItem>
                              </asp:DropDownList>
                         </div>
-                        <div class="col-lg-4 col-md-4">
-                            <asp:TextBox ID="CodigoTextBox" runat="server" CssClass="form-control" placeholder="Escribe un caracter valido"></asp:TextBox>
+                        <div id="CodigoDiv" runat="server" class="col-lg-4 col-md-4">
+                            <asp:TextBox ID="CodigoTextBox" runat="server" CssClass="form-control" placeholder="Escribe un caracter valido" MaxLength="50"></asp:TextBox>
                         </div>
                         <div class="col-xs-1 col-sm-1 col-lg-2 col-md-2">
                             <asp:Button ID="BuscarButton" CssClass="btn btn-primary" OnClick="BuscarButton_Click" runat="server" Text="Buscar" /> 

@@ -39,7 +39,7 @@
                                     <asp:Label ID="Label5" For="TipoCategoriaIdTextBox" runat="server" Font-Bold="true" Text="Id por Tipo de Categoria"></asp:Label>
                                 </div> 
                                 <div id="TipoCategoriaIdDiv" runat="server" class="col-md-8 col-xs-8">
-                                    <asp:TextBox ID="TipoCategoriaIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
+                                    <asp:TextBox ID="TipoCategoriaIdTextBox" MaxLength="4" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
                                 </div>
                                 <div class="col-md-2 col-xs-2">
                                     <asp:Button ID="BuscarButton" CssClass="btn btn-toolbar" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
@@ -51,7 +51,7 @@
                                     <asp:Label ID="Label1" runat="server" Text="Descripcion" Font-Bold="True"></asp:Label>
                                 </div>
                                 <div id="DescripcionDiv" runat="server" class="col-md-8 col-xs-8">
-                                    <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="form-control" placeholder="Escriba una Descripcion"></asp:TextBox>
+                                    <asp:TextBox ID="DescripcionTextBox" MaxLength="30" runat="server" CssClass="form-control" placeholder="Escriba una Descripcion"></asp:TextBox>
                                 </div>
                             </div>
                             <center>

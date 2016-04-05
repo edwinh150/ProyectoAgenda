@@ -24,6 +24,13 @@ namespace ProyectoAgencia.Consultas
         {
             CodigoTextBox.Text = "";
             ConsultaGridView.DataSource = string.Empty;
+            ValidacionLimpiar();
+        }
+
+        public void ValidacionLimpiar()
+        {
+            CodigoDiv.Attributes.Remove("class");
+            CodigoDiv.Attributes.Add("class", "col-lg-4 col-md-4");
         }
 
         void LlenarGrid(string Condicion)
@@ -36,30 +43,62 @@ namespace ProyectoAgencia.Consultas
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
+            ValidacionLimpiar();
             string Condiciones = "";
+            bool retorno = true;
 
             if (CodigoTextBox.Text.Length > 0)
             {
                 if (UsuarioDropDownList.SelectedIndex == 0)
                 {
-                    if (Seguridad.ValidarEntero(CodigoTextBox.Text) == 0)
+                    if (!Seguridad.ValidarSoloNumero(CodigoTextBox.Text))
                     {
-                        Condiciones = " 1=1 ";
+                        Mensajes.ShowToastr(this, "Error", "Consulta Invalida", "Error");
+                        CodigoDiv.Attributes.Add("class", " col-lg-4 col-md-4 has-error ");
+                        retorno = false;
                     }
-                    else
+
+                    if (retorno)
                     {
-                        Condiciones = UsuarioDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
+                       if (Seguridad.ValidarEntero(CodigoTextBox.Text) == 0)
+                        {
+                            Condiciones = " 1=1 ";
+                        }
+                        else
+                        {
+                            Condiciones = UsuarioDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
+                        }
                     }
                 }
 
                 if (UsuarioDropDownList.SelectedIndex == 1)
                 {
-                    Condiciones = UsuarioDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
+                    if (!Seguridad.ValidarNombre(CodigoTextBox.Text))
+                    {
+                        Mensajes.ShowToastr(this, "Error", "Consulta Invalida", "Error");
+                        CodigoDiv.Attributes.Add("class", " col-lg-4 col-md-4 has-error ");
+                        retorno = false;
+                    }
+
+                    if (retorno)
+                    {
+                        Condiciones = UsuarioDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
+                    }
                 }
 
                 if (UsuarioDropDownList.SelectedIndex == 2)
                 {
-                    Condiciones = UsuarioDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
+                    if (!Seguridad.ValidarNombre(CodigoTextBox.Text))
+                    {
+                        Mensajes.ShowToastr(this, "Error", "Consulta Invalida", "Error");
+                        CodigoDiv.Attributes.Add("class", " col-lg-4 col-md-4 has-error ");
+                        retorno = false;
+                    }
+
+                    if (retorno)
+                    {
+                        Condiciones = UsuarioDropDownList.SelectedItem.Value + " like '%" + CodigoTextBox.Text + "%' ";
+                    }
                 }
 
                 if (UsuarioDropDownList.SelectedIndex == 3)
@@ -69,13 +108,23 @@ namespace ProyectoAgencia.Consultas
 
                 if (UsuarioDropDownList.SelectedIndex == 4)
                 {
-                    if (Seguridad.ValidarEntero(CodigoTextBox.Text) == 0)
+                    if (!Seguridad.ValidarSoloNumero(CodigoTextBox.Text))
                     {
-                        Condiciones = " 1=1 ";
+                        Mensajes.ShowToastr(this, "Error", "Consulta Invalida", "Error");
+                        CodigoDiv.Attributes.Add("class", " col-lg-4 col-md-4 has-error ");
+                        retorno = false;
                     }
-                    else
+
+                    if (retorno)
                     {
-                        Condiciones = UsuarioDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
+                        if (Seguridad.ValidarEntero(CodigoTextBox.Text) == 0)
+                        {
+                            Condiciones = " 1=1 ";
+                        }
+                        else
+                        {
+                            Condiciones = UsuarioDropDownList.SelectedItem.Value + " = " + CodigoTextBox.Text;
+                        }
                     }
                 }
 

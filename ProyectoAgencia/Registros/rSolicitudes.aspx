@@ -40,7 +40,7 @@
                                 <asp:Label ID="Label5" For="SolicitudIdTextBox" runat="server" Font-Bold="true" Text="Id por Solicitud"></asp:Label>
                             </div>
                             <div id="SolicitudIdDiv" runat="server" class="col-md-8 col-xs-8">
-                                <asp:TextBox ID="SolicitudIdTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
+                                <asp:TextBox ID="SolicitudIdTextBox" MaxLength="4" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
                             </div>
                             <div class="col-md-2 col-xs-2">
                                 <asp:Button ID="BuscarButton" CssClass="btn btn-toolbar" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
@@ -81,7 +81,7 @@
                             <div class="col-md-2 col-xs-2">
                             </div>
                             <div id="AsuntoDiv" runat="server" class="col-md-8 col-xs-8">
-                                <asp:TextBox ID="AsuntoTextBox" runat="server" CssClass="form-control" placeholder="Escriba un Asunto"></asp:TextBox>
+                                <asp:TextBox ID="AsuntoTextBox" MaxLength="50" runat="server" CssClass="form-control" placeholder="Escriba un Asunto"></asp:TextBox>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -201,7 +201,7 @@
                                                     <div class="control-group form-group">
                                                         <div class="controls">
                                                             <asp:Label ID="Label13" runat="server" Text="Rango de Precio" Font-Bold="True"></asp:Label>
-                                                            <asp:TextBox ID="PrecioInicialTextBox" runat="server" CssClass="form-control" placeholder="Desde"></asp:TextBox>
+                                                            <asp:TextBox ID="PrecioInicialTextBox" MaxLength="7" runat="server" CssClass="form-control" placeholder="Desde"></asp:TextBox>
                                                             <p class="help-block">
                                                             </p>
                                                         </div>
@@ -211,7 +211,7 @@
                                                     <div class="control-group form-group">
                                                         <div class="controls">
                                                             <asp:Label ID="Label14" runat="server" Text="Rango de Precio" Font-Bold="True"></asp:Label>
-                                                            <asp:TextBox ID="PrecioFinalTextBox" runat="server" CssClass="form-control" placeholder="Hasta"></asp:TextBox>
+                                                            <asp:TextBox ID="PrecioFinalTextBox" MaxLength="7" runat="server" CssClass="form-control" placeholder="Hasta"></asp:TextBox>
                                                             <p class="help-block">
                                                             </p>
                                                         </div>
