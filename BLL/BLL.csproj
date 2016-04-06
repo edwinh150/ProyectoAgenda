@@ -55,7 +55,6 @@
     <Compile Include="ClaseMaestra.cs" />
     <Compile Include="Companias.cs" />
     <Compile Include="TipoCompanias.cs" />
-    <Compile Include="Destinos.cs" />
     <Compile Include="Paises.cs" />
     <Compile Include="Reservaciones.cs" />
     <Compile Include="RespuestaUsuarios.cs" />

@@ -97,9 +97,6 @@
                                 <a href="/Registros/rCategorias.aspx">Categorias</a>
                             </li>
                             <li>
-                                <a href="/Registros/rDestinos.aspx">Destinos</a>
-                            </li>
-                            <li>
                                 <a href="/Registros/rPaises.aspx">Paises</a>
                             </li>
                             <li>
@@ -140,9 +137,6 @@
                             </li>
                             <li>
                                 <a href="/Consultas/cCategorias.aspx">Categorias</a>
-                            </li>
-                            <li>
-                                <a href="/Consultas/cDestinos.aspx">Destinos</a>
                             </li>
                             <li>
                                 <a href="/Consultas/cPaises.aspx">Paises</a>
