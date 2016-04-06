@@ -109,9 +109,6 @@
                                 <a href="/Registros/rTipoSolicitudes.aspx">Tipo de Solicitudes</a>
                             </li>
                             <li>
-                                <a href="/Registros/rTipoDestinos.aspx">Tipo de Destinos</a>
-                            </li>
-                            <li>
                                 <a href="/Registros/rTipoCompanias.aspx">Tipo de Compañias</a>
                             </li>
                             <li>
@@ -149,9 +146,6 @@
                             </li>
                             <li>
                                 <a href="/Consultas/cTipoSolicitudes.aspx">Tipo de Solicitudes</a>
-                            </li>
-                            <li>
-                                <a href="/Consultas/cTipoDestinos.aspx">Tipo de Destinos</a>
                             </li>
                             <li>
                                 <a href="/Consultas/cTipoCompanias.aspx">Tipo de Compañias</a>

@@ -59,7 +59,6 @@
     <Compile Include="Reservaciones.cs" />
     <Compile Include="RespuestaUsuarios.cs" />
     <Compile Include="Seguridad.cs" />
-    <Compile Include="TipoDestinos.cs" />
     <Compile Include="TipoSolicitudes.cs" />
     <Compile Include="TipoUsuarios.cs" />
     <Compile Include="Usuarios.cs" />

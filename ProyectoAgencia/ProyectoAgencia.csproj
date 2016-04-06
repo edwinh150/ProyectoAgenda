@@ -68,7 +68,6 @@
     <Content Include="Consultas\cSolicitudes.aspx" />
     <Content Include="Consultas\cTipoCategorias.aspx" />
     <Content Include="Consultas\cTipoCompanias.aspx" />
-    <Content Include="Consultas\cTipoDestinos.aspx" />
     <Content Include="Consultas\cTipoSolicitudes.aspx" />
     <Content Include="Consultas\cTipoUsuarios.aspx" />
     <Content Include="Consultas\cUsuarios.aspx" />
@@ -115,7 +114,6 @@
     <Content Include="Registros\rCompanias.aspx" />
     <Content Include="Registros\rTipoCompanias.aspx" />
     <Content Include="Registros\rPaises.aspx" />
-    <Content Include="Registros\rTipoDestinos.aspx" />
     <Content Include="Registros\rTipoUsuarios.aspx" />
     <Content Include="Registros\rTipoSolicitudes.aspx" />
     <Content Include="Registros\rUsuarios.aspx" />
@@ -178,13 +176,6 @@
     </Compile>
     <Compile Include="Consultas\cTipoCompanias.aspx.designer.cs">
       <DependentUpon>cTipoCompanias.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Consultas\cTipoDestinos.aspx.cs">
-      <DependentUpon>cTipoDestinos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Consultas\cTipoDestinos.aspx.designer.cs">
-      <DependentUpon>cTipoDestinos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas\cTipoSolicitudes.aspx.cs">
       <DependentUpon>cTipoSolicitudes.aspx</DependentUpon>
@@ -313,13 +304,6 @@
     </Compile>
     <Compile Include="Registros\rPaises.aspx.designer.cs">
       <DependentUpon>rPaises.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Registros\rTipoDestinos.aspx.cs">
-      <DependentUpon>rTipoDestinos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registros\rTipoDestinos.aspx.designer.cs">
-      <DependentUpon>rTipoDestinos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rTipoUsuarios.aspx.cs">
       <DependentUpon>rTipoUsuarios.aspx</DependentUpon>
