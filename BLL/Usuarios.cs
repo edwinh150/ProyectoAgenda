@@ -170,7 +170,6 @@ namespace BLL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

@@ -107,6 +107,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Publico\Registrar.aspx" />
     <Content Include="Registros\rCategorias.aspx" />
+    <Content Include="Registros\rConfiguracion.aspx" />
     <Content Include="Registros\rReservaciones.aspx" />
     <Content Include="Registros\rReservacionInicio.aspx" />
     <Content Include="Registros\rSolicitudes.aspx" />
@@ -258,6 +259,13 @@
     </Compile>
     <Compile Include="Registros\rCategorias.aspx.designer.cs">
       <DependentUpon>rCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rConfiguracion.aspx.cs">
+      <DependentUpon>rConfiguracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rConfiguracion.aspx.designer.cs">
+      <DependentUpon>rConfiguracion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rReservaciones.aspx.cs">
       <DependentUpon>rReservaciones.aspx</DependentUpon>
