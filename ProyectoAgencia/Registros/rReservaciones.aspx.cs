@@ -23,6 +23,20 @@ namespace ProyectoAgencia.Registros
             if (!IsPostBack)
             {
                 Usuarios Usuario = new Usuarios();
+                Configuraciones Configuracion = new Configuraciones();
+
+                DataTable dt = new DataTable();
+
+                dt = Configuracion.Listado("*", " 1=1 ", "");
+
+                if (dt.Rows.Count > 0)
+                {
+                    ImpuestoTextBox.Text = dt.Rows[0]["Impuesto"].ToString();
+                }
+                else
+                {
+                    Mensajes.ShowToastr(this, "Error", "No hay Configuracion", "Error");
+                }
 
                 LlenarDropDownList();
                 UsuarioIdLabel.Text = Context.User.Identity.Name;
@@ -154,7 +168,6 @@ namespace ProyectoAgencia.Registros
             FechaInicialTextBox.Text = "";
             FechaFinalTextBox.Text = "";
             PrecioTextBox.Text = "";
-            ImpuestoTextBox.Text = "";
             TotalTextBox.Text = "";
             ValidacionLimpiar();
             DetalleGridView.DataSource = string.Empty;
