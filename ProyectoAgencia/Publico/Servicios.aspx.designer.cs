@@ -22,6 +22,15 @@ namespace ProyectoAgencia {
         protected global::System.Web.UI.WebControls.Button VueloButton;
         
         /// <summary>
+        /// rVueloButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button rVueloButton;
+        
+        /// <summary>
         /// CruceroButton control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace ProyectoAgencia {
         protected global::System.Web.UI.WebControls.Button CruceroButton;
         
         /// <summary>
+        /// rCruceroButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button rCruceroButton;
+        
+        /// <summary>
         /// HotelResortButton control.
         /// </summary>
         /// <remarks>
@@ -38,5 +56,14 @@ namespace ProyectoAgencia {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button HotelResortButton;
+        
+        /// <summary>
+        /// rHotelResortButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button rHotelResortButton;
     }
 }

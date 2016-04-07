@@ -56,7 +56,7 @@ namespace ProyectoAgencia.Registros
                 }
 
                 SolicitudIdLabel.Text = Reservacion.SolicitudId.ToString();
-                //DetalleGridView.Visible = false;
+                DetalleGridView.Visible = false;
             }
         }
 
@@ -402,7 +402,7 @@ namespace ProyectoAgencia.Registros
 
                 ReservacionDetalle.AgregarReservacion(Eleccion, Seguridad.ValidarEntero(TipoSolicitudIdDropDownList.SelectedValue), Seguridad.ValidarEntero(CompaniaIdDropDownList.SelectedValue), Seguridad.ValidarEntero(CategoriaIdDropDownList.SelectedValue), OrigenDropDownList.SelectedItem.Text, DestinoDropDownList.SelectedItem.Text, Seguridad.ValidarDateTime(FechaInicialTextBox.Text), Seguridad.ValidarDateTime(FechaFinalTextBox.Text), Seguridad.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguridad.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguridad.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguridad.ValidarDouble(PrecioTextBox.Text), Seguridad.ValidarDouble(ImpuestoTextBox.Text), Seguridad.ValidarDouble(TotalTextBox.Text));
 
-                //ReservacionDetalle.AgregarSolicitudText(EleccionText, TipoSolicitudIdDropDownList.SelectedItem.Text, CompaniaIdDropDownList.SelectedItem.Text, CategoriaIdDropDownList.SelectedItem.Text, OrigenDropDownList.SelectedItem.Text, DestinoDropDownList.SelectedItem.Text, Seguridad.ValidarDateTime(FechaInicialTextBox.Text), Seguridad.ValidarDateTime(FechaFinalTextBox.Text), Seguridad.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguridad.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguridad.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguridad.ValidarDouble(PrecioTextBox.Text), Seguridad.ValidarDouble(ImpuestoTextBox.Text), Seguridad.ValidarDouble(TotalTextBox.Text));
+                ReservacionDetalle.AgregarReservacionText(EleccionText, TipoSolicitudIdDropDownList.SelectedItem.Text, CompaniaIdDropDownList.SelectedItem.Text, CategoriaIdDropDownList.SelectedItem.Text, OrigenDropDownList.SelectedItem.Text, DestinoDropDownList.SelectedItem.Text, Seguridad.ValidarDateTime(FechaInicialTextBox.Text), Seguridad.ValidarDateTime(FechaFinalTextBox.Text), Seguridad.ValidarEntero(CantidadPersonaDropDownList.SelectedValue), Seguridad.ValidarEntero(CantidadNinoDropDownList.SelectedValue), Seguridad.ValidarEntero(CantidadBebeDropDownList.SelectedValue), Seguridad.ValidarDouble(PrecioTextBox.Text), Seguridad.ValidarDouble(ImpuestoTextBox.Text), Seguridad.ValidarDouble(TotalTextBox.Text));
 
                 Session["ReservacionSession"] = ReservacionDetalle;
 

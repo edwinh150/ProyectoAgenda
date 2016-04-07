@@ -28,10 +28,10 @@ namespace ProyectoAgencia.Registros
 
         void LlenarGrid(string Condicion)
         {
-            Solicitudes Solicitud = new Solicitudes();
+            SolicitudDetalleText Solicitud = new SolicitudDetalleText();
             DataTable dt = new DataTable();
 
-            ConsultaGridView.DataSource = Solicitud.Listado(" * ", Condicion, "");
+            ConsultaGridView.DataSource = Solicitud.SoloSolicitudListado(Condicion);
             ConsultaGridView.DataBind();
         }
     }

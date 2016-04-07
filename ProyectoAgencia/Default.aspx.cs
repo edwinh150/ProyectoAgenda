@@ -29,5 +29,20 @@ namespace ProyectoAgencia
         {
             Response.Redirect("/Registros/rSolicitudes.aspx");
         }
+
+        protected void rVueloButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Registros/rReservacionInicio.aspx");
+        }
+
+        protected void rCruceroButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Registros/rReservacionInicio.aspx");
+        }
+
+        protected void rHotelResortButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Registros/rReservacionInicio.aspx");
+        }
     }
 }
