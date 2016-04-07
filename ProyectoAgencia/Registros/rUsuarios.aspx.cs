@@ -19,7 +19,41 @@ namespace ProyectoAgencia.Registros
             {
                 LlenarDropDownList();
                 EliminarButton.Visible = false;
-            }          
+
+                int Id = 0;
+                if (Request.QueryString["Id"] != null)
+                {
+                    Id = Seguridad.ValidarEntero(Request.QueryString["Id"].ToString());
+
+                    if (Id > 0)
+                    {
+                        if (!Usuario.Buscar(Id))
+                        {
+                            Mensajes.ShowToastr(this, "Registro no encontrado", "Error", "Error");
+                            Limpiar();
+                        }
+                        else
+                        {
+                            UsuarioIdTextBox.Text = Id.ToString();
+                            LLenarForm();
+                        }
+
+                    }
+                }
+            }       
+        }
+
+        public void LLenarForm()
+        {
+            NombreUsuarioTextBox.Text = Usuario.NombreUsuario;
+            NombreTextBox.Text = Usuario.Nombre;
+            ApellidoTextBox.Text = Usuario.Apellido;
+            EmailTextBox.Text = Usuario.Email;
+            TelefonoTextBox.Text = Usuario.Telefono;
+            FechaNacimientoTextBox.Text = Usuario.FechaNacimiento.ToString("dd-MM-yyyy");
+            TipoUsuarioDropDownList.SelectedValue = Usuario.TipoUsuarioId.ToString();
+            EliminarButton.Visible = true;
+            GuardarButton.Text = "Modificar";
         }
 
         public void LlenarDropDownList()
@@ -264,15 +298,7 @@ namespace ProyectoAgencia.Registros
             {
                 if (Usuario.Buscar(Id))
                 {
-                    NombreUsuarioTextBox.Text = Usuario.NombreUsuario;
-                    NombreTextBox.Text = Usuario.Nombre;
-                    ApellidoTextBox.Text = Usuario.Apellido;
-                    EmailTextBox.Text = Usuario.Email;
-                    TelefonoTextBox.Text = Usuario.Telefono;
-                    FechaNacimientoTextBox.Text = Usuario.FechaNacimiento.ToString("dd-MM-yyyy");
-                    TipoUsuarioDropDownList.SelectedValue = Usuario.TipoUsuarioId.ToString();
-                    EliminarButton.Visible = true;
-                    GuardarButton.Text = "Modificar";
+                    LLenarForm();
                 }
                 else
                 {
