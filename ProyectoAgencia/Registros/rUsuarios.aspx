@@ -40,7 +40,7 @@
                                     <asp:Label ID="Label5" For="UsuarioIdTextBox" runat="server" Font-Bold="true" Text="Id por Usuario"></asp:Label>
                                 </div>
                                 <div id="UsuarioIdDiv" runat="server" class="col-md-4 col-xs-4">
-                                    <asp:TextBox ID="UsuarioIdTextBox" MaxLength="4" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True" MaxLength="50"></asp:TextBox>
+                                    <asp:TextBox ID="UsuarioIdTextBox" MaxLength="4" runat="server" CssClass="form-control" placeholder="Escriba un Id" TextMode="Search" Font-Bold="True"></asp:TextBox>
                                 </div>
                                 <div class="col-md-2 col-xs-2">
                                     <asp:Button ID="BuscarButton" CssClass="btn btn-toolbar" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
