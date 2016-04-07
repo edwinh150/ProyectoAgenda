@@ -86,7 +86,7 @@ namespace ProyectoAgencia.Registros
                 Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
             }
 
-            if (NombreUsuarioTextBox.Text.Length > 0)
+            if (NombreUsuarioTextBox.Text.Length > 0 && UsuarioIdTextBox.Text.Length == 0)
             {
                 if (Usuario.Comprobar())
                 {
@@ -97,7 +97,7 @@ namespace ProyectoAgencia.Registros
 
             if (ContrasenaTextBox.Text.Length < 6)
             {
-                Mensajes.ShowToastr(this, "Error", "Contraseña Invalido", "Error");
+                Mensajes.ShowToastr(this, "Contraseña Mayor de 6 digitos", "Contraseña Invalido", "Error");
                 NombreDiv.Attributes.Add("class", " col-md-8 has-error ");
                 retorno = false;
             }
