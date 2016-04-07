@@ -63,9 +63,25 @@ namespace BLL
 
             try
             {
-                return Conexion.ObtenerDatos("select sd.SolicitudDetalleId, sd.EleccionDestino, s.SolicitudId, ts.Descripcion, cp.Descripcion, ct.Descripcion, sd.Origen, sd.Destino, sd.FechaInicial, sd.FechaFinal, " +
+                return Conexion.ObtenerDatos("select sd.SolicitudDetalleId, sd.EleccionDestino, s.SolicitudId, ts.Descripcion as TipodeSolicitud, cp.Descripcion as Compania, ct.Descripcion as Categoria, sd.Origen, sd.Destino, sd.FechaInicial, sd.FechaFinal, " +
                 " sd.cantidadPersona, sd.CantidadNino, sd.CantidadBebe, sd.PrecioInicial, sd.PrecioFinal from SolicitudDetalles sd inner join Solicitudes s on sd.SolicitudId = s.SolicitudId inner join TipoSolicitudes ts on ts.TipoSolicitudId = sd.TipoSolicitudId inner join Companias cp on cp.CompaniaId = sd.CompaniaId " +
                 "inner join Categorias ct on ct.CategoriaId = sd.CategoriaId where " + Condicion );
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+        public DataTable SoloSolicitudListado(string Condicion)
+        {
+            ConexionDB Conexion = new ConexionDB();
+
+            try
+            {
+                return Conexion.ObtenerDatos("select s.SolicitudId, u.NombreUsuario as Usuario, s.FechaCreacion, s.Asunto from Solicitudes s inner join Usuarios u on u.UsuarioId = s.UsuarioId where " + Condicion);
             }
             catch (Exception ex)
             {

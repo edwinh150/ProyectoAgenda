@@ -66,7 +66,7 @@ namespace BLL
 
             try
             {
-                return Conexion.ObtenerDatos("select rd.EleccionDestino,r.ReservacionId, ts.Descripcion, cp.Descripcion, ct.Descripcion, rd.Origen, rd.Destino, rd.FechaInicial, rd.FechaFinal, " +
+                return Conexion.ObtenerDatos("select rd.EleccionDestino,r.ReservacionId, ts.Descripcion as TipodeSolicitud, cp.Descripcion as Compania, ct.Descripcion as Categoria, rd.Origen, rd.Destino, rd.FechaInicial, rd.FechaFinal, " +
                 " rd.cantidadPersona, rd.CantidadNino, rd.CantidadBebe, rd.Precio, rd.Impuesto, rd.Total from ReservacionDetalles rd inner join Reservaciones r on rd.ReservacionId = r.ReservacionId inner join TipoSolicitudes ts on ts.TipoSolicitudId = rd.TipoSolicitudId inner join Companias cp on cp.CompaniaId = rd.CompaniaId " +
                 "inner join Categorias ct on ct.CategoriaId = rd.CategoriaId where " + Condicion);
             }

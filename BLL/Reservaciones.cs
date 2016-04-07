@@ -151,7 +151,7 @@ namespace BLL
                     retorno = true;
                 }
 
-                Detalledt = Conexion.ObtenerDatos(string.Format("select rd.EleccionDestino,r.ReservacionId, ts.Descripcion, cp.Descripcion, ct.Descripcion, rd.Origen, rd.Destino, rd.FechaInicial, rd.FechaFinal, " +
+                Detalledt = Conexion.ObtenerDatos(string.Format("select rd.EleccionDestino,r.ReservacionId, ts.Descripcion as TipodeSolicitud, cp.Descripcion as Compania, ct.Descripcion as Categoria, rd.Origen, rd.Destino, rd.FechaInicial, rd.FechaFinal, " +
                 " rd.cantidadPersona, rd.CantidadNino, rd.CantidadBebe, rd.Precio, rd.Impuesto, rd.Total from ReservacionDetalles rd inner join Reservaciones r on rd.ReservacionId = r.ReservacionId inner join TipoSolicitudes ts on ts.TipoSolicitudId = rd.TipoSolicitudId inner join Companias cp on cp.CompaniaId = rd.CompaniaId " +
                 "inner join Categorias ct on ct.CategoriaId = rd.CategoriaId where r.ReservacionId = {0} ", this.ReservacionId));
 
@@ -171,7 +171,7 @@ namespace BLL
                             FechaFinal = Seguridad.ValidarDateTime(Dr["FechaFinal"].ToString());
                         }
 
-                        AgregarReservacionText(EleccionText, Dr["Descripcion"].ToString(), Dr["Descripcion1"].ToString(), Dr["Descripcion"].ToString(), Dr["Origen"].ToString(), Dr["Destino"].ToString(), Seguridad.ValidarDateTime(Dr["FechaInicial"].ToString()), FechaFinal, Seguridad.ValidarEntero(Dr["CantidadPersona"].ToString()), Seguridad.ValidarEntero(Dr["CantidadNino"].ToString()), Seguridad.ValidarEntero(Dr["CantidadBebe"].ToString()), Seguridad.ValidarDouble(Dr["Precio"].ToString()), Seguridad.ValidarDouble(Dr["Impuesto"].ToString()), Seguridad.ValidarDouble(Dr["Total"].ToString()));
+                        AgregarReservacionText(EleccionText, Dr["TipodeSolicitud"].ToString(), Dr["Compania"].ToString(), Dr["Categoria"].ToString(), Dr["Origen"].ToString(), Dr["Destino"].ToString(), Seguridad.ValidarDateTime(Dr["FechaInicial"].ToString()), FechaFinal, Seguridad.ValidarEntero(Dr["CantidadPersona"].ToString()), Seguridad.ValidarEntero(Dr["CantidadNino"].ToString()), Seguridad.ValidarEntero(Dr["CantidadBebe"].ToString()), Seguridad.ValidarDouble(Dr["Precio"].ToString()), Seguridad.ValidarDouble(Dr["Impuesto"].ToString()), Seguridad.ValidarDouble(Dr["Total"].ToString()));
                     }
                     retorno = true;
                 }
