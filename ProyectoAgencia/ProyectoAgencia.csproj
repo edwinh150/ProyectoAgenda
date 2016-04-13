@@ -123,6 +123,7 @@
     <Content Include="Registros\rTipoSolicitudes.aspx" />
     <Content Include="Registros\rUsuarios.aspx" />
     <Content Include="Publico\Servicios.aspx" />
+    <Content Include="Reportes\VisorReports.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -345,6 +346,13 @@
     <Compile Include="Publico\Servicios.aspx.designer.cs">
       <DependentUpon>Servicios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\VisorReports.aspx.cs">
+      <DependentUpon>VisorReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\VisorReports.aspx.designer.cs">
+      <DependentUpon>VisorReports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -410,7 +418,7 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Reportes\" />
+    <Folder Include="Rpts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
