@@ -200,7 +200,8 @@
                                                         <div class="control-group form-group">
                                                             <div class="controls">
                                                                 <asp:Label ID="FechaInicialLabel" runat="server" Text="Fecha de Salida" Font-Bold="True"></asp:Label>
-                                                                <asp:TextBox ID="FechaInicialTextBox" type="date" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                <asp:TextBox ID="FechaInicialTextBox" runat="server" CssClass="form-control" AutoPostBack="true" OnTextChanged="FechaInicialTextBox_TextChanged"></asp:TextBox>
+                                                                <ajaxToolkit:CalendarExtender ID="CalendarExtender1" TargetControlID="FechaInicialTextBox" runat="server" Format="dd-MM-yyyy" />
                                                                 <p class="help-block">
                                                                 </p>
                                                             </div>
@@ -210,7 +211,8 @@
                                                         <div id="FechaFinal" runat="server" class="control-group form-group">
                                                             <div class="controls">
                                                                 <asp:Label ID="FechaFinalLabel" runat="server" Text="Fecha de Regreso" Font-Bold="True"></asp:Label>
-                                                                <asp:TextBox ID="FechaFinalTextBox" type="date" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                <asp:TextBox ID="FechaFinalTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="FechaFinalTextBox" Format="dd-MM-yyyy" />
                                                                 <p class="help-block">
                                                                 </p>
                                                             </div>
@@ -231,7 +233,7 @@
                                                                 </p>
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="control-group form-group">

@@ -37,10 +37,9 @@ namespace ProyectoAgencia.Registros
                             UsuarioIdTextBox.Text = Id.ToString();
                             LLenarForm();
                         }
-
                     }
                 }
-            }       
+            }
         }
 
         public void LLenarForm()
@@ -108,7 +107,7 @@ namespace ProyectoAgencia.Registros
         {
             bool retorno = true;
             ValidacionLimpiar();
-            
+
             if (!Seguridad.ValidarNombre(NombreUsuarioTextBox.Text))
             {
                 Mensajes.ShowToastr(this, "Error", "Nombre de Usuario Invalido", "Error");
@@ -210,7 +209,7 @@ namespace ProyectoAgencia.Registros
 
                     if (Usuario.Editar())
                     {
-                        Mensajes.ShowToastr(this.Page,"Se Modifico","Informacion","Success");
+                        Mensajes.ShowToastr(this.Page, "Se Modifico", "Informacion", "Success");
                         Limpiar();
                     }
                     else

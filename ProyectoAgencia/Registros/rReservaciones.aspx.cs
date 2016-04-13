@@ -57,6 +57,10 @@ namespace ProyectoAgencia.Registros
 
                 SolicitudIdLabel.Text = Reservacion.SolicitudId.ToString();
                 DetalleGridView.Visible = false;
+
+                FechaInicialTextBox.Attributes.Add("readonly", "true");
+                FechaFinalTextBox.Attributes.Add("readonly", "true");
+                CalendarExtender1.StartDate = DateTime.Now;
             }
         }
 
@@ -67,7 +71,7 @@ namespace ProyectoAgencia.Registros
             Categorias Categoria = new Categorias();
             Ciudades Ciudad = new Ciudades();
             Paises Pais = new Paises();
-          
+
             //Tiposolicitud
             TipoSolicitudIdDropDownList.DataSource = TipoSolicitud.Listado("*", " 1=1 ", "");
             TipoSolicitudIdDropDownList.DataTextField = "Descripcion";
@@ -130,7 +134,7 @@ namespace ProyectoAgencia.Registros
             ValidacionLimpiar();
 
             UsuarioIdLabel.Text = Reservacion.UsuarioId.ToString();
-            
+
             FechaCreacionLabel.Text = Reservacion.FechaCreacion.ToString("dd/MM/yyyy");
             AsuntoTextBox.Text = Reservacion.Asunto;
 
@@ -512,7 +516,7 @@ namespace ProyectoAgencia.Registros
         protected void PrecioTextBox_TextChanged(object sender, EventArgs e)
         {
             double Total = 0;
-                   
+
             Total = Seguridad.ValidarDouble(PrecioTextBox.Text) * Seguridad.ValidarDouble(ImpuestoTextBox.Text);
             TotalTextBox.Text = Total.ToString();
         }
@@ -523,6 +527,11 @@ namespace ProyectoAgencia.Registros
 
             Total = Seguridad.ValidarDouble(PrecioTextBox.Text) * Seguridad.ValidarDouble(ImpuestoTextBox.Text);
             TotalTextBox.Text = Total.ToString();
+        }
+
+        protected void FechaInicialTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CalendarExtender2.StartDate = Convert.ToDateTime(FechaInicialTextBox.Text).AddDays(2);
         }
     }
 }

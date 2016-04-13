@@ -76,5 +76,20 @@ namespace BLL
                 throw ex;
             }
         }
+
+        public DataTable SoloReservacionListado(string Condicion)
+        {
+            ConexionDB Conexion = new ConexionDB();
+
+            try
+            {
+                return Conexion.ObtenerDatos("select r.ReservacionId, u.NombreUsuario as Usuario, r.SolicitudId, r.FechaCreacion, r.EsActivo, r.Asunto from Reservaciones r inner join Usuarios u on u.UsuarioId = r.UsuarioId where " + Condicion);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

@@ -42,6 +42,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=16.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.16.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
@@ -64,6 +68,7 @@
     <Content Include="Consultas\cCiudades.aspx" />
     <Content Include="Consultas\cCompanias.aspx" />
     <Content Include="Consultas\cPaises.aspx" />
+    <Content Include="Consultas\cPerfilNotificaciones.aspx" />
     <Content Include="Consultas\cReservaciones.aspx" />
     <Content Include="Consultas\cSolicitudes.aspx" />
     <Content Include="Consultas\cTipoCategorias.aspx" />
@@ -148,6 +153,13 @@
     </Compile>
     <Compile Include="Consultas\cPaises.aspx.designer.cs">
       <DependentUpon>cPaises.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cPerfilNotificaciones.aspx.cs">
+      <DependentUpon>cPerfilNotificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cPerfilNotificaciones.aspx.designer.cs">
+      <DependentUpon>cPerfilNotificaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas\cReservaciones.aspx.cs">
       <DependentUpon>cReservaciones.aspx</DependentUpon>
@@ -379,6 +391,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\AgenciaHidalgo - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

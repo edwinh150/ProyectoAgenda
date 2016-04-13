@@ -129,6 +129,12 @@ Impuesto float,
 Total float
 );
 
+create table ReservacionCliente(ReservacionClienteId int identity(1,1) primary key,
+UsuarioId int references Usuarios(UsuarioId),
+ReservacionId int references Reservaciones(ReservacionId),
+Total float
+);
+
 select * from Reservaciones
 
 create table Configuraciones(ConfiguracionId int identity(1,1),

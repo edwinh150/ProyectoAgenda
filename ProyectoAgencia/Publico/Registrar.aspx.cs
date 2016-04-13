@@ -14,7 +14,19 @@ namespace ProyectoAgencia
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                LlenarDropDownList();
+            }
+        }
 
+        public void LlenarDropDownList()
+        {
+            TipoUsuarios TipoUsuario = new TipoUsuarios();
+            TipoUsuarioDropDownList.DataSource = TipoUsuario.Listado(" * ", " 1=1 ", "");
+            TipoUsuarioDropDownList.DataTextField = "Descripcion";
+            TipoUsuarioDropDownList.DataValueField = "TipoUsuarioId";
+            TipoUsuarioDropDownList.DataBind();
         }
 
         public void Limpiar()

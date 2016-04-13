@@ -13,7 +13,7 @@
     <script src="../js/toastr.min.js"></script>
     <div class="container col-md-12">
     <div class="row">
-            <div class="col-md-12">
+            <div class="form-horizontal col-md-12" role="form">
                 <h3>Ingrese Sus Datos</h3>
                             <div class="form-group">
                                 <div class="col-md-2 col-xs-2">

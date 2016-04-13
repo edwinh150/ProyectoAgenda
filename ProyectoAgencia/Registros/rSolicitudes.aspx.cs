@@ -31,6 +31,10 @@ namespace ProyectoAgencia.Registros
                 FechaCreacionLabel.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 EliminarButton.Visible = false;
                 DetalleGridView.Visible = false;
+
+                FechaInicialTextBox.Attributes.Add("readonly", "true");
+                FechaFinalTextBox.Attributes.Add("readonly", "true");
+                CalendarExtender1.StartDate = DateTime.Now;
             }            
         }
 
@@ -470,6 +474,11 @@ namespace ProyectoAgencia.Registros
                 EstadoLabel.Visible = false;
                 FechaFinal.Visible = false;
             }
+        }
+
+        protected void FechaInicialTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CalendarExtender2.StartDate = Convert.ToDateTime(FechaInicialTextBox.Text).AddDays(2);
         }
     }
 }
